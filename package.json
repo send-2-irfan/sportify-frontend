@@ -13,7 +13,7 @@
     "url": "git+https://github.com/creativetimofficial/argon-dashboard-material-ui.git"
   },
   "engines": {
-    "node": "14 || 15 || 16",
+    "node": "14 || 15 || 16 || 17 || 18",
     "npm": ">=6"
   },
   "dependencies": {
@@ -69,18 +69,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
-  "devDependencies": {
-    "eslint": "8.17.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-react": "7.30.0",
-    "eslint-plugin-react-hooks": "4.5.0",
-    "prettier": "2.6.2"
   }
 }

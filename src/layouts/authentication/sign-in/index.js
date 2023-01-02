@@ -1,17 +1,4 @@
-/**
-=========================================================
-* Argon Dashboard 2 MUI - v3.0.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-material-ui
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { useState } from "react";
 
@@ -45,7 +32,7 @@ function Illustration() {
       description="Enter your email and password to sign in"
       illustration={{
         image: bgImage,
-        title: '"Attention is the new currency"',
+        title: '"SIBAU Suport Management System"',
         description:
           "The more effortless the writing looks, the more effort the writer actually put into the process.",
       }}
