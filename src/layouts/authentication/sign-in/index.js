@@ -32,7 +32,7 @@ function Illustration() {
       description="Enter your email and password to sign in"
       illustration={{
         image: bgImage,
-        title: '"SIBAU Suport Management System"',
+        title: 'SIBAU Sports Management System"',
         description:
           "The more effortless the writing looks, the more effort the writer actually put into the process.",
       }}

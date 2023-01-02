@@ -8,7 +8,7 @@ import SignUp from "layouts/authentication/sign-up";
 
 // Argon Dashboard 2 MUI components
 import ArgonBox from "components/ArgonBox";
-import Schedules from "./layouts/schedules/Schedules";
+import Events from "./layouts/manageEvents/Events";
 
 const routes = [
   {
@@ -21,11 +21,11 @@ const routes = [
   },
   {
     type: "route",
-    name: "Show Schedules",
+    name: "Manage Events",
     key: "schedules",
-    route: "/schedules",
+    route: "/manage-events",
     icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-tv-2" />,
-    component: <Schedules />,
+    component: <Events />,
   },
   {
     type: "route",
