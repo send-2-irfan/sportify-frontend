@@ -70,35 +70,15 @@ function Overview() {
             <Grid container spacing={3}>
               <Grid item xs={12} md={6} xl={3}>
                 <DefaultProjectCard
-                  image={homeDecor1}
-                  label="project #2"
-                  title="modern"
-                  description="As Uber works through a huge amount of internal management turmoil."
-                  action={{
-                    type: "internal",
-                    route: "/pages/profile/profile-overview",
-                    color: "info",
-                    label: "View Project",
-                  }}
-                  authors={[
-                    { image: team1, name: "Elena Morison" },
-                    { image: team2, name: "Ryan Milly" },
-                    { image: team3, name: "Nick Daniel" },
-                    { image: team4, name: "Peterson" },
-                  ]}
-                />
-              </Grid>
-              <Grid item xs={12} md={6} xl={3}>
-                <DefaultProjectCard
                   image={homeDecor2}
-                  label="project #1"
+                  label=""
                   title="scandinavian"
                   description="Music is something that every person has his or her own specific opinion about."
                   action={{
                     type: "internal",
                     route: "/pages/profile/profile-overview",
                     color: "info",
-                    label: "View Project",
+                    label: "View Event",
                   }}
                   authors={[
                     { image: team3, name: "Nick Daniel" },
