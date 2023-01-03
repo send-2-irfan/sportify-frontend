@@ -61,7 +61,7 @@ function Bill({ name, company, email, vat, noGutter }) {
         </ArgonBox>
         <ArgonBox mb={1} lineHeight={0}>
           <ArgonTypography variant="caption" color="text">
-            Company Name:&nbsp;&nbsp;&nbsp;
+            Department Name:&nbsp;&nbsp;&nbsp;
             <ArgonTypography variant="caption" fontWeight="medium" textTransform="capitalize">
               {company}
             </ArgonTypography>
@@ -76,7 +76,7 @@ function Bill({ name, company, email, vat, noGutter }) {
           </ArgonTypography>
         </ArgonBox>
         <ArgonTypography variant="caption" color="text">
-          VAT Number:&nbsp;&nbsp;&nbsp;
+          CMS-ID:&nbsp;&nbsp;&nbsp;
           <ArgonTypography variant="caption" fontWeight="medium">
             {vat}
           </ArgonTypography>

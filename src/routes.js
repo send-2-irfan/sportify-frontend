@@ -10,6 +10,7 @@ import SignUp from "layouts/authentication/sign-up";
 import ArgonBox from "components/ArgonBox";
 import Events from "./layouts/manageEvents/Events";
 import ManageSports from "./layouts/manageSports/ManageSports";
+import ManageCoordinator from "./layouts/manageCoordinator/Coordinator";
 
 
 const routes = [
@@ -24,9 +25,9 @@ const routes = [
   {
     type: "route",
     name: "Manage Events",
-    key: "schedules",
+    key: "manage-events",
     route: "/manage-events",
-    icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-tv-2" />,
+    icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-collection" />,
     component: <Events />,
   },
   {
@@ -52,8 +53,15 @@ const routes = [
     name: "Manage Sports",
     key: "manage-sports",
     route: "/manage-sports",
-    icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card" />,
+    icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-world" />,
     component: <ManageSports />,
+  },{
+    type: "route",
+    name: "Manage Coordinator",
+    key: "manage-coordinator",
+    route: "/manage-coordinator",
+    icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-02" />,
+    component: <ManageCoordinator />,
   },
   // {
   //   type: "route",
