@@ -69,7 +69,7 @@ function Footer({ company, links }) {
         by
         <Link href={href} target="_blank">
           <ArgonTypography variant="button" fontWeight="medium">
-            &nbsp;{name}&nbsp;
+            &nbsp;{"Irfan and Team"}&nbsp;
           </ArgonTypography>
         </Link>
         for a better web.

@@ -12,8 +12,9 @@ import ArgonButton from "components/ArgonButton";
 
 // Argon Dashboard 2 MUI contexts
 import { useArgonController } from "context";
+import Grid from "@mui/material/Grid";
 
-function Bill({ name, company, email, vat, noGutter }) {
+function Bill({ name, company, email, vat, noGutter, img }) {
   const [controller] = useArgonController();
   const { darkMode } = controller;
 
@@ -31,6 +32,8 @@ function Bill({ name, company, email, vat, noGutter }) {
         backgroundColor: darkMode ? background.default : grey[100],
       })}
     >
+      {img}
+      <ArgonBox mr={2}></ArgonBox>
       <ArgonBox width="100%" display="flex" flexDirection="column">
         <ArgonBox
           display="flex"
@@ -39,6 +42,10 @@ function Bill({ name, company, email, vat, noGutter }) {
           flexDirection={{ xs: "column", sm: "row" }}
           mb={1}
         >
+
+
+
+
           <ArgonTypography variant="button" fontWeight="medium" textTransform="capitalize">
             {name}
           </ArgonTypography>

@@ -19,7 +19,15 @@ import Bill from "../billing/components/Bill";
 import ArgonAvatar from "../../components/ArgonAvatar";
 import burceMars from "../../assets/images/bruce-mars.jpg";
 
+
 export default function ManageCoordinator() {
+    const profileImg = <ArgonAvatar
+        src={burceMars}
+        alt="profile-image"
+        variant="rounded"
+        size="xxl"
+        shadow="sm"
+    />;
     return (
         <>
             <DashboardLayout>
@@ -37,24 +45,16 @@ export default function ManageCoordinator() {
                         </ArgonBox>
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
-                                <Grid item xs={12} md={6} xl={2}>
-                                    <ArgonAvatar
-                                        src={burceMars}
-                                        alt="profile-image"
-                                        variant="rounded"
-                                        size="xxl"
-                                        shadow="sm"
-                                    />
-                                </Grid>
+                                {/*<Grid item xs={12} md={6} xl={2}>*/}
+                                {/*    {profileImg}*/}
+                                {/*</Grid>*/}
                                 <Bill
                                     name="Depeeka Gai"
                                     company="Computer Science"
                                     email="lucas@stone-tech.com"
                                     vat="051-19-0000"
+                                    img = {profileImg}
                                 ></Bill>
-
-
-
                                 <Grid item xs={12} md={6} xl={2}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add Coordinator" }} outlined />
                                 </Grid>
