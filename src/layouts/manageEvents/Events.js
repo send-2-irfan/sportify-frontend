@@ -11,8 +11,14 @@ import sportsGala from "../../assets/images/sportsEvent.jpg";
 import homeDecor2 from "../../assets/images/home-decor-2.jpg";
 import homeDecor3 from "../../assets/images/home-decor-3.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
+import FormDialog from "./AddEventModal";
+import {useState} from "react";
 
 export default function Events() {
+    const [show,setShow] = useState(false);
+    const openModal = () =>{
+        setShow(true);
+    }
     return (
         <>
             <DashboardLayout>
@@ -46,10 +52,11 @@ export default function Events() {
                                     />
                                 </Grid>
 
-                                <Grid item xs={12} md={6} xl={3}>
+                                <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />
                                 </Grid>
 
+                                <FormDialog show={show} setShow={setShow} />
                             </Grid>
                         </ArgonBox>
                     </Card>
