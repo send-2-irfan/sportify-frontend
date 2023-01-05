@@ -18,8 +18,8 @@ import ArgonButton from "components/ArgonButton";
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";
 
 // Image
-const bgImage =
-  "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg";
+const bgImage = "https://i.pinimg.com/736x/33/2e/21/332e213e36c73c2cfba495ae141aa1b0.jpg";
+  // "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg";
 
 function Illustration() {
   const [rememberMe, setRememberMe] = useState(false);
@@ -32,7 +32,7 @@ function Illustration() {
       description="Enter your email and password to sign in"
       illustration={{
         image: bgImage,
-        title: 'SIBAU Sports Management System"',
+        title: 'SIBAU Sports Management System',
         description:
           "The more effortless the writing looks, the more effort the writer actually put into the process.",
       }}
