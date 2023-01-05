@@ -15,8 +15,15 @@ import homeDecor3 from "../../assets/images/img-3.jpg";
 import homeDecor4 from "../../assets/images/hockey.jpg";
 import football from "../../assets/images/img-1.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
+import SportsFormDialog from "./AddNewSportsForm";
+import {useState} from "react";
+
 
 export default function ManageSports() {
+    const [show,setShow] = useState(false);
+    const openModal = () =>{
+        setShow(true);
+    }
     return (
         <>
             <DashboardLayout>
@@ -79,7 +86,7 @@ export default function ManageSports() {
 
                                     />
                                 </Grid>
-                                <Grid item xs={12} md={6} xl={3}>
+                                <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <DefaultProjectCard
                                         image={homeDecor3}
                                         label="Fee 1200"
@@ -87,7 +94,7 @@ export default function ManageSports() {
                                         description="As Uber works through a huge amount of internal management turmoil."
                                         action={{
                                             type: "internal",
-                                            route: "/pages/profile/profile-overview",
+                                            route: "",
                                             color: "info",
                                             label: "View Sport",
                                         }}
@@ -95,9 +102,10 @@ export default function ManageSports() {
                                     />
                                 </Grid>
 
-                                <Grid item xs={12} md={6} xl={3}>
+                                <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
                                 </Grid>
+                                <SportsFormDialog show={show} setShow={setShow} />
                             </Grid>
                         </ArgonBox>
                     </Card>
