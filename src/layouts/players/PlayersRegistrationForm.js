@@ -79,59 +79,6 @@ export default function PlayerRegistrationFormDialog({show,setShowPlayer}) {
                                 </ArgonButton>
                             </ArgonBox>
                         </ArgonBox>
-                        {/**Dropdown from material ui */}
-                        <ArgonBox p={2}>
-                            <ArgonBox mb={2}>
-                                <ArgonTypography variant="body1" fontColor="#32325d" fontWeight="medium" >
-                                    Fill the form to add new sport
-                                </ArgonTypography>
-                            </ArgonBox>
-                            <ArgonBox mb={2}>
-                                <ArgonInput
-                                    id="outlined-basic"
-                                    label="Sport Name"
-                                    variant="outlined"
-                                    fullWidth
-                                />
-                            </ArgonBox>
-                            <ArgonBox mb={2}>
-                                <ArgonInput
-                                    id="outlined-basic"
-                                    label="Sport Fee"
-                                    variant="outlined"
-                                    fullWidth
-                                />
-                            </ArgonBox>
-                            <ArgonBox mb={2}>
-                                <ArgonInput
-                                    id="outlined-basic"
-                                    label="Sport Description"   
-                                    variant="outlined"
-                                    fullWidth
-                                />
-                            </ArgonBox>
-                            <ArgonBox mb={2}>
-                                <ArgonInput
-                                    id="outlined-basic"
-                                    label="Sport Image"
-                                    variant="outlined"
-                                    fullWidth
-                                />
-                            </ArgonBox>
-                            <ArgonBox mb={2}>
-                                <ArgonButton
-
-                                    variant="contained"
-                                    color="primary"
-                                    fullWidth
-                                >
-                                    Add Sport
-                                </ArgonButton>
-                            </ArgonBox>
-                        </ArgonBox>
-
-
-                                
                     </Card>
                 </DialogContent>
                 <DialogActions>
