@@ -36,12 +36,12 @@ export default function Events() {
                         </ArgonBox>
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
-                                <Grid item xs={12} md={6} xl={3}>
+                                <Grid item xs={12} md={6} xl={4}>
                                     <DefaultProjectCard
                                         image={sportsGala}
                                         label=""
                                         title="Sports Gala 2023"
-                                        description="As Uber works through a huge amount of internal management turmoil."
+                                        description="The Sports Gala at Sukkur IBA University is an annual event featuring a variety of sports and activities for students, faculty, and staff. It is an opportunity to come together and showcase athletic skills, as well as to promote physical health and wellness on campus."
                                         action={{
                                             type: "internal",
                                             route: "/pages/profile/profile-overview",

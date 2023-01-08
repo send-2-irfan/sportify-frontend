@@ -30,7 +30,6 @@ export default function SportsFormDialog({show,setShow}) {
                 <DialogTitle>Register Event</DialogTitle>
                 <DialogContent>
                     <Card>
-
                         <ArgonBox pt={2} pb={3} px={3}>
                             <ArgonBox component="form" role="form">
                                 <ArgonBox mb={2}>
@@ -48,8 +47,6 @@ export default function SportsFormDialog({show,setShow}) {
                                         Upload Image
                                     </ArgonButton>
                                 </ArgonBox>
-
-
                             </ArgonBox>
                         </ArgonBox>
                     </Card>
