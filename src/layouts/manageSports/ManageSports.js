@@ -17,6 +17,7 @@ import football from "../../assets/images/img-1.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import SportsFormDialog from "./AddNewSportsForm";
 import {useState} from "react";
+import PlayerRegistrationFormDialog from "layouts/players/PlayersRegistrationForm";
 
 
 export default function ManageSports() {
@@ -24,6 +25,12 @@ export default function ManageSports() {
     const openModal = () =>{
         setShow(true);
     }
+
+    const [showPlayer,setShowPlayer] = useState(false);
+    const openPlayerModal = () =>{
+        setShowPlayer(true);
+    }
+
     return (
         <>
             <DashboardLayout>
@@ -105,7 +112,11 @@ export default function ManageSports() {
                                 <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
                                 </Grid>
+                                <Grid onClick={openPlayerModal} item xs={12} md={6} xl={3}>
+                                    <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
+                                </Grid>
                                 <SportsFormDialog show={show} setShow={setShow} />
+                                <PlayerRegistrationFormDialog show={showPlayer} setShowPlayer={setShowPlayer} />
                             </Grid>
                         </ArgonBox>
                     </Card>

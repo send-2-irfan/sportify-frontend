@@ -27,21 +27,20 @@ export default function SportsFormDialog({show,setShow}) {
     return (
         <div>
             <Dialog open={show} onClose={handleClose}>
-                <DialogTitle>Register Event</DialogTitle>
+                <DialogTitle>Sport Form</DialogTitle>
                 <DialogContent>
                     <Card>
                         <ArgonBox pt={2} pb={3} px={3}>
                             <ArgonBox component="form" role="form">
                                 <ArgonBox mb={2}>
-                                    <ArgonInput placeholder="Event Name" />
+                                    <ArgonInput placeholder="Sport Name" />
                                 </ArgonBox>
                                 <ArgonBox mb={2}>
-                                    <ArgonInput type="textarea" placeholder="Details" />
+                                    <ArgonInput type="textarea" placeholder="Sports Details" />
                                 </ArgonBox>
                                 <ArgonBox mb={2}>
-                                    <ArgonInput type="text" placeholder="details" />
+                                    <ArgonInput type="number" placeholder="Price" />
                                 </ArgonBox>
-
                                 <ArgonBox mt={4} mb={1}>
                                     <ArgonButton variant="gradient" color="dark" fullWidth>
                                         Upload Image
