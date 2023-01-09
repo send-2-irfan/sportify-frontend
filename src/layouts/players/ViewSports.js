@@ -13,7 +13,8 @@ import homeDecor2 from "../../assets/images/home-decor-2.jpg";
 import homeDecor3 from "../../assets/images/home-decor-3.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import SportsCardForView from "../../examples/Cards/SportsCardForView";
-
+import SimpleSelect from "./CricketRegistrationForm";
+import FormDialog from "./AddSportsModule";
 
 
 export default function ViewSports() {
@@ -24,6 +25,8 @@ export default function ViewSports() {
                 <DashboardNavbar/>
                 <h1 style={{color:"white"}}>Sports List</h1>
                 <ArgonBox mb={3}>
+
+
                     <Card>
                         <ArgonBox pt={2} px={2}>
                             <ArgonBox mb={0.5}>
@@ -82,6 +85,9 @@ export default function ViewSports() {
                             </Grid>
                         </ArgonBox>
                     </Card>
+                    <SimpleSelect />
+                    <FormDialog xs={{color: 'black', backgroundColor:'blue', background:"black"}} />
+                    
                 </ArgonBox>
             </DashboardLayout>
         </>
