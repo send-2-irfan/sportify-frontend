@@ -216,8 +216,8 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "Sport Registration",
-                        key: "sports-registration",
+                        name: "View Sport",
+                        key: "view-sports",
                         route: "/players/ViewSports",
                         icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
                         component: <ViewSports />,
