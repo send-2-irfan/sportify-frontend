@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 // @mui material components
 import Switch from "@mui/material/Switch";
 
-// Argon Dashboard 2 MUI components
+//  MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonInput from "components/ArgonInput";
@@ -34,7 +34,7 @@ function Illustration() {
         image: bgImage,
         title: 'SIBAU Sports Management System',
         description:
-          "The more effortless the writing looks, the more effort the writer actually put into the process.",
+          "Sports at Sukkur IBA University in Pakistan include a variety of outdoor and indoor activities such as cricket, football, basketball, and table tennis etc.",
       }}
     >
       <ArgonBox component="form" role="form">

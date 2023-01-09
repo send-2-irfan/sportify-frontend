@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
 
-// Argon Dashboard 2 MUI components
+//  MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonInput from "components/ArgonInput";
@@ -26,7 +26,7 @@ function Cover() {
   return (
     <CoverLayout
       title="Welcome!"
-      description="Use these awesome forms to login or create new account in your project for free."
+      description="SIBA Sportify Registration Page"
       image={bgImage}
       imgPosition="top"
       button={{ color: "dark", variant: "gradient" }}

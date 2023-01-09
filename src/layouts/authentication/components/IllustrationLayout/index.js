@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 // @mui material components
 import Grid from "@mui/material/Grid";
 
-// Argon Dashboard 2 MUI components
+//  MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 
-// Argon Dashboard 2 MUI example components
+//  MUI example components
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
@@ -19,7 +19,7 @@ function IllustrationLayout({ color, header, title, description, button, illustr
       <DefaultNavbar
         action={{
           type: "external",
-          route: "https://creative-tim.com/product/argon-dashboard-material-ui",
+          route: "",
           label: "Free Download",
           ...button,
         }}

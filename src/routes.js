@@ -5,7 +5,7 @@ import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 
-// Argon Dashboard 2 MUI components
+
 import ArgonBox from "components/ArgonBox";
 import Events from "./layouts/manageEvents/Events";
 import ManageSports from "./layouts/manageSports/ManageSports";
