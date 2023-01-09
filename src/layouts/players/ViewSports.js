@@ -12,50 +12,7 @@ import chessImg from "../../assets/images/img-3.jpg";
 import homeDecor2 from "../../assets/images/home-decor-2.jpg";
 import homeDecor3 from "../../assets/images/home-decor-3.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
-
-import * as React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Typography from '@mui/material/Typography';
-import Avatar from "@mui/material/Avatar";
-import team3 from "../../assets/images/team-3.jpg";
-import team4 from "../../assets/images/team-4.jpg";
-import team1 from "../../assets/images/team-1.jpg";
-import team2 from "../../assets/images/team-2.jpg";
 import SportsCardForView from "../../examples/Cards/SportsCardForView";
-
-function AlignItemsList() {
-    return (
-        <List sx={{ width: '100%', maxWidth: "100%", height:"10%", bgcolor: 'background.paper' }}>
-
-            <Divider variant="inset" component="li" />
-            <ListItem alignItems="flex-start">
-                <ListItemAvatar>
-                    <Avatar sx={{width:'200px', height:'200px', marginTop:'-40%'}} alt="Cindy Baker" src={sportsGala} />
-                </ListItemAvatar>
-                <ListItemText
-                    primary="Oui Oui"
-                    secondary={
-                        <React.Fragment>
-                            <Typography
-                                sx={{ display: 'inline' }}
-                                component="span"
-                                variant="body2"
-                                color="text.primary"
-                            >
-                                Sandra Adams
-                            </Typography>
-                            {' — Do you have Paris recommendations? Have you ever…'}
-                        </React.Fragment>
-                    }
-                />
-            </ListItem>
-        </List>
-    );
-}
 
 
 
