@@ -10,6 +10,7 @@ import ArgonBox from "components/ArgonBox";
 import Events from "./layouts/manageEvents/Events";
 import ManageSports from "./layouts/manageSports/ManageSports";
 import ManageCoordinator from "./layouts/manageCoordinator/Coordinator";
+import ViewSports from "./layouts/players/ViewSports";
 
 
 const routes =
@@ -212,6 +213,14 @@ const routes =
                         route: "/authentication/sign-up",
                         icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
                         component: <SignUp/>,
+                    },
+                    {
+                        type: "route",
+                        name: "Sport Registration",
+                        key: "sports-registration",
+                        route: "/players/ViewSports",
+                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
+                        component: <ViewSports />,
                     },
 
                 ]
