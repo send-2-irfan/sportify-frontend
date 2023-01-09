@@ -28,7 +28,7 @@ export default function ViewSports() {
                         <ArgonBox pt={2} px={2}>
                             <ArgonBox mb={0.5}>
                                 <ArgonTypography variant="h6" fontWeight="medium">
-                                    Projects
+                                    <h2>List of Available Sports</h2>
                                 </ArgonTypography>
                             </ArgonBox>
                             <ArgonBox mb={1}>
@@ -39,42 +39,42 @@ export default function ViewSports() {
                                 <Grid item xs={12} md={3} xl={8}>
                                     <SportsCardForView
                                         image={cricketImg}
-                                        label=""
+                                        label="fee 3600"
                                         title="Cricket"
                                         description="Cricket is a game of 11 players. It is loved allover Pakistan. I was started by English people."
                                         action={{
                                             type: "internal",
                                             route: "/pages/profile/profile-overview",
                                             color: "primary",
-                                            label: "View Event",
+                                            label: "Register",
                                         }}
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={3} xl={8}>
                                     <SportsCardForView
                                         image={hockeyImg}
-                                        label=""
+                                        label="fee 4000"
                                         title="Hockey"
                                         description="Music is something that every person has his or her own specific opinion about."
                                         action={{
                                             type: "internal",
                                             route: "/pages/profile/profile-overview",
                                             color: "primary",
-                                            label: "View Event",
+                                            label: "Register",
                                         }}
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={3} xl={8}>
                                     <SportsCardForView
                                         image={chessImg}
-                                        label=""
+                                        label="fee: 2000"
                                         title="scandinavian"
                                         description="Music is something that every person has his or her own specific opinion about."
                                         action={{
                                             type: "internal",
                                             route: "/pages/profile/profile-overview",
                                             color: "primary",
-                                            label: "View Event",
+                                            label: "Register",
                                         }}
                                     />
                                 </Grid>
