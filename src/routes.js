@@ -132,7 +132,7 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "Manage Events",
+                        name: "Manage-Events",
                         key: "manage-events",
                         route: "/manage-events",
                         icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-collection"/>,
@@ -158,7 +158,7 @@ const routes =
                     // },
                     {
                         type: "route",
-                        name: "Manage Sports",
+                        name: "Manage-Sports",
                         key: "manage-sports",
                         route: "/manage-sports",
                         icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-world"/>,
@@ -166,9 +166,9 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "View Sport",
+                        name: "View-Sport",
                         key: "view-sports",
-                        route: "/players/ViewSports",
+                        route: "view-sports",
                         icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
                         component: <ViewSports />,
                     },

@@ -15,6 +15,9 @@ import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import SportsCardForView from "../../examples/Cards/SportsCardForView";
 import SimpleSelect from "./CricketRegistrationForm";
 import FormDialog from "./AddSportsModule";
+import AddSportForm from "../../examples/CustomCards/AddSportForm";
+import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
+// import AddSportForm from "../../examples/CustomCards/AddSportForm";
 // import SportsRegistrationForm from './RegistrationForm';
 
 export default function ViewSports() {
@@ -85,10 +88,15 @@ export default function ViewSports() {
                             </Grid>
                         </ArgonBox>
                     </Card>
-                    <SimpleSelect />
-                    <FormDialog xs={{color: 'black', backgroundColor:'blue', background:"black"}} />
-                    {/*<SportsRegistrationForm />*/}
+                    {/*<SimpleSelect />*/}
+                    {/*<FormDialog xs={{color: 'black', backgroundColor:'blue', background:"black"}} />*/}
+                    {/*/!*<SportsRegistrationForm />*!/*/}
+
                 </ArgonBox>
+
+                <AddSportForm />
+                <FootballTeamRegistrationForm />
+
             </DashboardLayout>
         </>
     )
