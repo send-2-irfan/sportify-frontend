@@ -18,11 +18,11 @@ import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import Bill from "../billing/components/Bill";
 import ArgonAvatar from "../../components/ArgonAvatar";
 import burceMars from "../../assets/images/bruce-mars.jpg";
-
+import Depeeka from "../../assets/images/team-1.jpg";
 
 export default function ManageCoordinator() {
     const profileImg = <ArgonAvatar
-        src={burceMars}
+        src={Depeeka}
         alt="profile-image"
         variant="rounded"
         size="xxl"

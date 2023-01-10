@@ -14,10 +14,10 @@ import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonAvatar from "components/ArgonAvatar";
 
-// Argon Dashboard 2 MUI example components
+//  MUI example components
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
-// Argon Dashboard 2 MUI base styles
+//  MUI base styles
 import breakpoints from "assets/theme/base/breakpoints";
 
 // Images

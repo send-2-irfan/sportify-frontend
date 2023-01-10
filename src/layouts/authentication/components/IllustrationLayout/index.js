@@ -17,12 +17,7 @@ function IllustrationLayout({ color, header, title, description, button, illustr
   return (
     <PageLayout background="white">
       <DefaultNavbar
-        action={{
-          type: "external",
-          route: "",
-          label: "Free Download",
-          ...button,
-        }}
+
       />
       <Grid container>
         <Grid item xs={11} sm={8} md={6} lg={4} xl={3} sx={{ mx: "auto" }}>
