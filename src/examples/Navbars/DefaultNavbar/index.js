@@ -1,18 +1,3 @@
-/* eslint-disable no-param-reassign */
-/**
-=========================================================
-* Argon Dashboard 2 MUI - v3.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-material-ui
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { useState, useEffect } from "react";
 
@@ -26,16 +11,16 @@ import { Link } from "react-router-dom";
 import Icon from "@mui/material/Icon";
 import Container from "@mui/material/Container";
 
-// Argon Dashboard 2 MUI components
+//  MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonButton from "components/ArgonButton";
 
-// Argon Dashboard 2 MUI examples components
+//  MUI examples components
 import DefaultNavbarLink from "examples/Navbars/DefaultNavbar/DefaultNavbarLink";
 import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMobile";
 
-// Argon Dashboard 2 MUI Base Styles
+// MUI Base Styles
 import breakpoints from "assets/theme/base/breakpoints";
 
 // Material Dashboard 2 PRO React context
@@ -176,7 +161,7 @@ function DefaultNavbar({ brand, transparent, light, action }) {
 
 // Declaring default props for DefaultNavbar
 DefaultNavbar.defaultProps = {
-  brand: "Argon Dashboard 2",
+  brand: "SIBA Sportify Dashboard",
   transparent: false,
   light: false,
   action: false,

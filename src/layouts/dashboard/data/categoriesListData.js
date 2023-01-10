@@ -4,7 +4,7 @@ import ArgonTypography from "components/ArgonTypography";
 
 const categoriesListData = [
   {
-    color: "dark",
+    color: "success",
     icon: <i className="ni ni-mobile-button" style={{ fontSize: "12px" }} />,
     name: "Devices",
     description: (
@@ -18,7 +18,7 @@ const categoriesListData = [
     route: "/",
   },
   {
-    color: "dark",
+    color: "info",
     icon: <i className="ni ni-tag" style={{ fontSize: "12px" }} />,
     name: "Tickets",
     description: (
@@ -32,7 +32,7 @@ const categoriesListData = [
     route: "/",
   },
   {
-    color: "dark",
+    color: "secondary",
     icon: <i className="ni ni-box-2" style={{ fontSize: "12px" }} />,
     name: "Error logs",
     description: (
@@ -46,7 +46,7 @@ const categoriesListData = [
     route: "/",
   },
   {
-    color: "dark",
+    color: "primary",
     icon: <i className="ni ni-satisfied" style={{ fontSize: "12px" }} />,
     name: "Happy Users",
     description: (

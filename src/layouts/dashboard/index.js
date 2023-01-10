@@ -36,34 +36,34 @@ function Default() {
         <Grid container spacing={3} mb={3}>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="today's money"
-              count="$53,000"
+              title="Total Events"
+              count="1"
               icon={{ color: "info", component: <i className="ni ni-money-coins" /> }}
-              percentage={{ color: "success", count: "+55%", text: "since yesterday" }}
+              percentage={{ color: "success", count: "1", text: "since yesterday" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="today's users"
-              count="2,300"
+              title="Total Games"
+              count="4"
               icon={{ color: "error", component: <i className="ni ni-world" /> }}
-              percentage={{ color: "success", count: "+3%", text: "since last week" }}
+              percentage={{ color: "success", count: "", text: "this week" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="new clients"
-              count="+3,462"
+              title="new teams"
+              count="13"
               icon={{ color: "success", component: <i className="ni ni-paper-diploma" /> }}
-              percentage={{ color: "error", count: "-2%", text: "since last quarter" }}
+              percentage={{ color: "error", count: "...", text: "..." }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="sales"
-              count="$103,430"
-              icon={{ color: "warning", component: <i className="ni ni-cart" /> }}
-              percentage={{ color: "success", count: "+5%", text: "than last month" }}
+              title="total Executors"
+              count="4"
+              icon={{ color: "warning", component: <i className="ni ni-single-02" /> }}
+              percentage={{ color: "success", count: "...", text: "..." }}
             />
           </Grid>
         </Grid>
@@ -72,23 +72,26 @@ function Default() {
             <Slider />
           </Grid>
           <Grid item xs={12} lg={5}>
-            <GradientLineChart
-              title="Sales Overview"
-              description={
-                <ArgonBox display="flex" alignItems="center">
-                  <ArgonBox fontSize={size.lg} color="success" mb={0.3} mr={0.5} lineHeight={0}>
-                    <Icon sx={{ fontWeight: "bold" }}>arrow_upward</Icon>
-                  </ArgonBox>
-                  <ArgonTypography variant="button" color="text" fontWeight="medium">
-                    4% more{" "}
-                    <ArgonTypography variant="button" color="text" fontWeight="regular">
-                      in 2022
-                    </ArgonTypography>
-                  </ArgonTypography>
-                </ArgonBox>
-              }
-              chart={gradientLineChartData}
-            />
+            {/*<GradientLineChart*/}
+            {/*  title="Sales Overview"*/}
+            {/*  description={*/}
+            {/*    <ArgonBox display="flex" alignItems="center">*/}
+            {/*      <ArgonBox fontSize={size.lg} color="success" mb={0.3} mr={0.5} lineHeight={0}>*/}
+            {/*        <Icon sx={{ fontWeight: "bold" }}>arrow_upward</Icon>*/}
+            {/*      </ArgonBox>*/}
+            {/*      <ArgonTypography variant="button" color="text" fontWeight="medium">*/}
+            {/*        4% more{" "}*/}
+            {/*        <ArgonTypography variant="button" color="text" fontWeight="regular">*/}
+            {/*          in 2022*/}
+            {/*        </ArgonTypography>*/}
+            {/*      </ArgonTypography>*/}
+            {/*    </ArgonBox>*/}
+            {/*  }*/}
+            {/*  chart={gradientLineChartData}*/}
+            {/*/>*/}
+            <Grid item xs={12} md={12}>
+              <CategoriesList title="categories" categories={categoriesListData} />
+            </Grid>
           </Grid>
 
         </Grid>

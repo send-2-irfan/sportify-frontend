@@ -15,7 +15,7 @@ import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import SportsCardForView from "../../examples/Cards/SportsCardForView";
 import SimpleSelect from "./CricketRegistrationForm";
 import FormDialog from "./AddSportsModule";
-
+// import SportsRegistrationForm from './RegistrationForm';
 
 export default function ViewSports() {
 
@@ -58,7 +58,7 @@ export default function ViewSports() {
                                         image={hockeyImg}
                                         label="fee 4000"
                                         title="Hockey"
-                                        description="Music is something that every person has his or her own specific opinion about."
+                                        description="Hockey is something that every person has his or her own specific opinion about."
                                         action={{
                                             type: "internal",
                                             route: "/pages/profile/profile-overview",
@@ -71,8 +71,8 @@ export default function ViewSports() {
                                     <SportsCardForView
                                         image={chessImg}
                                         label="fee: 2000"
-                                        title="scandinavian"
-                                        description="Music is something that every person has his or her own specific opinion about."
+                                        title="Chess"
+                                        description="Chess is something that every person has his or her own specific opinion about."
                                         action={{
                                             type: "internal",
                                             route: "/pages/profile/profile-overview",
@@ -87,7 +87,7 @@ export default function ViewSports() {
                     </Card>
                     <SimpleSelect />
                     <FormDialog xs={{color: 'black', backgroundColor:'blue', background:"black"}} />
-                    
+                    {/*<SportsRegistrationForm />*/}
                 </ArgonBox>
             </DashboardLayout>
         </>

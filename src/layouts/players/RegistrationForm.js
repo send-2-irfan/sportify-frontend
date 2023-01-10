@@ -87,6 +87,9 @@ const SportsRegistrationForm = () => (
             </form>
         )}
     />
-)
+);
+
+
+export default SportsRegistrationForm;
 
 
