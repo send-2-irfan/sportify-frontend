@@ -5,13 +5,13 @@ import ArgonTypography from "components/ArgonTypography";
 const categoriesListData = [
   {
     color: "success",
-    icon: <i className="ni ni-mobile-button" style={{ fontSize: "12px" }} />,
-    name: "Devices",
+    icon: <i className="ni ni-trophy" style={{ fontSize: "12px" }} />,
+    name: "Soccer",
     description: (
       <>
-        250 in stock,{" "}
+        {/*250 in stock,{" "}*/}
         <ArgonTypography variant="caption" color="text" fontWeight="medium">
-          346+ sold
+          Winner
         </ArgonTypography>
       </>
     ),
@@ -19,13 +19,13 @@ const categoriesListData = [
   },
   {
     color: "info",
-    icon: <i className="ni ni-tag" style={{ fontSize: "12px" }} />,
-    name: "Tickets",
+    icon: <i className="ni ni-trophy" style={{ fontSize: "12px" }} />,
+    name: "Cricket",
     description: (
       <>
-        123 closed,{" "}
+        {/*123 closed,{" "}*/}
         <ArgonTypography variant="caption" color="text" fontWeight="medium">
-          15 open
+          Winner
         </ArgonTypography>
       </>
     ),
@@ -33,13 +33,13 @@ const categoriesListData = [
   },
   {
     color: "secondary",
-    icon: <i className="ni ni-box-2" style={{ fontSize: "12px" }} />,
-    name: "Error logs",
+    icon: <i className="ni ni-trophy" style={{ fontSize: "12px" }} />,
+    name: "Tennis",
     description: (
       <>
-        1 is active,{" "}
+        {/*1 is active,{" "}*/}
         <ArgonTypography variant="caption" color="text" fontWeight="medium">
-          40 closed
+            Winner
         </ArgonTypography>
       </>
     ),
@@ -47,12 +47,12 @@ const categoriesListData = [
   },
   {
     color: "primary",
-    icon: <i className="ni ni-satisfied" style={{ fontSize: "12px" }} />,
-    name: "Happy Users",
+    icon: <i className="ni ni-trophy" style={{ fontSize: "12px" }} />,
+    name: "Chess",
     description: (
       <>
         <ArgonTypography variant="caption" color="text" fontWeight="medium">
-          +&nbsp;430
+            Winner
         </ArgonTypography>
       </>
     ),

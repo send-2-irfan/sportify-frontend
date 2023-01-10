@@ -138,24 +138,24 @@ const routes =
                         icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-collection"/>,
                         component: <Events/>,
                     },
-                    {
-                        type: "route",
-                        name: "Tables",
-                        key: "tables",
-                        route: "/tables",
-                        icon: (
-                            <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-calendar-grid-58"/>
-                        ),
-                        component: <Tables/>,
-                    },
-                    {
-                        type: "route",
-                        name: "Billing",
-                        key: "billing",
-                        route: "/billing",
-                        icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card"/>,
-                        component: <Billing/>,
-                    },
+                    // {
+                    //     type: "route",
+                    //     name: "Tables",
+                    //     key: "tables",
+                    //     route: "/tables",
+                    //     icon: (
+                    //         <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-calendar-grid-58"/>
+                    //     ),
+                    //     component: <Tables/>,
+                    // },
+                    // {
+                    //     type: "route",
+                    //     name: "Billing",
+                    //     key: "billing",
+                    //     route: "/billing",
+                    //     icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card"/>,
+                    //     component: <Billing/>,
+                    // },
                     {
                         type: "route",
                         name: "Manage Sports",
@@ -163,7 +163,16 @@ const routes =
                         route: "/manage-sports",
                         icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-world"/>,
                         component: <ManageSports/>,
-                    }, {
+                    },
+                    {
+                        type: "route",
+                        name: "View Sport",
+                        key: "view-sports",
+                        route: "/players/ViewSports",
+                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
+                        component: <ViewSports />,
+                    },
+                    {
                         type: "route",
                         name: "Manage Coordinator",
                         key: "manage-coordinator",
@@ -214,14 +223,7 @@ const routes =
                         icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
                         component: <SignUp/>,
                     },
-                    {
-                        type: "route",
-                        name: "View Sport",
-                        key: "view-sports",
-                        route: "/players/ViewSports",
-                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
-                        component: <ViewSports />,
-                    },
+
 
                 ]
 export default routes;

@@ -39,7 +39,7 @@ export default function SportsFormDialog({show,setShow}) {
                                     <ArgonInput type="textarea" placeholder="Sports Details" />
                                 </ArgonBox>
                                 <ArgonBox mb={2}>
-                                    <ArgonInput type="number" placeholder="Price" />
+                                    <ArgonInput type="number" placeholder="Fee" />
                                 </ArgonBox>
                                 <ArgonBox mt={4} mb={1}>
                                     <ArgonButton variant="gradient" color="dark" fullWidth>
