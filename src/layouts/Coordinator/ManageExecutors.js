@@ -63,7 +63,14 @@ export default function ManageExecutors() {
                 {/*        </ArgonBox>*/}
                 {/*    </Card>*/}
                 {/*</ArgonBox>*/}
-                <ExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />
+                <ArgonBox mb={12} spacing={3}>
+                    <Card>
+                        <ArgonBox pt={2} px={2}>
+                            <ExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />
+                        </ArgonBox>
+                    </Card>
+                  </ArgonBox>
+
             </DashboardLayout>
         </>
     )
