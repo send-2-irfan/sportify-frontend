@@ -11,6 +11,7 @@ import Events from "./layouts/manageEvents/Events";
 import ManageSports from "./layouts/manageSports/ManageSports";
 import ManageCoordinator from "./layouts/manageCoordinator/Coordinator";
 import ViewSports from "./layouts/players/ViewSports";
+import ManageExecutors from "./layouts/Coordinator/ManageExecutors";
 
 
 const routes =
@@ -204,6 +205,14 @@ const routes =
                         route: "/profile",
                         icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
                         component: <Profile/>,
+                    },
+                    {
+                        type: "route",
+                        name: "Manage Executors",
+                        key: "manage-executors",
+                        route: "/manage-executors",
+                        icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-user-run"/>,
+                        component: <ManageExecutors/>,
                     },
                     {
                         type: "route",
