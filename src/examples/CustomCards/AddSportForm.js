@@ -32,6 +32,17 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
         width: "80%"
     },
+    formStyle:{
+        margin: "auto",
+        width:'50%',
+        padding:20,
+        paddingTop: 20,
+        boxShadow: '0px 0px 10px rgba(0,0,0,0.5)'
+    },
+    myBtn:{
+        marginTop: 10,
+        width: '20%'
+    }
 }));
 
 export default function AddSportForm() {
@@ -66,8 +77,8 @@ export default function AddSportForm() {
     };
 
     return (
-        <Card style={{width:'50%'}}>
-        <form onSubmit={handleSubmit} style={{border: 'none', with:'100px', height:'300px'}}>
+        <Card style={{width:'100%'}}>
+        <form className={classes.formStyle} onSubmit={handleSubmit}>
             <FormControl fullWidth>
                 <InputLabel htmlFor="activity-select">Select Sport</InputLabel>
                 <Select
@@ -120,12 +131,12 @@ export default function AddSportForm() {
                 onChange={handleImageChange}
             />
             <label  htmlFor="image">
-                <Button variant="contained" component="span">
+                <Button style={{marginTop:10}} variant="contained" color='primary' component="span">
                     Upload Image
                 </Button>
             </label>
 
-            <Button style={{marginLeft:'20px'}} type="submit" variant="contained" color="primary">
+            <Button style={{marginLeft:'20px', marginTop: 10}} className={classes.myBtn} type="submit" variant="contained" color="primary">
                 Submit
             </Button>
         </form>
