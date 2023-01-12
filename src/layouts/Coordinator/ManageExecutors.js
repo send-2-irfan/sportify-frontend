@@ -20,6 +20,7 @@ import ArgonAvatar from "../../components/ArgonAvatar";
 import burceMars from "../../assets/images/bruce-mars.jpg";
 import Depeeka from "../../assets/images/team-1.jpg";
 import ExecutorCard from "./ExecutorCard";
+import ManageExecutorCard from "./ManageExecutorCard";
 
 export default function ManageExecutors() {
     const profileImg = <ArgonAvatar
@@ -33,7 +34,7 @@ export default function ManageExecutors() {
         <>
             <DashboardLayout>
                 <DashboardNavbar/>
-                <h1>Manage Coordinator</h1>
+                <h1>Manage Executors</h1>
                 {/*<ArgonBox mb={3}>*/}
                 {/*    <Card>*/}
                 {/*        <ArgonBox pt={2} px={2}>*/}
@@ -63,13 +64,12 @@ export default function ManageExecutors() {
                 {/*        </ArgonBox>*/}
                 {/*    </Card>*/}
                 {/*</ArgonBox>*/}
-                <ArgonBox mb={12} spacing={3}>
-                    <Card>
-                        <ArgonBox pt={2} px={2}>
-                            <ExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />
-                        </ArgonBox>
-                    </Card>
-                  </ArgonBox>
+
+                        {/*<ArgonBox pt={2} px={2}>*/}
+                        {/*    <ExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />*/}
+                        {/*</ArgonBox>*/}
+                        <ManageExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />
+
 
             </DashboardLayout>
         </>

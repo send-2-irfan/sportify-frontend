@@ -5,12 +5,12 @@ import PropTypes from "prop-types";
 // @mui material components
 import Icon from "@mui/material/Icon";
 
-// Argon Dashboard 2 MUI components
+//  MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonButton from "components/ArgonButton";
 
-// Argon Dashboard 2 MUI contexts
+// MUI contexts
 import { useArgonController } from "context";
 import Grid from "@mui/material/Grid";
 

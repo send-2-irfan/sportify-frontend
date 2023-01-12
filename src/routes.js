@@ -12,6 +12,7 @@ import ManageSports from "./layouts/manageSports/ManageSports";
 import ManageCoordinator from "./layouts/manageCoordinator/Coordinator";
 import ViewSports from "./layouts/players/ViewSports";
 import ManageExecutors from "./layouts/Coordinator/ManageExecutors";
+import GenerateSchedule from "./layouts/Executor/GenerateSchedule";
 
 
 const routes =
@@ -136,7 +137,7 @@ const routes =
                         name: "Manage-Events",
                         key: "manage-events",
                         route: "/manage-events",
-                        icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-collection"/>,
+                        icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-collection"/>,
                         component: <Events/>,
                     },
                     // {
@@ -213,6 +214,14 @@ const routes =
                         route: "/manage-executors",
                         icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-user-run"/>,
                         component: <ManageExecutors/>,
+                    },
+                    {
+                        type: "route",
+                        name: "Generate Schedule",
+                        key: "generate-schedule",
+                        route: "/generate-schedule",
+                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-calendar-grid-58"/>,
+                        component: <GenerateSchedule/>,
                     },
                     {
                         type: "route",
