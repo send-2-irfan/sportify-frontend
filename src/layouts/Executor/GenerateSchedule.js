@@ -19,6 +19,7 @@ import Bill from "../billing/components/Bill";
 import ArgonAvatar from "../../components/ArgonAvatar";
 import burceMars from "../../assets/images/bruce-mars.jpg";
 import MatchScheduler from "./MatchScheduler";
+import Schedule from "./ShowSchedule";
 
 
 export default function GenerateSchedule() {
@@ -29,6 +30,7 @@ export default function GenerateSchedule() {
                 <h1>Generate Schedules</h1>
                 <Card></Card>
                 <MatchScheduler />
+                <Schedule/>
 
             </DashboardLayout>
         </>

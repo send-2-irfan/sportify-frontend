@@ -24,14 +24,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MatchScheduler() {
     const classes = useStyles();
+    const [teamA, setTeamA] = useState('');
+    const [teamB, setTeamB] = useState('');
     const [matchDate, setMatchDate] = useState('');
     const [matchTime, setMatchTime] = useState('');
     const [matchLocation, setMatchLocation] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(matchDate, matchTime, matchLocation);
-        // Add code here to save the match details (date, time, and location) to a database or API
+        console.log(teamA, teamB, matchDate, matchTime, matchLocation);
+        // Add code here to save the match details (teams, date, time, and location) to a database or API
     };
 
     return (
@@ -43,6 +45,20 @@ export default function MatchScheduler() {
                             Schedule a Match
                         </Typography>
                         <form onSubmit={handleSubmit}>
+                            <TextField
+                                id="team-a"
+                                label="Team A"
+                                value={teamA}
+                                onChange={(event) => setTeamA(event.target.value)}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                id="team-b"
+                                label="Team B"
+                                value={teamB}
+                                onChange={(event) => setTeamB(event.target.value)}
+                                className={classes.textField}
+                            />
                             <TextField
                                 id="match-date"
                                 label="Date"
@@ -60,7 +76,8 @@ export default function MatchScheduler() {
                                 type="time"
                                 value={matchTime}
                                 onChange={(event) => setMatchTime(event.target.value)}
-                                className={classes.textField}
+                                className={classes
+                                    .textField}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
