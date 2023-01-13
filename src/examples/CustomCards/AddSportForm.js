@@ -5,7 +5,7 @@ import {
     FormControl,
     InputLabel,
     TextField,
-    Select,
+    Select, MenuItem,
 } from '@mui/material';
 import Button from "@mui/material/Button";
 import input from "../../assets/theme/components/form/input";
@@ -51,6 +51,11 @@ export default function AddSportForm() {
     const [description, setDescription] = useState('');
     const [fee, setFee] = useState('');
     const [image, setImage] = useState(null);
+    const [sports, setSports] = useState('');
+
+    const handleSportsChange = event => {
+        setSports(event.target.value);
+    };
 
     const handleActivityChange = (event) => {
         setActivity(event.target.value);
@@ -79,31 +84,56 @@ export default function AddSportForm() {
     return (
         <Card style={{width:'100%'}}>
         <form className={classes.formStyle} onSubmit={handleSubmit}>
-            <FormControl fullWidth>
-                <InputLabel htmlFor="activity-select">Select Sport</InputLabel>
-                <Select
-                    aria-labelledby="form-dialog-title"
-                    style={{with:'100%', marginTop:'10px'}}
-                    native
-                    value={activity}
-                    onChange={handleActivityChange}
-                    inputProps={{
-                        name: 'activity',
-                        id: 'activity-select',
-                    }}
-                    fullWidth
-                >
-                    <option aria-label="None" value="" />
-                    <option value="cricket">Cricket</option>
-                    <option value="chess">Chess</option>
-                    <option value="football">Football</option>
-                    <option value="tennis">Tennis</option>
-                    <option value="ludo">Ludo</option>
-                    <option value="jumping">Jumping</option>
-                    <option value="running">Running</option>
-                    <option value="tug of wars">Tug of Wars</option>
-                </Select>
-            </FormControl>
+            {/*<FormControl fullWidth>*/}
+            {/*    <InputLabel htmlFor="activity-select">Select Sport</InputLabel>*/}
+            {/*    <Select*/}
+            {/*        aria-labelledby="form-dialog-title"*/}
+            {/*        style={{with:'100%', marginTop:'10px'}}*/}
+            {/*        native*/}
+            {/*        value={activity}*/}
+            {/*        onChange={handleActivityChange}*/}
+            {/*        inputProps={{*/}
+            {/*            name: 'activity',*/}
+            {/*            id: 'activity-select',*/}
+            {/*        }}*/}
+            {/*        fullWidth*/}
+            {/*    >*/}
+            {/*        <option aria-label="None" value="" />*/}
+            {/*        <option value="cricket">Cricket</option>*/}
+            {/*        <option value="chess">Chess</option>*/}
+            {/*        <option value="football">Football</option>*/}
+            {/*        <option value="tennis">Tennis</option>*/}
+            {/*        <option value="ludo">Ludo</option>*/}
+            {/*        <option value="jumping">Jumping</option>*/}
+            {/*        <option value="running">Running</option>*/}
+            {/*        <option value="tug of wars">Tug of Wars</option>*/}
+            {/*    </Select>*/}
+            {/*</FormControl>*/}
+            <div>
+                <FormControl variant="outlined" className={classes.formControl}>
+                    <InputLabel id="sports-label">Select Sports</InputLabel>
+                    <Select
+                        labelId="sports-label"
+                        id="sports"
+                        value={sports}
+                        onChange={handleSportsChange}
+                        label="Select Sport"
+                        inputProps={{
+                            name: 'activity',
+                            id: 'activity-select',
+                        }}
+                    >
+                        <MenuItem value="none"></MenuItem>
+                        <MenuItem value="cricket">Cricket</MenuItem>
+                        <MenuItem value="chess">Chess</MenuItem>
+                        <MenuItem value="football">Football</MenuItem>
+                        <MenuItem value="tennis">Tennis</MenuItem>
+                        <MenuItem value="ludo">Ludo</MenuItem>
+                        <MenuItem value="jumping">Jumping</MenuItem>
+                        <MenuItem value="tug-of-war">Tug of Wars</MenuItem>
+                    </Select>
+                </FormControl>
+            </div>
             <TextField
                 label="Description"
                 multiline
