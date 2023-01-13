@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(2),
+        padding: theme.spacing(3),
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
     textField: {
-        marginLeft: theme.spacing(10),
-        marginRight: theme.spacing(10),
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
         width: 144,
         textAlign: 'center'
     },
