@@ -211,7 +211,7 @@ const routes =
                         name: "Generate Schedule",
                         key: "generate-schedule",
                         route: "/generate-schedule",
-                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-calendar-grid-58"/>,
+                        icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-calendar-grid-58"/>,
                         component: <GenerateSchedule/>,
                     },
                     {type: "title", title: "Account Pages", key: "account-pages"},
