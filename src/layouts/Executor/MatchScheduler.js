@@ -91,14 +91,14 @@ export default function MatchScheduler() {
                                 onChange={(event) => setMatchLocation(event.target.value)}
                                 className={classes.textField}
                             />
-                            {/*<Button*/}
-                            {/*    variant="standard"*/}
-                            {/*    color="info"*/}
-                            {/*    type="submit"*/}
-                            {/*    style={{color:'white', backgroundColor: 'black', marginLeft:'2px'}}*/}
-                            {/*>*/}
-                            {/*    Schedule Match*/}
-                            {/*</Button>*/}
+                            <Button
+                                variant="standard"
+                                color="info"
+                                type="submit"
+                                style={{color:'white', backgroundColor: 'black', marginLeft:'2px'}}
+                            >
+                                Schedule Match
+                            </Button>
                         </form>
                     </Paper>
                 </Grid>
