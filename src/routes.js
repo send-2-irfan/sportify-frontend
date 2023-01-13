@@ -209,22 +209,6 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "Manage Executors",
-                        key: "manage-executors",
-                        route: "/manage-executors",
-                        icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-user-run"/>,
-                        component: <ManageExecutors/>,
-                    },
-                    {
-                        type: "route",
-                        name: "Generate Schedule",
-                        key: "generate-schedule",
-                        route: "/generate-schedule",
-                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-calendar-grid-58"/>,
-                        component: <GenerateSchedule/>,
-                    },
-                    {
-                        type: "route",
                         name: "Sign In",
                         key: "sign-in",
                         route: "/authentication/sign-in",
