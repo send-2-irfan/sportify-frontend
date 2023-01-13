@@ -16,9 +16,10 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
     textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: 145,
+        marginLeft: theme.spacing(10),
+        marginRight: theme.spacing(10),
+        width: 144,
+        textAlign: 'center'
     },
 }));
 
@@ -90,10 +91,10 @@ export default function MatchScheduler() {
                                 className={classes.textField}
                             />
                             <Button
-                                variant="contained"
-                                color="primary"
+                                variant="standard"
+                                color="info"
                                 type="submit"
-                                className={classes.textField}
+                                style={{color:'white', backgroundColor: 'black', marginLeft:'2px'}}
                             >
                                 Schedule Match
                             </Button>
