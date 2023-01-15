@@ -21,7 +21,7 @@ import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
 
 import typography from "assets/theme/base/typography";
 
-// Dash board layout components
+// Dashboard layout components
 import Slider from "layouts/dashboard/components/Slider";
 
 // Data
@@ -29,7 +29,7 @@ import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData"
 import salesTableData from "layouts/dashboard/data/salesTableData";
 import categoriesListData from "layouts/dashboard/data/categoriesListData";
 
-// Argon Dashboard 2 MUI contexts
+//  MUI contexts
 import { useArgonController, setDirection } from "context";
 
 function RTL() {
