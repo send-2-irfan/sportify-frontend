@@ -9,7 +9,7 @@ import Icon from "@mui/material/Icon";
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 
-// Argon Dashboard 2 MUI examples
+
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
@@ -18,7 +18,7 @@ import SalesTable from "examples/Tables/SalesTable";
 import CategoriesList from "examples/Lists/CategoriesList";
 import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
 
-// Argon Dashboard 2 MUI base styles
+
 import typography from "assets/theme/base/typography";
 
 // Dashboard layout components
