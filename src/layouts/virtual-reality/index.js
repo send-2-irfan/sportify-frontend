@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Tooltip from "@mui/material/Tooltip";
 import Icon from "@mui/material/Icon";
 
-// Argon Dashboard 2 MUI components
+// MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonAvatar from "components/ArgonAvatar";
 import ArgonTypography from "components/ArgonTypography";
