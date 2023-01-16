@@ -10,7 +10,7 @@ import ArgonAvatar from "components/ArgonAvatar";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonButton from "components/ArgonButton";
 
-// Argon Dashboard 2 MUI base styles
+//  MUI base styles
 import typography from "assets/theme/base/typography";
 
 // VR components
