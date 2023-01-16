@@ -21,7 +21,7 @@ import Emails from "layouts/virtual-reality/components/Emails";
 import MediaPlayer from "layouts/virtual-reality/components/MediaPlayer";
 import Messages from "layouts/virtual-reality/components/Messages";
 
-// Images
+// these are Images
 import team1 from "assets/images/team-1.jpg";
 import sunCloud from "assets/images/small-logos/icon-sun-cloud.png";
 
