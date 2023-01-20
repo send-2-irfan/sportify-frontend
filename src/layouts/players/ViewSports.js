@@ -17,6 +17,7 @@ import SimpleSelect from "./CricketRegistrationForm";
 import FormDialog from "./AddSportsModule";
 import AddSportForm from "../../examples/CustomCards/AddSportForm";
 import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
+import Scoreboard from "../Executor/ManageFinalScore";
 // import AddSportForm from "../../examples/CustomCards/AddSportForm";
 // import SportsRegistrationForm from './RegistrationForm';
 
@@ -96,6 +97,7 @@ export default function ViewSports() {
 
                 <AddSportForm />
                 <FootballTeamRegistrationForm />
+                <Scoreboard />
 
             </DashboardLayout>
         </>
