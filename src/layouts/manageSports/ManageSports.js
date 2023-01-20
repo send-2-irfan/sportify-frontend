@@ -35,7 +35,7 @@ export default function ManageSports() {
         <>
             <DashboardLayout>
                 <DashboardNavbar/>
-                <h1>Manage Sports</h1>
+                <h1 style={{color:"white"}}>Manage Sports</h1>
                 <ArgonBox mb={3}>
                     <Card>
                         <ArgonBox pt={2} px={2}>
