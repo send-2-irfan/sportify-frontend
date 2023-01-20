@@ -4,13 +4,13 @@ import Grid from "@mui/material/Grid";
 import Tooltip from "@mui/material/Tooltip";
 import Icon from "@mui/material/Icon";
 
-// Argon Dashboard 2 MUI components
+// MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonAvatar from "components/ArgonAvatar";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonButton from "components/ArgonButton";
 
-// Argon Dashboard 2 MUI base styles
+//  MUI base styles
 import typography from "assets/theme/base/typography";
 
 // VR components
@@ -21,7 +21,7 @@ import Emails from "layouts/virtual-reality/components/Emails";
 import MediaPlayer from "layouts/virtual-reality/components/MediaPlayer";
 import Messages from "layouts/virtual-reality/components/Messages";
 
-// Images
+// these are Images
 import team1 from "assets/images/team-1.jpg";
 import sunCloud from "assets/images/small-logos/icon-sun-cloud.png";
 
