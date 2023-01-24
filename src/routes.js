@@ -140,16 +140,16 @@ const routes =
                         icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-collection"/>,
                         component: <Events/>,
                     },
-                    // {
-                    //     type: "route",
-                    //     name: "Tables",
-                    //     key: "tables",
-                    //     route: "/tables",
-                    //     icon: (
-                    //         <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-calendar-grid-58"/>
-                    //     ),
-                    //     component: <Tables/>,
-                    // },
+                    {
+                        type: "route",
+                        name: "Tables",
+                        key: "tables",
+                        route: "/tables",
+                        icon: (
+                            <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-calendar-grid-58"/>
+                        ),
+                        component: <Tables/>,
+                    },
                     // {
                     //     type: "route",
                     //     name: "Billing",
