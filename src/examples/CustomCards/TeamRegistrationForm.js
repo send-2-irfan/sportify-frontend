@@ -42,12 +42,15 @@ function FootballTeamRegistrationForm() {
     const [teamName, setTeamName] = useState("");
     const [captainName, setCaptainName] = useState("");
     const [captainContactNumber, setCaptainContactNumber] = useState("");
+    const [semester, setSemester] = useState("");
+    const [department, setDepartment] = useState("");
+
     const [email, setEmail] = useState("");
     const [players, setPlayers] = useState([]);
 
     const handleSubmit = event => {
         event.preventDefault();
-        setPlayers([...players, { teamName, captainName, captainContactNumber, email }]);
+        setPlayers([...players, { teamName, captainName, captainContactNumber, email, semester, department }]);
     };
 
     return (
@@ -86,6 +89,20 @@ function FootballTeamRegistrationForm() {
                     margin="normal"
                 />
                 <TextField
+                    label="Semester"
+                    className={classes.textField}
+                    value={semester}
+                    onChange={event => setSemester(event.target.value)}
+                    margin="normal"
+                />
+                <TextField
+                    label="Department"
+                    className={classes.textField}
+                    value={department}
+                    onChange={event => setDepartment(event.target.value)}
+                    margin="normal"
+                />
+                <TextField
                     style={{marginTop:'10'}}
                     label="Email"
                     className={classes.textField}
@@ -117,6 +134,8 @@ function FootballTeamRegistrationForm() {
                 {/*                <TableCell align="right">{player.captainName}</TableCell>*/}
                 {/*                <TableCell align="right">{player.captainContactNumber}</TableCell>*/}
                 {/*                <TableCell align="right">{player.email}</TableCell>*/}
+                {/*                    <TableCell>Semester</TableCell>*/}
+                {/*                    <TableCell align="right">Department</TableCell>*/}
                 {/*            </TableRow>*/}
                 {/*        ))}*/}
                 {/*    </TableBody>*/}
