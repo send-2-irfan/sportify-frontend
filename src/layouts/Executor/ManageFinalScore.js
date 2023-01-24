@@ -20,30 +20,43 @@ const useStyles = makeStyles({
 
 const Scoreboard = (props) => {
     const classes = useStyles();
-    const [scores, setScores] = useState([{ team: 'Team 1', score: 0 }, { team: 'Team 2', score: 0 }]);
+    const [scores, setScores] = useState([
+        { team: 'Team 1', score: 0, sports: 'Soccer', status: 'Completed' },
+        { team: 'Team 2', score: 0, sports: 'Basketball', status: 'Upcoming' }
+    ]);
     const [newTeam, setNewTeam] = useState('');
     const [newScore, setNewScore] = useState('');
     const [isEditing, setIsEditing] = useState(false);
     const [editIndex, setEditIndex] = useState(-1);
     const [editTeam, setEditTeam] = useState('');
     const [editScore, setEditScore] = useState('');
+    const [newSports, setNewSports] = useState('');
+    const [newStatus, setNewStatus] = useState('');
+    const [editSports, setEditSports] = useState('');
+    const [editStatus, setEditStatus] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isEditing) {
             const newScores = [...scores];
-            newScores[editIndex] = { team: editTeam, score: editScore };
+            newScores[editIndex] = { team: editTeam, score: editScore, sports: editSports, status: editStatus };
             setScores(newScores);
             setIsEditing(false);
             setEditIndex(-1);
             setEditTeam('');
             setEditScore('');
+            setEditSports('');
+            setEditStatus('');
         } else {
-            setScores([...scores, { team: newTeam, score: newScore }]);
+            setScores([...scores, { team: newTeam, score: newScore, sports: newSports, status: newStatus }]);
             setNewTeam('');
             setNewScore('');
+            setNewSports('');
+            setNewStatus('');
         }
     };
+
 
     const handleEdit = (index) => {
         setIsEditing(true);
@@ -66,16 +79,21 @@ const Scoreboard = (props) => {
                         <TableRow>
                             <TableCell>Team</TableCell>
                             <TableCell align="right">Score</TableCell>
-                            <TableCell align="right"></TableCell>
+                            <TableCell style={{marginLeft: '20%'}}></TableCell>
+                            <TableCell style={{marginLeft: '20%'}}>Sports</TableCell>
+                            <TableCell align="right">Status</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {scores.map((row, index) => (
                             <TableRow key={row.team}>
-                                <TableCell component="th" scope="row">
-                                    {row.team}
-                                </TableCell>
+                                <TableCell component="th" scope="row"> {row.team} </TableCell>
                                 <TableCell align="right">{row.score}</TableCell>
+                                <TableCell component="th" scope="row">
+                                    {row.sports}
+                                </TableCell>
+                                <TableCell>{row.status}</TableCell>
+
                                 <TableCell align="right">
                                     <Button variant="contained" color="primary" onClick={() => handleEdit(index)}>Edit</Button>
                                     <Button variant="contained" color="secondary" onClick={() => handleRemove(index)}>Remove</Button>
@@ -98,7 +116,20 @@ const Scoreboard = (props) => {
                     onChange={(e) => isEditing ? setEditScore(e.target.value) : setNewScore(e.target.value)}
                     margin="normal"
                 />
-                <Button type="submit" variant="contained" color="primary">
+                <TextField
+                    label="Sports"
+                    value={isEditing ? editSports : newSports}
+                    onChange={(e) => isEditing ? setEditSports(e.target.value) : setNewSports(e.target.value)}
+                    margin="normal"
+                />
+                <TextField
+                    label="Status"
+                    value={isEditing ? editStatus : newStatus}
+                    onChange={(e) => isEditing ? setEditStatus(e.target.value) : setNewStatus(e.target.value)}
+                    margin="normal"
+                />
+
+                <Button style={{marginTop: '16px', marginLeft: '10px'}} type="submit" variant="contained" color="primary">
                     {isEditing ? 'Save' : 'Add Score'}
                 </Button>
             </form>
