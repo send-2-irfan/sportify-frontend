@@ -77,18 +77,18 @@ const Scoreboard = (props) => {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell component="th" scope="row">Team</TableCell>
-                            <TableCell component="th" scope="row">Score</TableCell>
-                            <TableCell component="th" scope="row">Sports</TableCell>
-                            <TableCell component="th" scope="row" style={{marginLeft:'50px'}}>Status</TableCell>
+                            <view style={{marginRight:'200px'}}><TableCell component="th" scope="row">Team</TableCell></view>
+                            <view style={{marginRight:'50px'}}><TableCell component="th" scope="row">Score</TableCell></view>
+                                <view style={{marginRight:'50px'}}><TableCell component="th" scope="row">Sports</TableCell></view>
+                            <TableCell component="th" scope="row">Status</TableCell>
                         </TableRow>
 
                     </TableHead>
                     <TableBody>
                         {scores.map((row, index) => (
                             <TableRow key={row.team}>
-                                <TableCell component="th" scope="row"> {row.team} </TableCell>
-                                <TableCell component="th" scope="row" align="right">{row.score}</TableCell>
+                                <TableCell component="th" scope="row" > {row.team} </TableCell>
+                                <TableCell component="th" scope="row">{row.score}</TableCell>
                                 <TableCell component="th" scope="row">
                                     {row.sports}
                                 </TableCell>
