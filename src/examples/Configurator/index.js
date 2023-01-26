@@ -187,43 +187,43 @@ function Configurator() {
           <Switch checked={darkMode} onChange={handleDarkMode} />
         </ArgonBox>
 
-        <ArgonBox mt={5} mb={2}>
-          <ArgonBox mb={2}>
-            <ArgonButton
-              component={Link}
-              href="https://www.creative-tim.com/product/argon-dashboard-pro-material-ui"
-              target="_blank"
-              rel="noreferrer"
-              color="info"
-              fullWidth
-            >
-              Buy Now
-            </ArgonButton>
-          </ArgonBox>
-          <ArgonBox mb={2}>
-            <ArgonButton
-              component={Link}
-              href="https://www.creative-tim.com/product/argon-dashboard-material-ui"
-              target="_blank"
-              rel="noreferrer"
-              color="dark"
-              fullWidth
-            >
-              Free Download
-            </ArgonButton>
-          </ArgonBox>
-          <ArgonButton
-            component={Link}
-            href="https://www.creative-tim.com/learning-lab/react/quick-start/argon-dashboard/"
-            target="_blank"
-            rel="noreferrer"
-            color={darkMode ? "white" : "dark"}
-            variant="outlined"
-            fullWidth
-          >
-            View Documentation
-          </ArgonButton>
-        </ArgonBox>
+        {/*<ArgonBox mt={5} mb={2}>*/}
+        {/*  <ArgonBox mb={2}>*/}
+        {/*    <ArgonButton*/}
+        {/*      component={Link}*/}
+        {/*      href="https://www.creative-tim.com/product/argon-dashboard-pro-material-ui"*/}
+        {/*      target="_blank"*/}
+        {/*      rel="noreferrer"*/}
+        {/*      color="info"*/}
+        {/*      fullWidth*/}
+        {/*    >*/}
+        {/*      Buy Now*/}
+        {/*    </ArgonButton>*/}
+        {/*  </ArgonBox>*/}
+        {/*  <ArgonBox mb={2}>*/}
+        {/*    <ArgonButton*/}
+        {/*      component={Link}*/}
+        {/*      href="https://www.creative-tim.com/product/argon-dashboard-material-ui"*/}
+        {/*      target="_blank"*/}
+        {/*      rel="noreferrer"*/}
+        {/*      color="dark"*/}
+        {/*      fullWidth*/}
+        {/*    >*/}
+        {/*      Free Download*/}
+        {/*    </ArgonButton>*/}
+        {/*  </ArgonBox>*/}
+        {/*  <ArgonButton*/}
+        {/*    component={Link}*/}
+        {/*    href="https://www.creative-tim.com/learning-lab/react/quick-start/argon-dashboard/"*/}
+        {/*    target="_blank"*/}
+        {/*    rel="noreferrer"*/}
+        {/*    color={darkMode ? "white" : "dark"}*/}
+        {/*    variant="outlined"*/}
+        {/*    fullWidth*/}
+        {/*  >*/}
+        {/*    View Documentation*/}
+        {/*  </ArgonButton>*/}
+        {/*</ArgonBox>*/}
         <ArgonBox display="flex" justifyContent="center">
           <GitHubButton
             href="https://github.com/creativetimofficial/argon-dashboard-material-ui"
