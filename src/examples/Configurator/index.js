@@ -242,16 +242,16 @@ function Configurator() {
 
           <ArgonBox display="flex" justifyContent="center">
             <ArgonBox mr={1.5}>
-              <ArgonButton
-                component={Link}
-                href="//twitter.com/intent/tweet?text=Check%20Argon%20Dashboard%202%20PRO%20MUI%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23react%20%mui&url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fargon-dashboard-material-ui"
-                target="_blank"
-                rel="noreferrer"
-                color="dark"
-              >
-                <TwitterIcon />
-                &nbsp; Tweet
-              </ArgonButton>
+              {/*<ArgonButton*/}
+              {/*  component={Link}*/}
+              {/*  href="//twitter.com/intent/tweet?text=Check%20Argon%20Dashboard%202%20PRO%20MUI%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23react%20%mui&url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fargon-dashboard-material-ui"*/}
+              {/*  target="_blank"*/}
+              {/*  rel="noreferrer"*/}
+              {/*  color="dark"*/}
+              {/*>*/}
+              {/*  <TwitterIcon />*/}
+              {/*  &nbsp; Tweet*/}
+              {/*</ArgonButton>*/}
             </ArgonBox>
             <ArgonButton
               component={Link}
