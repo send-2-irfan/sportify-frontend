@@ -253,16 +253,16 @@ function Configurator() {
               {/*  &nbsp; Tweet*/}
               {/*</ArgonButton>*/}
             </ArgonBox>
-            <ArgonButton
-              component={Link}
-              href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard-material-ui"
-              target="_blank"
-              rel="noreferrer"
-              color="dark"
-            >
-              <FacebookIcon />
-              &nbsp; Share
-            </ArgonButton>
+            {/*<ArgonButton*/}
+            {/*  component={Link}*/}
+            {/*  href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard-material-ui"*/}
+            {/*  target="_blank"*/}
+            {/*  rel="noreferrer"*/}
+            {/*  color="dark"*/}
+            {/*>*/}
+            {/*  <FacebookIcon />*/}
+            {/*  &nbsp; Share*/}
+            {/*</ArgonButton>*/}
           </ArgonBox>
         </ArgonBox>
       </ArgonBox>
