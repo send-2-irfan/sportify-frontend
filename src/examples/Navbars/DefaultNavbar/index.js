@@ -91,6 +91,11 @@ function DefaultNavbar({ brand, transparent, light, action }) {
               {brand}
             </ArgonTypography>
           </ArgonBox>
+          {/*<ArgonBox py={transparent ? 1.5 : 0.75} lineHeight={2}>*/}
+          {/*  <ArgonTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>*/}
+          {/*    {brand}*/}
+          {/*  </ArgonTypography>*/}
+          {/*</ArgonBox>*/}
           <ArgonBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
             {/*<DefaultNavbarLink*/}
             {/*  icon="donut_large"*/}
