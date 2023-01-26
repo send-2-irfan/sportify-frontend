@@ -72,7 +72,7 @@ function Footer() {
         </Grid>
         <Grid item xs={12} lg={8} sx={{ textAlign: "center" }}>
           <ArgonTypography variant="body2" color="secondary">
-            Copyright &copy; 2022 by Irfan & Team.
+            Copyright &copy; 2023 by Sukkur IBA University.
           </ArgonTypography>
         </Grid>
       </Grid>
