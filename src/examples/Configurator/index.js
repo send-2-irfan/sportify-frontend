@@ -236,9 +236,9 @@ function Configurator() {
           </GitHubButton>
         </ArgonBox>
         <ArgonBox mt={3} textAlign="center">
-          <ArgonBox mb={0.5}>
-            <ArgonTypography variant="h6">Thank you for sharing!</ArgonTypography>
-          </ArgonBox>
+          {/*<ArgonBox mb={0.5}>*/}
+          {/*  <ArgonTypography variant="h6">Thank you for sharing!</ArgonTypography>*/}
+          {/*</ArgonBox>*/}
 
           <ArgonBox display="flex" justifyContent="center">
             <ArgonBox mr={1.5}>
