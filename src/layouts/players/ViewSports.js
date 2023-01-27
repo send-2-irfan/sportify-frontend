@@ -137,7 +137,7 @@ export default function ViewSports() {
                 <FootballTeamRegistrationForm />
                 <Scoreboard />
 
-                <AddEvent />
+                {/*<AddEvent />*/}
 
             </DashboardLayout>
         </>
