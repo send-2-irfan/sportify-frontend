@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
 import hockeyImg from "../../assets/images/hockey.jpg";
 import cricketImg from "../../assets/images/cricket.jpg";
+import { useState } from "react";
 
 import chessImg from "../../assets/images/img-3.jpg";
 import homeDecor2 from "../../assets/images/home-decor-2.jpg";
@@ -18,10 +19,41 @@ import FormDialog from "./AddSportsModule";
 import AddSportForm from "../../examples/CustomCards/AddSportForm";
 import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
 import Scoreboard from "../Executor/ManageFinalScore";
+import AddEvent from "../patron/AddEvent";
 // import AddSportForm from "../../examples/CustomCards/AddSportForm";
 // import SportsRegistrationForm from './RegistrationForm';
 
 export default function ViewSports() {
+    const [sports,setsports] = useState([
+        {
+            id:1,
+            name:"Cricket",
+            description:"Cricket is a game of 11 players. It is loved allover Pakistan. I was started by English people.",
+            fee:3600,
+            image:cricketImg
+        },
+        {
+            id:2,
+            name:"Hockey",
+            description:"Hockey is something that every person has his or her own specific opinion about.",
+            fee:4000,
+            image:hockeyImg
+        },
+        {
+            id:3,
+            name:"Chess",
+            description:"Chess is a two-player strategy board game played on a chessboard, a checkered gameboard with 64 squares arranged in an eight-by-eight grid.",
+            fee:2000,
+            image:chessImg
+        },
+        {
+            id:4,
+            name:"Football",
+            description:"Football is a family of team sports that involve, to varying degrees, kicking a ball with the foot to score a goal.",
+            fee:3000,
+            image:homeDecor2
+        }
+    ]);
 
     return (
         <>
@@ -42,7 +74,26 @@ export default function ViewSports() {
                             </ArgonBox>
                         </ArgonBox>
                         <ArgonBox p={3}>
-                            <Grid container spacing={3}>
+                            {sports.map((sport) => (
+                                <Grid container spacing={3} style={{marginTop:'5px'}}>
+                                <Grid item xs={12} md={3} xl={8}>
+                                    <SportsCardForView
+                                        image={sport.image}
+                                        label={"fee "+sport.fee}
+                                        title={sport.name}
+                                        description={sport.description}
+                                        action={{
+                                            type: "internal",
+                                            route: "/pages/profile/profile-overview",
+                                            color: "primary",
+                                            label: "Register",
+                                        }}
+                                    />
+                                </Grid>
+                                </Grid>
+                            ))}
+
+                            {/* <Grid container spacing={3}>
                                 <Grid item xs={12} md={3} xl={8}>
                                     <SportsCardForView
                                         image={cricketImg}
@@ -71,22 +122,9 @@ export default function ViewSports() {
                                         }}
                                     />
                                 </Grid>
-                                <Grid item xs={12} md={3} xl={8}>
-                                    <SportsCardForView
-                                        image={chessImg}
-                                        label="fee: 2000"
-                                        title="Chess"
-                                        description="Chess is something that every person has his or her own specific opinion about."
-                                        action={{
-                                            type: "internal",
-                                            route: "/pages/profile/profile-overview",
-                                            color: "primary",
-                                            label: "Register",
-                                        }}
-                                    />
-                                </Grid>
+                               
 
-                            </Grid>
+                            </Grid> */}
                         </ArgonBox>
                     </Card>
                     {/*<SimpleSelect />*/}
@@ -98,6 +136,8 @@ export default function ViewSports() {
                 <AddSportForm />
                 <FootballTeamRegistrationForm />
                 <Scoreboard />
+
+                <AddEvent />
 
             </DashboardLayout>
         </>

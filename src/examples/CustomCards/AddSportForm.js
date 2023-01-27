@@ -10,6 +10,8 @@ import {
 import Button from "@mui/material/Button";
 import input from "../../assets/theme/components/form/input";
 import Card from "@mui/material/Card";
+import ArgonBox from 'components/ArgonBox';
+import ArgonTypography from 'components/ArgonTypography';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,6 +54,7 @@ export default function AddSportForm() {
     const [fee, setFee] = useState('');
     const [image, setImage] = useState(null);
     const [sports, setSports] = useState('');
+    const [listSports, setListSports] = useState([{activity: '', description: '', fee: '', image: ''}]);
 
     const handleSportsChange = event => {
         setSports(event.target.value);
@@ -79,11 +82,27 @@ export default function AddSportForm() {
         console.log("Description: ", description);
         console.log("Fee: ", fee);
         console.log("Image: ", image);
+        setListSports([...listSports, {activity: activity, sports: sports, description: description, fee: fee, image: image}]);
+        console.log("List of Sports: ", listSports);
     };
 
     return (
-        <Card style={{width:'100%'}}>
-        <form className={classes.formStyle} onSubmit={handleSubmit}>
+        <div>
+        <ArgonBox pt={2} px={2}>
+            <ArgonBox mb={0.5}>
+            <ArgonTypography variant="h6" fontWeight="medium">
+                <h2>Register Sport</h2>
+            </ArgonTypography>
+            </ArgonBox>
+            <ArgonBox mb={1}>
+            </ArgonBox>
+        </ArgonBox>
+        <form className={classes.formStyle} onSubmit={handleSubmit} style={{width: '40%', marginTop:'50px', }}>
+        <ArgonBox mb={0.5}>
+            <ArgonTypography variant="h6" fontWeight="medium">
+                <h2>Register Sport</h2>
+            </ArgonTypography>
+            </ArgonBox>
             {/*<FormControl fullWidth>*/}
             {/*    <InputLabel htmlFor="activity-select">Select Sport</InputLabel>*/}
             {/*    <Select*/}
@@ -170,6 +189,6 @@ export default function AddSportForm() {
                 Submit
             </Button>
         </form>
-        </Card>
+        </div>
     );
 }

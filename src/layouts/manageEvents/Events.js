@@ -13,17 +13,14 @@ import homeDecor3 from "../../assets/images/home-decor-3.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import FormDialog from "./AddEventModal";
 import {useState} from "react";
-import EventCard from "../patron/manageEventCard";
+
 
 export default function Events() {
     const [show,setShow] = useState(false);
     const openModal = () =>{
         setShow(true);
     }
-    const event = {
-        name: 'Sports Gala',
-        imageUrl: sportsGala,
-    }
+
     return (
         <>
             <DashboardLayout>
@@ -65,9 +62,7 @@ export default function Events() {
                             </Grid>
                         </ArgonBox>
                     </Card>
-                    <Card>
-                        <EventCard event={event} />
-                    </Card>
+
                 </ArgonBox>
             </DashboardLayout>
         </>
