@@ -9,10 +9,9 @@ import IconButton from '@mui/material/IconButton';
 import {Delete, Edit} from "@mui/icons-material";
 import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
-import sportsGala from "../../assets/images/sportsEvent.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
-import FormDialog from "../manageEvents/AddEventModal";
 import ArgonBox from "../../components/ArgonBox";
+import sportsGala from "../../assets/images/sportsEvent.jpg";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -146,28 +145,17 @@ function AddEvent() {
             <div className={classes.cardContainer}>
                 {cards.map((card, index) => (
                     <Card className={classes.card} key={index}>
-                        {/*<p>Name: {card.name}</p>*/}
-                        {/*<p>Details: {card.details}</p>*/}
-                        {/*<img src={card.image} alt="Card Image" />*/}
-                        {/*<div className={classes.cardActions}>*/}
-                        {/*    <IconButton onClick={() => handleEdit(index)}>*/}
-                        {/*        <Edit />*/}
-                        {/*    </IconButton>*/}
-                        {/*    <IconButton onClick={() => handleDelete(index)}>*/}
-                        {/*        <Delete />*/}
-                        {/*    </IconButton>*/}
-                        {/*</div>*/}
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
                                 <Grid item xs={12} md={6} xl={4}>
                                     <DefaultProjectCard
-                                        image={card.image} alt="Card Image"
+                                        image={card.image || sportsGala } alt="Card Image"
                                         label=""
                                         title={card.name}
                                         description={card.details}
                                         action={{
                                             type: "internal",
-                                            route: "/pages/profile/profile-overview",
+                                            route: "",
                                             color: "info",
                                             label: "View Event",
                                         }}
