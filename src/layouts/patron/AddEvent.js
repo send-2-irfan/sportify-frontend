@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         padding: '16px',
-        border: '1px solid gray',
         width: '100%',
     },
     cardActions: {
@@ -97,9 +96,6 @@ function AddEvent() {
 
     return (
         <div>
-            <Button variant="contained" color="primary" onClick={handleOpen}>
-                Open Modal
-            </Button>
             <Grid onClick={handleOpen} item xs={12} md={6} xl={3}>
                 <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />
             </Grid>
@@ -107,7 +103,7 @@ function AddEvent() {
                 open={open}
                 onClose={handleClose}
             >
-                <div className={classes.paper}>
+                <Card className={classes.paper}>
                     <TextField
                         label="Name"
                         value={name}
@@ -129,14 +125,14 @@ function AddEvent() {
                     <Button variant="contained" color="primary" onClick={handleAdd}>
                         Add
                     </Button>
-                </div>
+                </Card>
             </Modal>
             <div className={classes.cardContainer}>
                 {cards.map((card, index) => (
                     <Card className={classes.card} key={index}>
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
-                                <Grid item xs={12} md={6} xl={4}>
+                                <Grid item xs={12} md={3} xl={5} >
                                     <DefaultProjectCard
                                         image={card.image || sportsGala } alt="Card Image"
                                         label=""
