@@ -50,10 +50,8 @@ export default function Events() {
                                             color: "info",
                                             label: "View Event",
                                         }}
-
                                     />
                                 </Grid>
-
                                 <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />
                                 </Grid>
