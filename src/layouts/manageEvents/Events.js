@@ -55,12 +55,10 @@ export default function Events() {
                                 <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />
                                 </Grid>
-
                                 <FormDialog show={show} setShow={setShow} />
                             </Grid>
                         </ArgonBox>
                     </Card>
-
                 </ArgonBox>
             </DashboardLayout>
         </>
