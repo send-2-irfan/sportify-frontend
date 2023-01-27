@@ -34,7 +34,6 @@ export default function Events() {
                                     Manage Events
                                 </ArgonTypography>
                             </ArgonBox>
-
                         </ArgonBox>
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
