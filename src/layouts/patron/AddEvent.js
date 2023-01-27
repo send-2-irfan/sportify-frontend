@@ -141,7 +141,15 @@ function AddEvent() {
                                         image={card.image || sportsGala } alt="Card Image"
                                         label=""
                                         title={card.name}
-                                        description={card.details}
+                                        description={
+                                            card.details ||
+                                            "The Sports Gala at Sukkur IBA University " +
+                                            "is an annual event featuring a" +
+                                            " variety of sports and activities for students, faculty," +
+                                            " and staff. It is an opportunity to come together and showcase " +
+                                            "athletic skills, as well as to promote physical health and wellness " +
+                                            "on campus."
+                                        }
                                         action={{
                                             type: "internal",
                                             route: "",
