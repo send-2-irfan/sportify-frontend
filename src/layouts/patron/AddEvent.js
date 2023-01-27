@@ -59,17 +59,6 @@ function AddEvent() {
         setOpen(false);
     };
 
-    // const handleAdd = () => {
-    //     setCards([...cards, { name, details, image }]);
-    //     setName('');
-    //     setDetails('');
-    //     setImage('');
-    //     handleClose();
-    // };
-    //
-    // const handleEdit = (index) => {
-    //     // logic to edit the card
-    // };
 
     const handleDelete = (index) => {
         setCards(cards.filter((card, i) => i !== index));
