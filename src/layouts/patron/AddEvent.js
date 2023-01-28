@@ -148,7 +148,7 @@ function AddEvent() {
                                         }
                                         action={{
                                             type: "internal",
-                                            route: "",
+                                            route: "./view-sports",
                                             color: "info",
                                             label: "View Event",
                                         }}

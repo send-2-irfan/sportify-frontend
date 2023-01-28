@@ -15,7 +15,7 @@ import homeDecor3 from "../../assets/images/img-3.jpg";
 import homeDecor4 from "../../assets/images/hockey.jpg";
 import football from "../../assets/images/img-1.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
-import SportsFormDialog from "./AddNewSportsForm";
+// import SportsFormDialog from "./AddNewSportsForm";
 import {useState} from "react";
 import PlayerRegistrationFormDialog from "layouts/players/PlayersRegistrationForm";
 
@@ -115,7 +115,7 @@ export default function ManageSports() {
                                 <Grid onClick={openPlayerModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
                                 </Grid>
-                                <SportsFormDialog show={show} setShow={setShow} />
+                                {/*<SportsFormDialog show={show} setShow={setShow} />*/}
                                 <PlayerRegistrationFormDialog show={showPlayer} setShowPlayer={setShowPlayer} />
                             </Grid>
                         </ArgonBox>
