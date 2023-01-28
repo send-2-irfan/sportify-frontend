@@ -26,9 +26,16 @@ import Slider from "layouts/dashboard/components/Slider";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
 import salesTableData from "layouts/dashboard/data/salesTableData";
 import categoriesListData from "layouts/dashboard/data/categoriesListData";
+import {useContext, useEffect} from "react";
+import {ApplicationContext} from "../../context/ApplicationContext";
 
 function Default() {
   const { size } = typography;
+
+  const {allEvents, setAllEvents} = useContext(ApplicationContext)
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("events")) && setAllEvents(JSON.parse(localStorage.getItem("events")))
+  }, [])
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -37,7 +44,7 @@ function Default() {
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
               title="Total Events"
-              count="1"
+              count={allEvents.length}
               icon={{ color: "info", component: <i className="ni ni-money-coins" /> }}
               percentage={{ color: "success", count: "1", text: "since yesterday" }}
             />

@@ -12,15 +12,21 @@ import homeDecor2 from "../../assets/images/home-decor-2.jpg";
 import homeDecor3 from "../../assets/images/home-decor-3.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import FormDialog from "./AddEventModal";
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import AddEvent from "../patron/AddEvent";
+import {ApplicationContext} from "../../context/ApplicationContext";
 
 
 export default function Events() {
-    const [show,setShow] = useState(false);
-    const openModal = () =>{
+    const [show, setShow] = useState(false);
+    const openModal = () => {
         setShow(true);
     }
+
+    const {allEvents, setAllEvents} = useContext(ApplicationContext)
+    useEffect(() => {
+        JSON.parse(localStorage.getItem("events")) && setAllEvents(JSON.parse(localStorage.getItem("events")))
+    }, [])
 
     return (
         <>
@@ -36,37 +42,36 @@ export default function Events() {
                                 </ArgonTypography>
                             </ArgonBox>
                         </ArgonBox>
-                        {/*<ArgonBox p={2}>*/}
-                        {/*    <Grid container spacing={3}>*/}
-                                {/*<Grid item xs={12} md={6} xl={4}>*/}
-                                {/*    <DefaultProjectCard*/}
-                                {/*        image={sportsGala}*/}
-                                {/*        label=""*/}
-                                {/*        title="Sports Gala 2023"*/}
-                                {/*        description="The Sports Gala at Sukkur IBA University is an annual event featuring a variety of sports and activities for students, faculty, and staff. It is an opportunity to come together and showcase athletic skills, as well as to promote physical health and wellness on campus."*/}
-                                {/*        action={{*/}
-                                {/*            type: "internal",*/}
-                                {/*            route: "/pages/profile/profile-overview",*/}
-                                {/*            color: "info",*/}
-                                {/*            label: "View Event",*/}
-                                {/*        }}*/}
-                                {/*    />*/}
-                                {/*</Grid>*/}
+                        <ArgonBox p={2}>
+                            <Grid container spacing={3}>
+                                {
+                                   allEvents.map(events=> {
+                                       return  <Grid item xs={12} md={6} xl={4}>
+                                           <DefaultProjectCard
+                                               image={events.imageUrl}
+                                               label=""
+                                               title={events.name}
+                                               description={events.detail}
+                                               action={{
+                                                   type: "internal",
+                                                   route: "/pages/profile/profile-overview",
+                                                   color: "info",
+                                                   label: "View Event",
+                                               }}
+                                           />
+                                       </Grid>
+                                   })
+                                }
                                 {/*<Grid onClick={openModal} item xs={12} md={6} xl={3}>*/}
                                 {/*    <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />*/}
                                 {/*</Grid>*/}
 
-                                {/*<Card>*/}
-                                {/*    <FormDialog show={show} setShow={setShow} />*/}
-                                {/*</Card>*/}
-
-
-
-                                <AddEvent />
-
-
-                        {/*    </Grid>*/}
-                        {/*</ArgonBox>*/}
+                                <Card>
+                                    <FormDialog show={show} setShow={setShow}/>
+                                </Card>
+                            </Grid>
+                        </ArgonBox>
+                        <AddEvent/>
                     </Card>
                 </ArgonBox>
             </DashboardLayout>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@mui/styles';
+import React, {useContext, useEffect, useState} from 'react';
+import {makeStyles} from '@mui/styles';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
@@ -17,6 +17,7 @@ import ArgonTypography from "../../components/ArgonTypography";
 import ArgonButton from "../../components/ArgonButton";
 import Checkbox from "@mui/material/Checkbox";
 import ArgonInput from "../../components/ArgonInput";
+import {ApplicationContext} from "../../context/ApplicationContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,9 +45,12 @@ function AddEvent() {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [cards, setCards] = useState([]);
-    const [name, setName] = useState('');
-    const [details, setDetails] = useState('');
-    const [image, setImage] = useState('');
+    const [events, setEvents] = useState({
+        name: '',
+        detail: '',
+        imageUrl: ''
+    })
+
 
     const handleOpen = () => {
         setOpen(true);
@@ -55,47 +59,50 @@ function AddEvent() {
     const handleClose = () => {
         setOpen(false);
     };
+    const {setAllEvents } = useContext(ApplicationContext)
 
 
     const handleDelete = (index) => {
         setCards(cards.filter((card, i) => i !== index));
     };
 
-    const [editingIndex, setEditingIndex] = useState(null);
 
-    const handleEdit = (index) => {
-        setOpen(true);
-        setEditingIndex(index);
-        setName(cards[index].name);
-        setDetails(cards[index].details);
-        setImage(cards[index].image);
-    };
-
-    const handleAdd = () => {
-        if (editingIndex !== null) {
-            const updatedCards = [...cards];
-            updatedCards[editingIndex] = { name, details, image };
-            setCards(updatedCards);
-            setEditingIndex(null);
+    const handleAdd = (e) => {
+        if (JSON.parse(localStorage.getItem("events"))) {
+            let items = JSON.parse(localStorage.getItem("events"))
+            items.push(events)
+            localStorage.setItem("events", JSON.stringify(items))
+            setAllEvents(items)
+            setEvents({
+                name: '',
+                detail: '',
+                imageUrl: ''
+            })
+            handleClose();
         } else {
-            setCards([...cards, { name, details, image }]);
+            let eventsNew = []
+            eventsNew.push(events)
+            localStorage.setItem("events", JSON.stringify(eventsNew))
+            setAllEvents(eventsNew)
+            setEvents({
+                name: '',
+                detail: '',
+                imageUrl: ''
+            })
+            handleClose();
         }
-        setName('');
-        setDetails('');
-        setImage('');
-        handleClose();
     };
 
     // Card modal
-    const [show,setShow] = useState(false);
-    const openModal = () =>{
+    const [show, setShow] = useState(false);
+    const openModal = () => {
         setShow(true);
     }
 
     return (
         <div>
-            <Grid onClick={handleOpen} style={{width:'15%', marginTop:'20px', marginLeft:'20px'}}>
-                <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />
+            <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>
+                <PlaceholderCard title={{variant: "h5", text: "Add New Event"}} outlined/>
             </Grid>
             {/*<Modal*/}
             {/*    open={open}*/}
@@ -143,7 +150,7 @@ function AddEvent() {
                     alignItems: "center",
                 }}
             >
-                <Card style={{width:'24%'}}>
+                <Card style={{width: '24%'}}>
                     <ArgonBox p={3} mb={1} textAlign="center">
                         <ArgonTypography variant="h5" fontWeight="medium">
                             Register Event
@@ -152,40 +159,42 @@ function AddEvent() {
                     <ArgonBox pt={2} pb={3} px={3}>
                         <ArgonBox component="form" role="form">
                             <TextField
-                                style={{marginBottom:'10px', textAlign: 'center'}}
+                                style={{marginBottom: '10px', textAlign: 'center'}}
                                 label="Name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                value={events.name}
+                                onChange={(e) => setEvents({...events, name: e.target.value})}
                                 fullWidth
                             />
                             <TextField
                                 label="Details"
-                                value={details}
-                                onChange={(e) => setDetails(e.target.value)}
+                                value={events.detail}
+                                onChange={(e) => setEvents({...events, detail: e.target.value})}
                                 fullWidth
-                                style={{marginBottom:'15px', }}
+                                style={{marginBottom: '15px',}}
                             />
                             <TextField
                                 label="Image"
-                                value={image}
-                                onChange={(e) => setImage(e.target.value)}
+                                value={events.imageUrl}
+                                onChange={(e) => setEvents({...events, imageUrl: e.target.value})}
                                 fullWidth
                             />
 
                             <ArgonBox mt={4} mb={1}>
-                                <ArgonButton onClick={handleClose} variant="gradient" color="dark" style={{width:'45%', marginRight:"5px"}}>
+                                <ArgonButton onClick={handleClose} variant="gradient" color="dark"
+                                             style={{width: '45%', marginRight: "5px"}}>
                                     Cancel
                                 </ArgonButton>
-                                <ArgonButton variant="gradient" color="info" onClick={handleAdd} style={{width:'45%'}}>
+                                <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)}
+                                             style={{width: '45%'}}>
                                     Add Event
                                 </ArgonButton>
                             </ArgonBox>
+                        </ArgonBox>
                     </ArgonBox>
-                </ArgonBox>
-            </Card>
+                </Card>
 
 
-        </Modal>
+            </Modal>
 
             {/*New Componenet ends here*/}
 
@@ -194,12 +203,13 @@ function AddEvent() {
                     <Grid container spacing={4}>
                         {cards.map((card, index) => (
                             <Card className={classes.card} key={index} style={{
-                                justifyContent: "space-around", alignItems: 'space-between'}}>
+                                justifyContent: "space-around", alignItems: 'space-between'
+                            }}>
                                 <ArgonBox p={2}>
                                     <Grid container spacing={2}>
-                                        <Grid item xs={12} md={6} xl={4} >
+                                        <Grid item xs={12} md={6} xl={4}>
                                             <DefaultProjectCard
-                                                image={card.image || sportsGala } alt="Card Image"
+                                                image={card.image || sportsGala} alt="Card Image"
                                                 label=""
                                                 title={card.name}
                                                 description={
@@ -223,7 +233,7 @@ function AddEvent() {
                                                     <Edit color='info'/>
                                                 </IconButton>
                                                 <IconButton onClick={() => handleDelete(index)}>
-                                                    <Delete color='error' />
+                                                    <Delete color='error'/>
                                                 </IconButton>
                                             </div>
                                         </Grid>
