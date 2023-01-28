@@ -12,6 +12,7 @@ import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProject
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import ArgonBox from "../../components/ArgonBox";
 import sportsGala from "../../assets/images/sportsEvent.jpg";
+import DialogActions from "@mui/material/DialogActions";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -122,9 +123,13 @@ function AddEvent() {
                         onChange={(e) => setImage(e.target.value)}
                         fullWidth
                     />
-                    <Button variant="contained" color="primary" onClick={handleAdd}>
-                        Add
-                    </Button>
+                    {/*<Button variant="contained" color="primary" onClick={handleAdd}>*/}
+                    {/*    Add*/}
+                    {/*</Button>*/}
+                    <DialogActions>
+                        <Button onClick={handleClose}>Cancel</Button>
+                        <Button onClick={handleAdd}>Add Event</Button>
+                    </DialogActions>
                 </Card>
             </Modal>
             <div className={classes.cardContainer}>
