@@ -20,6 +20,7 @@ import AddSportForm from "../../examples/CustomCards/AddSportForm";
 import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
 import Scoreboard from "../Executor/ManageFinalScore";
 import AddEvent from "../patron/AddEvent";
+import AddSport from "../patron/AddSport";
 // import AddSportForm from "../../examples/CustomCards/AddSportForm";
 // import SportsRegistrationForm from './RegistrationForm';
 
@@ -138,6 +139,7 @@ export default function ViewSports() {
                 <Scoreboard />
 
                 <AddEvent />
+                <AddSport />
 
             </DashboardLayout>
         </>

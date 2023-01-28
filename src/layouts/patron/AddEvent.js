@@ -173,7 +173,7 @@ function AddEvent() {
                             />
 
                             <ArgonBox mt={4} mb={1}>
-                                <ArgonButton variant="gradient" color="dark" style={{width:'45%', marginRight:"5px"}}>
+                                <ArgonButton onClick={handleClose} variant="gradient" color="dark" style={{width:'45%', marginRight:"5px"}}>
                                     Cancel
                                 </ArgonButton>
                                 <ArgonButton variant="gradient" color="info" onClick={handleAdd} style={{width:'45%'}}>
