@@ -220,10 +220,10 @@ function AddEvent() {
                                             />
                                             <div className={classes.cardActions}>
                                                 <IconButton onClick={() => handleEdit(index)}>
-                                                    <Edit />
+                                                    <Edit color='info'/>
                                                 </IconButton>
                                                 <IconButton onClick={() => handleDelete(index)}>
-                                                    <Delete />
+                                                    <Delete color='error' />
                                                 </IconButton>
                                             </div>
                                         </Grid>

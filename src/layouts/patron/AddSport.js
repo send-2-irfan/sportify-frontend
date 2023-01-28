@@ -193,12 +193,10 @@ function AddSport() {
                         </ArgonBox>
                     </ArgonBox>
                 </Card>
-
-
             </Modal>
 
             {/*New Componenet ends here*/}
-
+            <ArgonBox mb={2}/>
             <Card>
                 <ArgonBox p={2}>
                     <Grid container spacing={4}>
@@ -206,11 +204,11 @@ function AddSport() {
                             <Card className={classes.card} key={index} style={{
                                 justifyContent: "space-around", alignItems: 'space-between'}}>
                                 <ArgonBox p={2}>
-                                    <Grid container spacing={2}>
+
                                         <Grid item xs={12} md={6} xl={4} >
                                             <DefaultProjectCard
                                                 image={card.image || ((card.name == 'cricket' || 'Cricket') ? cricket : "Card Image") }
-                                                label={card.fee}
+                                                label={'Registration Fee: '+ card.fee}
                                                 title={card.name}
                                                 description={
                                                     card.details ||
@@ -230,14 +228,14 @@ function AddSport() {
                                             />
                                             <div className={classes.cardActions}>
                                                 <IconButton onClick={() => handleEdit(index)}>
-                                                    <Edit />
+                                                    <Edit color='info'/>
                                                 </IconButton>
                                                 <IconButton onClick={() => handleDelete(index)}>
-                                                    <Delete />
+                                                    <Delete color='error' />
                                                 </IconButton>
                                             </div>
                                         </Grid>
-                                    </Grid>
+
                                 </ArgonBox>
                             </Card>
                         ))}
