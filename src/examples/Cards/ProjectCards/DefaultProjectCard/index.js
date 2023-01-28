@@ -62,7 +62,7 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
           }}
         />
       </ArgonBox>
-      <ArgonBox pt={2} px={0.5}>
+      <ArgonBox pt={1} px={0.5} style={{marginTop:'-5px'}}>
         <ArgonTypography
           variant="button"
           fontWeight="regular"

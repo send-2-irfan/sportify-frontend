@@ -40,11 +40,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function AddEvent() {
+function AddSport() {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [cards, setCards] = useState([]);
     const [name, setName] = useState('');
+    const [fee, setFee] = useState('');
     const [details, setDetails] = useState('');
     const [image, setImage] = useState('');
 
@@ -67,6 +68,7 @@ function AddEvent() {
         setOpen(true);
         setEditingIndex(index);
         setName(cards[index].name);
+        setFee(cards[index].fee);
         setDetails(cards[index].details);
         setImage(cards[index].image);
     };
@@ -74,13 +76,14 @@ function AddEvent() {
     const handleAdd = () => {
         if (editingIndex !== null) {
             const updatedCards = [...cards];
-            updatedCards[editingIndex] = { name, details, image };
+            updatedCards[editingIndex] = { name, fee, details, image };
             setCards(updatedCards);
             setEditingIndex(null);
         } else {
-            setCards([...cards, { name, details, image }]);
+            setCards([...cards, { name, fee, details, image }]);
         }
         setName('');
+        setFee('');
         setDetails('');
         setImage('');
         handleClose();
@@ -159,6 +162,13 @@ function AddEvent() {
                                 fullWidth
                             />
                             <TextField
+                                label="Fee"
+                                value={fee}
+                                onChange={(e) => setFee(e.target.value)}
+                                fullWidth
+                                style={{marginBottom:'15px', }}
+                            />
+                            <TextField
                                 label="Details"
                                 value={details}
                                 onChange={(e) => setDetails(e.target.value)}
@@ -180,12 +190,12 @@ function AddEvent() {
                                     Add Event
                                 </ArgonButton>
                             </ArgonBox>
+                        </ArgonBox>
                     </ArgonBox>
-                </ArgonBox>
-            </Card>
+                </Card>
 
 
-        </Modal>
+            </Modal>
 
             {/*New Componenet ends here*/}
 
@@ -215,7 +225,7 @@ function AddEvent() {
                                                     type: "internal",
                                                     route: "./view-sports",
                                                     color: "info",
-                                                    label: "View Event",
+                                                    label: "Register",
                                                 }}
                                             />
                                             <div className={classes.cardActions}>
@@ -238,4 +248,4 @@ function AddEvent() {
     );
 }
 
-export default AddEvent;
+export default AddSport;

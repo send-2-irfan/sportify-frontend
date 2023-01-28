@@ -13,6 +13,7 @@ import homeDecor3 from "../../assets/images/home-decor-3.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import FormDialog from "./AddEventModal";
 import {useState} from "react";
+import AddEvent from "../patron/AddEvent";
 
 
 export default function Events() {
@@ -35,32 +36,37 @@ export default function Events() {
                                 </ArgonTypography>
                             </ArgonBox>
                         </ArgonBox>
-                        <ArgonBox p={2}>
-                            <Grid container spacing={3}>
-                                <Grid item xs={12} md={6} xl={4}>
-                                    <DefaultProjectCard
-                                        image={sportsGala}
-                                        label=""
-                                        title="Sports Gala 2023"
-                                        description="The Sports Gala at Sukkur IBA University is an annual event featuring a variety of sports and activities for students, faculty, and staff. It is an opportunity to come together and showcase athletic skills, as well as to promote physical health and wellness on campus."
-                                        action={{
-                                            type: "internal",
-                                            route: "/pages/profile/profile-overview",
-                                            color: "info",
-                                            label: "View Event",
-                                        }}
-                                    />
-                                </Grid>
-                                <Grid onClick={openModal} item xs={12} md={6} xl={3}>
-                                    <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />
-                                </Grid>
+                        {/*<ArgonBox p={2}>*/}
+                        {/*    <Grid container spacing={3}>*/}
+                                {/*<Grid item xs={12} md={6} xl={4}>*/}
+                                {/*    <DefaultProjectCard*/}
+                                {/*        image={sportsGala}*/}
+                                {/*        label=""*/}
+                                {/*        title="Sports Gala 2023"*/}
+                                {/*        description="The Sports Gala at Sukkur IBA University is an annual event featuring a variety of sports and activities for students, faculty, and staff. It is an opportunity to come together and showcase athletic skills, as well as to promote physical health and wellness on campus."*/}
+                                {/*        action={{*/}
+                                {/*            type: "internal",*/}
+                                {/*            route: "/pages/profile/profile-overview",*/}
+                                {/*            color: "info",*/}
+                                {/*            label: "View Event",*/}
+                                {/*        }}*/}
+                                {/*    />*/}
+                                {/*</Grid>*/}
+                                {/*<Grid onClick={openModal} item xs={12} md={6} xl={3}>*/}
+                                {/*    <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />*/}
+                                {/*</Grid>*/}
 
-                                <Card>
-                                    <FormDialog show={show} setShow={setShow} />
-                                </Card>
+                                {/*<Card>*/}
+                                {/*    <FormDialog show={show} setShow={setShow} />*/}
+                                {/*</Card>*/}
 
-                            </Grid>
-                        </ArgonBox>
+
+
+                                <AddEvent />
+
+
+                        {/*    </Grid>*/}
+                        {/*</ArgonBox>*/}
                     </Card>
                 </ArgonBox>
             </DashboardLayout>
