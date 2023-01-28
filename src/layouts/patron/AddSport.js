@@ -11,7 +11,7 @@ import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import ArgonBox from "../../components/ArgonBox";
-import sportsGala from "../../assets/images/sportsEvent.jpg";
+import cricket from "../../assets/images/cricket.jpg";
 import DialogActions from "@mui/material/DialogActions";
 import ArgonTypography from "../../components/ArgonTypography";
 import ArgonButton from "../../components/ArgonButton";
@@ -209,8 +209,8 @@ function AddSport() {
                                     <Grid container spacing={2}>
                                         <Grid item xs={12} md={6} xl={4} >
                                             <DefaultProjectCard
-                                                image={card.image || sportsGala } alt="Card Image"
-                                                label=""
+                                                image={card.image || ((card.name == 'cricket' || 'Cricket') ? cricket : "Card Image") }
+                                                label={card.fee}
                                                 title={card.name}
                                                 description={
                                                     card.details ||
