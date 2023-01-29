@@ -27,6 +27,7 @@ export default function AddSportForm() {
         fee: '',
         eventId: ''
     })
+
     const handleSportsChange = (event) => {
         event.preventDefault()
         setSport(event.target.value);
@@ -92,29 +93,6 @@ export default function AddSportForm() {
                     </Select>
                 </FormControl>
 
-                {/*<FormControl variant="outlined" className={classes.formControl}>*/}
-                {/*    /!*<InputLabel id="sports-label">Select Sports</InputLabel>*!/*/}
-                {/*    <Select*/}
-                {/*        labelId="sports-label"*/}
-                {/*        id="sports"*/}
-                {/*        value={sport}*/}
-                {/*        onChange={(e)=> handleSportsChange(e)}*/}
-                {/*        placeholder="Select Sport"*/}
-                {/*        inputProps={{*/}
-                {/*            name: 'activity',*/}
-                {/*            id: 'activity-select',*/}
-                {/*        }}*/}
-                {/*    >*/}
-                {/*        <MenuItem value="none"></MenuItem>*/}
-                {/*        <MenuItem value="cricket">Cricket</MenuItem>*/}
-                {/*        <MenuItem value="chess">Chess</MenuItem>*/}
-                {/*        <MenuItem value="football">Football</MenuItem>*/}
-                {/*        <MenuItem value="tennis">Tennis</MenuItem>*/}
-                {/*        <MenuItem value="ludo">Ludo</MenuItem>*/}
-                {/*        <MenuItem value="jumping">Jumping</MenuItem>*/}
-                {/*        <MenuItem value="tug-of-war">Tug of Wars</MenuItem>*/}
-                {/*    </Select>*/}
-                {/*</FormControl>*/}
             </ArgonBox>
             <ArgonBox mb={1.5}>
                 <ArgonInput

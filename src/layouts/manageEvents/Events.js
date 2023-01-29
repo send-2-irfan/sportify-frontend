@@ -11,7 +11,6 @@ import sportsGala from "../../assets/images/sportsEvent.jpg";
 import homeDecor2 from "../../assets/images/home-decor-2.jpg";
 import homeDecor3 from "../../assets/images/home-decor-3.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
-import FormDialog from "./AddEventModal";
 import {useContext, useEffect, useState} from "react";
 import AddEvent from "../patron/AddEvent";
 import {ApplicationContext} from "../../context/ApplicationContext";
@@ -66,9 +65,9 @@ export default function Events() {
                                 {/*    <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />*/}
                                 {/*</Grid>*/}
 
-                                <Card>
-                                    <FormDialog show={show} setShow={setShow}/>
-                                </Card>
+                                {/*<Card>*/}
+                                {/*    <FormDialog show={show} setShow={setShow}/>*/}
+                                {/*</Card>*/}
                             </Grid>
                         </ArgonBox>
                         <AddEvent/>

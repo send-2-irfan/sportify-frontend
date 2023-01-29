@@ -100,42 +100,6 @@ function AddSport() {
             <Grid onClick={handleOpen} style={{width:'15%', marginTop:'20px', marginLeft:'20px'}}>
                 <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />
             </Grid>
-            {/*<Modal*/}
-            {/*    open={open}*/}
-            {/*    onClose={handleClose}*/}
-            {/*>*/}
-            {/*    <Card className={classes.paper}>*/}
-            {/*        <TextField*/}
-            {/*            label="Name"*/}
-            {/*            value={name}*/}
-            {/*            onChange={(e) => setName(e.target.value)}*/}
-            {/*            fullWidth*/}
-            {/*        />*/}
-            {/*        <TextField*/}
-            {/*            label="Details"*/}
-            {/*            value={details}*/}
-            {/*            onChange={(e) => setDetails(e.target.value)}*/}
-            {/*            fullWidth*/}
-            {/*        />*/}
-            {/*        <TextField*/}
-            {/*            label="Image"*/}
-            {/*            value={image}*/}
-            {/*            onChange={(e) => setImage(e.target.value)}*/}
-            {/*            fullWidth*/}
-            {/*        />*/}
-            {/*        /!*<Button variant="contained" color="primary" onClick={handleAdd}>*!/*/}
-            {/*        /!*    Add*!/*/}
-            {/*        /!*</Button>*!/*/}
-            {/*        <DialogActions>*/}
-            {/*            <Button onClick={handleClose}>Cancel</Button>*/}
-            {/*            <Button onClick={handleAdd}>Add Event</Button>*/}
-            {/*        </DialogActions>*/}
-            {/*    </Card>*/}
-            {/*</Modal>*/}
-
-
-            {/*From this new component is added*/}
-
 
             <Modal
                 open={open}
