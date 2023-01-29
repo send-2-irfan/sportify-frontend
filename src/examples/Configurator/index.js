@@ -72,12 +72,7 @@ function Configurator() {
         pb={0.8}
         px={3}
       >
-        <ArgonBox>
-          <ArgonTypography variant="h5">Argon Configurator</ArgonTypography>
-          <ArgonTypography variant="body2" color="text">
-            See our dashboard options.
-          </ArgonTypography>
-        </ArgonBox>
+
 
         <Icon
           sx={({ typography: { size, fontWeightBold }, palette: { dark, white } }) => ({

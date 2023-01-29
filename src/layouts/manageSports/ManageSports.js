@@ -117,6 +117,7 @@ export default function ManageSports() {
                                 </Grid>
                                 {/*<SportsFormDialog show={show} setShow={setShow} />*/}
                                 <PlayerRegistrationFormDialog show={showPlayer} setShowPlayer={setShowPlayer} />
+
                             </Grid>
                         </ArgonBox>
                     </Card>

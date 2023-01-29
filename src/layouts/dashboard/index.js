@@ -46,15 +46,16 @@ function Default() {
               title="Total Events"
               count={allEvents.length}
               icon={{ color: "info", component: <i className="ni ni-money-coins" /> }}
-              percentage={{ color: "success", count: "1", text: "since yesterday" }}
+              percentage={{ color: "success", count: "", text: "" }}
             />
+
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
               title="Total Games"
               count="4"
               icon={{ color: "error", component: <i className="ni ni-world" /> }}
-              percentage={{ color: "success", count: "", text: "this week" }}
+              percentage={{ color: "success", count: "", text: "" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
@@ -62,7 +63,7 @@ function Default() {
               title="new teams"
               count="13"
               icon={{ color: "success", component: <i className="ni ni-paper-diploma" /> }}
-              percentage={{ color: "error", count: "...", text: "..." }}
+              percentage={{ color: "error", count: "", text: "" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
@@ -70,7 +71,7 @@ function Default() {
               title="total Executors"
               count="4"
               icon={{ color: "warning", component: <i className="ni ni-single-02" /> }}
-              percentage={{ color: "success", count: "...", text: "..." }}
+              percentage={{ color: "success", count: "", text: "" }}
             />
           </Grid>
         </Grid>

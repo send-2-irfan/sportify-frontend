@@ -61,7 +61,7 @@ export default function ViewSports() {
             <DashboardLayout>
                 <DashboardNavbar/>
                 <h1 style={{color:"white"}}>Sports List</h1>
-                <ArgonBox mb={3}>
+                <ArgonBox mb={1}>
 
 
                     <Card>
@@ -74,7 +74,7 @@ export default function ViewSports() {
                             <ArgonBox mb={1}>
                             </ArgonBox>
                         </ArgonBox>
-                        <ArgonBox p={3}>
+                        <ArgonBox p={2}>
                             {sports.map((sport) => (
                                 <Grid container spacing={3} style={{marginTop:'5px'}}>
                                 <Grid item xs={12} md={3} xl={8}>
