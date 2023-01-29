@@ -49,7 +49,7 @@ function Cover() {
               <ArgonInput placeholder="Name" />
             </ArgonBox>
             <ArgonBox mb={2}>
-              <ArgonInput type="email" placeholder="Email" />
+              <ArgonInput type="email" placeholder="CMS-ID" />
             </ArgonBox>
             <ArgonBox mb={2}>
               <ArgonInput type="password" placeholder="Password" />

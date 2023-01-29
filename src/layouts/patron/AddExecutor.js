@@ -64,7 +64,7 @@ function AddExecutor() {
     const handleClose = () => {
         setOpen(false);
     };
-    const {setAllEvents } = useContext(ApplicationContext)
+    const {setAllExecutors } = useContext(ApplicationContext)
 
 
     const handleDelete = (index) => {
@@ -77,7 +77,7 @@ function AddExecutor() {
             let items = JSON.parse(localStorage.getItem("executors"))
             items.push(executors)
             localStorage.setItem("executors", JSON.stringify(items))
-            setAllEvents(items)
+            setAllExecutors(items)
             setExecutors({
                 name: '',
                 cms:'',
@@ -93,7 +93,7 @@ function AddExecutor() {
             let executorNew = []
             executorNew.push(executors)
             localStorage.setItem("executors", JSON.stringify(executorNew))
-            setAllEvents(executorNew)
+            setAllExecutors(executorNew)
             setExecutors({
                 name: '',
                 cms:'',
@@ -125,14 +125,13 @@ function AddExecutor() {
                 <Card style={{width: '24%'}}>
                     <ArgonBox p={3} textAlign="center" style={{margin: '0px'}}>
                         <ArgonTypography variant="h5" fontWeight="medium">
-                            Register Event
+                            Register Executor
                         </ArgonTypography>
                     </ArgonBox>
                     <ArgonBox pt={2} pb={3} px={3} style={{marginTop: '-20px'}}>
                         <ArgonBox component="form" role="form">
                             <ArgonBox mb={2}>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
-                                    // label="Name"
                                             placeholder='Name'
                                             value={executors.name}
                                             onChange={(e) => setExecutors({...executors, name: e.target.value})}

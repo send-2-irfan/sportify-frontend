@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ExecutorCard = ({ imageUrl, name, department, cmsId, email, password }) => {
+const ExecutorCard = ({ imageUrl, name, department, cmsId, email }) => {
     const classes = useStyles();
 
     return (

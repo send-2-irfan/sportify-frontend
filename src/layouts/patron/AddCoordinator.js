@@ -63,7 +63,7 @@ function AddCoordinator() {
     const handleClose = () => {
         setOpen(false);
     };
-    const {setAllEvents } = useContext(ApplicationContext)
+    const {setAllCoordinators } = useContext(ApplicationContext)
 
 
     const handleDelete = (index) => {
@@ -75,8 +75,8 @@ function AddCoordinator() {
         if (JSON.parse(localStorage.getItem("coordinators"))) {
             let items = JSON.parse(localStorage.getItem("coordinators"))
             items.push(coordinator)
-            localStorage.setItem("coordinator", JSON.stringify(items))
-            setAllEvents(items)
+            localStorage.setItem("coordinators", JSON.stringify(items))
+            setAllCoordinators(items)
             setCoordinator({
                 name: '',
                 program: '',
@@ -91,7 +91,7 @@ function AddCoordinator() {
             let newCoordinator = []
             newCoordinator.push(coordinator)
             localStorage.setItem("events", JSON.stringify(newCoordinator))
-            setAllEvents(newCoordinator)
+            setAllCoordinators(newCoordinator)
             setCoordinator({
                 name: '',
                 program: '',
@@ -104,12 +104,6 @@ function AddCoordinator() {
             handleClose();
         }
     };
-
-    // // Card modal
-    // const [show, setShow] = useState(false);
-    // const openModal = () => {
-    //     setShow(true);
-    // }
 
     return (
         <div>

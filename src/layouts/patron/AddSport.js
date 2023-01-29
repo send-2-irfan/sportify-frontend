@@ -113,7 +113,7 @@ function AddSport() {
                 <Card style={{width:'24%'}}>
                     <ArgonBox p={3} mb={1} textAlign="center">
                         <ArgonTypography variant="h5" fontWeight="medium">
-                            Register Event
+                            Register Sport
                         </ArgonTypography>
                     </ArgonBox>
                     <ArgonBox pt={2} pb={3} px={3}>

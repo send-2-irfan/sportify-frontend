@@ -39,7 +39,7 @@ function Illustration() {
     >
       <ArgonBox component="form" role="form">
         <ArgonBox mb={2}>
-          <ArgonInput type="email" placeholder="Email" size="large" />
+          <ArgonInput type="email" placeholder="CMS-ID" size="large" />
         </ArgonBox>
         <ArgonBox mb={2}>
           <ArgonInput type="password" placeholder="Password" size="large" />
