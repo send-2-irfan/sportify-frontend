@@ -29,7 +29,7 @@ function Illustration() {
   return (
     <IllustrationLayout
       title="Sign In"
-      description="Enter your email and password to sign in"
+      description="Enter your CMS-ID and Password to sign in"
       illustration={{
         image: bgImage,
         title: 'SIBAU Sports Management System',
