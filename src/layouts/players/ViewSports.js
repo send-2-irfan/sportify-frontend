@@ -132,11 +132,11 @@ export default function ViewSports() {
 
                 </ArgonBox>
 
-                <AddSportForm />
+                {/*<AddSportForm />*/}
                 <FootballTeamRegistrationForm />
                 <Scoreboard />
 
-                <AddEvent />
+                {/*<AddEvent />*/}
                 <AddSport />
 
             </DashboardLayout>
