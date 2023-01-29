@@ -36,6 +36,13 @@ function Default() {
   useEffect(() => {
     JSON.parse(localStorage.getItem("events")) && setAllEvents(JSON.parse(localStorage.getItem("events")))
   }, [])
+
+  const {sports, setSports} = useContext(ApplicationContext)
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("sports")) && setSports(JSON.parse(localStorage.getItem("sports")))
+  }, [])
+
+
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -53,7 +60,7 @@ function Default() {
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
               title="Total Games"
-              count="4"
+              count={sports.length}
               icon={{ color: "error", component: <i className="ni ni-world" /> }}
               percentage={{ color: "success", count: "", text: "" }}
             />

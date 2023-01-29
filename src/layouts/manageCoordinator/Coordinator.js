@@ -19,8 +19,18 @@ import Bill from "../billing/components/Bill";
 import ArgonAvatar from "../../components/ArgonAvatar";
 import burceMars from "../../assets/images/bruce-mars.jpg";
 import Depeeka from "../../assets/images/team-1.jpg";
+import AddCoordinator from "../patron/AddCoordinator";
+import {useContext, useEffect} from "react";
+import {ApplicationContext} from "../../context/ApplicationContext";
+
+
 
 export default function ManageCoordinator() {
+    const {coordinators, setAllCoordinators} = useContext(ApplicationContext)
+    useEffect(() => {
+        JSON.parse(localStorage.getItem("coordinator")) && setAllCoordinators(JSON.parse(localStorage.getItem("coordinator")))
+    }, [])
+
     const profileImg = <ArgonAvatar
         src={Depeeka}
         alt="profile-image"
@@ -37,29 +47,34 @@ export default function ManageCoordinator() {
                     <Card>
                         <ArgonBox pt={2} px={2}>
                             <ArgonBox mb={0.5}>
-                                <ArgonTypography variant="h6" fontColor="#32325d" fontWeight="medium" >
+                                <ArgonTypography variant="h6" fontcolor="#32325d" fontWeight="medium" >
                                     Manage Coordinator
                                 </ArgonTypography>
                             </ArgonBox>
 
                         </ArgonBox>
                         <ArgonBox p={2}>
-                            <Grid container spacing={3}>
-                                {/*<Grid item xs={12} md={6} xl={2}>*/}
-                                {/*    {profileImg}*/}
-                                {/*</Grid>*/}
-                                <Bill
-                                    name="Depeeka Gai"
-                                    company="Computer Science"
-                                    email="lucas@stone-tech.com"
-                                    vat="051-19-0000"
-                                    img = {profileImg}
-                                ></Bill>
-                                <Grid item xs={12} md={6} xl={2}>
-                                    <PlaceholderCard title={{ variant: "h5", text: "Add Coordinator" }} outlined />
-                                </Grid>
-                            </Grid>
+                            {
+                                coordinators.map(events => {
+                                    return <Grid container spacing={3} p={2}>
+                                        <Bill
+                                            name={events.name}
+                                            company={events.departmentName}
+                                            email={events.email}
+                                            vat={events.cmsID}
+                                            img={<ArgonAvatar
+                                                src={events.imageUrl}
+                                                alt="profile-image"
+                                                variant="rounded"
+                                                size="xxl"
+                                                shadow="sm"
+                                            />}
+                                        ></Bill>
+                                    </Grid>
+                                })
+                            }
                         </ArgonBox>
+                        <AddCoordinator/>
                     </Card>
                 </ArgonBox>
             </DashboardLayout>

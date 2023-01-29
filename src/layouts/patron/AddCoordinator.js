@@ -47,7 +47,6 @@ function AddCoordinator() {
     const [cards, setCards] = useState([]);
     const [coordinator, setCoordinator] = useState({
         name: '',
-        program: '',
         departmentName: '',
         semester: '',
         email: '',
@@ -79,7 +78,6 @@ function AddCoordinator() {
             setAllCoordinators(items)
             setCoordinator({
                 name: '',
-                program: '',
                 departmentName: '',
                 semester: '',
                 email: '',
@@ -90,11 +88,10 @@ function AddCoordinator() {
         } else {
             let newCoordinator = []
             newCoordinator.push(coordinator)
-            localStorage.setItem("events", JSON.stringify(newCoordinator))
+            localStorage.setItem("coordinator", JSON.stringify(newCoordinator))
             setAllCoordinators(newCoordinator)
             setCoordinator({
                 name: '',
-                program: '',
                 departmentName: '',
                 semester: '',
                 email: '',
@@ -104,6 +101,8 @@ function AddCoordinator() {
             handleClose();
         }
     };
+
+    console.log(coordinator)
 
     return (
         <div>
@@ -121,66 +120,76 @@ function AddCoordinator() {
                 }}
             >
                 <Card style={{width: '24%'}}>
-                    <ArgonBox p={3} mb={1} textAlign="center">
+                    <ArgonBox p={3} textAlign="center" style={{margin: '0px'}}>
                         <ArgonTypography variant="h5" fontWeight="medium">
-                            Register Coordinator
+                            Register Event
                         </ArgonTypography>
                     </ArgonBox>
-                    <ArgonBox pt={2} pb={3} px={3}>
+                    <ArgonBox pt={2} pb={3} px={3} style={{marginTop: '-20px'}}>
                         <ArgonBox component="form" role="form">
-                            <TextField
-                                style={{marginBottom: '10px', textAlign: 'center'}}
-                                label="Name"
-                                value={coordinator.name}
-                                onChange={(e) => setCoordinator({...coordinator, name: e.target.value})}
-                                fullWidth
-                            />
-                            <TextField
-                                label="program"
-                                value={coordinator.program}
-                                onChange={(e) => setCoordinator({...coordinator, program: e.target.value})}
-                                fullWidth
-                                style={{marginBottom: '9px',}}
-                            />
-                            <TextField
-                                label="department"
-                                value={coordinator.imageUrl}
-                                onChange={(e) => setCoordinator({...coordinator, departmentName: e.target.value})}
-                                fullWidth
-                            />
-                            <TextField
-                                label="semester"
-                                value={coordinator.imageUrl}
-                                onChange={(e) => setCoordinator({...coordinator, semester: e.target.value})}
-                                fullWidth
-                            />
-
-                            <TextField
-                                label="email"
-                                value={coordinator.imageUrl}
-                                onChange={(e) => setCoordinator({...coordinator, email: e.target.value})}
-                                fullWidth
-                            />
-                            <TextField
-                                label="CMS-ID"
-                                value={coordinator.imageUrl}
-                                onChange={(e) => setCoordinator({...coordinator, cmsID: e.target.value})}
-                                fullWidth
-                            />
-                            <TextField
-                                label="contact number"
-                                value={coordinator.imageUrl}
-                                onChange={(e) => setCoordinator({...coordinator, contact: e.target.value})}
-                                fullWidth
-                            />
-
+                            <ArgonBox mb={2}>
+                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                            placeholder='Coordinator Name'
+                                            value={coordinator.name}
+                                            onChange={(e) => setCoordinator({...coordinator, name: e.target.value})}
+                                            fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={2}>
+                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                            placeholder="Department"
+                                            value={coordinator.departmentName}
+                                            onChange={(e) => setCoordinator({...coordinator, departmentName: e.target.value})}
+                                            fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={2}>
+                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                            placeholder="Semester"
+                                            value={coordinator.semester}
+                                            onChange={(e) => setCoordinator({...coordinator, semester: e.target.value})}
+                                            fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={2}>
+                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                            placeholder="Email"
+                                            value={coordinator.email}
+                                            onChange={(e) => setCoordinator({...coordinator, email: e.target.value})}
+                                            fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={2}>
+                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                            placeholder="CMS-ID"
+                                            value={coordinator.cmsID}
+                                            onChange={(e) => setCoordinator({...coordinator, cmsID: e.target.value})}
+                                            fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={2}>
+                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                            placeholder="Contact Number"
+                                            value={coordinator.contact}
+                                            onChange={(e) => setCoordinator({...coordinator, contact: e.target.value})}
+                                            fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={2}>
+                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                            placeholder="Image Url"
+                                            value={coordinator.imageUrl}
+                                            onChange={(e) => setCoordinator({...coordinator, imageUrl: e.target.value})}
+                                            fullWidth
+                                />
+                            </ArgonBox>
                             <ArgonBox mt={4} mb={1}>
                                 <ArgonButton onClick={handleClose} variant="gradient" color="dark"
-                                             style={{width: '45%', marginRight: "5px"}}>
+                                             style={{width: '48%', marginRight: "5px"}}>
                                     Cancel
                                 </ArgonButton>
                                 <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)}
-                                             style={{width: '45%'}}>
+                                             style={{width: '48%'}}>
                                     Add Event
                                 </ArgonButton>
                             </ArgonBox>

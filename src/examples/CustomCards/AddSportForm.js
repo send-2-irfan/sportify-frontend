@@ -65,36 +65,44 @@ export default function AddSportForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
             <ArgonTypography variant="h6" fontWeight="medium" style={{marginBottom: '10px', textAlign: 'center'}}>
                 <h2>Register Sport</h2>
             </ArgonTypography>
+            {/*<ArgonBox mb={1.5}>*/}
+            {/*    <FormControl sx={{ minWidth: "100%" }}>*/}
+            {/*        <InputLabel id="sport">Select Sport</InputLabel>*/}
+            {/*        <Select*/}
+            {/*            style={{alignContent:'center'}}*/}
+            {/*            labelId="sport"*/}
+            {/*            id="demo-simple-select-helper"*/}
+            {/*            value={sportData}*/}
+            {/*            label="Sport"*/}
+            {/*               style={{marginRight:'200px'}}*/}
+            {/*            onChange={(e)=> setSportsData({...sportData, sportName: e.target.value})}*/}
+            {/*        >*/}
+            {/*            <MenuItem value="none"></MenuItem>*/}
+            {/*            <MenuItem value="cricket">Cricket</MenuItem>*/}
+            {/*            <MenuItem value="chess">Chess</MenuItem>*/}
+            {/*            <MenuItem value="football">Football</MenuItem>*/}
+            {/*            <MenuItem value="tennis">Tennis</MenuItem>*/}
+            {/*            <MenuItem value="ludo">Ludo</MenuItem>*/}
+            {/*            <MenuItem value="jumping">Jumping</MenuItem>*/}
+            {/*            <MenuItem value="tug-of-war">Tug of Wars</MenuItem>*/}
+            {/*        </Select>*/}
+            {/*    </FormControl>*/}
+            {/*</ArgonBox>*/}
+
             <ArgonBox mb={1.5}>
-
-                <FormControl sx={{ minWidth: "100%" }}>
-                    <InputLabel id="sport">Select Sport</InputLabel>
-                    <Select
-                        style={{alignContent:'center'}}
-                        labelId="sport"
-                        id="demo-simple-select-helper"
-                        value={sportData}
-                        label="Sport"
-                           style={{marginRight:'200px'}}
-                        onChange={(e)=> setSportsData({...sportData, sportName: e.target.value})}
-                    >
-                        <MenuItem value="none"></MenuItem>
-                        <MenuItem value="cricket">Cricket</MenuItem>
-                        <MenuItem value="chess">Chess</MenuItem>
-                        <MenuItem value="football">Football</MenuItem>
-                        <MenuItem value="tennis">Tennis</MenuItem>
-                        <MenuItem value="ludo">Ludo</MenuItem>
-                        <MenuItem value="jumping">Jumping</MenuItem>
-                        <MenuItem value="tug-of-war">Tug of Wars</MenuItem>
-                    </Select>
-                </FormControl>
-
+                <ArgonInput
+                    placeholder="Name"
+                    id="Name"
+                    value={sportData.sportName}
+                    onChange={(e)=> setSportsData({...sportData, sportName: e.target.value})}
+                    fullWidth
+                />
             </ArgonBox>
-            <ArgonBox mb={1.5}>
+            <ArgonBox mb={1.5} >
                 <ArgonInput
                     placeholder="Description"
                     multiline
@@ -130,7 +138,7 @@ export default function AddSportForm() {
 
 
             <ArgonBox mb={.5}>
-                <Button style={{width:'45%', marginRight:'10px'}} variant="contained" color="primary">
+                <Button style={{width:'45%', marginRight:'10px'}} variant="contained" color="info">
                     Cancel
                 </Button>
                 <Button style={{width:'45%'}} type="submit" variant="contained" color="primary">

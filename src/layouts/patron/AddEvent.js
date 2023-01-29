@@ -154,8 +154,6 @@ function AddEvent() {
                         </ArgonBox>
                     </ArgonBox>
                 </Card>
-
-
             </Modal>
 
             {/*New Componenet ends here*/}
