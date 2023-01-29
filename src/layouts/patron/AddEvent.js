@@ -93,12 +93,6 @@ function AddEvent() {
         }
     };
 
-    // Card modal
-    const [show, setShow] = useState(false);
-    const openModal = () => {
-        setShow(true);
-    }
-
     return (
         <div>
             <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>
@@ -153,8 +147,7 @@ function AddEvent() {
                                              style={{width: '45%', marginRight: "5px"}}>
                                     Cancel
                                 </ArgonButton>
-                                <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)}
-                                             style={{width: '45%'}}>
+                                <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)} style={{width: '45%'}}>
                                     Add Event
                                 </ArgonButton>
                             </ArgonBox>

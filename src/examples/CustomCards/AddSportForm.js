@@ -70,45 +70,27 @@ export default function AddSportForm() {
             </ArgonTypography>
             <ArgonBox mb={1.5}>
 
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+                <FormControl sx={{ minWidth: "100%" }}>
+                    <InputLabel id="sport">Select Sport</InputLabel>
                     <Select
-                        labelId="demo-simple-select-helper-label"
+                        style={{alignContent:'center'}}
+                        labelId="sport"
                         id="demo-simple-select-helper"
-                        value={sport}
-                        label="Age"
-                        onChange={(e)=> setSport({...sport, sportName: e.target.value})}
+                        value={sportData}
+                        label="Sport"
+                           style={{marginRight:'200px'}}
+                        onChange={(e)=> setSportsData({...sportData, sportName: e.target.value})}
                     >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value="none"></MenuItem>
+                        <MenuItem value="cricket">Cricket</MenuItem>
+                        <MenuItem value="chess">Chess</MenuItem>
+                        <MenuItem value="football">Football</MenuItem>
+                        <MenuItem value="tennis">Tennis</MenuItem>
+                        <MenuItem value="ludo">Ludo</MenuItem>
+                        <MenuItem value="jumping">Jumping</MenuItem>
+                        <MenuItem value="tug-of-war">Tug of Wars</MenuItem>
                     </Select>
-                    {/*<FormHelperText>With label + helper text</FormHelperText>*/}
                 </FormControl>
-
-                {/*<FormControl sx={{ minWidth: "100%" }}>*/}
-                {/*    <InputLabel id="sport">Select Sport</InputLabel>*/}
-                {/*    <Select*/}
-                {/*        style={{alignContent:'center'}}*/}
-                {/*        labelId="sport"*/}
-                {/*        id="demo-simple-select-helper"*/}
-                {/*        value={sportData}*/}
-                {/*        label="Sport"*/}
-                {/*        onChange={(e)=> setSportsData({...sportData, sportName: e.target.value})}*/}
-                {/*    >*/}
-                {/*        <MenuItem value="none"></MenuItem>*/}
-                {/*        <MenuItem value="cricket">Cricket</MenuItem>*/}
-                {/*        <MenuItem value="chess">Chess</MenuItem>*/}
-                {/*        <MenuItem value="football">Football</MenuItem>*/}
-                {/*        <MenuItem value="tennis">Tennis</MenuItem>*/}
-                {/*        <MenuItem value="ludo">Ludo</MenuItem>*/}
-                {/*        <MenuItem value="jumping">Jumping</MenuItem>*/}
-                {/*        <MenuItem value="tug-of-war">Tug of Wars</MenuItem>*/}
-                {/*    </Select>*/}
-                {/*</FormControl>*/}
 
                 {/*<FormControl variant="outlined" className={classes.formControl}>*/}
                 {/*    /!*<InputLabel id="sports-label">Select Sports</InputLabel>*!/*/}
