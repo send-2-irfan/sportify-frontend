@@ -36,7 +36,7 @@ export default function ManageTeams() {
                                 </ArgonTypography>
                             </ArgonBox>
                         </ArgonBox>
-                        <ArgonBox p={2}>
+                        <ArgonBox>
                             {/*<Grid container spacing={3}>*/}
                             {/*    {*/}
                             {/*        teams.map((events, index)=> {*/}
@@ -50,6 +50,7 @@ export default function ManageTeams() {
                             {/*</Grid>*/}
                         </ArgonBox>
                         <RegisterTeamModal/>
+                        <ArgonBox mb={2}/>
                     </Card>
                 </ArgonBox>
             </DashboardLayout>

@@ -42,13 +42,13 @@ export default function ManageCoordinator() {
         <>
             <DashboardLayout>
                 <DashboardNavbar/>
-                <h1>Manage Coordinator</h1>
+                <h1>Report to Patron</h1>
                 <ArgonBox mb={3}>
                     <Card>
                         <ArgonBox pt={2} px={2}>
                             <ArgonBox mb={0.5}>
                                 <ArgonTypography variant="h6" fontcolor="#32325d" fontWeight="medium" >
-                                    Manage Coordinator
+                                    Report to Patron
                                 </ArgonTypography>
                             </ArgonBox>
                         </ArgonBox>

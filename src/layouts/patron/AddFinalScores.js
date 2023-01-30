@@ -23,6 +23,7 @@ import Button from "@mui/material/Button";
 import Paper from '@mui/material/Paper';
 import ArgonButton from "../../components/ArgonButton";
 import Icon from "@mui/material/Icon";
+import ArgonInput from "../../components/ArgonInput";
 
 
 function AddFinalScores() {
@@ -36,8 +37,8 @@ function AddFinalScores() {
 
     // const classes = useStyles();
     const [scores, setScores] = useState([
-        { team: 'Team 1', score: 0, sports: 'Soccer', status: 'Completed' },
-        { team: 'Team 2', score: 0, sports: 'Basketball', status: 'Upcoming' }
+        { team: 'Team 1', score: 0, sports: 'Soccer', status: 'Winner' },
+        { team: 'Team 2', score: 0, sports: 'Basketball', status: 'Winner' }
     ]);
     const [newTeam, setNewTeam] = useState('');
     const [newScore, setNewScore] = useState('');
@@ -92,8 +93,53 @@ function AddFinalScores() {
             <DashboardNavbar />
             <h2>Manage Final Scores</h2 >
             <ArgonBox py={3}>
+                <form onSubmit={handleSubmit} style={{display: 'flex', paddingTop:'3%'}}>
+                    <ArgonBox mb={2} ml={2} mr={1}>
+                        <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                    label="Team Name"
+                                    placeholder="Team Name"
+                                    value={isEditing ? editTeam : newTeam}
+                                    onChange={(e) => isEditing ? setEditTeam(e.target.value) : setNewTeam(e.target.value)}
+                                    margin="normal"
+                        />
+                    </ArgonBox>
+                    <ArgonBox mb={2} mr={1}>
+                        <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                            // label="Score"
+                                    placeholder='Score'
+                                    value={isEditing ? editScore : newScore}
+                                    onChange={(e) => isEditing ? setEditScore(e.target.value) : setNewScore(e.target.value)}
+                                    margin="normal"
+                        />
+                    </ArgonBox>
+                    <ArgonBox mb={2} mr={1}>
+                        <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                    label="Sports"
+                                    placeholder="Sports"
+                                    value={isEditing ? editSports : newSports}
+                                    onChange={(e) => isEditing ? setEditSports(e.target.value) : setNewSports(e.target.value)}
+                                    margin="normal"
+                        />
+                    </ArgonBox>
+                    <ArgonBox mb={2} mr={1}>
+                        <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                    label="Status"
+                                    placeholder="Status"
+                                    value={isEditing ? editStatus : newStatus}
+                                    onChange={(e) => isEditing ? setEditStatus(e.target.value) : setNewStatus(e.target.value)}
+                                    margin="normal"
+                                    color='info'
+                        />
+                    </ArgonBox>
+                    <ArgonBox mb={2}>
+                        <ArgonButton style={{marginBottom: '10px', textAlign: 'center'}} type="submit" variant="contained" color="dark">
+                            {isEditing ? 'Save' : 'Add Score'}
+                        </ArgonButton>
+                    </ArgonBox>
+                </form>
                 <ArgonBox mb={3}>
                     <Card>
+
                         <Table
                             columns={[
                                 { name: "team", align: "left" },
@@ -104,36 +150,8 @@ function AddFinalScores() {
                             ]}
                             rows={scores}
                         />
-                        <form onSubmit={handleSubmit}>
-                            <TextField
-                                label="Team Name"
-                                value={isEditing ? editTeam : newTeam}
-                                onChange={(e) => isEditing ? setEditTeam(e.target.value) : setNewTeam(e.target.value)}
-                                margin="normal"
-                            />
-                            <TextField
-                                label="Score"
-                                value={isEditing ? editScore : newScore}
-                                onChange={(e) => isEditing ? setEditScore(e.target.value) : setNewScore(e.target.value)}
-                                margin="normal"
-                            />
-                            <TextField
-                                label="Sports"
-                                value={isEditing ? editSports : newSports}
-                                onChange={(e) => isEditing ? setEditSports(e.target.value) : setNewSports(e.target.value)}
-                                margin="normal"
-                            />
-                            <TextField
-                                label="Status"
-                                value={isEditing ? editStatus : newStatus}
-                                onChange={(e) => isEditing ? setEditStatus(e.target.value) : setNewStatus(e.target.value)}
-                                margin="normal"
-                            />
 
-                            <ArgonButton style={{marginTop: '16px', marginLeft: '10px'}} type="submit" variant="contained" color="info">
-                                {isEditing ? 'Save' : 'Add Score'}
-                            </ArgonButton>
-                        </form>
+
 
 
 

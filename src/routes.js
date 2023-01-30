@@ -195,9 +195,9 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "Manage Coordinator",
-                        key: "manage-coordinator",
-                        route: "/manage-coordinator",
+                        name: "Report to Patron",
+                        key: "report-to-patron",
+                        route: "/report-to-patron",
                         icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-02"/>,
                         component: <ManageCoordinator/>,
                     },
