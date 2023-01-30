@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { makeStyles } from '@mui/styles';
 import {
     TextField,
@@ -102,19 +103,21 @@ export default function RepotToPatronCard() {
                 </FormControl>
             </div>
             <div>
-                <FormControl variant="outlined" className={classes.formControl}>
-                    <InputLabel id="department-label">Department</InputLabel>
+                <FormControl variant="outlined" className={classes.formControl} style={{width:'23%'}}>
+                    <InputLabel id="issue-label">Issue Title</InputLabel>
                     <Select
-                        labelId="department-label"
-                        id="department"
+                        labelId="issue-label"
+                        id="Issue"
                         value={department}
                         onChange={handleDepartmentChange}
                         label="Department"
+
                     >
-                        <MenuItem value="sales">Sales</MenuItem>
-                        <MenuItem value="marketing">Marketing</MenuItem>
-                        <MenuItem value="customer-service">Customer Service</MenuItem>
-                        <MenuItem value="technical-support">Technical Support</MenuItem>
+                        <ArrowDropDownIcon/>
+                        <MenuItem value="schedule">Schedule</MenuItem>
+                        <MenuItem value="match">Match</MenuItem>
+                        <MenuItem value="clash">Clash</MenuItem>
+                        <MenuItem value="winner">Winner</MenuItem>
                     </Select>
                 </FormControl>
             </div>

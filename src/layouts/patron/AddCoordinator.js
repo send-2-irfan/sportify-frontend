@@ -102,8 +102,6 @@ function AddCoordinator() {
         }
     };
 
-    console.log(coordinator)
-
     return (
         <div>
             <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>

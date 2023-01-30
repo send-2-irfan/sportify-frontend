@@ -1,12 +1,8 @@
-
-// @mui material components
 import Card from "@mui/material/Card";
 
-// Argon Dashboard 2 MUI components
 import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 
-// Billing page components
 import Bill from "layouts/billing/components/Bill";
 
 function BillingInformation() {

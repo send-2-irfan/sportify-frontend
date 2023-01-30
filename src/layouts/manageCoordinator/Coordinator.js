@@ -51,7 +51,6 @@ export default function ManageCoordinator() {
                                     Manage Coordinator
                                 </ArgonTypography>
                             </ArgonBox>
-
                         </ArgonBox>
                         <ArgonBox p={2}>
                             {

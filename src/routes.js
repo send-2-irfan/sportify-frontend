@@ -13,6 +13,8 @@ import ManageCoordinator from "./layouts/manageCoordinator/Coordinator";
 import ViewSports from "./layouts/players/ViewSports";
 import ManageExecutors from "./layouts/Coordinator/ManageExecutors";
 import GenerateSchedule from "./layouts/Executor/GenerateSchedule";
+import ManageTeams from "./layouts/team/ManageTeams";
+import MangeExecutors from "./layouts/manageExecutor/MangeExecutors";
 
 
 const routes =
@@ -140,24 +142,24 @@ const routes =
                         icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-collection"/>,
                         component: <Events/>,
                     },
-                    // {
-                    //     type: "route",
-                    //     name: "Tables",
-                    //     key: "tables",
-                    //     route: "/tables",
-                    //     icon: (
-                    //         <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-calendar-grid-58"/>
-                    //     ),
-                    //     component: <Tables/>,
-                    // },
-                    // {
-                    //     type: "route",
-                    //     name: "Billing",
-                    //     key: "billing",
-                    //     route: "/billing",
-                    //     icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card"/>,
-                    //     component: <Billing/>,
-                    // },
+                    {
+                        type: "route",
+                        name: "Tables",
+                        key: "tables",
+                        route: "/tables",
+                        icon: (
+                            <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-calendar-grid-58"/>
+                        ),
+                        component: <Tables/>,
+                    },
+                    {
+                        type: "route",
+                        name: "Billing",
+                        key: "billing",
+                        route: "/billing",
+                        icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card"/>,
+                        component: <Billing/>,
+                    },
                     {
                         type: "route",
                         name: "Manage-Sports",
@@ -165,6 +167,14 @@ const routes =
                         route: "/manage-sports",
                         icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-world"/>,
                         component: <ManageSports/>,
+                    },
+                    {
+                        type: "route",
+                        name: "Manage-Executor",
+                        key: "manage-executor",
+                        route: "/manage-executor",
+                        icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-world"/>,
+                        component: <MangeExecutors/>,
                     },
                     {
                         type: "route",
@@ -213,6 +223,14 @@ const routes =
                         route: "/generate-schedule",
                         icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-calendar-grid-58"/>,
                         component: <GenerateSchedule/>,
+                    },
+                    {
+                        type: "route",
+                        name: "Manage-Teams",
+                        key: "manage-teams",
+                        route: "/manage-teams",
+                        icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-calendar-grid-58"/>,
+                        component: <ManageTeams />,
                     },
                     {type: "title", title: "Account Pages", key: "account-pages"},
                     {
