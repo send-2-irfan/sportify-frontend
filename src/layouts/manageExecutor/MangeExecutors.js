@@ -38,14 +38,14 @@ function ManageExecutors() {
                             </ArgonTypography>
                         </ArgonBox>
                     </ArgonBox>
-                <Card id="delete-account">
+                    <Card id="delete-account">
             <ArgonBox pt={2} px={2} display="flex" justifyContent="space-between" alignItems="center">
                 <ArgonTypography variant="h6" fontWeight="medium">
 
                 </ArgonTypography>
                 <ArgonButton variant="gradient" color="dark">
                     <Icon sx={{ fontWeight: "bold" }}>add</Icon>
-                    &nbsp;Add New Card
+                    &nbsp;Add Executor
                 </ArgonButton>
             </ArgonBox>
             <ArgonBox p={2}>
@@ -59,7 +59,7 @@ function ManageExecutors() {
                             alignItems="center"
                             p={1.3}
                         >
-                            <ArgonBox component="img" src={sportsGala} alt="master card" width="35%" mr={1} style={{borderRadius:'8%'}}/>
+                            <ArgonBox component="img" src={sportsGala} alt="master card" width="20%" mr={1} style={{borderRadius:'8%'}}/>
                             <CardContent>
                                 <Typography variant="h6" fontWeight="medium">
                                     Role: Executor
@@ -94,28 +94,6 @@ function ManageExecutors() {
                             </ArgonBox>
                         </ArgonBox>
                     </Grid>
-                    {/*<Grid item xs={12} md={6}>*/}
-                    {/*    <ArgonBox*/}
-                    {/*        border={`${borderWidth[1]} solid ${borderColor}`}*/}
-                    {/*        borderRadius="lg"*/}
-                    {/*        display="flex"*/}
-                    {/*        justifyContent="space-between"*/}
-                    {/*        alignItems="center"*/}
-                    {/*        p={3}*/}
-                    {/*    >*/}
-                    {/*        <ArgonBox component="img" src={visaLogo} alt="master card" width="10%" mr={2} />*/}
-                    {/*        <ArgonTypography variant="h6" fontWeight="medium">*/}
-                    {/*            ****&nbsp;&nbsp;****&nbsp;&nbsp;****&nbsp;&nbsp;5248*/}
-                    {/*        </ArgonTypography>*/}
-                    {/*        <ArgonBox ml="auto" lineHeight={0}>*/}
-                    {/*            <Tooltip title="Edit Card" placement="top">*/}
-                    {/*                <Icon sx={{ cursor: "pointer" }} fontSize="small">*/}
-                    {/*                    edit*/}
-                    {/*                </Icon>*/}
-                    {/*            </Tooltip>*/}
-                    {/*        </ArgonBox>*/}
-                    {/*    </ArgonBox>*/}
-                    {/*</Grid>*/}
                 </Grid>
             </ArgonBox>
         </Card>

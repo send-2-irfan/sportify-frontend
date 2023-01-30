@@ -15,6 +15,7 @@ import ManageExecutors from "./layouts/Coordinator/ManageExecutors";
 import GenerateSchedule from "./layouts/Executor/GenerateSchedule";
 import ManageTeams from "./layouts/team/ManageTeams";
 import MangeExecutors from "./layouts/manageExecutor/MangeExecutors";
+import AddFinalScores from "./layouts/patron/AddFinalScores";
 
 
 const routes =
@@ -170,10 +171,18 @@ const routes =
                     },
                     {
                         type: "route",
+                        name: "Manage Final Scores",
+                        key: "manage-score",
+                        route: "/manage-score",
+                        icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-trophy"/>,
+                        component: <AddFinalScores/>,
+                    },
+                    {
+                        type: "route",
                         name: "Manage-Executor",
                         key: "manage-executor",
                         route: "/manage-executor",
-                        icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-world"/>,
+                        icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-single-02"/>,
                         component: <MangeExecutors/>,
                     },
                     {
