@@ -21,18 +21,24 @@ const useStyles = makeStyles({
 export default function WinnerCard({ winner }) {
     const classes = useStyles();
 
+    const winner1 = {
+        name: 'Alpha',
+        teamLogo: 'SportsRegistrationForm',
+        team: 'Ab'
+    }
+
     return (
         <Card className={classes.root}>
             <CardMedia
                 component="img"
-                alt={winner.name}
+                alt={winner1.name}
                 height="140"
-                image={winner.teamLogo}
-                title={winner.name}
+                image={winner1.teamLogo}
+                title={winner1.name}
             />
             <CardContent>
                 <Avatar className={classes.avatar}>
-                    {winner.name[0]}
+                    {winner.name}
                 </Avatar>
                 <Typography variant="h5" component="h2">
                     {winner.name}

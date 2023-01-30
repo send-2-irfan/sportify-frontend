@@ -8,18 +8,9 @@ import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProject
 import hockeyImg from "../../assets/images/hockey.jpg";
 import cricketImg from "../../assets/images/cricket.jpg";
 import {useContext, useEffect, useState} from "react";
-
-import chessImg from "../../assets/images/img-3.jpg";
-import homeDecor2 from "../../assets/images/home-decor-2.jpg";
-import homeDecor3 from "../../assets/images/home-decor-3.jpg";
-import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import SportsCardForView from "../../examples/Cards/SportsCardForView";
-import SimpleSelect from "./CricketRegistrationForm";
-import FormDialog from "./AddSportsModule";
-import AddSportForm from "../../examples/CustomCards/AddSportForm";
 import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
 import Scoreboard from "../Executor/ManageFinalScore";
-import AddEvent from "../patron/AddEvent";
 import AddSport from "../patron/AddSport";
 import {ApplicationContext} from "../../context/ApplicationContext";
 // import AddSportForm from "../../examples/CustomCards/AddSportForm";
@@ -144,6 +135,7 @@ export default function ViewSports() {
 
                 {/*<AddEvent />*/}
                 <AddSport />
+
 
             </DashboardLayout>
         </>
