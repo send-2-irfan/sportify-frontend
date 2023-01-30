@@ -14,6 +14,7 @@ import ArgonBox from 'components/ArgonBox';
 import ArgonTypography from 'components/ArgonTypography';
 import {ApplicationContext} from "../../context/ApplicationContext";
 import ArgonInput from "../../components/ArgonInput";
+import ArgonButton from "../../components/ArgonButton";
 
 
 
@@ -138,12 +139,12 @@ export default function AddSportForm() {
 
 
             <ArgonBox mb={.5}>
-                <Button style={{width:'45%', marginRight:'10px'}} variant="contained" color="info">
+                <ArgonButton style={{width:'45%', marginRight:'10px'}} variant="contained" color="dark">
                     Cancel
-                </Button>
-                <Button style={{width:'45%'}} type="submit" variant="contained" color="primary">
+                </ArgonButton>
+                <ArgonButton style={{width:'45%'}} type="submit" variant="contained" color="info">
                     Submit
-                </Button>
+                </ArgonButton>
             </ArgonBox>
         </form>
 

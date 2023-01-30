@@ -124,7 +124,7 @@ export default function ManageSports() {
                                 {/* <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
                                 </Grid> */}
-                                <Grid onClick={openPlayerModal} item xs={12} md={6} xl={3}>
+                                <Grid onClick={openPlayerModal} item xs={12} md={6} xl={2}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
                                 </Grid>
                                 {/*<SportsFormDialog show={show} setShow={setShow} />*/}

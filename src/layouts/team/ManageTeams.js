@@ -37,17 +37,17 @@ export default function ManageTeams() {
                             </ArgonBox>
                         </ArgonBox>
                         <ArgonBox p={2}>
-                            <Grid container spacing={3}>
-                                {
-                                    teams.map(events=> {
-                                        return  <ArgonBox m={3} >
-                                            <Card>
-
-                                            </Card>
-                                        </ArgonBox>
-                                    })
-                                }
-                            </Grid>
+                            {/*<Grid container spacing={3}>*/}
+                            {/*    {*/}
+                            {/*        teams.map((events, index)=> {*/}
+                            {/*            return  <ArgonBox m={3} >*/}
+                            {/*                <Card key={index}>*/}
+                            {/*                    <h1>{events.teamName}</h1>*/}
+                            {/*                </Card>*/}
+                            {/*            </ArgonBox>*/}
+                            {/*        })*/}
+                            {/*    }*/}
+                            {/*</Grid>*/}
                         </ArgonBox>
                         <RegisterTeamModal/>
                     </Card>

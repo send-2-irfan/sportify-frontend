@@ -26,10 +26,10 @@ export default function Events() {
             <DashboardLayout>
                 <DashboardNavbar/>
                 <h1>Manage Events</h1>
-                <ArgonBox mb={3}>
+                <ArgonBox>
                     <Card>
                         <ArgonBox pt={2} px={2}>
-                            <ArgonBox mb={0.5}>
+                            <ArgonBox>
                                 <ArgonTypography variant="h6" fontWeight="medium">
                                     Manage Events
                                 </ArgonTypography>

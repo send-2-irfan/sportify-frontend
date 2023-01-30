@@ -52,6 +52,11 @@ function Default() {
     JSON.parse(localStorage.getItem("executors")) && setAllExecutors(JSON.parse(localStorage.getItem("executors")))
   }, [])
 
+  const {teams, setAllTeams} = useContext(ApplicationContext)
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("teams")) && setAllTeams(JSON.parse(localStorage.getItem("teams")))
+  }, [])
+
 
   return (
     <DashboardLayout>
@@ -78,7 +83,7 @@ function Default() {
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
               title="New Teams"
-              count="0"
+              count={teams.length}
               icon={{ color: "success", component: <i className="ni ni-paper-diploma" /> }}
               percentage={{ color: "error", count: "", text: "" }}
             />
