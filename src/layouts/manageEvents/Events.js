@@ -98,11 +98,8 @@ export default function Events() {
                                                 }}
                                             />
                                             <div className={classes.cardActions}>
-                                                <IconButton onClick={(index) => handleEdit(index)}>
-                                                    <Edit color='info'/>
-                                                </IconButton>
-                                                <IconButton onClick={() => handleDelete(name)}>
-                                                    <Delete color='error'/>
+                                                <IconButton>
+                                                    <Delete onClick={() => handleDelete(events.name)} color='error'/>
                                                 </IconButton>
                                             </div>
                                         </Grid>
