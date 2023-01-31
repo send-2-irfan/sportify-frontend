@@ -36,6 +36,7 @@ export default function ManageSports() {
     const openPlayerModal = () =>{
         setShowPlayer(true);
     }
+    console.log(sports)
 
     return (
         <>
@@ -54,7 +55,6 @@ export default function ManageSports() {
                         </ArgonBox>
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
-
                                 {
                                     sports.map(sports => {
                                         return <Grid item xs={12} md={6} xl={3}>
