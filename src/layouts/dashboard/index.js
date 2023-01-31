@@ -41,6 +41,28 @@ function Default() {
     }
 
   }, [])
+
+  const {sports, setSports} = useContext(ApplicationContext)
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("sports")) && setSports(JSON.parse(localStorage.getItem("sports")))
+  }, [])
+
+  const {coordinators, setAllCoordinators} = useContext(ApplicationContext)
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("coordinators")) && setAllCoordinators(JSON.parse(localStorage.getItem("coordinators")))
+  }, [])
+
+  const {executors, setAllExecutors} = useContext(ApplicationContext)
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("executors")) && setAllExecutors(JSON.parse(localStorage.getItem("executors")))
+  }, [])
+
+  const {teams, setAllTeams} = useContext(ApplicationContext)
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("teams")) && setAllTeams(JSON.parse(localStorage.getItem("teams")))
+  }, [])
+
+
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -58,23 +80,23 @@ function Default() {
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
               title="Total Games"
-              count="4"
+              count={sports.length}
               icon={{ color: "error", component: <i className="ni ni-world" /> }}
               percentage={{ color: "success", count: "", text: "" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="new teams"
-              count="13"
+              title="New Teams"
+              count={teams.length}
               icon={{ color: "success", component: <i className="ni ni-paper-diploma" /> }}
               percentage={{ color: "error", count: "", text: "" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="total Executors"
-              count="4"
+              title="Total Executors"
+              count="1"
               icon={{ color: "warning", component: <i className="ni ni-single-02" /> }}
               percentage={{ color: "success", count: "", text: "" }}
             />

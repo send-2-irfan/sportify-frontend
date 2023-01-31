@@ -21,15 +21,9 @@ import burceMars from "../../assets/images/bruce-mars.jpg";
 import Depeeka from "../../assets/images/team-1.jpg";
 import ExecutorCard from "./ExecutorCard";
 import ManageExecutorCard from "./ManageExecutorCard";
-import WinnerCard from "../players/ShowWinner";
 import RepotToPatronCard from "../Executor/RepotToPatronCard";
 
 export default function ManageExecutors() {
-    const winner = {
-        name: 'Irfan',
-        team: 'ABC',
-        teamLogo: Depeeka
-    }
     return (
         <>
             <DashboardLayout>
@@ -38,7 +32,7 @@ export default function ManageExecutors() {
 
                         <ManageExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />
 
-                        <WinnerCard winner={winner}/>
+
                 <Card type="contained" style={{width:'360'}}>
                     <RepotToPatronCard />
                 </Card>

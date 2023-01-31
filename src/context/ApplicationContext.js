@@ -5,6 +5,7 @@ export const ApplicationContext = createContext();
 export default function ApplicationContextProvider(props) {
     const [allEvents, setAllEvents] = useState([])
     const [sports, setSports] = useState([])
+    const [teams, setAllTeams] = useState([])
     const [coordinators, setAllCoordinators] = useState([])
     const [executors, setAllExecutors] = useState([])
 
@@ -15,7 +16,8 @@ export default function ApplicationContextProvider(props) {
             allEvents, setAllEvents,
             sports, setSports,
             coordinators, setAllCoordinators,
-            executors, setAllExecutors
+            executors, setAllExecutors,
+            teams, setAllTeams
         }}>
             {props.children}
         </ApplicationContext.Provider>

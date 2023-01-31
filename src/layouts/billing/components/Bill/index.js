@@ -56,7 +56,7 @@ function Bill({ name, company, email, vat, noGutter, img }) {
             mt={{ xs: 2, sm: 0 }}
             ml={{ xs: -1.5, sm: 0 }}
           >
-            <ArgonBox mr={1}>
+            <ArgonBox ml={0}>
               <ArgonButton variant="text" color="error">
                 <Icon>delete</Icon>&nbsp;Delete
               </ArgonButton>

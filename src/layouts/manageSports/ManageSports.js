@@ -16,11 +16,17 @@ import homeDecor4 from "../../assets/images/hockey.jpg";
 import football from "../../assets/images/img-1.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 // import SportsFormDialog from "./AddNewSportsForm";
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import PlayerRegistrationFormDialog from "layouts/players/PlayersRegistrationForm";
+import {ApplicationContext} from "../../context/ApplicationContext";
 
 
 export default function ManageSports() {
+    const {sports, setSports} = useContext(ApplicationContext)
+    useEffect(() => {
+        JSON.parse(localStorage.getItem("sports")) && setSports(JSON.parse(localStorage.getItem("sports")))
+    }, [])
+
     const [show,setShow] = useState(false);
     const openModal = () =>{
         setShow(true);
@@ -40,7 +46,7 @@ export default function ManageSports() {
                     <Card>
                         <ArgonBox pt={2} px={2}>
                             <ArgonBox mb={0.5}>
-                                <ArgonTypography variant="h6" fontColor="#32325d" fontWeight="medium" >
+                                <ArgonTypography variant="h6" fontcolor="#32325d" fontWeight="medium" >
                                     Manage Sports
                                 </ArgonTypography>
                             </ArgonBox>
@@ -48,71 +54,77 @@ export default function ManageSports() {
                         </ArgonBox>
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
-                                <Grid item xs={12} md={6} xl={3}>
-                                    <DefaultProjectCard
-                                        image={football}
-                                        label="fee 1500"
-                                        title="Football"
-                                        description="As Uber works through a huge amount of internal management turmoil."
-                                        action={{
-                                            type: "internal",
-                                            route: "/pages/profile/profile-overview",
-                                            color: "info",
-                                            label: "View Sport",
-                                        }}
 
-                                    />
-                                </Grid>
-                                <Grid item xs={12} md={6} xl={3}>
-                                    <DefaultProjectCard
-                                        image={homeDecor2}
-                                        label="Fee 1200"
-                                        title="Cricket"
-                                        description="As Uber works through a huge amount of internal management turmoil."
-                                        action={{
-                                            type: "internal",
-                                            route: "/pages/profile/profile-overview",
-                                            color: "info",
-                                            label: "View Sport",
-                                        }}
+                                {
+                                    sports.map(sports => {
+                                        return <Grid item xs={12} md={6} xl={3}>
+                                            <DefaultProjectCard
+                                                image={sports.imageUrl}
+                                                label={sports.fee}
+                                                title={sports.sportName}
+                                                description={sports.description}
+                                                action={{
+                                                    type: "internal",
+                                                    route: "/pages/profile/profile-overview",
+                                                    color: "info",
+                                                    label: "View Sport",
+                                                }}
 
-                                    />
-                                </Grid>
-                                <Grid item xs={12} md={6} xl={3}>
-                                    <DefaultProjectCard
-                                        image={homeDecor4}
-                                        label="Fee 1200"
-                                        title="Hockey"
-                                        description="As Uber works through a huge amount of internal management turmoil."
-                                        action={{
-                                            type: "internal",
-                                            route: "/pages/profile/profile-overview",
-                                            color: "info",
-                                            label: "View Sport",
-                                        }}
+                                            />
+                                        </Grid>
+                                    })
+                                }
 
-                                    />
-                                </Grid>
-                                <Grid onClick={openModal} item xs={12} md={6} xl={3}>
-                                    <DefaultProjectCard
-                                        image={homeDecor3}
-                                        label="Fee 1200"
-                                        title="Chess"
-                                        description="As Uber works through a huge amount of internal management turmoil."
-                                        action={{
-                                            type: "internal",
-                                            route: "",
-                                            color: "info",
-                                            label: "View Sport",
-                                        }}
+                                {/*<Grid item xs={12} md={6} xl={3}>*/}
+                                {/*    <DefaultProjectCard*/}
+                                {/*        image={homeDecor2}*/}
+                                {/*        label="Fee 1200"*/}
+                                {/*        title="Cricket"*/}
+                                {/*        description="As Uber works through a huge amount of internal management turmoil."*/}
+                                {/*        action={{*/}
+                                {/*            type: "internal",*/}
+                                {/*            route: "/pages/profile/profile-overview",*/}
+                                {/*            color: "info",*/}
+                                {/*            label: "View Sport",*/}
+                                {/*        }}*/}
 
-                                    />
-                                </Grid>
+                                {/*    />*/}
+                                {/*</Grid>*/}
+                                {/*<Grid item xs={12} md={6} xl={3}>*/}
+                                {/*    <DefaultProjectCard*/}
+                                {/*        image={homeDecor4}*/}
+                                {/*        label="Fee 1200"*/}
+                                {/*        title="Hockey"*/}
+                                {/*        description="As Uber works through a huge amount of internal management turmoil."*/}
+                                {/*        action={{*/}
+                                {/*            type: "internal",*/}
+                                {/*            route: "/pages/profile/profile-overview",*/}
+                                {/*            color: "info",*/}
+                                {/*            label: "View Sport",*/}
+                                {/*        }}*/}
+
+                                {/*    />*/}
+                                {/*</Grid>*/}
+                                {/*<Grid onClick={openModal} item xs={12} md={6} xl={3}>*/}
+                                {/*    <DefaultProjectCard*/}
+                                {/*        image={homeDecor3}*/}
+                                {/*        label="Fee 1200"*/}
+                                {/*        title="Chess"*/}
+                                {/*        description="As Uber works through a huge amount of internal management turmoil."*/}
+                                {/*        action={{*/}
+                                {/*            type: "internal",*/}
+                                {/*            route: "",*/}
+                                {/*            color: "info",*/}
+                                {/*            label: "View Sport",*/}
+                                {/*        }}*/}
+
+                                {/*    />*/}
+                                {/*</Grid>*/}
 
                                 {/* <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
                                 </Grid> */}
-                                <Grid onClick={openPlayerModal} item xs={12} md={6} xl={3}>
+                                <Grid onClick={openPlayerModal} item xs={12} md={6} xl={2}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
                                 </Grid>
                                 {/*<SportsFormDialog show={show} setShow={setShow} />*/}

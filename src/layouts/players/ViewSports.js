@@ -7,54 +7,51 @@ import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
 import hockeyImg from "../../assets/images/hockey.jpg";
 import cricketImg from "../../assets/images/cricket.jpg";
-import { useState } from "react";
-
-import chessImg from "../../assets/images/img-3.jpg";
-import homeDecor2 from "../../assets/images/home-decor-2.jpg";
-import homeDecor3 from "../../assets/images/home-decor-3.jpg";
-import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
+import {useContext, useEffect, useState} from "react";
 import SportsCardForView from "../../examples/Cards/SportsCardForView";
-import SimpleSelect from "./CricketRegistrationForm";
-import FormDialog from "./AddSportsModule";
-import AddSportForm from "../../examples/CustomCards/AddSportForm";
 import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
 import Scoreboard from "../Executor/ManageFinalScore";
-import AddEvent from "../patron/AddEvent";
 import AddSport from "../patron/AddSport";
+import {ApplicationContext} from "../../context/ApplicationContext";
 // import AddSportForm from "../../examples/CustomCards/AddSportForm";
 // import SportsRegistrationForm from './RegistrationForm';
 
 export default function ViewSports() {
-    const [sports,setsports] = useState([
-        {
-            id:1,
-            name:"Cricket",
-            description:"Cricket is a game of 11 players. It is loved allover Pakistan. I was started by English people.",
-            fee:3600,
-            image:cricketImg
-        },
-        {
-            id:2,
-            name:"Hockey",
-            description:"Hockey is something that every person has his or her own specific opinion about.",
-            fee:4000,
-            image:hockeyImg
-        },
-        {
-            id:3,
-            name:"Chess",
-            description:"Chess is a two-player strategy board game played on a chessboard, a checkered gameboard with 64 squares arranged in an eight-by-eight grid.",
-            fee:2000,
-            image:chessImg
-        },
-        {
-            id:4,
-            name:"Football",
-            description:"Football is a family of team sports that involve, to varying degrees, kicking a ball with the foot to score a goal.",
-            fee:3000,
-            image:homeDecor2
-        }
-    ]);
+    // const [sports,setsports] = useState([
+    //     {
+    //         id:1,
+    //         name:"Cricket",
+    //         description:"Cricket is a game of 11 players. It is loved allover Pakistan. I was started by English people.",
+    //         fee:3600,
+    //         image:cricketImg
+    //     },
+    //     {
+    //         id:2,
+    //         name:"Hockey",
+    //         description:"Hockey is something that every person has his or her own specific opinion about.",
+    //         fee:4000,
+    //         image:hockeyImg
+    //     },
+    //     {
+    //         id:3,
+    //         name:"Chess",
+    //         description:"Chess is a two-player strategy board game played on a chessboard, a checkered gameboard with 64 squares arranged in an eight-by-eight grid.",
+    //         fee:2000,
+    //         image:chessImg
+    //     },
+    //     {
+    //         id:4,
+    //         name:"Football",
+    //         description:"Football is a family of team sports that involve, to varying degrees, kicking a ball with the foot to score a goal.",
+    //         fee:3000,
+    //         image:homeDecor2
+    //     }
+    // ]);
+
+    const {sports, setSports} = useContext(ApplicationContext)
+    useEffect(() => {
+        JSON.parse(localStorage.getItem("sports")) && setSports(JSON.parse(localStorage.getItem("sports")))
+    }, [])
 
     return (
         <>
@@ -77,7 +74,7 @@ export default function ViewSports() {
                                 <Grid container spacing={3} style={{marginTop:'-10px'}}>
                                 <Grid item xs={12} md={3} xl={8}>
                                     <SportsCardForView
-                                        image={sport.image}
+                                        image={sport.imageUrl}
                                         label={"fee "+sport.fee}
                                         title={sport.name}
                                         description={sport.description}
@@ -132,12 +129,13 @@ export default function ViewSports() {
 
                 </ArgonBox>
 
-                <AddSportForm />
+                {/*<AddSportForm />*/}
                 <FootballTeamRegistrationForm />
                 <Scoreboard />
 
-                <AddEvent />
+                {/*<AddEvent />*/}
                 <AddSport />
+
 
             </DashboardLayout>
         </>

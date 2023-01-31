@@ -49,21 +49,21 @@ export default function MatchScheduler() {
                         <form onSubmit={handleSubmit}>
                             <TextField
                                 id="team-a"
-                                label="Team A"
+                                placeholder="Team A"
                                 value={teamA}
                                 onChange={(event) => setTeamA(event.target.value)}
                                 className={classes.textField}
                             />
                             <TextField
                                 id="team-b"
-                                label="Team B"
+                                placeholder="Team B"
                                 value={teamB}
                                 onChange={(event) => setTeamB(event.target.value)}
                                 className={classes.textField}
                             />
                             <TextField
                                 id="match-date"
-                                label="Date"
+                                placeholder="Date"
                                 type="date"
                                 value={matchDate}
                                 onChange={(event) => setMatchDate(event.target.value)}
@@ -74,7 +74,7 @@ export default function MatchScheduler() {
                             />
                             <TextField
                                 id="match-time"
-                                label="Time"
+                                placeholder="Time"
                                 type="time"
                                 value={matchTime}
                                 onChange={(event) => setMatchTime(event.target.value)}
@@ -86,7 +86,7 @@ export default function MatchScheduler() {
                             />
                             <TextField
                                 id="match-location"
-                                label="Location"
+                                placeholder="Location"
                                 value={matchLocation}
                                 onChange={(event) => setMatchLocation(event.target.value)}
                                 className={classes.textField}
