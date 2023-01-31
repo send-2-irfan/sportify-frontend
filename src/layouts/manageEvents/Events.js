@@ -11,12 +11,36 @@ import sportsGala from "../../assets/images/sportsEvent.jpg";
 import homeDecor2 from "../../assets/images/home-decor-2.jpg";
 import homeDecor3 from "../../assets/images/home-decor-3.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import AddEvent from "../patron/AddEvent";
 import {ApplicationContext} from "../../context/ApplicationContext";
+import IconButton from "@mui/material/IconButton";
+import {Delete, Edit} from "@mui/icons-material";
+import {makeStyles} from "@mui/styles";
 
 
+const useStyles = makeStyles((theme) => ({
+    cardContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: '16px 0',
+    },
+    card: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '16px',
+        width: '100%',
+    },
+    cardActions: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        marginTop: '8px',
+    },
+}));
 export default function Events() {
+    const classes = useStyles();
     const [show, setShow] = useState(false);
     const openModal = () => {
         setShow(true);
@@ -26,6 +50,21 @@ export default function Events() {
     useEffect(() => {
         JSON.parse(localStorage.getItem("events")) && setAllEvents(JSON.parse(localStorage.getItem("events")))
     }, [])
+
+    function handleEdit(index) {
+
+    }
+
+    function handleDelete(name) {
+        let eventsNew = []
+        for (let i = 0; i < allEvents.length; i++) {
+            if (allEvents[i].name !== name) {
+                eventsNew.push(allEvents[i])
+            }
+        }
+        localStorage.setItem('events', JSON.stringify(eventsNew))
+        setAllEvents(eventsNew)
+    }
 
     return (
         <>
@@ -44,30 +83,32 @@ export default function Events() {
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
                                 {
-                                   allEvents.map(events=> {
-                                       return  <Grid item xs={12} md={6} xl={4}>
-                                           <DefaultProjectCard
-                                               image={events.imageUrl}
-                                               label=""
-                                               title={events.name}
-                                               description={events.detail}
-                                               action={{
-                                                   type: "internal",
-                                                   route: "/pages/profile/profile-overview",
-                                                   color: "info",
-                                                   label: "View Event",
-                                               }}
-                                           />
-                                       </Grid>
-                                   })
+                                    allEvents.map(events => {
+                                        return <Grid item xs={12} md={6} xl={4}>
+                                            <DefaultProjectCard
+                                                image={events.imageUrl}
+                                                label=""
+                                                title={events.name}
+                                                description={events.detail}
+                                                action={{
+                                                    type: "internal",
+                                                    route: "/pages/profile/profile-overview",
+                                                    color: "info",
+                                                    label: "View Event",
+                                                }}
+                                            />
+                                            <div className={classes.cardActions}>
+                                                <IconButton onClick={(index) => handleEdit(index)}>
+                                                    <Edit color='info'/>
+                                                </IconButton>
+                                                <IconButton onClick={() => handleDelete(name)}>
+                                                    <Delete color='error'/>
+                                                </IconButton>
+                                            </div>
+                                        </Grid>
+                                    })
                                 }
-                                {/*<Grid onClick={openModal} item xs={12} md={6} xl={3}>*/}
-                                {/*    <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />*/}
-                                {/*</Grid>*/}
 
-                                {/*<Card>*/}
-                                {/*    <FormDialog show={show} setShow={setShow}/>*/}
-                                {/*</Card>*/}
                             </Grid>
                         </ArgonBox>
                         <AddEvent/>

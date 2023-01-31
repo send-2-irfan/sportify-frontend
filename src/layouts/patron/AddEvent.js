@@ -59,7 +59,7 @@ function AddEvent() {
     const handleClose = () => {
         setOpen(false);
     };
-    const {setAllEvents } = useContext(ApplicationContext)
+    const {setAllEvents} = useContext(ApplicationContext)
 
 
     const handleDelete = (index) => {
@@ -92,6 +92,10 @@ function AddEvent() {
             handleClose();
         }
     };
+
+    function handleEdit(index) {
+
+    }
 
     return (
         <div>
@@ -147,7 +151,8 @@ function AddEvent() {
                                              style={{width: '45%', marginRight: "5px"}}>
                                     Cancel
                                 </ArgonButton>
-                                <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)} style={{width: '45%'}}>
+                                <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)}
+                                             style={{width: '45%'}}>
                                     Add Event
                                 </ArgonButton>
                             </ArgonBox>
@@ -180,8 +185,8 @@ function AddEvent() {
                                                 action={{
                                                     type: "internal",
                                                     route: "./view-sports",
-                                                    color: "info",
-                                                    label: "View Event",
+                                                    color: "danger",
+                                                    label: "Remove Event",
                                                 }}
                                             />
                                             <div className={classes.cardActions}>
