@@ -72,8 +72,10 @@ export default function ViewSports() {
                         <ArgonBox p={2}>
                             {sports.map((sport) => (
                                 <Grid container spacing={3} style={{marginTop:'-10px'}}>
-                                <Grid item xs={12} md={3} xl={8}>
+                                <Grid item xs={12} md={6} xl={4}>
                                     <SportsCardForView
+                                        // style={{display: 'flex',
+                                        //     justifyContent: 'space-between', }}
                                         image={sport.imageUrl}
                                         label={"fee "+sport.fee}
                                         title={sport.name}

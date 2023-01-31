@@ -19,6 +19,7 @@ import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import {useContext, useEffect, useState} from "react";
 import PlayerRegistrationFormDialog from "layouts/players/PlayersRegistrationForm";
 import {ApplicationContext} from "../../context/ApplicationContext";
+import {Link} from "react-router-dom";
 
 
 export default function ManageSports() {
@@ -65,11 +66,10 @@ export default function ManageSports() {
                                                 description={sports.description}
                                                 action={{
                                                     type: "internal",
-                                                    route: "/pages/profile/profile-overview",
+                                                    route: "view-sports",
                                                     color: "info",
                                                     label: "View Sport",
                                                 }}
-
                                             />
                                         </Grid>
                                     })
