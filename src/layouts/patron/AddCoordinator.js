@@ -105,7 +105,7 @@ function AddCoordinator() {
     return (
         <div>
             <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>
-                <PlaceholderCard title={{variant: "h5", text: "Add New Event"}} outlined/>
+                <PlaceholderCard title={{variant: "h5", text: "Add New Coordinator"}} outlined/>
             </Grid>
 
             <Modal
@@ -120,7 +120,7 @@ function AddCoordinator() {
                 <Card style={{width: '24%'}}>
                     <ArgonBox p={3} textAlign="center" style={{margin: '0px'}}>
                         <ArgonTypography variant="h5" fontWeight="medium">
-                            Register Event
+                            Register Coordinator
                         </ArgonTypography>
                     </ArgonBox>
                     <ArgonBox pt={2} pb={3} px={3} style={{marginTop: '-20px'}}>

@@ -67,7 +67,7 @@ export default function RepotToPatronCard() {
 
     const handleSubmit = event => {
         event.preventDefault();
-        alert(`Thank you for your feedback!\nName: ${value}\nRating: ${rating}\nDepartment: ${department}\nFeedback: ${feedback}\nImprovement areas: ${options}\nEmail: ${email}`);
+        alert(`Thank you for your feedback!\nName: ${value}\nFeedback: ${feedback}\nEmail: ${email}`);
     };
 
     return (
@@ -90,72 +90,75 @@ export default function RepotToPatronCard() {
                     required
                 />
             </div>
-            <div>
-                <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend">Overall rating</FormLabel>
-                    <RadioGroup row aria-label="rating" name="rating" value={rating} onChange={handleRatingChange}>
-                        <FormControlLabel value="1" control={<Radio color="primary" />} label="1" />
-                        <FormControlLabel value="2" control={<Radio color="primary" />} label="2" />
-                        <FormControlLabel value="3" control={<Radio color="primary" />} label="3" />
-                        <FormControlLabel value="4" control={<Radio color="primary" />} label="4" />
-                        <FormControlLabel value="5" control={<Radio color="primary" />} label="5" />
-                    </RadioGroup>
-                </FormControl>
-            </div>
-            <div>
-                <FormControl variant="outlined" className={classes.formControl} style={{width:'23%'}}>
-                    <InputLabel id="issue-label">Issue Title</InputLabel>
-                    <Select
-                        labelId="issue-label"
-                        id="Issue"
-                        value={department}
-                        onChange={handleDepartmentChange}
-                        label="Department"
+            {/*<div>*/}
+            {/*    <FormControl component="fieldset" className={classes.formControl}>*/}
+            {/*        <FormLabel component="legend">Overall rating</FormLabel>*/}
+            {/*        <RadioGroup row aria-label="rating" name="rating" value={rating} onChange={handleRatingChange}>*/}
+            {/*            <FormControlLabel value="1" control={<Radio color="primary" />} label="1" />*/}
+            {/*            <FormControlLabel value="2" control={<Radio color="primary" />} label="2" />*/}
+            {/*            <FormControlLabel value="3" control={<Radio color="primary" />} label="3" />*/}
+            {/*            <FormControlLabel value="4" control={<Radio color="primary" />} label="4" />*/}
+            {/*            <FormControlLabel value="5" control={<Radio color="primary" />} label="5" />*/}
+            {/*        </RadioGroup>*/}
+            {/*    </FormControl>*/}
+            {/*</div>*/}
+            {/*<div>*/}
+            {/*    <FormControl variant="outlined" className={classes.formControl} style={{width:'23%'}}>*/}
+            {/*        <InputLabel id="issue-label">Title</InputLabel>*/}
+            {/*        <Select*/}
+            {/*            labelId="issue-label"*/}
+            {/*            id="Issue"*/}
+            {/*            value={department}*/}
+            {/*            onChange={handleDepartmentChange}*/}
+            {/*            label="Department"*/}
 
-                    >
-                        <ArrowDropDownIcon/>
-                        <MenuItem value="schedule">Schedule</MenuItem>
-                        <MenuItem value="match">Match</MenuItem>
-                        <MenuItem value="clash">Clash</MenuItem>
-                        <MenuItem value="winner">Winner</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
-            <div>
+            {/*        >*/}
+            {/*            <ArrowDropDownIcon/>*/}
+            {/*            <MenuItem value="schedule">Schedule</MenuItem>*/}
+            {/*            <MenuItem value="match">Match</MenuItem>*/}
+            {/*            <MenuItem value="clash">Clash</MenuItem>*/}
+            {/*            <MenuItem value="winner">Winner</MenuItem>*/}
+            {/*        </Select>*/}
+            {/*    </FormControl>*/}
+            {/*</div>*/}
+
+            {/*<div>*/}
+            {/*    <FormControl component="fieldset" className={classes.formControl}>*/}
+            {/*        <FormLabel component="legend">What areas do you think we can improve on?</FormLabel>*/}
+            {/*        <FormGroup>*/}
+            {/*            <FormControlLabel*/}
+            {/*                control={<Checkbox color="primary" onChange={handleOptionChange} value="option1" name="option1" />}*/}
+            {/*                label="Request to "*/}
+            {/*            />*/}
+            {/*            <FormControlLabel*/}
+            {/*                control={<Checkbox color="primary" onChange={handleOptionChange} value="option2" name="option2" />}*/}
+            {/*                label="Request to Add Sport"*/}
+            {/*            />*/}
+            {/*            <FormControlLabel*/}
+            {/*                control={<Checkbox color="primary" onChange={handleOptionChange} value="option3" name="option3" />}*/}
+            {/*                label="Website usability"*/}
+            {/*            />*/}
+            {/*            <FormControlLabel*/}
+            {/*                control={<Checkbox color="primary" onChange={handleOptionChange} value="option4" name="option4" />}*/}
+            {/*                label="Other"*/}
+            {/*            />*/}
+            {/*        </FormGroup>*/}
+            {/*    </FormControl>*/}
+            {/*</div>*/}
+
+            <div style={{width:'30%'}}>
                 <TextField
                     id="feedback"
                     label="Feedback"
                     multiline
-                    rows={4}
+                    rows={6}
                     value={feedback}
                     onChange={handleFeedbackChange}
                     variant="outlined"
                     required
                 />
             </div>
-            <div>
-                <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend">What areas do you think we can improve on?</FormLabel>
-                    <FormGroup>
-                        <FormControlLabel
-                            control={<Checkbox color="primary" onChange={handleOptionChange} value="option1" name="option1" />}
-                            label="Customer Service"
-                        />
-                        <FormControlLabel
-                            control={<Checkbox color="primary" onChange={handleOptionChange} value="option2" name="option2" />}
-                            label="Product Quality"
-                        />
-                        <FormControlLabel
-                            control={<Checkbox color="primary" onChange={handleOptionChange} value="option3" name="option3" />}
-                            label="Website usability"
-                        />
-                        <FormControlLabel
-                            control={<Checkbox color="primary" onChange={handleOptionChange} value="option4" name="option4" />}
-                            label="Other"
-                        />
-                    </FormGroup>
-                </FormControl>
-            </div>
+
             <Button variant="contained" color="primary" className={classes.button} type="submit">
                 Submit
             </Button>

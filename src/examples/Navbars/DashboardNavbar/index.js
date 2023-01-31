@@ -164,16 +164,16 @@ function DashboardNavbar({absolute, light, isMini}) {
                 </ArgonBox>
                 {isMini ? null : (
                     <ArgonBox sx={(theme) => navbarRow(theme, {isMini})}>
-                        <ArgonBox pr={1}>
-                            <ArgonInput
-                                placeholder="Type here..."
-                                startAdornment={
-                                    <Icon fontSize="small" style={{marginRight: "6px"}}>
-                                        search
-                                    </Icon>
-                                }
-                            />
-                        </ArgonBox>
+                        {/*<ArgonBox pr={1}>*/}
+                        {/*    <ArgonInput*/}
+                        {/*        placeholder="Type here..."*/}
+                        {/*        startAdornment={*/}
+                        {/*            <Icon fontSize="small" style={{marginRight: "6px"}}>*/}
+                        {/*                search*/}
+                        {/*            </Icon>*/}
+                        {/*        }*/}
+                        {/*    />*/}
+                        {/*</ArgonBox>*/}
                         <ArgonBox color={light ? "white" : "inherit"}>
                             <Link to="/authentication/sign-in/basic">
                                 <IconButton sx={navbarIconButton} size="small">
@@ -194,33 +194,33 @@ function DashboardNavbar({absolute, light, isMini}) {
                                     </ArgonTypography>
                                 </IconButton>
                             </Link>
-                            <IconButton
-                                size="small"
-                                color={light && transparentNavbar ? "white" : "dark"}
-                                sx={navbarMobileMenu}
-                                onClick={handleMiniSidenav}
-                            >
-                                <Icon>{miniSidenav ? "menu_open" : "menu"}</Icon>
-                            </IconButton>
-                            <IconButton
-                                size="small"
-                                color={light && transparentNavbar ? "white" : "dark"}
-                                sx={navbarIconButton}
-                                onClick={handleConfiguratorOpen}
-                            >
-                                <Icon>settings</Icon>
-                            </IconButton>
-                            <IconButton
-                                size="small"
-                                color={light && transparentNavbar ? "white" : "dark"}
-                                sx={navbarIconButton}
-                                aria-controls="notification-menu"
-                                aria-haspopup="true"
-                                variant="contained"
-                                onClick={handleOpenMenu}
-                            >
-                                <Icon>notifications</Icon>
-                            </IconButton>
+                            {/*<IconButton*/}
+                            {/*    size="small"*/}
+                            {/*    color={light && transparentNavbar ? "white" : "dark"}*/}
+                            {/*    sx={navbarMobileMenu}*/}
+                            {/*    onClick={handleMiniSidenav}*/}
+                            {/*>*/}
+                            {/*    <Icon>{miniSidenav ? "menu_open" : "menu"}</Icon>*/}
+                            {/*</IconButton>*/}
+                            {/*<IconButton*/}
+                            {/*    size="small"*/}
+                            {/*    color={light && transparentNavbar ? "white" : "dark"}*/}
+                            {/*    sx={navbarIconButton}*/}
+                            {/*    onClick={handleConfiguratorOpen}*/}
+                            {/*>*/}
+                            {/*    <Icon>settings</Icon>*/}
+                            {/*</IconButton>*/}
+                            {/*<IconButton*/}
+                            {/*    size="small"*/}
+                            {/*    color={light && transparentNavbar ? "white" : "dark"}*/}
+                            {/*    sx={navbarIconButton}*/}
+                            {/*    aria-controls="notification-menu"*/}
+                            {/*    aria-haspopup="true"*/}
+                            {/*    variant="contained"*/}
+                            {/*    onClick={handleOpenMenu}*/}
+                            {/*>*/}
+                            {/*    <Icon>notifications</Icon>*/}
+                            {/*</IconButton>*/}
                             {renderMenu()}
                         </ArgonBox>
                     </ArgonBox>

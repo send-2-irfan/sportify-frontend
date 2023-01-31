@@ -23,14 +23,14 @@ import ExecutorCard from "./ExecutorCard";
 import ManageExecutorCard from "./ManageExecutorCard";
 import RepotToPatronCard from "../Executor/RepotToPatronCard";
 
-export default function ManageExecutors() {
+export default function ReportToPatron() {
     return (
         <>
             <DashboardLayout>
                 <DashboardNavbar/>
                 <h1>Manage Executors</h1>
 
-                        <ManageExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />
+                        {/*<ManageExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />*/}
 
 
                 <Card type="contained" style={{width:'360'}}>
