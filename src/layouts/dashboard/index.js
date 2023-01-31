@@ -28,13 +28,18 @@ import salesTableData from "layouts/dashboard/data/salesTableData";
 import categoriesListData from "layouts/dashboard/data/categoriesListData";
 import {useContext, useEffect} from "react";
 import {ApplicationContext} from "../../context/ApplicationContext";
+import {useNavigate} from "react-router-dom";
 
 function Default() {
-  const { size } = typography;
-
   const {allEvents, setAllEvents} = useContext(ApplicationContext)
+  const navigate = useNavigate();
   useEffect(() => {
-    JSON.parse(localStorage.getItem("events")) && setAllEvents(JSON.parse(localStorage.getItem("events")))
+    if(sessionStorage.getItem("login")){
+      JSON.parse(localStorage.getItem("events")) && setAllEvents(JSON.parse(localStorage.getItem("events")))
+    }else{
+      navigate("/authentication/sign-in")
+    }
+
   }, [])
   return (
     <DashboardLayout>

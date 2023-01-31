@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 // @mui material components
 import Switch from "@mui/material/Switch";
@@ -23,6 +23,21 @@ const bgImage = "https://i.pinimg.com/736x/33/2e/21/332e213e36c73c2cfba495ae141a
 
 function Illustration() {
   const [rememberMe, setRememberMe] = useState(false);
+  const [user, setUser] = useState({
+    username: '',
+    password: '',
+  })
+  const navigate = useNavigate()
+  const signin = () => {
+    let registered = JSON.parse(localStorage.getItem("register"))
+    if(registered.username===user.username && registered.password===user.password ){
+      sessionStorage.setItem('login', JSON.stringify(user))
+      navigate("authentication/sign-in")
+    }else{
+      alert("username or password is incorrect")
+    }
+
+  }
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
@@ -39,10 +54,10 @@ function Illustration() {
     >
       <ArgonBox component="form" role="form">
         <ArgonBox mb={2}>
-          <ArgonInput type="email" placeholder="CMS-ID" size="large" />
+          <ArgonInput value={user.username} onChange={(e)=> setUser({...user, username: e.target.value})}  type="email" placeholder="CMS-ID" size="large" />
         </ArgonBox>
         <ArgonBox mb={2}>
-          <ArgonInput type="password" placeholder="Password" size="large" />
+          <ArgonInput value={user.password} onChange={(e)=> setUser({...user, password: e.target.value})}  type="password" placeholder="Password" size="large" />
         </ArgonBox>
         <ArgonBox display="flex" alignItems="center">
           <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -56,7 +71,7 @@ function Illustration() {
           </ArgonTypography>
         </ArgonBox>
         <ArgonBox mt={4} mb={1}>
-          <ArgonButton color="info" size="large" fullWidth>
+          <ArgonButton onClick={signin} color="info" size="large" fullWidth>
             Sign In
           </ArgonButton>
         </ArgonBox>

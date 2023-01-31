@@ -35,39 +35,7 @@ export default function ManageExecutors() {
             <DashboardLayout>
                 <DashboardNavbar/>
                 <h1>Manage Executors</h1>
-                {/*<ArgonBox mb={3}>*/}
-                {/*    <Card>*/}
-                {/*        <ArgonBox pt={2} px={2}>*/}
-                {/*            <ArgonBox mb={0.5}>*/}
-                {/*                <ArgonTypography variant="h6" fontColor="#32325d" fontWeight="medium" >*/}
-                {/*                    Manage Coordinator*/}
-                {/*                </ArgonTypography>*/}
-                {/*            </ArgonBox>*/}
 
-                {/*        </ArgonBox>*/}
-                {/*        <ArgonBox p={2}>*/}
-                {/*            <Grid container spacing={3}>*/}
-                {/*                /!*<Grid item xs={12} md={6} xl={2}>*!/*/}
-                {/*                /!*    {profileImg}*!/*/}
-                {/*                /!*</Grid>*!/*/}
-                {/*                <Bill*/}
-                {/*                    name="Depeeka Gai"*/}
-                {/*                    company="Computer Science"*/}
-                {/*                    email="lucas@stone-tech.com"*/}
-                {/*                    vat="051-19-0000"*/}
-                {/*                    img = {profileImg}*/}
-                {/*                ></Bill>*/}
-                {/*                <Grid item xs={12} md={6} xl={2}>*/}
-                {/*                    <PlaceholderCard title={{ variant: "h5", text: "Add Coordinator" }} outlined />*/}
-                {/*                </Grid>*/}
-                {/*            </Grid>*/}
-                {/*        </ArgonBox>*/}
-                {/*    </Card>*/}
-                {/*</ArgonBox>*/}
-
-                        {/*<ArgonBox pt={2} px={2}>*/}
-                        {/*    <ExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />*/}
-                        {/*</ArgonBox>*/}
                         <ManageExecutorCard imageUrl={Depeeka} name={"Depeeka Gai"} department={"CS"} cmsId={"123"} email={'depeekagai@gmail.com'} password={'12341234'} />
 
                         <WinnerCard winner={winner}/>
