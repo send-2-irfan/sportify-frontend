@@ -2,7 +2,8 @@
 import { useState, useEffect, useMemo } from "react";
 
 // react-router components
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import {  Route, useLocation,Routes,Navigate } from "react-router-dom";
+
 
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
@@ -40,6 +41,7 @@ import brandDark from "assets/images/logo-ct-dark.png";
 // Icon Fonts
 import "assets/css/nucleo-icons.css";
 import "assets/css/nucleo-svg.css";
+import {AuthProvider} from "./context/AuthContext";
 
 export default function App() {
   const [controller, dispatch] = useArgonController();
@@ -169,10 +171,14 @@ export default function App() {
         </>
       )}
       {layout === "vr" && <Configurator />}
+      <AuthProvider>
+
       <Routes>
         {getRoutes(routes)}
         <Route path="*" element={<Navigate to="/dashboard" />} />
       </Routes>
+      </AuthProvider>
+
     </ThemeProvider>
   );
 }

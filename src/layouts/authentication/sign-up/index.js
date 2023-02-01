@@ -1,6 +1,8 @@
 // react-router-dom components
 import {Link, useNavigate} from "react-router-dom";
 
+
+
 // @mui material components
 import Card from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
@@ -16,6 +18,7 @@ import CoverLayout from "layouts/authentication/components/CoverLayout";
 import Socials from "layouts/authentication/components/Socials";
 import Separator from "layouts/authentication/components/Separator";
 import {useState} from "react";
+import {useAuth} from "../../../context/AuthContext";
 
 // Images
 const bgImage = "https://thumbs.dreamstime.com/b/soccer-football-background-sport-poster-flyer-space-77780744.jpg";
@@ -23,15 +26,22 @@ const bgImage = "https://thumbs.dreamstime.com/b/soccer-football-background-spor
 // "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg";
 
 function Cover() {
+    const {signup,sendEmailVerification} = useAuth();
     const [user, setUser] = useState({
         username: '',
         password: '',
         fullName: '',
     })
     const navigate = useNavigate()
-    const signUp = () => {
-        localStorage.setItem('register', JSON.stringify(user))
-        navigate("authentication/sign-in")
+    const signUp = async () => {
+        try {
+            await signup(user.fullName , user.password);
+            navigate("authentication/sign-in");
+        } catch {
+            console.log("ss");
+        }
+
+        // localStorage.setItem('register', JSON.stringify(user))
     }
     return (
         <CoverLayout

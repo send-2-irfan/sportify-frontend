@@ -16,6 +16,7 @@ import ArgonButton from "components/ArgonButton";
 
 // Authentication layout components
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";
+import {useAuth } from "../../../context/AuthContext";
 
 // Image
 const bgImage = "https://i.pinimg.com/736x/33/2e/21/332e213e36c73c2cfba495ae141aa1b0.jpg";
@@ -23,19 +24,31 @@ const bgImage = "https://i.pinimg.com/736x/33/2e/21/332e213e36c73c2cfba495ae141a
 
 function Illustration() {
   const [rememberMe, setRememberMe] = useState(false);
+  const { login,sendEmailVerification } = useAuth();
+
   const [user, setUser] = useState({
     username: '',
     password: '',
   })
   const navigate = useNavigate()
-  const signin = () => {
-    let registered = JSON.parse(localStorage.getItem("register"))
-    if(registered.username===user.username && registered.password===user.password ){
-      sessionStorage.setItem('login', JSON.stringify(user))
-      navigate("authentication/sign-in")
-    }else{
-      alert("username or password is incorrect")
+  const signin = async () => {
+    // let registered = JSON.parse(localStorage.getItem("register"))
+    try {
+      await login(user.username, user.password).then(user => {
+        console.log(user);
+        user.user.emailVerified ? navigate("/dashboard") :sendEmailVerification();
+          sessionStorage.setItem('login', JSON.stringify(user))
+      }) ;
+    } catch {
+      console.log("error");
     }
+
+    // if(registered.username===user.username && registered.password===user.password ){
+    //   sessionStorage.setItem('login', JSON.stringify(user))
+    //   navigate("authentication/sign-in")
+    // }else{
+    //   alert("username or password is incorrect")
+    // }
 
   }
 
