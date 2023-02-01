@@ -122,6 +122,7 @@ function AddEvent() {
                             <ArgonBox mb={2}>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
                                     // label="Name"
+                                            required
                                             placeholder='Name'
                                             value={events.name}
                                             onChange={(e) => setEvents({...events, name: e.target.value})}
@@ -132,6 +133,7 @@ function AddEvent() {
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
                                             multiline
                                             rows={4}
+                                            required
                                             placeholder='Description'
                                             value={events.detail}
                                             onChange={(e) => setEvents({...events, detail: e.target.value})}
@@ -165,46 +167,46 @@ function AddEvent() {
 
             {/*New Componenet ends here*/}
 
-            <Card>
-                <ArgonBox p={0.5}>
-                    <Grid container spacing={4}>
-                        {cards.map((card, index) => (
-                            <Card className={classes.card} key={index} style={{
-                                justifyContent: "space-around", alignItems: 'space-between'
-                            }}>
-                                <ArgonBox p={0.5}>
-                                    <Grid container spacing={2}>
-                                        <Grid item xs={12} md={6} xl={4}>
-                                            <DefaultProjectCard
-                                                image={card.image || sportsGala} alt="Card Image"
-                                                label=""
-                                                title={card.name}
-                                                description={
-                                                    card.detail
-                                                }
-                                                action={{
-                                                    type: "internal",
-                                                    route: "./view-sports",
-                                                    color: "danger",
-                                                    label: "Remove Event",
-                                                }}
-                                            />
-                                            <div className={classes.cardActions}>
-                                                <IconButton onClick={() => handleEdit(index)}>
-                                                    <Edit color='info'/>
-                                                </IconButton>
-                                                <IconButton onClick={() => handleDelete(index)}>
-                                                    <Delete color='error'/>
-                                                </IconButton>
-                                            </div>
-                                        </Grid>
-                                    </Grid>
-                                </ArgonBox>
-                            </Card>
-                        ))}
-                    </Grid>
-                </ArgonBox>
-            </Card>
+            {/*<Card>*/}
+            {/*    <ArgonBox p={0.5}>*/}
+            {/*        <Grid container spacing={4}>*/}
+            {/*            {cards.map((card, index) => (*/}
+            {/*                <Card className={classes.card} key={index} style={{*/}
+            {/*                    justifyContent: "space-around", alignItems: 'space-between'*/}
+            {/*                }}>*/}
+            {/*                    <ArgonBox p={0.5}>*/}
+            {/*                        <Grid container spacing={2}>*/}
+            {/*                            <Grid item xs={12} md={6} xl={4}>*/}
+            {/*                                <DefaultProjectCard*/}
+            {/*                                    image={card.image || sportsGala} alt="Card Image"*/}
+            {/*                                    label=""*/}
+            {/*                                    title={card.name}*/}
+            {/*                                    description={*/}
+            {/*                                        card.detail*/}
+            {/*                                    }*/}
+            {/*                                    action={{*/}
+            {/*                                        type: "internal",*/}
+            {/*                                        route: "./view-sports",*/}
+            {/*                                        color: "danger",*/}
+            {/*                                        label: "Remove Event",*/}
+            {/*                                    }}*/}
+            {/*                                />*/}
+            {/*                                <div className={classes.cardActions}>*/}
+            {/*                                    <IconButton onClick={() => handleEdit(index)}>*/}
+            {/*                                        <Edit color='info'/>*/}
+            {/*                                    </IconButton>*/}
+            {/*                                    <IconButton onClick={() => handleDelete(index)}>*/}
+            {/*                                        <Delete color='error'/>*/}
+            {/*                                    </IconButton>*/}
+            {/*                                </div>*/}
+            {/*                            </Grid>*/}
+            {/*                        </Grid>*/}
+            {/*                    </ArgonBox>*/}
+            {/*                </Card>*/}
+            {/*            ))}*/}
+            {/*        </Grid>*/}
+            {/*    </ArgonBox>*/}
+            {/*</Card>*/}
         </div>
     );
 }

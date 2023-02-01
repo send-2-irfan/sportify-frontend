@@ -20,6 +20,7 @@ import {useContext, useEffect, useState} from "react";
 import PlayerRegistrationFormDialog from "layouts/players/PlayersRegistrationForm";
 import {ApplicationContext} from "../../context/ApplicationContext";
 import {Link} from "react-router-dom";
+import AddSport from "../patron/AddSport";
 
 
 export default function ManageSports() {
@@ -124,12 +125,12 @@ export default function ManageSports() {
                                 {/* <Grid onClick={openModal} item xs={12} md={6} xl={3}>
                                     <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
                                 </Grid> */}
-                                <Grid onClick={openPlayerModal} item xs={12} md={6} xl={2}>
-                                    <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />
-                                </Grid>
+                                {/*<Grid onClick={openPlayerModal} item xs={12} md={6} xl={2}>*/}
+                                {/*    <PlaceholderCard title={{ variant: "h5", text: "Add New Sport" }} outlined />*/}
+                                {/*</Grid>*/}
                                 {/*<SportsFormDialog show={show} setShow={setShow} />*/}
-                                <PlayerRegistrationFormDialog show={showPlayer} setShowPlayer={setShowPlayer} />
-
+                                {/*<PlayerRegistrationFormDialog show={showPlayer} setShowPlayer={setShowPlayer} />*/}
+                                <AddSport/>
                             </Grid>
                         </ArgonBox>
                     </Card>

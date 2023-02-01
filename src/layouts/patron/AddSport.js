@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@mui/styles';
+import React, {useContext, useEffect, useState} from 'react';
+import {makeStyles} from '@mui/styles';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
@@ -11,12 +11,13 @@ import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import ArgonBox from "../../components/ArgonBox";
-import cricket from "../../assets/images/cricket.jpg";
+import sportsGala from "../../assets/images/sportsEvent.jpg";
 import DialogActions from "@mui/material/DialogActions";
 import ArgonTypography from "../../components/ArgonTypography";
 import ArgonButton from "../../components/ArgonButton";
 import Checkbox from "@mui/material/Checkbox";
 import ArgonInput from "../../components/ArgonInput";
+import {ApplicationContext} from "../../context/ApplicationContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,66 +42,69 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function AddSport() {
-    const classes = useStyles();
+    const [sport, setSport] = useState('');
     const [open, setOpen] = useState(false);
-    const [cards, setCards] = useState([]);
-    const [name, setName] = useState('');
-    const [fee, setFee] = useState('');
-    const [details, setDetails] = useState('');
-    const [image, setImage] = useState('');
+    const {sports, setSports} = useContext(ApplicationContext)
+    const [sportData, setSportsData] = useState({
+        sportName: sport,
+        description: '',
+        imageUrl: '',
+        fee: '',
+        eventId: ''
+    })
 
-    const handleOpen = () => {
-        setOpen(true);
+    const handleSportsChange = (event) => {
+        event.preventDefault()
+        setSport(event.target.value);
     };
 
+    const handleAdd = (event) => {
+        event.preventDefault();
+        console.log(sportData)
+
+        if (JSON.parse(localStorage.getItem("sports"))) {
+            let items = JSON.parse(localStorage.getItem("sports"))
+            items.push(sportData)
+            localStorage.setItem("sports", JSON.stringify(items))
+            setSports(items)
+            setSportsData({
+                sportName: '',
+                description: '',
+                imageUrl: '',
+                fee: '',
+                eventId: ''
+            })
+        } else {
+            let sportNew = []
+            sportNew.push(sportData)
+            localStorage.setItem("sports", JSON.stringify(sportNew))
+            setSports(sportNew)
+            setSportsData({
+                sportName: '',
+                description: '',
+                imageUrl: '',
+                fee: '',
+                eventId: ''
+            })
+        }
+
+    };
+
+    function handleEdit(index) {
+
+    }
     const handleClose = () => {
         setOpen(false);
     };
 
-
-    const handleDelete = (index) => {
-        setCards(cards.filter((card, i) => i !== index));
-    };
-
-    const [editingIndex, setEditingIndex] = useState(null);
-
-    const handleEdit = (index) => {
+    const handleOpen = () => {
         setOpen(true);
-        setEditingIndex(index);
-        setName(cards[index].name);
-        setFee(cards[index].fee);
-        setDetails(cards[index].details);
-        setImage(cards[index].image);
     };
-
-    const handleAdd = () => {
-        if (editingIndex !== null) {
-            const updatedCards = [...cards];
-            updatedCards[editingIndex] = { name, fee, details, image };
-            setCards(updatedCards);
-            setEditingIndex(null);
-        } else {
-            setCards([...cards, { name, fee, details, image }]);
-        }
-        setName('');
-        setFee('');
-        setDetails('');
-        setImage('');
-        handleClose();
-    };
-
-    // Card modal
-    const [show,setShow] = useState(false);
-    const openModal = () =>{
-        setShow(true);
-    }
-
     return (
         <div>
-            <Grid onClick={handleOpen} style={{width:'15%', marginTop:'20px', marginLeft:'20px'}}>
-                <PlaceholderCard title={{ variant: "h5", text: "Add New Event" }} outlined />
+            <Grid onClick={handleOpen} style={{ marginTop: '20px', marginLeft: '20px'}}>
+                <PlaceholderCard title={{variant: "h5", text: "Add New Sport"}} outlined/>
             </Grid>
-
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -110,47 +114,63 @@ function AddSport() {
                     alignItems: "center",
                 }}
             >
-                <Card style={{width:'24%'}}>
-                    <ArgonBox p={3} mb={1} textAlign="center">
+                <Card style={{width: '24%'}}>
+                    <ArgonBox p={3} textAlign="center" style={{margin: '0px'}}>
                         <ArgonTypography variant="h5" fontWeight="medium">
                             Register Sport
                         </ArgonTypography>
                     </ArgonBox>
-                    <ArgonBox pt={2} pb={3} px={3}>
+                    <ArgonBox pt={2} pb={3} px={3} style={{marginTop: '-20px'}}>
                         <ArgonBox component="form" role="form">
-                            <TextField
-                                style={{marginBottom:'10px', textAlign: 'center'}}
-                                label="Name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                fullWidth
-                            />
-                            <TextField
-                                label="Fee"
-                                value={fee}
-                                onChange={(e) => setFee(e.target.value)}
-                                fullWidth
-                                style={{marginBottom:'15px', }}
-                            />
-                            <TextField
-                                label="Details"
-                                value={details}
-                                onChange={(e) => setDetails(e.target.value)}
-                                fullWidth
-                                style={{marginBottom:'15px', }}
-                            />
-                            <TextField
-                                label="Image"
-                                value={image}
-                                onChange={(e) => setImage(e.target.value)}
-                                fullWidth
-                            />
-
+                            <ArgonBox mb={1.5}>
+                                <ArgonInput
+                                    placeholder="Name"
+                                    id="Name"
+                                    value={sportData.sportName}
+                                    onChange={(e)=> setSportsData({...sportData, sportName: e.target.value})}
+                                    fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={1.5} >
+                                <ArgonInput
+                                    placeholder="Description"
+                                    multiline
+                                    rows={4}
+                                    variant="outlined"
+                                    value={sportData.description}
+                                    onChange={(e)=> setSportsData({...sportData, description: e.target.value})}
+                                    margin="normal"
+                                    fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={1.5}>
+                                <ArgonInput
+                                    placeholder="Fee"
+                                    type="number"
+                                    variant="outlined"
+                                    value={sportData.fee}
+                                    onChange={(e)=> setSportsData({...sportData, fee: e.target.value})}
+                                    margin="normal"
+                                    fullWidth
+                                />
+                            </ArgonBox>
+                            <ArgonBox mb={1.5}>
+                                <ArgonInput
+                                    placeholder="Image Url"
+                                    accept="image/*"
+                                    id="image"
+                                    value={sportData.imageUrl}
+                                    onChange={(e)=> setSportsData({...sportData, imageUrl: e.target.value})}
+                                    type="text"
+                                />
+                            </ArgonBox>
                             <ArgonBox mt={4} mb={1}>
-                                <ArgonButton onClick={handleClose}  variant="gradient" color="dark" style={{width:'45%', marginRight:"5px"}}>
+                                <ArgonButton onClick={handleClose} variant="gradient" color="dark"
+                                             style={{width: '45%', marginRight: "5px"}}>
                                     Cancel
                                 </ArgonButton>
-                                <ArgonButton variant="gradient" color="info" onClick={handleAdd} style={{width:'45%'}}>
+                                <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)}
+                                             style={{width: '45%'}}>
                                     Add Event
                                 </ArgonButton>
                             </ArgonBox>
@@ -158,54 +178,6 @@ function AddSport() {
                     </ArgonBox>
                 </Card>
             </Modal>
-
-            {/*New Componenet ends here*/}
-            <ArgonBox mb={2}/>
-            <Card>
-                <ArgonBox p={2}>
-                    <Grid container spacing={4}>
-                        {cards.map((card, index) => (
-                            <Card className={classes.card} key={index} style={{
-                                justifyContent: "space-around", alignItems: 'space-between'}}>
-                                <ArgonBox p={2}>
-
-                                        <Grid item xs={12} md={6} xl={4} >
-                                            <DefaultProjectCard
-                                                image={card.image || ((card.name == 'cricket' || 'Cricket') ? cricket : "Card Image") }
-                                                label={'Registration Fee: '+ card.fee}
-                                                title={card.name}
-                                                description={
-                                                    card.details ||
-                                                    "The Sports Gala at Sukkur IBA University " +
-                                                    "is an annual event featuring a" +
-                                                    " variety of sports and activities for students, faculty," +
-                                                    " and staff. It is an opportunity to come together and showcase " +
-                                                    "athletic skills, as well as to promote physical health and wellness " +
-                                                    "on campus."
-                                                }
-                                                action={{
-                                                    type: "internal",
-                                                    route: "./view-sports",
-                                                    color: "info",
-                                                    label: "Register",
-                                                }}
-                                            />
-                                            <div className={classes.cardActions}>
-                                                <IconButton onClick={() => handleEdit(index)}>
-                                                    <Edit color='info'/>
-                                                </IconButton>
-                                                <IconButton onClick={() => handleDelete(index)}>
-                                                    <Delete color='error' />
-                                                </IconButton>
-                                            </div>
-                                        </Grid>
-
-                                </ArgonBox>
-                            </Card>
-                        ))}
-                    </Grid>
-                </ArgonBox>
-            </Card>
         </div>
     );
 }
