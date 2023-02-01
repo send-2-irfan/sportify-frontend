@@ -74,8 +74,8 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
         <ArgonBox mb={1}>
           {action.type === "internal" ? (
             <ArgonTypography
-              component={Link}
-              to={action.route}
+              // component={Link}
+              // to={action.route}
               variant="h5"
               textTransform="capitalize"
             >
@@ -83,8 +83,8 @@ function DefaultProjectCard({ image, label, title, description, action, authors 
             </ArgonTypography>
           ) : (
             <ArgonTypography
-              component="a"
-              href={action.route}
+              // component="a"
+              // href={action.route}
               target="_blank"
               rel="noreferrer"
               variant="h5"

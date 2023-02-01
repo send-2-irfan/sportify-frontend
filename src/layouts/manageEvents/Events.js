@@ -92,7 +92,7 @@ export default function Events() {
                                                 description={events.detail}
                                                 action={{
                                                     type: "internal",
-                                                    route: "/pages/profile/profile-overview",
+                                                    route: "/manage-sports",
                                                     color: "info",
                                                     label: "View Event",
                                                 }}

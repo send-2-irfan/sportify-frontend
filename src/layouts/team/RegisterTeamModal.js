@@ -107,7 +107,7 @@ function RegisterTeamModal() {
     return (
         <div>
             <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>
-                <PlaceholderCard title={{variant: "h5", text: "Add New Event"}} outlined/>
+                <PlaceholderCard title={{variant: "h5", text: "Register Team"}} outlined/>
             </Grid>
 
             <Modal

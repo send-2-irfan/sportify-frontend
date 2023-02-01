@@ -13,40 +13,13 @@ import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistr
 import Scoreboard from "../Executor/ManageFinalScore";
 import AddSport from "../patron/AddSport";
 import {ApplicationContext} from "../../context/ApplicationContext";
+import CardMedia from "@mui/material/CardMedia";
+import ArgonButton from "../../components/ArgonButton";
+import {Link} from "react-router-dom";
 // import AddSportForm from "../../examples/CustomCards/AddSportForm";
 // import SportsRegistrationForm from './RegistrationForm';
 
 export default function ViewSports() {
-    // const [sports,setsports] = useState([
-    //     {
-    //         id:1,
-    //         name:"Cricket",
-    //         description:"Cricket is a game of 11 players. It is loved allover Pakistan. I was started by English people.",
-    //         fee:3600,
-    //         image:cricketImg
-    //     },
-    //     {
-    //         id:2,
-    //         name:"Hockey",
-    //         description:"Hockey is something that every person has his or her own specific opinion about.",
-    //         fee:4000,
-    //         image:hockeyImg
-    //     },
-    //     {
-    //         id:3,
-    //         name:"Chess",
-    //         description:"Chess is a two-player strategy board game played on a chessboard, a checkered gameboard with 64 squares arranged in an eight-by-eight grid.",
-    //         fee:2000,
-    //         image:chessImg
-    //     },
-    //     {
-    //         id:4,
-    //         name:"Football",
-    //         description:"Football is a family of team sports that involve, to varying degrees, kicking a ball with the foot to score a goal.",
-    //         fee:3000,
-    //         image:homeDecor2
-    //     }
-    // ]);
 
     const {sports, setSports} = useContext(ApplicationContext)
     useEffect(() => {
@@ -59,8 +32,6 @@ export default function ViewSports() {
                 <DashboardNavbar/>
                 <h1 style={{color:"white"}}>Sports List</h1>
                 <ArgonBox mb={1}>
-
-
                     <Card>
                         <ArgonBox pt={1} px={2}>
                             <ArgonBox>
@@ -72,20 +43,19 @@ export default function ViewSports() {
                         <ArgonBox p={2}>
                             {sports.map((sport) => (
                                 <Grid container spacing={3} style={{marginTop:'-10px'}}>
-                                <Grid item xs={12} md={6} xl={4}>
+                                <Grid item xs={12} md={6} xl={8}>
                                     <SportsCardForView
-                                        // style={{display: 'flex',
-                                        //     justifyContent: 'space-between', }}
                                         image={sport.imageUrl}
                                         label={"fee "+sport.fee}
-                                        title={sport.name}
+                                        title={sport.sportName}
                                         description={sport.description}
                                         action={{
                                             type: "internal",
-                                            route: "/pages/profile/profile-overview",
+                                            route: "/manage-coordinator",
                                             color: "primary",
                                             label: "Register",
                                         }}
+
                                     />
                                 </Grid>
                                 </Grid>
@@ -137,7 +107,6 @@ export default function ViewSports() {
 
                 {/*<AddEvent />*/}
                 {/*<AddSport />*/}
-
 
             </DashboardLayout>
         </>

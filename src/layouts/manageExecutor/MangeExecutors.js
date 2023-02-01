@@ -78,14 +78,14 @@ function ManageExecutors() {
 
                             </CardContent>
 
-                            <ArgonBox ml="auto" lineHeight={0} mt={-14}>
+                            <ArgonBox ml="auto" lineHeight={0} mt={-13}>
                                 <Tooltip title="Edit Card" placement="top">
                                     <Icon sx={{ cursor: "pointer" }} fontSize="small">
                                         edit
                                     </Icon>
                                 </Tooltip>
                             </ArgonBox>
-                            <ArgonBox ml="auto" lineHeight={0} mt={-14}>
+                            <ArgonBox ml="auto" lineHeight={0} mt={-13}>
                                 <Tooltip title="Delete Card" placement="top">
                                     <Icon color='error' sx={{ cursor: "pointer" }} fontSize="small">
                                         delete

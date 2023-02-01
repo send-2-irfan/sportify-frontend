@@ -31,25 +31,25 @@ import ArgonButton from "components/ArgonButton";
 import ArgonAvatar from "components/ArgonAvatar";
 
 function SportsCardForView({ image, label, title, description, action, authors }) {
-    const renderAuthors = authors.map(({ image: media, name }) => (
-        <Tooltip key={name} title={name} placement="bottom">
-            <ArgonAvatar
-                src={media}
-                alt={name}
-                size="xs"
-                sx={({ borders: { borderWidth }, palette: { white } }) => ({
-                    border: `${borderWidth[2]} solid ${white.main}`,
-                    cursor: "pointer",
-                    position: "relative",
-                    ml: -1.25,
-
-                    "&:hover, &:focus": {
-                        zIndex: "10",
-                    },
-                })}
-            />
-        </Tooltip>
-    ));
+    // const renderAuthors = authors.map(({ image: media, name }) => (
+    //     <Tooltip key={name} title={name} placement="bottom">
+    //         <ArgonAvatar
+    //             src={media}
+    //             alt={name}
+    //             size="xs"
+    //             sx={({ borders: { borderWidth }, palette: { white } }) => ({
+    //                 border: `${borderWidth[2]} solid ${white.main}`,
+    //                 cursor: "pointer",
+    //                 position: "relative",
+    //                 ml: -1.25,
+    //
+    //                 "&:hover, &:focus": {
+    //                     zIndex: "10",
+    //                 },
+    //             })}
+    //         />
+    //     </Tooltip>
+    // ));
 
     return (
         <Card
@@ -87,8 +87,8 @@ function SportsCardForView({ image, label, title, description, action, authors }
                 <ArgonBox mb={1}>
                     {action.type === "internal" ? (
                         <ArgonTypography
-                            component={Link}
-                            to={action.route}
+                            // component={Link}
+                            // to={action.route}
                             variant="h5"
                             textTransform="capitalize"
                         >
@@ -96,8 +96,8 @@ function SportsCardForView({ image, label, title, description, action, authors }
                         </ArgonTypography>
                     ) : (
                         <ArgonTypography
-                            component="a"
-                            href={action.route}
+                            // component="a"
+                            // href={action.route}
                             target="_blank"
                             rel="noreferrer"
                             variant="h5"
@@ -136,7 +136,7 @@ function SportsCardForView({ image, label, title, description, action, authors }
                             {action.label}
                         </ArgonButton>
                     )}
-                    <ArgonBox display="flex">{renderAuthors}</ArgonBox>
+                    {/*<ArgonBox display="flex">{renderAuthors}</ArgonBox>*/}
                 </ArgonBox>
             </ArgonBox>
         </Card>

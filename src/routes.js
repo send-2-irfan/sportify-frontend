@@ -190,7 +190,7 @@ const routes =
                         type: "route",
                         name: "View-Sport",
                         key: "view-sports",
-                        route: "view-sports",
+                        route: "/view-sports",
                         icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
                         component: <ViewSports />,
                     },
