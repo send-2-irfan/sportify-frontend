@@ -28,7 +28,7 @@ import {ApplicationContext} from "../../context/ApplicationContext";
 export default function ManageCoordinator() {
     const {coordinators, setAllCoordinators} = useContext(ApplicationContext)
     useEffect(() => {
-        JSON.parse(localStorage.getItem("coordinator")) && setAllCoordinators(JSON.parse(localStorage.getItem("coordinator")))
+        JSON.parse(localStorage.getItem("coordinators")) && setAllCoordinators(JSON.parse(localStorage.getItem("coordinators")))
     }, [])
 
     const profileImg = <ArgonAvatar

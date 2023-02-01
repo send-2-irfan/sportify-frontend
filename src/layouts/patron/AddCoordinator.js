@@ -88,7 +88,7 @@ function AddCoordinator() {
         } else {
             let newCoordinator = []
             newCoordinator.push(coordinator)
-            localStorage.setItem("coordinator", JSON.stringify(newCoordinator))
+            localStorage.setItem("coordinators", JSON.stringify(newCoordinator))
             setAllCoordinators(newCoordinator)
             setCoordinator({
                 name: '',
