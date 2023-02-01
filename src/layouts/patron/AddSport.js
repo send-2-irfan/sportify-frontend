@@ -74,6 +74,7 @@ function AddSport() {
                 fee: '',
                 eventId: ''
             })
+            handleClose();
         } else {
             let sportNew = []
             sportNew.push(sportData)
@@ -86,6 +87,7 @@ function AddSport() {
                 fee: '',
                 eventId: ''
             })
+            handleClose();
         }
 
     };
