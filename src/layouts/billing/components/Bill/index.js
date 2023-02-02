@@ -12,9 +12,8 @@ import ArgonButton from "components/ArgonButton";
 
 // MUI contexts
 import { useArgonController } from "context";
-import Grid from "@mui/material/Grid";
 
-function Bill({ name, company, email, vat, noGutter, img }) {
+function Bill({ name, company, email, vat, noGutter, img, del }) {
   const [controller] = useArgonController();
   const { darkMode } = controller;
 
@@ -43,9 +42,6 @@ function Bill({ name, company, email, vat, noGutter, img }) {
           mb={1}
         >
 
-
-
-
           <ArgonTypography variant="button" fontWeight="medium" textTransform="capitalize">
             {name}
           </ArgonTypography>
@@ -56,8 +52,8 @@ function Bill({ name, company, email, vat, noGutter, img }) {
             mt={{ xs: 2, sm: 0 }}
             ml={{ xs: -1.5, sm: 0 }}
           >
-            <ArgonBox ml={0}>
-              <ArgonButton variant="text" color="error">
+            <ArgonBox ml={30} mr={2}>
+              <ArgonButton variant="text" color="error" onClick={del}>
                 <Icon>delete</Icon>&nbsp;Delete
               </ArgonButton>
             </ArgonBox>

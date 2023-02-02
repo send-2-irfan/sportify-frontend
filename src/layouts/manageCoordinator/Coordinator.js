@@ -20,8 +20,10 @@ import ArgonAvatar from "../../components/ArgonAvatar";
 import burceMars from "../../assets/images/bruce-mars.jpg";
 import Depeeka from "../../assets/images/team-1.jpg";
 import AddCoordinator from "../patron/AddCoordinator";
-import {useContext, useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import {ApplicationContext} from "../../context/ApplicationContext";
+import IconButton from "@mui/material/IconButton";
+import {Delete, Edit} from "@mui/icons-material";
 
 
 
@@ -38,6 +40,18 @@ export default function ManageCoordinator() {
         size="xxl"
         shadow="sm"
     />;
+
+    function handleDelete(name) {
+        let coordinatorNew = []
+        for (let i = 0; i < coordinators.length; i++) {
+            if (coordinators[i].name !== name) {
+                coordinatorNew.push(coordinators[i])
+            }
+        }
+        localStorage.setItem('coordinators', JSON.stringify(coordinatorNew))
+        setAllCoordinators(coordinatorNew)
+    }
+    
     return (
         <>
             <DashboardLayout>
@@ -57,6 +71,7 @@ export default function ManageCoordinator() {
                                 coordinators.map(events => {
                                     return <Grid container spacing={3} p={2}>
                                         <Bill
+                                            del={() => handleDelete(events.name)}
                                             name={events.name}
                                             company={events.departmentName}
                                             email={events.email}
@@ -69,6 +84,14 @@ export default function ManageCoordinator() {
                                                 shadow="sm"
                                             />}
                                         ></Bill>
+                                        {/*<div>*/}
+                                        {/*    <IconButton>*/}
+                                        {/*        <Edit ed={() => handleDelete(events.name)} color='info' />*/}
+                                        {/*    </IconButton>*/}
+                                        {/*    <IconButton>*/}
+                                        {/*        <Delete del={() => handleDelete(events.name)} color='error'/>*/}
+                                        {/*    </IconButton>*/}
+                                        {/*</div>*/}
                                     </Grid>
                                 })
                             }
