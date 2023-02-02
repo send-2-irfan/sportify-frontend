@@ -20,13 +20,32 @@ import visaLogo from "assets/images/logos/visa.png";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import {Avatar, CardContent, CardHeader, Typography} from "@mui/material";
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import AthleteCard from "./ExecutorsCardDemo";
 import IconButton from "@mui/material/IconButton";
 import {Delete, Edit} from "@mui/icons-material";
+import AddExecutor from "../patron/AddExecutor";
+import {ApplicationContext} from "../../context/ApplicationContext";
+import ArgonAvatar from "../../components/ArgonAvatar";
 
 function ManageExecutors() {
     const { borderWidth, borderColor } = borders;
+
+    const {executors, setAllExecutors} = useContext(ApplicationContext)
+    useEffect(() => {
+        JSON.parse(localStorage.getItem("executors")) && setAllExecutors(JSON.parse(localStorage.getItem("executors")))
+    }, [])
+
+    function handleDelete(name) {
+        let executorNew = []
+        for (let i = 0; i < executors.length; i++) {
+            if (executors[i].name !== name) {
+                executorNew.push(executors[i])
+            }
+        }
+        localStorage.setItem('events', JSON.stringify(executorNew))
+        setAllExecutors(executorNew)
+    }
 
     return (
         <DashboardLayout>
@@ -36,22 +55,72 @@ function ManageExecutors() {
                 <Card>
                     <ArgonBox pt={2} px={2}>
                         <ArgonBox mb={0.5}>
-                            <ArgonTypography variant="h6" fontcolor="#32325d" fontWeight="medium" >
+                            <ArgonTypography variant="h6" fontWeight="medium">
                                 Manage Executors
                             </ArgonTypography>
                         </ArgonBox>
                     </ArgonBox>
-                    <Card id="delete-account">
-            <ArgonBox pt={2} px={2} display="flex" justifyContent="space-between" alignItems="center">
-                <ArgonTypography variant="h6" fontWeight="medium">
+                    <ArgonBox p={2}>
+                        <Grid container spacing={3}>
+                            {
+                                executors.map((items, index)=>{
+                                    return <Card
+                                        style={{width: '100%',
+                                        margin:'10px', display:'flex',}}
+                                    >
+                                        <CardHeader
+                                            style={{display:'flex',width:'100%', flexDirection:'row', fontWeight:'bolder'}}
+                                            avatar={
+                                                <ArgonAvatar
+                                                    // src={'https://upload.wikimedia.org/wikipedia/commons/6/6e/Shah_Rukh_Khan_graces_the_launch_of_the_new_Santro.jpg'}
+                                                    src={items.imageUrl}
+                                                    alt={items.name}
+                                                    style={{width: 160,
+                                                        height: 160,}}
+                                                />
+                                            }
+                                            action={
+                                                <>
+                                                    <IconButton onClick={() => handleEdit(`athlete.id`)}>
+                                                        <Edit color='info' />
+                                                    </IconButton>
+                                                    <IconButton onClick={() => handleDelete(items.name)}>
+                                                        <Delete color='error'/>
+                                                    </IconButton>
+                                                </>
+                                            }
+                                            title={items.name}
+                                            subheader={'Executor of '+items.sport}
+                                        />
+                                        <CardContent style={{width:'40%'}}>
+                                            {/*<Typography variant="h6" fontWeight="medium">*/}
+                                            {/*    Role: {'Executor of '+items.sport}*/}
+                                            {/*</Typography>*/}
+                                            {/*<Typography variant="body2" color="dark" component="p">*/}
+                                            {/*    Name: {items.name}*/}
+                                            {/*</Typography>*/}
+                                            <Typography variant="body2" color="dark" component="p">
+                                            Department: {items.department}
+                                        </Typography>
+                                            <Typography variant="body2" color="dark" component="p">
+                                                Contact Number: {items.contact}
+                                            </Typography>
+                                            <Typography variant="body2" color="dark" component="p">
+                                                Email: {items.email}
+                                            </Typography>
+                                        </CardContent>
 
-                </ArgonTypography>
-                <ArgonButton variant="gradient" color="dark">
-                    <Icon sx={{ fontWeight: "bold" }}>add</Icon>
-                    &nbsp;Add Executor
-                </ArgonButton>
-            </ArgonBox>
-            <ArgonBox p={2}>
+
+
+
+
+
+                                    </Card>
+
+                                })
+                            }
+
+
                 {/*<Grid container spacing={3}>*/}
                 {/*    <Grid item xs={12} md={7} mb={1.5}>*/}
                 {/*        <ArgonBox*/}
@@ -78,7 +147,6 @@ function ManageExecutors() {
                 {/*                <Typography variant="body2" color="dark" component="p">*/}
                 {/*                    Email: {`email`}*/}
                 {/*                </Typography>*/}
-
                 {/*            </CardContent>*/}
 
                 {/*            <ArgonBox ml="auto" lineHeight={0} mt={-13}>*/}
@@ -99,47 +167,13 @@ function ManageExecutors() {
                 {/*    </Grid>*/}
                 {/*</Grid>*/}
 
-                <Card style={{width: 400,
-                    margin: 'auto',
-                    marginTop: 2}}>
-                    <CardHeader
-                        avatar={
-                            <Avatar
-                                src={'https://upload.wikimedia.org/wikipedia/commons/6/6e/Shah_Rukh_Khan_graces_the_launch_of_the_new_Santro.jpg'}
-                                alt={'athlete.name'}
-                                style={{width: 60,
-                                    height: 60,}}
-                            />
-                        }
-                        action={
-                            <>
-                                <IconButton >
-                                    <Edit />
-                                </IconButton>
-                                <IconButton >
-                                    <Delete />
-                                </IconButton>
-                            </>
-                        }
-                        title={`athlete.name`}
-                        subheader={`athlete.sport`}
-                    />
-                    <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Email: {`athlete.email`}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Contact Number: {`athlete.contactNumber`}
-                        </Typography>
-                    </CardContent>
-                </Card>
 
 
 
 
-
-            </ArgonBox>
-        </Card>
+                            </Grid>
+                        </ArgonBox>
+                        <AddExecutor/>
                 </Card>
             </ArgonBox>
         </DashboardLayout>

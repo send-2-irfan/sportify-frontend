@@ -110,8 +110,8 @@ function AddExecutor() {
 
     return (
         <div>
-            <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>
-                <PlaceholderCard title={{variant: "h5", text: "Add New Event"}} outlined/>
+            <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}} mb={2}>
+                <PlaceholderCard title={{variant: "h5", text: "Add Executor"}} outlined/>
             </Grid>
             <Modal
                 open={open}
