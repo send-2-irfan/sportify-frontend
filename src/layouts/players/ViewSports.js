@@ -51,7 +51,7 @@ export default function ViewSports() {
                                         description={sport.description}
                                         action={{
                                             type: "internal",
-                                            route: "/manage-coordinator",
+                                            route: "/manage-teams",
                                             color: "primary",
                                             label: "Register",
                                         }}

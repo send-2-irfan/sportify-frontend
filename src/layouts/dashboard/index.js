@@ -79,7 +79,7 @@ function Default() {
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="Total Games"
+              title="Total Sports"
               count={sports.length}
               icon={{ color: "error", component: <i className="ni ni-world" /> }}
               percentage={{ color: "success", count: "", text: "" }}

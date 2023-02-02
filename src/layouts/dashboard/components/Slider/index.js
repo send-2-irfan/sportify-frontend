@@ -118,7 +118,7 @@ function Slider() {
                 </ArgonTypography>
               </ArgonBox>
               <ArgonTypography variant="h5" color="white" mb={0.5}>
-                Get started with Argon
+                Welcome to SIBA Sportify App
               </ArgonTypography>
               <ArgonTypography variant="body2" color="white">
                 There&apos;s nothing I really wanted to do in life that I wasn&apos;t able to get
@@ -153,7 +153,7 @@ function Slider() {
                 </ArgonTypography>
               </ArgonBox>
               <ArgonTypography variant="h5" color="white" mb={0.5}>
-                Faster way to create web pages
+                Improve Physical fitness by playing football.
               </ArgonTypography>
               <ArgonTypography variant="body2" color="white">
                 That&apos;s my skill. I&apos;m not really specifically talented at anything except
@@ -188,7 +188,7 @@ function Slider() {
                 </ArgonTypography>
               </ArgonBox>
               <ArgonTypography variant="h5" color="white" mb={0.5}>
-                Share with us your design tips!
+                Improving hand-eye coordination by playing Cricket
               </ArgonTypography>
               <ArgonTypography variant="body2" color="white">
                 Don&apos;t be afraid to be wrong because you can&apos;t learn anything from a

@@ -43,7 +43,7 @@ function ManageExecutors() {
                 executorNew.push(executors[i])
             }
         }
-        localStorage.setItem('events', JSON.stringify(executorNew))
+        localStorage.setItem('executors', JSON.stringify(executorNew))
         setAllExecutors(executorNew)
     }
 
