@@ -96,7 +96,7 @@ function Default() {
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
               title="Total Executors"
-              count="1"
+              count={executors.length}
               icon={{ color: "warning", component: <i className="ni ni-single-02" /> }}
               percentage={{ color: "success", count: "", text: "" }}
             />
