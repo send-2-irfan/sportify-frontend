@@ -50,7 +50,7 @@ export default function Schedule({ matches, onDelete }) {
 
     return (
         <Paper className={classes.root}>
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="h5" gutterBottom mr={5}>
                 Matches
             </Typography>
             <Table className={classes.table}>
