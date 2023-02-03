@@ -8,6 +8,8 @@ export default function ApplicationContextProvider(props) {
     const [teams, setAllTeams] = useState([])
     const [coordinators, setAllCoordinators] = useState([])
     const [executors, setAllExecutors] = useState([])
+    const [schedule, setAllSchedule] = useState([])
+    const [score, setAllScore] = useState([])
 
 
     //combining all the values
@@ -17,7 +19,8 @@ export default function ApplicationContextProvider(props) {
             sports, setSports,
             coordinators, setAllCoordinators,
             executors, setAllExecutors,
-            teams, setAllTeams
+            teams, setAllTeams,
+            schedule, setAllSchedule
         }}>
             {props.children}
         </ApplicationContext.Provider>

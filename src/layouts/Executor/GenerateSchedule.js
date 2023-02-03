@@ -28,10 +28,8 @@ export default function GenerateSchedule() {
             <DashboardLayout>
                 <DashboardNavbar/>
                 <h1>Generate Schedules</h1>
-                <Card></Card>
                 <MatchScheduler />
                 <Schedule/>
-
             </DashboardLayout>
         </>
     )

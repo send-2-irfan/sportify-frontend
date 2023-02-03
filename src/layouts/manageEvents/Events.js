@@ -99,7 +99,7 @@ export default function Events() {
                                             />
                                             <div className={classes.cardActions}>
                                                 <IconButton>
-                                                    <Edit onClick={() => handleDelete(events.name)} color='info' />
+                                                    <Edit color='info' />
                                                 </IconButton>
                                                 <IconButton>
                                                     <Delete onClick={() => handleDelete(events.name)} color='error'/>

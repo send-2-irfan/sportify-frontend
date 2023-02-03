@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { makeStyles } from '@mui/styles';
 import Paper from '@mui/material/Paper';
 import {
@@ -12,6 +12,8 @@ import {
 } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Moment from 'react-moment';
+import {ApplicationContext} from "../../context/ApplicationContext";
+import {Delete, Edit} from "@mui/icons-material";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +32,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Schedule({ matches, onDelete }) {
     const classes = useStyles();
+    const {schedule, setAllSchedule} = useContext(ApplicationContext)
+    useEffect(() => {
+        JSON.parse(localStorage.getItem("schedules")) && setAllSchedule(JSON.parse(localStorage.getItem("schedules")))
+    }, [])
+
+    function handleDelete(teamA, teamB ,matchDate, matchTime) {
+        let scheduleNew = []
+        for (let i = 0; i < schedule.length; i++) {
+            if (schedule[i].teamA !== teamA && schedule[i].teamB !== teamB && schedule[i].matchDate !== matchDate && schedule[i].matchTime !== matchTime) {
+                scheduleNew.push(schedule[i])
+            }
+        }
+        localStorage.setItem('schedules', JSON.stringify(scheduleNew))
+        setAllSchedule(scheduleNew)
+    }
 
     return (
         <Paper className={classes.root}>
@@ -49,24 +66,25 @@ export default function Schedule({ matches, onDelete }) {
                 </TableHead>
                 <TableBody>
 
-                    //uncomment the below code to render the matches
-
-                    {/*{matches.map((match) => (*/}
-                    {/*    <TableRow key={match.id}>*/}
-                    {/*        <TableCell>{match.teamA}</TableCell>*/}
-                    {/*        <TableCell>{match.teamB}</TableCell>*/}
-                    {/*        <TableCell>*/}
-                    {/*            <Moment format="MM/DD/YYYY">{match.date}</Moment>*/}
-                    {/*        </TableCell>*/}
-                    {/*        <TableCell>{match.time}</TableCell>*/}
-                    {/*        <TableCell>{match.location}</TableCell>*/}
-                    {/*        <TableCell className={classes.action}>*/}
-                    {/*            <IconButton onClick={() => onDelete(match.id)}>*/}
-                    {/*                <DeleteIcon color="error" />*/}
-                    {/*            </IconButton>*/}
-                    {/*        </TableCell>*/}
-                    {/*    </TableRow>*/}
-                    {/*))}*/}
+                    {schedule.map((match) => (
+                        <TableRow key={match.id}>
+                            <TableCell>{match.teamA}</TableCell>
+                            <TableCell>{match.teamB}</TableCell>
+                            <TableCell>
+                                <Moment format="MM/DD/YYYY">{match.matchDate}</Moment>
+                            </TableCell>
+                            <TableCell>{match.matchTime}</TableCell>
+                            <TableCell>{match.matchLocation}</TableCell>
+                            <TableCell className={classes.action}>
+                                <IconButton onClick={() => onDelete(match.id)}>
+                                    <Edit color="info" />
+                                </IconButton>
+                                <IconButton onClick={() => handleDelete(match.teamA, match.teamB , match.matchDate, match.matchTime)}>
+                                    <Delete color="error"/>
+                                </IconButton>
+                            </TableCell>
+                        </TableRow>
+                    ))}
                 </TableBody>
             </Table>
         </Paper>
