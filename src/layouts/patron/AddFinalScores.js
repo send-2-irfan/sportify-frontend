@@ -170,16 +170,16 @@ function AddFinalScores() {
                 <ArgonBox mb={3}>
                     <Card>
 
-                        {/*<Table*/}
-                        {/*    columns={[*/}
-                        {/*        { name: "team", align: "left" },*/}
-                        {/*        { name: "score", align: "left" },*/}
-                        {/*        { name: "sports", align: "left" },*/}
-                        {/*        { name: "status", align: "center" },*/}
-                        {/*        { name: "Action", align: "center" },*/}
-                        {/*    ]}*/}
-                        {/*    rows={scores}*/}
-                        {/*/>*/}
+                        <Table
+                            columns={[
+                                { name: "team", align: "left" },
+                                { name: "score", align: "left" },
+                                { name: "sports", align: "left" },
+                                { name: "status", align: "center" },
+                                { name: "Action", align: "center" },
+                            ]}
+                            rows={scores}
+                        />
 
 
                         <Table className={classes.table}>

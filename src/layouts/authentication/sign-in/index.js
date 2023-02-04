@@ -17,6 +17,7 @@ import ArgonButton from "components/ArgonButton";
 // Authentication layout components
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";
 import {useAuth } from "../../../context/AuthContext";
+import ArgonAlert from "../../../components/ArgonAlert";
 
 // Image
 const bgImage = "https://i.pinimg.com/736x/33/2e/21/332e213e36c73c2cfba495ae141aa1b0.jpg";
@@ -40,6 +41,7 @@ function Illustration() {
           sessionStorage.setItem('login', JSON.stringify(user))
       }) ;
     } catch {
+      alert('username or password is incorrect');
       console.log("error");
     }
 
@@ -57,7 +59,7 @@ function Illustration() {
   return (
     <IllustrationLayout
       title="Sign In"
-      description="Enter your CMS-ID and Password to sign in"
+      description="Enter your Email and Password to sign in"
       illustration={{
         image: bgImage,
         title: 'SIBAU Sports Management System',
