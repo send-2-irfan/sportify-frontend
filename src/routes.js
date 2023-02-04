@@ -138,7 +138,7 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "Manage-Events",
+                        name: "Manage Events",
                         key: "manage-events",
                         route: "/manage-events",
                         icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-collection"/>,
@@ -164,7 +164,7 @@ const routes =
                     // },
                     {
                         type: "route",
-                        name: "Manage-Sports",
+                        name: "Manage Sports",
                         key: "manage-sports",
                         route: "/manage-sports",
                         icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-world"/>,
@@ -180,7 +180,7 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "Manage-Executor",
+                        name: "Manage Executor",
                         key: "manage-executor",
                         route: "/manage-executor",
                         icon: <ArgonBox component="i" color="information" fontSize="14px" className="ni ni-single-02"/>,
@@ -188,7 +188,7 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "View-Sport",
+                        name: "View Sport",
                         key: "view-sports",
                         route: "/view-sports",
                         icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
@@ -236,7 +236,7 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "Manage-Teams",
+                        name: "Manage Teams",
                         key: "manage-teams",
                         route: "/manage-teams",
                         icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-tablet-button"/>,

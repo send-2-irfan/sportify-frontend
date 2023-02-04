@@ -24,7 +24,25 @@ import Paper from '@mui/material/Paper';
 import ArgonButton from "../../components/ArgonButton";
 import Icon from "@mui/material/Icon";
 import ArgonInput from "../../components/ArgonInput";
+import {TableBody, TableCell, TableHead, TableRow} from "@mui/material";
+import Moment from "react-moment";
+import IconButton from "@mui/material/IconButton";
+import {Delete, Edit} from "@mui/icons-material";
 
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+        marginTop: theme.spacing(3),
+        overflowX: 'auto',
+    },
+    table: {
+        minWidth: 650,
+    },
+    action: {
+        width: '10%',
+    },
+}));
 
 function AddFinalScores() {
     const { columns, rows } = authorsTableData;
@@ -37,7 +55,7 @@ function AddFinalScores() {
 
     // const classes = useStyles();
     const [scores, setScores] = useState([
-        { team: 'Team 1', score: 0, sports: 'Soccer', status: 'Winner' },
+        { team: 'Team 1', score: 0, sports: 'Soccer', status: 'Winner', },
         { team: 'Team 2', score: 0, sports: 'Basketball', status: 'Winner' }
     ]);
     const [newTeam, setNewTeam] = useState('');
@@ -87,7 +105,19 @@ function AddFinalScores() {
         setScores(newScores);
     };
 
+    function handleDelete() {
+        // let scheduleNew = []
+        // for (let i = 0; i < schedule.length; i++) {
+        //     if (schedule[i].teamA !== teamA ) {
+        //         scheduleNew.push(schedule[i])
+        //     }
+        // }
+        // localStorage.setItem('schedules', JSON.stringify(scheduleNew))
+        // setAllSchedule(scheduleNew)
+    }
+    const classes = useStyles();
 
+    console.log("Here are scores: " + scores)
     return (
         <DashboardLayout>
             <DashboardNavbar />
@@ -140,16 +170,48 @@ function AddFinalScores() {
                 <ArgonBox mb={3}>
                     <Card>
 
-                        <Table
-                            columns={[
-                                { name: "team", align: "left" },
-                                { name: "score", align: "left" },
-                                { name: "sports", align: "left" },
-                                { name: "status", align: "center" },
-                                { name: "Actions", align: "center" },
-                            ]}
-                            rows={scores}
-                        />
+                        {/*<Table*/}
+                        {/*    columns={[*/}
+                        {/*        { name: "team", align: "left" },*/}
+                        {/*        { name: "score", align: "left" },*/}
+                        {/*        { name: "sports", align: "left" },*/}
+                        {/*        { name: "status", align: "center" },*/}
+                        {/*        { name: "Action", align: "center" },*/}
+                        {/*    ]}*/}
+                        {/*    rows={scores}*/}
+                        {/*/>*/}
+
+
+                        <Table className={classes.table}>
+                            <TableHead style={{display: 'flex', justifyContent:'space-evenly', width:'100%'}}>
+                                <TableRow style={{display: 'flex', justifyContent:'space-between', width:'100%'}}>
+                                    <TableCell>Team A</TableCell>
+                                    <TableCell>Team B</TableCell>
+                                    <TableCell>Time</TableCell>
+                                    <TableCell>Location</TableCell>
+                                    <TableCell className={classes.action}>Action</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+
+                                {scores.map((match) => (
+                                    <TableRow key={match.id} style={{display: 'flex', justifyContent:'space-between', width:'100%'}}>
+                                        <TableCell>{match.team}</TableCell>
+                                        <TableCell>{match.score}</TableCell>
+                                        <TableCell>{match.sports}</TableCell>
+                                        <TableCell>{match.status}</TableCell>
+                                        <TableCell className={classes.action} style={{marginRight:'20px'}}>
+                                            <IconButton >
+                                                <Edit color="info" />
+                                            </IconButton>
+                                            <IconButton>
+                                                <Delete color="error"/>
+                                            </IconButton>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
 
 
 

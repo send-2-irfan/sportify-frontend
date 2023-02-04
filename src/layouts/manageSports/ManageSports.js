@@ -16,14 +16,39 @@ import homeDecor4 from "../../assets/images/hockey.jpg";
 import football from "../../assets/images/img-1.jpg";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 // import SportsFormDialog from "./AddNewSportsForm";
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import PlayerRegistrationFormDialog from "layouts/players/PlayersRegistrationForm";
 import {ApplicationContext} from "../../context/ApplicationContext";
 import {Link} from "react-router-dom";
 import AddSport from "../patron/AddSport";
+import IconButton from "@mui/material/IconButton";
+import {Delete, Edit} from "@mui/icons-material";
+import {makeStyles} from "@mui/styles";
 
+
+const useStyles = makeStyles((theme) => ({
+    cardContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: '16px 0',
+    },
+    card: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '16px',
+        width: '100%',
+    },
+    cardActions: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        marginTop: '8px',
+    },
+}));
 
 export default function ManageSports() {
+    const classes = useStyles();
     const {sports, setSports} = useContext(ApplicationContext)
     useEffect(() => {
         JSON.parse(localStorage.getItem("sports")) && setSports(JSON.parse(localStorage.getItem("sports")))
@@ -38,7 +63,17 @@ export default function ManageSports() {
     const openPlayerModal = () =>{
         setShowPlayer(true);
     }
-    console.log(sports)
+
+    function handleDelete(sportName) {
+        let sportsNew = []
+        for (let i = 0; i < sports.length; i++) {
+            if (sports[i].sportName !== sportName) {
+                sportsNew.push(sports[i])
+            }
+        }
+        localStorage.setItem('sports', JSON.stringify(sportsNew))
+        setSports(sportsNew)
+    }
 
     return (
         <>
@@ -72,6 +107,14 @@ export default function ManageSports() {
                                                     label: "View Sport",
                                                 }}
                                             />
+                                            <div className={classes.cardActions}>
+                                                <IconButton>
+                                                    <Edit color='info' />
+                                                </IconButton>
+                                                <IconButton>
+                                                    <Delete onClick={() => handleDelete(sports.sportName)} color='error'/>
+                                                </IconButton>
+                                            </div>
                                         </Grid>
                                     })
                                 }

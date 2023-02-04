@@ -40,7 +40,7 @@ export default function Schedule({ matches, onDelete }) {
     function handleDelete(teamA, teamB ,matchDate, matchTime) {
         let scheduleNew = []
         for (let i = 0; i < schedule.length; i++) {
-            if (schedule[i].teamA !== teamA && schedule[i].teamB !== teamB && schedule[i].matchDate !== matchDate && schedule[i].matchTime !== matchTime) {
+            if (schedule[i].teamA !== teamA ) {
                 scheduleNew.push(schedule[i])
             }
         }
@@ -50,12 +50,12 @@ export default function Schedule({ matches, onDelete }) {
 
     return (
         <Paper className={classes.root}>
-            <Typography variant="h5" gutterBottom mr={5}>
-                Matches
-            </Typography>
+            {/*<Typography variant="h5" gutterBottom>*/}
+            {/*    Matches*/}
+            {/*</Typography>*/}
             <Table className={classes.table}>
-                <TableHead>
-                    <TableRow>
+                <TableHead style={{display: 'flex', justifyContent:'space-evenly', width:'100%'}}>
+                    <TableRow style={{display: 'flex', justifyContent:'space-between', width:'100%'}}>
                         <TableCell>Team A</TableCell>
                         <TableCell>Team B</TableCell>
                         <TableCell>Date</TableCell>
@@ -67,7 +67,7 @@ export default function Schedule({ matches, onDelete }) {
                 <TableBody>
 
                     {schedule.map((match) => (
-                        <TableRow key={match.id}>
+                        <TableRow key={match.id} style={{display: 'flex', justifyContent:'space-between', width:'100%'}}>
                             <TableCell>{match.teamA}</TableCell>
                             <TableCell>{match.teamB}</TableCell>
                             <TableCell>
@@ -75,7 +75,7 @@ export default function Schedule({ matches, onDelete }) {
                             </TableCell>
                             <TableCell>{match.matchTime}</TableCell>
                             <TableCell>{match.matchLocation}</TableCell>
-                            <TableCell className={classes.action}>
+                            <TableCell className={classes.action} style={{marginRight:'20px'}}>
                                 <IconButton onClick={() => onDelete(match.id)}>
                                     <Edit color="info" />
                                 </IconButton>

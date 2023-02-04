@@ -74,47 +74,45 @@ const Scoreboard = (props) => {
 
     return (
         <div>
-            {/*<TableContainer component={Paper}>*/}
-            {/*    <Table className={classes.table} aria-label="simple table">*/}
-            {/*        <TableHead>*/}
-            {/*            <TableRow>*/}
-            {/*                <view style={{marginRight:'200px'}}><TableCell component="th" scope="row">Team</TableCell></view>*/}
-            {/*                <view style={{marginRight:'50px'}}><TableCell component="th" scope="row">Score</TableCell></view>*/}
-            {/*                    <view style={{marginRight:'50px'}}><TableCell component="th" scope="row">Sports</TableCell></view>*/}
-            {/*                <TableCell component="th" scope="row">Status</TableCell>*/}
-            {/*            </TableRow>*/}
-
-            {/*        </TableHead>*/}
-            {/*        <TableBody>*/}
-            {/*            {scores.map((row, index) => (*/}
-            {/*                <TableRow key={row.team}>*/}
-            {/*                    <TableCell component="th" scope="row" > {row.team} </TableCell>*/}
-            {/*                    <TableCell component="th" scope="row">{row.score}</TableCell>*/}
-            {/*                    <TableCell component="th" scope="row">*/}
-            {/*                        {row.sports}*/}
-            {/*                    </TableCell>*/}
-            {/*                    <TableCell>{row.status}</TableCell>*/}
-
-            {/*                    <TableCell align="right">*/}
-            {/*                        <Button variant="contained" color="primary" onClick={() => handleEdit(index)}>Edit</Button>*/}
-            {/*                        <Button variant="contained" color="secondary" onClick={() => handleRemove(index)}>Remove</Button>*/}
-            {/*                    </TableCell>*/}
-            {/*                </TableRow>*/}
-            {/*            ))}*/}
-            {/*        </TableBody>*/}
-            {/*    </Table>*/}
-            {/*</TableContainer>*/}
+            <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <view style={{marginRight:'200px'}}><TableCell component="th" scope="row">Team</TableCell></view>
+                            <view style={{marginRight:'50px'}}><TableCell component="th" scope="row">Score</TableCell></view>
+                                <view style={{marginRight:'50px'}}><TableCell component="th" scope="row">Sports</TableCell></view>
+                            <TableCell component="th" scope="row">Status</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {scores.map((row, index) => (
+                            <TableRow key={row.team}>
+                                <TableCell component="th" scope="row" > {row.team} </TableCell>
+                                <TableCell component="th" scope="row">{row.score}</TableCell>
+                                <TableCell component="th" scope="row">
+                                    {row.sports}
+                                </TableCell>
+                                <TableCell>{row.status}</TableCell>
+                                <TableCell align="right">
+                                    <Button variant="contained" color="primary" onClick={() => handleEdit(index)}>Edit</Button>
+                                    <Button variant="contained" color="secondary" onClick={() => handleRemove(index)}>Remove</Button>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
             {/*<ScoreTable scores={scores} />*/}
-            <Table
-                columns={[
-                    { name: "team", align: "left" },
-                    { name: "score", align: "left" },
-                    { name: "sports", align: "left" },
-                    { name: "status", align: "center" },
-                    { name: "Actions", align: "center" },
-                ]}
-                rows={scores}
-            />
+            {/*<Table*/}
+            {/*    columns={[*/}
+            {/*        { name: "team", align: "left" },*/}
+            {/*        { name: "score", align: "left" },*/}
+            {/*        { name: "sports", align: "left" },*/}
+            {/*        { name: "status", align: "center" },*/}
+            {/*        { name: "Actions", align: "center" },*/}
+            {/*    ]}*/}
+            {/*    rows={scores}*/}
+            {/*/>*/}
             <form onSubmit={handleSubmit}>
                 <TextField
                     label="Team Name"

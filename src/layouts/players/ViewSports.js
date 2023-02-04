@@ -103,7 +103,7 @@ export default function ViewSports() {
 
                 {/*<AddSportForm />*/}
                 {/*<FootballTeamRegistrationForm />*/}
-                {/*<Scoreboard />*/}
+                {/* <Scoreboard />*/}
 
                 {/*<AddEvent />*/}
                 {/*<AddSportsDemo />*/}
