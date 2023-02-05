@@ -1,6 +1,11 @@
 // react-router-dom components
 import {Link, useNavigate} from "react-router-dom";
-
+import * as React from 'react';
+import {useTheme} from '@mui/material/styles';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
 // @mui material components
@@ -24,24 +29,82 @@ import {useAuth} from "../../../context/AuthContext";
 const bgImage = "https://thumbs.dreamstime.com/b/soccer-football-background-sport-poster-flyer-space-77780744.jpg";
 
 // "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg";
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250,
+        },
+    },
+};
+
+const names = [
+    'PATRON',
+    'COORDINATOR',
+    'EXECUTOR',
+    'PLAYER'
+];
+
+function getStyles(name, personName, theme) {
+    return {
+        fontWeight:
+            personName.indexOf(name) === -1
+                ? theme.typography.fontWeightRegular
+                : theme.typography.fontWeightMedium,
+    };
+}
 
 function Cover() {
-    const {signup,sendEmailVerification} = useAuth();
+    const theme = useTheme();
+    const {signup, sendEmailVerification} = useAuth();
     const [user, setUser] = useState({
         username: '',
         password: '',
         fullName: '',
+        role: ''
     })
+    const [personName, setPersonName] = React.useState([]);
+
+    const handleChange = (event) => {
+        const {
+            target: {value},
+        } = event;
+        setPersonName(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+        setUser({...user, role: value})
+    };
     const navigate = useNavigate()
     const signUp = async () => {
         try {
-            await signup(user.fullName , user.password);
-            navigate("authentication/sign-in");
+            let allUsers = JSON.parse(localStorage.getItem("users"))
+            if (allUsers && allUsers.length > 0) {
+                allUsers.push(user)
+                localStorage.setItem("users", JSON.stringify(allUsers))
+                setUser({
+                    username: '',
+                    password: '',
+                    fullName: '',
+                    role: ''
+                })
+                navigate("authentication/sign-in");
+            } else {
+                let allUsers = []
+                allUsers.push(user)
+                localStorage.setItem("users", JSON.stringify(allUsers))
+                setUser({
+                    username: '',
+                    password: '',
+                    fullName: '',
+                    role: ''
+                })
+                navigate("authentication/sign-in");
+            }
         } catch {
             console.log("ss");
         }
-
-        // localStorage.setItem('register', JSON.stringify(user))
     }
     return (
         <CoverLayout
@@ -67,13 +130,43 @@ function Cover() {
                         <ArgonBox mb={2}>
                             <ArgonInput value={user.username}
                                         onChange={(e) => setUser({...user, username: e.target.value})} type="email"
-                                        placeholder="CMS-ID"/>
+                                        placeholder="example@example.com"/>
                         </ArgonBox>
                         <ArgonBox mb={2}>
                             <ArgonInput value={user.password}
                                         onChange={(e) => setUser({...user, password: e.target.value})} type="password"
                                         placeholder="Password"/>
                         </ArgonBox>
+                        <FormControl sx={{m: 1, width: 300, mt: 3}}>
+                            <Select
+                                displayEmpty
+                                value={personName}
+                                onChange={handleChange}
+                                input={<OutlinedInput/>}
+                                renderValue={(selected) => {
+                                    if (selected.length === 0) {
+                                        return <em>Select Role</em>;
+                                    }
+
+                                    return selected.join(', ');
+                                }}
+                                MenuProps={MenuProps}
+                                inputProps={{'aria-label': 'Without label'}}
+                            >
+                                <MenuItem disabled value="">
+                                    <em>Select Role</em>
+                                </MenuItem>
+                                {names.map((name) => (
+                                    <MenuItem
+                                        key={name}
+                                        value={name}
+                                        style={getStyles(name, personName, theme)}
+                                    >
+                                        {name}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
                         <ArgonBox display="flex" alignItems="center">
                             <Checkbox defaultChecked/>
                             <ArgonTypography

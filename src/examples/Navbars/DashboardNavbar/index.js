@@ -68,7 +68,7 @@ function DashboardNavbar({absolute, light, isMini}) {
     const route = useLocation().pathname.split("/").slice(1);
     const logout = () => {
         sessionStorage.removeItem("login")
-        navigate("/authentication-signin")
+        window.location.href="/dashboard"
     }
     useEffect(() => {
         // Setting the navbar type
