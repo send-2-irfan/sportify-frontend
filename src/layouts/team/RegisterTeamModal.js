@@ -45,6 +45,7 @@ function RegisterTeamModal() {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [cards, setCards] = useState([]);
+    const [file, setFile] = useState(null);
     const [team, setTeam] = useState({
         teamName: '',
         sport: '',
@@ -62,21 +63,30 @@ function RegisterTeamModal() {
     const handleClose = () => {
         setOpen(false);
     };
-    const {setAllTeams } = useContext(ApplicationContext)
+    const {setAllTeams} = useContext(ApplicationContext)
 
 
     const handleDelete = (index) => {
         setCards(cards.filter((card, i) => i !== index));
     };
+    const onImageChange = (e) => {
+        e.preventDefault()
+        let file = e.target.files[0]
+        let reader = new FileReader();
+        reader.addEventListener('load', function() {
+            let data = reader.result;
+            setTeam({...team, imageUrl: data});
+        });
+        reader.readAsDataURL(file);
+    }
 
 
     const handleAdd = (e) => {
-        if (JSON.parse(localStorage.getItem("teams"))) {
-            let items = JSON.parse(localStorage.getItem("teams"))
-            items.push(team)
-            localStorage.setItem("teams", JSON.stringify(items))
-            setAllTeams(items)
-            setAllTeams({
+        let allTeams = JSON.parse(localStorage.getItem("teams"))
+        if (allTeams && allTeams.length > 0) {
+            allTeams.push(team)
+            localStorage.setItem("teams", JSON.stringify(allTeams))
+            setTeam({
                 teamName: '',
                 sport: '',
                 captainName: '',
@@ -84,13 +94,13 @@ function RegisterTeamModal() {
                 email: '',
                 imageUrl: '',
             })
-            handleClose();
+            setAllTeams(allTeams)
+            handleClose()
         } else {
-            let newTeam = []
-            newTeam.push(team)
-            localStorage.setItem("teams", JSON.stringify(newTeam))
-            setAllTeams(newTeam)
-            setAllTeams({
+            let teams = []
+            teams.push(team)
+            localStorage.setItem("teams", JSON.stringify(teams))
+            setTeam({
                 teamName: '',
                 sport: '',
                 captainName: '',
@@ -98,7 +108,8 @@ function RegisterTeamModal() {
                 email: '',
                 imageUrl: '',
             })
-            handleClose();
+            setAllTeams(teams)
+            handleClose()
         }
     };
 
@@ -168,8 +179,9 @@ function RegisterTeamModal() {
                             <ArgonBox mb={2}>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
                                             placeholder="Upload Fee Receipt"
-                                            value={team.imageUrl}
-                                            onChange={(e) => setTeam({...team, imageUrl: e.target.value})}
+                                            type={"file"}
+                                            accept="image/png,image/gif,image/jpeg"
+                                            onChange={(e) => onImageChange(e)}
                                             fullWidth
                                 />
                             </ArgonBox>

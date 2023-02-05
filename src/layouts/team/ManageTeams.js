@@ -10,6 +10,11 @@ import AddEvent from "../patron/AddEvent";
 import {ApplicationContext} from "../../context/ApplicationContext";
 import RegisterTeamModal from "./RegisterTeamModal";
 import ViewSchedule from "../players/ViewSchedule";
+import IconButton from "@mui/material/IconButton";
+import {Delete, Edit} from "@mui/icons-material";
+import Modal from "@mui/material/Modal";
+import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
+import ArgonButton from "../../components/ArgonButton";
 
 
 export default function ManageTeams() {
@@ -37,18 +42,36 @@ export default function ManageTeams() {
                                 </ArgonTypography>
                             </ArgonBox>
                         </ArgonBox>
-                        <ArgonBox>
-                            {/*<Grid container spacing={3}>*/}
-                            {/*    {*/}
-                            {/*        teams.map((events, index)=> {*/}
-                            {/*            return  <ArgonBox m={3} >*/}
-                            {/*                <Card key={index}>*/}
-                            {/*                    <h1>{events.teamName}</h1>*/}
-                            {/*                </Card>*/}
-                            {/*            </ArgonBox>*/}
-                            {/*        })*/}
-                            {/*    }*/}
-                            {/*</Grid>*/}
+                        <ArgonBox p={2}>
+                            <Grid container spacing={3}>
+                                {
+                                    teams.map(team => {
+                                        return <Grid item xs={12} md={6} xl={4}>
+                                            <DefaultProjectCard
+                                                image={team.imageUrl}
+                                                label=""
+                                                title={team.email}
+                                                description={"description"}
+                                                action={{
+                                                    type: "internal",
+                                                    route: "/manage-sports",
+                                                    color: "info",
+                                                    label: "View Event",
+                                                }}
+                                            />
+                                            {/*<div className={classes.cardActions}>*/}
+                                            {/*    <IconButton onClick={handleOpen}>*/}
+                                            {/*        <Edit color='info' />*/}
+                                            {/*    </IconButton>*/}
+                                            {/*    <IconButton onClick={() => handleDelete(team.name)}>*/}
+                                            {/*        <Delete color='error'/>*/}
+                                            {/*    </IconButton>*/}
+                                            {/*</div>*/}
+                                        </Grid>
+                                    })
+                                }
+
+                            </Grid>
                         </ArgonBox>
                         <RegisterTeamModal/>
                         <ArgonBox mb={2}/>
