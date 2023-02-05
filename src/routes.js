@@ -15,6 +15,7 @@ import ManageTeams from "./layouts/team/ManageTeams";
 import AddFinalScores from "./layouts/patron/AddFinalScores";
 import ReportToPatron from "./layouts/Coordinator/ReportToPatron";
 import ViewSchedule from "./layouts/players/ViewSchedule";
+import {ContactUs} from "./components/contact/ContactUs";
 
 
 const routes =
@@ -62,6 +63,14 @@ const routes =
                 route: "/profile",
                 icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
                 component: <Profile/>,
+            },
+            {
+                type: "route",
+                name: "Contact Us",
+                key: "contact-us",
+                route: "/contact-us",
+                icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                component: <ContactUs/>,
             }
         ]
         : JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role === 'COORDINATOR' ? [
@@ -96,6 +105,14 @@ const routes =
                     icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
                     component: <Profile/>,
                 },
+                {
+                    type: "route",
+                    name: "Contact Us",
+                    key: "contact-us",
+                    route: "/contact-us",
+                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                    component: <ContactUs/>,
+                }
             ]
             : JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' ? [
                 {
@@ -146,6 +163,14 @@ const routes =
                     icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
                     component: <Profile/>,
                 },
+                {
+                    type: "route",
+                    name: "Contact Us",
+                    key: "contact-us",
+                    route: "/contact-us",
+                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                    component: <ContactUs/>,
+                }
             ] : JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' ? [
                 {
                     type: "route",
@@ -195,7 +220,14 @@ const routes =
                     icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
                     component: <Profile/>,
                 },
-
+                {
+                    type: "route",
+                    name: "Contact Us",
+                    key: "contact-us",
+                    route: "/contact-us",
+                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                    component: <ContactUs/>,
+                }
 
             ] : [
                 {
@@ -214,5 +246,13 @@ const routes =
                     icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
                     component: <SignUp/>,
                 },
+                {
+                    type: "route",
+                    name: "Contact Us",
+                    key: "contact-us",
+                    route: "/contact-us",
+                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                    component: <ContactUs/>,
+                }
             ]
 export default routes;
