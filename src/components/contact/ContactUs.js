@@ -7,6 +7,7 @@ import {useState} from "react";
 import ArgonTypography from "../ArgonTypography";
 import ArgonInput from "../ArgonInput";
 import ArgonButton from "../ArgonButton";
+import {useNavigate} from "react-router-dom";
 
 export const ContactUs = () => {
     const [userMessage, setUserMessage] = useState({
@@ -14,6 +15,7 @@ export const ContactUs = () => {
         from_email: null,
         message: null
     })
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     // const [disabled, setDisabled] = useState(false)
 
@@ -26,11 +28,7 @@ export const ContactUs = () => {
             message: userMessage.message,
         }, "5r6822MXz4nfPPBAk").then(r => {
             setIsLoading(false)
-            setUserMessage({
-                from_name: null,
-                from_email: null,
-                message: null
-            })
+            navigate("/dashboard")
         }).catch(err => {
             setIsLoading(false)
             console.log(err)
