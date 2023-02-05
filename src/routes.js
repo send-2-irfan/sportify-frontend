@@ -17,6 +17,7 @@ import ManageTeams from "./layouts/team/ManageTeams";
 import MangeExecutors from "./layouts/manageExecutor/MangeExecutors";
 import AddFinalScores from "./layouts/patron/AddFinalScores";
 import ReportToPatron from "./layouts/Coordinator/ReportToPatron";
+import ViewSchedule from "./layouts/players/ViewSchedule";
 
 
 const routes =
@@ -188,10 +189,10 @@ const routes =
                     },
                     {
                         type: "route",
-                        name: "View Sport",
+                        name: "View Sports",
                         key: "view-sports",
                         route: "/view-sports",
-                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
+                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-world"/>,
                         component: <ViewSports />,
                     },
                     {
@@ -239,8 +240,16 @@ const routes =
                         name: "Manage Teams",
                         key: "manage-teams",
                         route: "/manage-teams",
-                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-tablet-button"/>,
+                        icon: <ArgonBox component="i" color="secondary" fontSize="14px" className="ni ni-tablet-button"/>,
                         component: <ManageTeams />,
+                    },
+                    {
+                        type: "route",
+                        name: "View Schedule",
+                        key: "view-schedule",
+                        route: "/view-schedule",
+                        icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-watch-time"/>,
+                        component: <ViewSchedule />,
                     },
                     {type: "title", title: "Account Pages", key: "account-pages"},
                     {

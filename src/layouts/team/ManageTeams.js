@@ -9,7 +9,7 @@ import {useContext, useEffect, useState} from "react";
 import AddEvent from "../patron/AddEvent";
 import {ApplicationContext} from "../../context/ApplicationContext";
 import RegisterTeamModal from "./RegisterTeamModal";
-import ViewTeams from "../Executor/ViewTeams";
+import ViewSchedule from "../players/ViewSchedule";
 
 
 export default function ManageTeams() {
@@ -52,7 +52,7 @@ export default function ManageTeams() {
                         </ArgonBox>
                         <RegisterTeamModal/>
                         <ArgonBox mb={2}/>
-                        <ViewTeams/>
+                        {/*<ViewSchedule/>*/}
                     </Card>
                 </ArgonBox>
             </DashboardLayout>
