@@ -17,6 +17,10 @@ import {ApplicationContext} from "../../context/ApplicationContext";
 import IconButton from "@mui/material/IconButton";
 import {Delete, Edit} from "@mui/icons-material";
 import {makeStyles} from "@mui/styles";
+import ArgonInput from "../../components/ArgonInput";
+import ArgonButton from "../../components/ArgonButton";
+import Modal from "@mui/material/Modal";
+import {useNavigate} from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -66,6 +70,18 @@ export default function Events() {
         setAllEvents(eventsNew)
     }
 
+    const [open, setOpen] = useState(false);
+
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const navigate = useNavigate()
+
     return (
         <>
             <DashboardLayout>
@@ -98,13 +114,48 @@ export default function Events() {
                                                 }}
                                             />
                                             <div className={classes.cardActions}>
-                                                <IconButton>
+                                                <IconButton onClick={handleOpen}>
                                                     <Edit color='info' />
                                                 </IconButton>
-                                                <IconButton>
-                                                    <Delete onClick={() => handleDelete(events.name)} color='error'/>
+                                                <IconButton onClick={() => handleDelete(events.name)}>
+                                                    <Delete color='error'/>
                                                 </IconButton>
                                             </div>
+                                            <Modal
+                                                open={open}
+                                                onClose={handleClose}
+                                                style={{
+                                                    display: "flex",
+                                                    justifyContent: "center",
+                                                    alignItems: "center",
+                                                }}
+                                            >
+                                                <Card style={{width: '24%'}}>
+                                                    <ArgonBox p={3} textAlign="center" style={{margin: '0px'}}>
+                                                        <ArgonTypography variant="h5" fontWeight="medium">
+                                                            {events.name}
+                                                        </ArgonTypography>
+                                                    </ArgonBox>
+                                                    <ArgonBox pt={2} pb={3} px={3}>
+                                                        <ArgonBox component="form" role="form">
+                                                            <ArgonBox mb={1} style={{display: 'flex'}} mb={4}>
+                                                                <Grid onClick={()=>navigate("/manage-sports")} style={{width: '50%', marginTop: '20px', marginLeft: '20px'}}>
+                                                                    <PlaceholderCard title={{variant: "h5", text: "Manage Sports"}} outlined/>
+                                                                </Grid>
+                                                                <Grid onClick={()=>navigate("/manage-coordinator")} style={{width: '50%', marginTop: '20px', marginLeft: '20px'}}>
+                                                                    <PlaceholderCard title={{variant: "h5", text: "Manage Coordinators"}} outlined/>
+                                                                </Grid>
+
+                                                            </ArgonBox>
+                                                            <ArgonButton onClick={handleClose} variant="gradient" color="dark"
+                                                                         style={{width: '100%', marginRight: "5px"}}>
+                                                                Cancel
+                                                            </ArgonButton>
+
+                                                        </ArgonBox>
+                                                    </ArgonBox>
+                                                </Card>
+                                            </Modal>
                                         </Grid>
                                     })
                                 }

@@ -41,25 +41,27 @@ export default function ViewSports() {
                             </ArgonBox>
                         </ArgonBox>
                         <ArgonBox p={2}>
-                            {sports.map((sport) => (
-                                <Grid container spacing={3} style={{marginTop:'-10px'}}>
-                                <Grid item xs={12} md={6} xl={8}>
-                                    <SportsCardForView
-                                        image={sport.imageUrl}
-                                        label={"fee "+sport.fee}
-                                        title={sport.sportName}
-                                        description={sport.description}
-                                        action={{
-                                            type: "internal",
-                                            route: "/manage-teams",
-                                            color: "primary",
-                                            label: "Register",
-                                        }}
+                            {
+                                sports.map((sport,index) =>{
+                                    return <Grid container spacing={3} style={{marginTop:'-10px'}} key={index}>
+                                        <Grid item xs={12} md={6} xl={8}>
+                                            <SportsCardForView
+                                                image={sport.imageUrl}
+                                                label={"fee "+sport.fee}
+                                                title={sport.sportName}
+                                                description={sport.description}
+                                                action={{
+                                                    type: "internal",
+                                                    route: "/manage-teams",
+                                                    color: "primary",
+                                                    label: "Register",
+                                                }}
 
-                                    />
-                                </Grid>
-                                </Grid>
-                            ))}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                })
+                            }
 
                             {/* <Grid container spacing={3}>
                                 <Grid item xs={12} md={3} xl={8}>

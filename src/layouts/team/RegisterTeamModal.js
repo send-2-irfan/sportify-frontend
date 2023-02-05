@@ -102,8 +102,6 @@ function RegisterTeamModal() {
         }
     };
 
-    console.log(team)
-
     return (
         <div>
             <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>
@@ -188,8 +186,6 @@ function RegisterTeamModal() {
                         </ArgonBox>
                     </ArgonBox>
                 </Card>
-
-
             </Modal>
 
             {/*New Componenet ends here*/}

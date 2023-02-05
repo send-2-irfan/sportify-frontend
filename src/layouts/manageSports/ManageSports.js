@@ -111,8 +111,8 @@ export default function ManageSports() {
                                                 <IconButton>
                                                     <Edit color='info' />
                                                 </IconButton>
-                                                <IconButton>
-                                                    <Delete onClick={() => handleDelete(sports.sportName)} color='error'/>
+                                                <IconButton onClick={() => handleDelete(sports.sportName)}>
+                                                    <Delete color='error'/>
                                                 </IconButton>
                                             </div>
                                         </Grid>

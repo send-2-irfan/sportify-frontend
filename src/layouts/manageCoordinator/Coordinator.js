@@ -85,11 +85,11 @@ export default function ManageCoordinator() {
                                             />}
                                         ></Bill>
                                         {/*<div>*/}
-                                        {/*    <IconButton>*/}
-                                        {/*        <Edit ed={() => handleDelete(events.name)} color='info' />*/}
+                                        {/*    <IconButton ed={() => handleDelete(events.name)}>*/}
+                                        {/*        <Edit color='info' />*/}
                                         {/*    </IconButton>*/}
-                                        {/*    <IconButton>*/}
-                                        {/*        <Delete del={() => handleDelete(events.name)} color='error'/>*/}
+                                        {/*    <IconButton del={() => handleDelete(events.name)}>*/}
+                                        {/*        <Delete color='error'/>*/}
                                         {/*    </IconButton>*/}
                                         {/*</div>*/}
                                     </Grid>
