@@ -55,9 +55,7 @@ export default function Events() {
         JSON.parse(localStorage.getItem("events")) && setAllEvents(JSON.parse(localStorage.getItem("events")))
     }, [])
 
-    function handleEdit(index) {
 
-    }
 
     function handleDelete(name) {
         let eventsNew = []

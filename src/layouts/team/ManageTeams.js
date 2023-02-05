@@ -5,7 +5,7 @@ import ArgonBox from "../../components/ArgonBox";
 import ArgonTypography from "../../components/ArgonTypography";
 import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import AddEvent from "../patron/AddEvent";
 import {ApplicationContext} from "../../context/ApplicationContext";
 import RegisterTeamModal from "./RegisterTeamModal";
@@ -15,18 +15,49 @@ import {Delete, Edit} from "@mui/icons-material";
 import Modal from "@mui/material/Modal";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import ArgonButton from "../../components/ArgonButton";
+import {makeStyles} from "@mui/styles";
+import {openNotificationWithIcon} from "../../components/global/notification";
+import {useNavigate} from "react-router-dom";
 
 
+const useStyles = makeStyles((theme) => ({
+    cardContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: '16px 0',
+    },
+    card: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '16px',
+        width: '100%',
+    },
+    cardActions: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        marginTop: '8px',
+    },
+}));
 export default function ManageTeams() {
-    const [show, setShow] = useState(false);
-    const openModal = () => {
-        setShow(true);
-    }
+    const navigate = useNavigate();
 
     const {teams, setAllTeams} = useContext(ApplicationContext)
     useEffect(() => {
         JSON.parse(localStorage.getItem("teams")) && setAllTeams(JSON.parse(localStorage.getItem("teams")))
     }, [])
+
+    function activateTeam(team) {
+        for (let i = 0; i < teams.length; i++) {
+            if (teams[i].teamName === team.teamName) {
+                teams[i].active = true
+                localStorage.setItem("teams", JSON.stringify(teams))
+                openNotificationWithIcon("success", "Activated", "Team has been activated to the portal")
+                navigate("/dashboard")
+            }
+        }
+    }
 
     return (
         <>
@@ -45,29 +76,53 @@ export default function ManageTeams() {
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
                                 {
-                                    teams.map(team => {
-                                        return <Grid item xs={12} md={6} xl={4}>
-                                            <DefaultProjectCard
-                                                image={team.imageUrl}
-                                                label=""
-                                                title={team.email}
-                                                description={"description"}
-                                                action={{
-                                                    type: "internal",
-                                                    route: "/manage-sports",
-                                                    color: "info",
-                                                    label: "View Event",
-                                                }}
-                                            />
-                                            {/*<div className={classes.cardActions}>*/}
-                                            {/*    <IconButton onClick={handleOpen}>*/}
-                                            {/*        <Edit color='info' />*/}
-                                            {/*    </IconButton>*/}
-                                            {/*    <IconButton onClick={() => handleDelete(team.name)}>*/}
-                                            {/*        <Delete color='error'/>*/}
-                                            {/*    </IconButton>*/}
-                                            {/*</div>*/}
-                                        </Grid>
+                                    teams && teams.map(team => {
+                                        return (team.active && JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER') ?
+                                            <Grid item xs={12} md={6} xl={4}>
+                                                <DefaultProjectCard
+                                                    image={team.imageUrl}
+                                                    label=""
+                                                    title={team.teamName}
+                                                    description={`Captain Contact: ${team.captainContactNumber}`}
+                                                    action={{
+                                                        type: "internal",
+                                                        route: "/manage-sports",
+                                                        color: "info",
+                                                        label: "",
+                                                    }}
+                                                />
+                                                <div className={"d-flex justify-content-center"}>
+                                                    {JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' &&
+                                                        <button className="btn btn-primary">Activate Team</button>}
+                                                </div>
+                                            </Grid> : (JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR') &&
+                                            <Grid item xs={12} md={6} xl={4}>
+                                                <DefaultProjectCard
+                                                    image={team.imageUrl}
+                                                    label=""
+                                                    title={''}
+                                                    description={``}
+                                                    action={{
+                                                        type: "internal",
+                                                        route: "/manage-sports",
+                                                        color: "info",
+                                                        label: "",
+                                                    }}
+                                                />
+                                               <div style={{backgroundColor: '#e5e3e3'}}>
+                                                   <span>Team Name: {team.teamName}</span><br/>
+                                                   <span>Captain Contact Number:   <a href={`tel:${team.captainContactNumber}`}>{team.captainContactNumber}</a> </span><br/>
+                                                   <span>Team Email: <a href={`mailto:${team.email}`}>{team.email}</a> </span><br/>
+                                                   <span>Captain Name: {team.captainName}</span> <br/>
+                                                   <span>Sport: {team.sport}</span>
+                                               </div>
+                                                <div className={"d-flex justify-content-center"}>
+                                                    {JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' &&
+                                                        <button onClick={() => activateTeam(team)}
+                                                                disabled={team.active} className="btn btn-primary">Activate
+                                                            Team</button>}
+                                                </div>
+                                            </Grid>
                                     })
                                 }
 

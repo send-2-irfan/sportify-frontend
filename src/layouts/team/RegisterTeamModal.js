@@ -18,6 +18,7 @@ import ArgonButton from "../../components/ArgonButton";
 import Checkbox from "@mui/material/Checkbox";
 import ArgonInput from "../../components/ArgonInput";
 import {ApplicationContext} from "../../context/ApplicationContext";
+import {openNotificationWithIcon} from "../../components/global/notification";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,6 +53,7 @@ function RegisterTeamModal() {
         captainName: '',
         captainContactNumber: '',
         email: '',
+        active: JSON.parse(sessionStorage.getItem("login")).role==='PLAYER' ? false : true,
         imageUrl: '',
     })
 
@@ -95,6 +97,7 @@ function RegisterTeamModal() {
                 imageUrl: '',
             })
             setAllTeams(allTeams)
+            JSON.parse(sessionStorage.getItem("login")).role==='PLAYER'? openNotificationWithIcon("warning", "Request Sent","Request sent to executor for adding team") :openNotificationWithIcon("success", "Team Added","Team Added Successfully")
             handleClose()
         } else {
             let teams = []
