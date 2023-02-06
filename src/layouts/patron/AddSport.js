@@ -173,7 +173,7 @@ function AddSport() {
                                 </ArgonButton>
                                 <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)}
                                              style={{width: '45%'}}>
-                                    Add Event
+                                    Add Sport
                                 </ArgonButton>
                             </ArgonBox>
                         </ArgonBox>

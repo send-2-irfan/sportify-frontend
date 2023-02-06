@@ -108,16 +108,22 @@ export default function Events() {
                                                     type: "internal",
                                                     route: "/manage-sports",
                                                     color: "info",
-                                                    label: "View Event",
+                                                    label: "",
                                                 }}
                                             />
                                             <div className={classes.cardActions}>
-                                                <IconButton onClick={handleOpen}>
-                                                    <Edit color='info' />
-                                                </IconButton>
-                                                <IconButton onClick={() => handleDelete(events.name)}>
-                                                    <Delete color='error'/>
-                                                </IconButton>
+                                                <ArgonButton onClick={handleOpen} variant="gradient" color="info"
+                                                             style={{width: '100%', marginRight: "5px"}}>
+                                                    View Event
+                                                </ArgonButton>
+
+
+                                                {/*<IconButton onClick={handleOpen}>*/}
+                                                {/*    <Edit color='info' />*/}
+                                                {/*</IconButton>*/}
+                                                {/*<IconButton onClick={() => handleDelete(events.name)}>*/}
+                                                {/*    <Delete color='error'/>*/}
+                                                {/*</IconButton>*/}
                                             </div>
                                             <Modal
                                                 open={open}

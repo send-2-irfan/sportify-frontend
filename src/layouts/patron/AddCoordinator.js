@@ -187,7 +187,7 @@ function AddCoordinator() {
                                 </ArgonButton>
                                 <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)}
                                              style={{width: '48%'}}>
-                                    Add Event
+                                    Add Coordinator
                                 </ArgonButton>
                             </ArgonBox>
                         </ArgonBox>

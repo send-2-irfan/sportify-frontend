@@ -200,7 +200,7 @@ function AddExecutor() {
                                     Cancel
                                 </ArgonButton>
                                 <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)} style={{width: '45%'}}>
-                                    Add Event
+                                    Add Executor
                                 </ArgonButton>
                             </ArgonBox>
                         </ArgonBox>
