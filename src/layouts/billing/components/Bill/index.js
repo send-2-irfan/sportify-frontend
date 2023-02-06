@@ -57,9 +57,9 @@ function Bill({ name, company, email, vat, noGutter, img, del }) {
                 <Icon>delete</Icon>&nbsp;Delete
               </ArgonButton>
             </ArgonBox>
-            <ArgonButton variant="text" color="dark">
-              <Icon>edit</Icon>&nbsp;Edit
-            </ArgonButton>
+            {/*<ArgonButton variant="text" color="dark">*/}
+            {/*  <Icon>edit</Icon>&nbsp;Edit*/}
+            {/*</ArgonButton>*/}
           </ArgonBox>
         </ArgonBox>
         <ArgonBox mb={1} lineHeight={0}>

@@ -81,9 +81,9 @@ function ManageExecutors() {
                                             }
                                             action={
                                                 <>
-                                                    <IconButton onClick={() => handleEdit(`athlete.id`)}>
-                                                        <Edit color='info' />
-                                                    </IconButton>
+                                                    {/*<IconButton onClick={() => handleEdit(`athlete.id`)}>*/}
+                                                    {/*    <Edit color='info' />*/}
+                                                    {/*</IconButton>*/}
                                                     <IconButton onClick={() => handleDelete(items.name)}>
                                                         <Delete color='error'/>
                                                     </IconButton>

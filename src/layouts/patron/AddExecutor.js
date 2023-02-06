@@ -72,6 +72,18 @@ function AddExecutor() {
     };
 
 
+    const onImageChange = (e) => {
+        e.preventDefault()
+        let file = e.target.files[0]
+        let reader = new FileReader();
+        reader.addEventListener('load', function() {
+            let data = reader.result;
+            setExecutors({...executors, imageUrl: data});
+        });
+        reader.readAsDataURL(file);
+    }
+
+
     const handleAdd = (e) => {
         if (JSON.parse(localStorage.getItem("executors"))) {
             let items = JSON.parse(localStorage.getItem("executors"))
@@ -156,14 +168,6 @@ function AddExecutor() {
                             </ArgonBox>
                             <ArgonBox mb={2}>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
-                                            placeholder='Semester'
-                                            value={executors.semester}
-                                            onChange={(e) => setExecutors({...executors, semester: e.target.value})}
-                                            fullWidth
-                                />
-                            </ArgonBox>
-                            <ArgonBox mb={2}>
-                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
                                             placeholder='Sport'
                                             value={executors.sport}
                                             onChange={(e) => setExecutors({...executors, sport: e.target.value})}
@@ -187,10 +191,12 @@ function AddExecutor() {
                                 />
                             </ArgonBox>
                             <ArgonBox mb={2}>
+                                <ArgonTypography color='gray' style={{fontSize:'0.8rem'}}>Upload Image</ArgonTypography>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
-                                            placeholder="Image"
-                                            value={executors.imageUrl}
-                                            onChange={(e) => setExecutors({...executors, imageUrl: e.target.value})}
+                                            placeholder="Upload Image"
+                                            type={"file"}
+                                            accept="image/png,image/gif,image/jpeg"
+                                            onChange={(e) => onImageChange(e)}
                                             fullWidth
                                 />
                             </ArgonBox>
