@@ -102,6 +102,19 @@ function AddSport() {
     const handleOpen = () => {
         setOpen(true);
     };
+
+    const onImageChange = (e) => {
+        e.preventDefault()
+        let file = e.target.files[0]
+        let reader = new FileReader();
+        reader.addEventListener('load', function() {
+            let data = reader.result;
+            setSportsData({...sportData, imageUrl: data});
+        });
+        reader.readAsDataURL(file);
+    }
+
+
     return (
         <div>
             <Grid onClick={handleOpen} style={{ marginTop: '20px', marginLeft: '20px'}}>
@@ -157,13 +170,13 @@ function AddSport() {
                                 />
                             </ArgonBox>
                             <ArgonBox mb={1.5}>
-                                <ArgonInput
-                                    placeholder="Image Url"
-                                    accept="image/*"
-                                    id="image"
-                                    value={sportData.imageUrl}
-                                    onChange={(e)=> setSportsData({...sportData, imageUrl: e.target.value})}
-                                    type="text"
+                                <ArgonTypography color='gray' style={{fontSize:'0.8rem'}}>Upload Image</ArgonTypography>
+                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
+                                            placeholder="Upload Image"
+                                            type={"file"}
+                                            accept="image/png,image/gif,image/jpeg"
+                                            onChange={(e) => onImageChange(e)}
+                                            fullWidth
                                 />
                             </ArgonBox>
                             <ArgonBox mt={4} mb={1}>
