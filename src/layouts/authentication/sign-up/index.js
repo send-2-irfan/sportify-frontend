@@ -89,7 +89,7 @@ function Cover() {
                     fullName: '',
                     role: ''
                 })
-                navigate("authentication/sign-in");
+                navigate("/authentication/sign-in");
             } else {
                 let allUsers = []
                 allUsers.push(user)
@@ -100,7 +100,7 @@ function Cover() {
                     fullName: '',
                     role: ''
                 })
-                navigate("authentication/sign-in");
+                navigate("/authentication/sign-in");
             }
         } catch {
             console.log("ss");
@@ -125,7 +125,7 @@ function Cover() {
                         <ArgonBox mb={2}>
                             <ArgonInput value={user.fullName}
                                         onChange={(e) => setUser({...user, fullName: e.target.value})}
-                                        placeholder="Name"/>
+                                        placeholder="Full Name"/>
                         </ArgonBox>
                         <ArgonBox mb={2}>
                             <ArgonInput value={user.username}

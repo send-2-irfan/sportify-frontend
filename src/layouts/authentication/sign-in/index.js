@@ -57,7 +57,7 @@ function Illustration() {
             <ArgonBox component="form" role="form">
                 <ArgonBox mb={2}>
                     <ArgonInput value={user.username} onChange={(e) => setUser({...user, username: e.target.value})}
-                                type="email" placeholder="CMS-ID" size="large"/>
+                                type="email" placeholder="Email" size="large"/>
                 </ArgonBox>
                 <ArgonBox mb={2}>
                     <ArgonInput value={user.password} onChange={(e) => setUser({...user, password: e.target.value})}

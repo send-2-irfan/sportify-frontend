@@ -195,7 +195,7 @@ function RegisterTeamModal() {
                                 </ArgonButton>
                                 <ArgonButton variant="gradient" color="info" onClick={(e) => handleAdd(e)}
                                              style={{width: '48%'}}>
-                                    Add Event
+                                    Register
                                 </ArgonButton>
                             </ArgonBox>
                         </ArgonBox>

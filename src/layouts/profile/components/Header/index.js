@@ -82,32 +82,56 @@ function Header() {
           </Grid>
           <Grid item xs={12} md={6} lg={4} sx={{ ml: "auto" }}>
             <AppBar position="static">
-              <Tabs orientation={tabsOrientation} value={tabValue} onChange={handleSetTabValue}>
-                {/*<Tab*/}
-                {/*  label="App"*/}
-                {/*  icon={*/}
-                {/*    <i className="ni ni-app" style={{ marginTop: "6px", marginRight: "8px" }} />*/}
-                {/*  }*/}
-                {/*/>*/}
-                {/*<Tab*/}
-                {/*  label="Message"*/}
-                {/*  icon={*/}
-                {/*    <i*/}
-                {/*      className="ni ni-email-83"*/}
-                {/*      style={{ marginTop: "6px", marginRight: "8px" }}*/}
-                {/*    />*/}
-                {/*  }*/}
-                {/*/>*/}
-                <Tab
-                  label="Settings"
-                  icon={
-                    <i
-                      className="ni ni-settings-gear-65"
-                      style={{ marginTop: "6px", marginRight: "8px" }}
-                    />
-                  }
-                />
-              </Tabs>
+
+              {/*<Grid item xs={12} md={6} lg={6} sx={{ ml: "auto", mr:'-18%' }} >*/}
+              {/*  <AppBar position="static">*/}
+              {/*    <Grid item>*/}
+              {/*      <ArgonBox height="100%" mt={0.5} lineHeight={1}>*/}
+              {/*        <ArgonTypography variant="h4" fontWeight="medium" ml={4}>*/}
+              {/*          VS*/}
+              {/*        </ArgonTypography> <br/>*/}
+              {/*        <ArgonTypography variant="button" color="text" fontWeight="medium">*/}
+              {/*          Date: {schedule.matchDate}*/}
+              {/*        </ArgonTypography><br/>*/}
+              {/*        <ArgonTypography variant="button" color="text" fontWeight="medium">*/}
+              {/*          Date: {schedule.matchTime}*/}
+              {/*        </ArgonTypography><br/>*/}
+              {/*        <ArgonTypography variant="button" color="text" fontWeight="medium">*/}
+              {/*          Date: {schedule.matchLocation}*/}
+              {/*        </ArgonTypography><br/>*/}
+              {/*      </ArgonBox>*/}
+              {/*    </Grid>*/}
+              {/*  </AppBar>*/}
+              {/*</Grid>*/}
+
+
+
+              {/*<Tabs orientation={tabsOrientation} value={tabValue} onChange={handleSetTabValue}>*/}
+              {/*  <Tab*/}
+              {/*    label="App"*/}
+              {/*    icon={*/}
+              {/*      <i className="ni ni-app" style={{ marginTop: "6px", marginRight: "8px" }} />*/}
+              {/*    }*/}
+              {/*  />*/}
+              {/*  <Tab*/}
+              {/*    label="Message"*/}
+              {/*    icon={*/}
+              {/*      <i*/}
+              {/*        className="ni ni-email-83"*/}
+              {/*        style={{ marginTop: "6px", marginRight: "8px" }}*/}
+              {/*      />*/}
+              {/*    }*/}
+              {/*  />*/}
+              {/*  <Tab*/}
+              {/*    label="Settings"*/}
+              {/*    icon={*/}
+              {/*      <i*/}
+              {/*        className="ni ni-settings-gear-65"*/}
+              {/*        style={{ marginTop: "6px", marginRight: "8px" }}*/}
+              {/*      />*/}
+              {/*    }*/}
+              {/*  />*/}
+              {/*</Tabs>*/}
             </AppBar>
           </Grid>
         </Grid>

@@ -4,7 +4,6 @@ import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 
-
 import ArgonBox from "components/ArgonBox";
 import Events from "./layouts/manageEvents/Events";
 import ManageSports from "./layouts/manageSports/ManageSports";
@@ -16,6 +15,7 @@ import AddFinalScores from "./layouts/patron/AddFinalScores";
 import ReportToPatron from "./layouts/Coordinator/ReportToPatron";
 import ViewSchedule from "./layouts/players/ViewSchedule";
 import {ContactUs} from "./components/contact/ContactUs";
+import ManageExecutors from "./layouts/manageExecutor/MangeExecutors";
 
 
 const routes =
@@ -69,7 +69,7 @@ const routes =
                 name: "Contact Us",
                 key: "contact-us",
                 route: "/contact-us",
-                icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-single-02"/>,
                 component: <ContactUs/>,
             }
         ]
@@ -88,7 +88,7 @@ const routes =
                     key: "manage-executor",
                     route: "/manage-executor",
                     icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-credit-card"/>,
-                    component: <Billing/>,
+                    component: <ManageExecutors/>,
                 },
                 {
                     type: "route",
@@ -110,7 +110,7 @@ const routes =
                     name: "Contact Us",
                     key: "contact-us",
                     route: "/contact-us",
-                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                    icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-single-02"/>,
                     component: <ContactUs/>,
                 }
             ]

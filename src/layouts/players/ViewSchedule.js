@@ -4,28 +4,13 @@ import Card from "@mui/material/Card";
 import ArgonBox from "../../components/ArgonBox";
 import ArgonTypography from "../../components/ArgonTypography";
 import Grid from "@mui/material/Grid";
-import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
-import hockeyImg from "../../assets/images/hockey.jpg";
-import cricketImg from "../../assets/images/cricket.jpg";
 import {useContext, useEffect, useState} from "react";
-import SportsCardForView from "../../examples/Cards/SportsCardForView";
-import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
-import Scoreboard from "../Executor/ManageFinalScore";
-import AddSportDemo from "../patron/AddSportsDemo.js";
 import {ApplicationContext} from "../../context/ApplicationContext";
-import CardMedia from "@mui/material/CardMedia";
-import ArgonButton from "../../components/ArgonButton";
-import {Link} from "react-router-dom";
-import Box from "@mui/material/Box";
-import {Avatar, ListItem} from "@mui/material";
-// import AddSportForm from "../../examples/CustomCards/AddSportForm";
-// import SportsRegistrationForm from './RegistrationForm';
-
-import homeDecor3 from "../../assets/images/img-3.jpg";
-import homeDecor4 from "../../assets/images/hockey.jpg";
-import football from "../../assets/images/img-1.jpg";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
+import ArgonAvatar from "../../components/ArgonAvatar";
+import burceMars from "../../assets/images/bruce-mars.jpg";
+import AppBar from "@mui/material/AppBar";
 
 export default function ViewSchedule() {
     const Item = styled(Paper)(({ theme }) => ({
@@ -56,28 +41,70 @@ export default function ViewSchedule() {
                             </ArgonBox>
                         </ArgonBox>
 
-            <ArgonBox>
-                {
-                    schedule.map((item, index)=>{
-                        return <ArgonBox style={{boxSizing:'border-box', padding:'2%', margin:'2%'}} mb={2}>
-                            <Grid container spacing={3} style={{ flex:1 ,justifyContent:'space-around', alignItems:'center'}}>
-                                <Grid item xs>
-                                    <Avatar style={{width:'150px', height:'150px', backgroundColor:'orangered', color:'whitesmoke'}}>{item.teamA}</Avatar>
-                                </Grid>
-                                <Grid item xs={6} mr={6}>
-                                    <Item><h1>VS</h1></Item>
-                                    <Item><h3>Date: {item.matchDate}</h3></Item>
-                                    <Item><h3>Time: {item.matchTime}</h3></Item>
-                                    <Item><h3>Venue: {item.matchLocation}</h3></Item>
-                                </Grid>
-                                <Grid item m xs={3} style={{alignItems:'flex-start', justifyContent:'flex-end',}}>
-                                    <Avatar style={{width:'150px', height:'150px' , backgroundColor:'orangered', color:'whitesmoke', }}>{item.teamA}</Avatar>
-                                </Grid>
-                            </Grid>
+
+                        <ArgonBox position="relative" mr={2} ml={2} mb={2}>
+                            <ArgonBox/>
+                            <Card
+                                sx={{
+                                    py: 2,
+                                    px: 2,
+                                    boxShadow: ({ boxShadows: { md } }) => md,
+                                }}
+                                mr={3}
+                            >
+                                {
+                                    schedule.map((schedule, index)=>{
+                                       return <Grid container spacing={3} alignItems="center" style={{backgroundColor:'whitesmoke'}} key={index} mb={2}>
+                                            <Grid item xs={12} md={6} lg={4} >
+                                                <ArgonAvatar
+                                                    style={{backgroundColor:'blue', color:'white'}}
+                                                    alt="image"
+                                                    variant="rounded"
+                                                    size="xxl"
+                                                    shadow="sm"
+                                                >{schedule.teamA}</ArgonAvatar>
+                                            </Grid>
+                                            <Grid item xs={12} md={6} lg={6} sx={{ ml: "auto", mr:'-18%' }} >
+                                                <AppBar position="static">
+                                                    <Grid item>
+                                                        <ArgonBox height="100%" mt={0.5} lineHeight={1}>
+                                                            <ArgonTypography variant="h4" fontWeight="medium" ml={4}>
+                                                                VS
+                                                            </ArgonTypography> <br/>
+                                                            <ArgonTypography variant="button" color="text" fontWeight="medium">
+                                                                Date: {schedule.matchDate}
+                                                            </ArgonTypography><br/>
+                                                            <ArgonTypography variant="button" color="text" fontWeight="medium">
+                                                                Match Time: {schedule.matchTime}
+                                                            </ArgonTypography><br/>
+                                                            <ArgonTypography variant="button" color="text" fontWeight="medium">
+                                                                Match Venue: {schedule.matchLocation}
+                                                            </ArgonTypography><br/>
+                                                        </ArgonBox>
+                                                    </Grid>
+                                                </AppBar>
+                                            </Grid>
+
+                                            <Grid item xs={12} md={6} lg={1.5} sx={{ ml: "auto",  }} mb={4} >
+                                                <AppBar position="static">
+                                                    <ArgonAvatar
+                                                        style={{backgroundColor:'blue', color:'white'}}
+                                                        alt="image"
+                                                        variant="rounded"
+                                                        size="xxl"
+                                                        shadow="sm"
+                                                    >{schedule.teamB} </ArgonAvatar>
+                                                </AppBar>
+                                            </Grid>
+                                        </Grid>
+                                    })
+
+                                }
+                            </Card>
                         </ArgonBox>
-                    })
-                }
-            </ArgonBox>
+
+
+
                     </Card>
                 </ArgonBox>
             </DashboardLayout>
