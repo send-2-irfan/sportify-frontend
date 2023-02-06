@@ -180,6 +180,7 @@ function RegisterTeamModal() {
                                 />
                             </ArgonBox>
                             <ArgonBox mb={2}>
+                                <ArgonTypography color='gray' style={{fontSize:'0.8rem'}}>Upload Fee Receipt</ArgonTypography>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
                                             placeholder="Upload Fee Receipt"
                                             type={"file"}

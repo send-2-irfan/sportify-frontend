@@ -48,7 +48,6 @@ function AddCoordinator() {
     const [coordinator, setCoordinator] = useState({
         name: '',
         departmentName: '',
-        semester: '',
         email: '',
         cmsID: '',
         contact:''
@@ -69,6 +68,17 @@ function AddCoordinator() {
         setCards(cards.filter((card, i) => i !== index));
     };
 
+    const onImageChange = (e) => {
+        e.preventDefault()
+        let file = e.target.files[0]
+        let reader = new FileReader();
+        reader.addEventListener('load', function() {
+            let data = reader.result;
+            setCoordinator({...coordinator, imageUrl: data});
+        });
+        reader.readAsDataURL(file);
+    }
+
 
     const handleAdd = (e) => {
         if (JSON.parse(localStorage.getItem("coordinators"))) {
@@ -79,7 +89,6 @@ function AddCoordinator() {
             setCoordinator({
                 name: '',
                 departmentName: '',
-                semester: '',
                 email: '',
                 cmsID: '',
                 contact:''
@@ -93,7 +102,6 @@ function AddCoordinator() {
             setCoordinator({
                 name: '',
                 departmentName: '',
-                semester: '',
                 email: '',
                 cmsID: '',
                 contact:''
@@ -101,6 +109,7 @@ function AddCoordinator() {
             handleClose();
         }
     };
+
 
     return (
         <div>
@@ -142,14 +151,6 @@ function AddCoordinator() {
                             </ArgonBox>
                             <ArgonBox mb={2}>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
-                                            placeholder="Semester"
-                                            value={coordinator.semester}
-                                            onChange={(e) => setCoordinator({...coordinator, semester: e.target.value})}
-                                            fullWidth
-                                />
-                            </ArgonBox>
-                            <ArgonBox mb={2}>
-                                <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
                                             placeholder="Email"
                                             value={coordinator.email}
                                             onChange={(e) => setCoordinator({...coordinator, email: e.target.value})}
@@ -173,10 +174,12 @@ function AddCoordinator() {
                                 />
                             </ArgonBox>
                             <ArgonBox mb={2}>
+                                <ArgonTypography color='gray' style={{fontSize:'0.8rem'}}>Upload Image</ArgonTypography>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
-                                            placeholder="Image Url"
-                                            value={coordinator.imageUrl}
-                                            onChange={(e) => setCoordinator({...coordinator, imageUrl: e.target.value})}
+                                            placeholder="Upload Image"
+                                            type={"file"}
+                                            accept="image/png,image/gif,image/jpeg"
+                                            onChange={(e) => onImageChange(e)}
                                             fullWidth
                                 />
                             </ArgonBox>

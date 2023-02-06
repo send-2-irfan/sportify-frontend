@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import IconButton from '@mui/material/IconButton';
-import {Delete, Edit} from "@mui/icons-material";
+import {Delete, Edit, Label} from "@mui/icons-material";
 import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
@@ -152,6 +152,7 @@ function AddEvent() {
                                 />
                             </ArgonBox>
                             <ArgonBox mb={2}>
+                                <ArgonTypography color='gray' style={{fontSize:'0.8rem'}}>Upload Image</ArgonTypography>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
                                             placeholder="Upload Image"
                                             type={"file"}
