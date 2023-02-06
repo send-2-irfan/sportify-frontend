@@ -21,7 +21,28 @@ import ArgonInput from "../../components/ArgonInput";
 import ArgonButton from "../../components/ArgonButton";
 import Modal from "@mui/material/Modal";
 import {useNavigate} from "react-router-dom";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
+const options = [
+    'None',
+    'Atria',
+    'Callisto',
+    'Dione',
+    'Ganymede',
+    'Hangouts Call',
+    'Luna',
+    'Oberon',
+    'Phobos',
+    'Pyxis',
+    'Sedna',
+    'Titania',
+    'Triton',
+    'Umbriel',
+];
+
+const ITEM_HEIGHT = 48;
 
 const useStyles = makeStyles((theme) => ({
     cardContainer: {
@@ -66,6 +87,7 @@ export default function Events() {
         }
         localStorage.setItem('events', JSON.stringify(eventsNew))
         setAllEvents(eventsNew)
+        handleClos(true)
     }
 
     const [open, setOpen] = useState(false);
@@ -79,6 +101,15 @@ export default function Events() {
         setOpen(false);
     };
     const navigate = useNavigate()
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const opened = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClos = () => {
+        setAnchorEl(null);
+    };
 
     return (
         <>
@@ -117,14 +148,46 @@ export default function Events() {
                                                     View Event
                                                 </ArgonButton>
 
+                                                <IconButton
+                                                    aria-label="more"
+                                                    id="long-button"
+                                                    aria-controls={opened ? 'long-menu' : undefined}
+                                                    aria-expanded={opened ? 'true' : undefined}
+                                                    aria-haspopup="true"
+                                                    onClick={handleClick}
+                                                >
+                                                    <MoreVertIcon />
+                                                </IconButton>
+                                                <Menu
+                                                    id="long-menu"
+                                                    MenuListProps={{
+                                                        'aria-labelledby': 'long-button',
+                                                    }}
+                                                    anchorEl={anchorEl}
+                                                    open={opened}
+                                                    onClose={handleClos}
+                                                    PaperProps={{
+                                                        style: {
+                                                            maxHeight: ITEM_HEIGHT * 4.5,
+                                                            width: '20ch',
+                                                        },
+                                                    }}
+                                                >
+                                                    <MenuItem onClick={() => handleDelete(events.name)} Delete>
+                                                        <Delete  color='error'/>
+                                                        Delete
+                                                    </MenuItem>
+                                                    {/*{options.map((option) => (*/}
+                                                    {/*    <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClos}>*/}
+                                                    {/*        {option}*/}
+                                                    {/*    </MenuItem>*/}
+                                                    {/*))}*/}
+                                                </Menu>
 
-                                                {/*<IconButton onClick={handleOpen}>*/}
-                                                {/*    <Edit color='info' />*/}
-                                                {/*</IconButton>*/}
-                                                {/*<IconButton onClick={() => handleDelete(events.name)}>*/}
-                                                {/*    <Delete color='error'/>*/}
-                                                {/*</IconButton>*/}
                                             </div>
+                                            // dropdown menu ends here
+
+
                                             <Modal
                                                 open={open}
                                                 onClose={handleClose}

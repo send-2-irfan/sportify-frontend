@@ -99,7 +99,7 @@ function AddEvent() {
 
     return (
         <div>
-            <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>
+            <Grid onClick={handleOpen} style={{width: '15%', marginTop: '10px', marginLeft: '20px', height:'auto'}} mb={3}>
                 <PlaceholderCard title={{variant: "h5", text: "Add New Event"}} outlined/>
             </Grid>
             <Modal

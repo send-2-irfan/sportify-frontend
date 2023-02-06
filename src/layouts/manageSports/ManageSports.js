@@ -104,7 +104,7 @@ export default function ManageSports() {
                                                     type: "internal",
                                                     route: "view-sports",
                                                     color: "info",
-                                                    label: "View Sport",
+                                                    label: "",
                                                 }}
                                             />
                                             <div className={classes.cardActions}>
