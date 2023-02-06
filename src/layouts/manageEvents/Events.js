@@ -185,7 +185,7 @@ export default function Events() {
                                                 </Menu>
 
                                             </div>
-                                            // dropdown menu ends here
+                                            {/* dropdown menu ends here*/}
 
 
                                             <Modal
