@@ -98,13 +98,9 @@ export default function ViewSchedule() {
                                             </Grid>
                                         </Grid>
                                     })
-
                                 }
                             </Card>
                         </ArgonBox>
-
-
-
                     </Card>
                 </ArgonBox>
             </DashboardLayout>

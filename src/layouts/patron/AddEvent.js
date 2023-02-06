@@ -97,6 +97,17 @@ function AddEvent() {
 
     }
 
+    const onImageChange = (e) => {
+        e.preventDefault()
+        let file = e.target.files[0]
+        let reader = new FileReader();
+        reader.addEventListener('load', function() {
+            let data = reader.result;
+            setEvents({...events, imageUrl: data});
+        });
+        reader.readAsDataURL(file);
+    }
+
     return (
         <div>
             <Grid onClick={handleOpen} style={{width: '15%', marginTop: '10px', marginLeft: '20px', height:'auto'}} mb={3}>
@@ -142,9 +153,10 @@ function AddEvent() {
                             </ArgonBox>
                             <ArgonBox mb={2}>
                                 <ArgonInput style={{marginBottom: '10px', textAlign: 'center'}}
-                                            placeholder="Image"
-                                            value={events.imageUrl}
-                                            onChange={(e) => setEvents({...events, imageUrl: e.target.value})}
+                                            placeholder="Upload Image"
+                                            type={"file"}
+                                            accept="image/png,image/gif,image/jpeg"
+                                            onChange={(e) => onImageChange(e)}
                                             fullWidth
                                 />
                             </ArgonBox>
@@ -161,52 +173,7 @@ function AddEvent() {
                         </ArgonBox>
                     </ArgonBox>
                 </Card>
-
-
             </Modal>
-
-            {/*New Componenet ends here*/}
-
-            {/*<Card>*/}
-            {/*    <ArgonBox p={0.5}>*/}
-            {/*        <Grid container spacing={4}>*/}
-            {/*            {cards.map((card, index) => (*/}
-            {/*                <Card className={classes.card} key={index} style={{*/}
-            {/*                    justifyContent: "space-around", alignItems: 'space-between'*/}
-            {/*                }}>*/}
-            {/*                    <ArgonBox p={0.5}>*/}
-            {/*                        <Grid container spacing={2}>*/}
-            {/*                            <Grid item xs={12} md={6} xl={4}>*/}
-            {/*                                <DefaultProjectCard*/}
-            {/*                                    image={card.image || sportsGala} alt="Card Image"*/}
-            {/*                                    label=""*/}
-            {/*                                    title={card.name}*/}
-            {/*                                    description={*/}
-            {/*                                        card.detail*/}
-            {/*                                    }*/}
-            {/*                                    action={{*/}
-            {/*                                        type: "internal",*/}
-            {/*                                        route: "./view-sports",*/}
-            {/*                                        color: "danger",*/}
-            {/*                                        label: "Remove Event",*/}
-            {/*                                    }}*/}
-            {/*                                />*/}
-            {/*                                <div className={classes.cardActions}>*/}
-            {/*                                    <IconButton onClick={() => handleEdit(index)}>*/}
-            {/*                                        <Edit color='info'/>*/}
-            {/*                                    </IconButton>*/}
-            {/*                                    <IconButton onClick={() => handleDelete(index)}>*/}
-            {/*                                        <Delete color='error'/>*/}
-            {/*                                    </IconButton>*/}
-            {/*                                </div>*/}
-            {/*                            </Grid>*/}
-            {/*                        </Grid>*/}
-            {/*                    </ArgonBox>*/}
-            {/*                </Card>*/}
-            {/*            ))}*/}
-            {/*        </Grid>*/}
-            {/*    </ArgonBox>*/}
-            {/*</Card>*/}
         </div>
     );
 }
