@@ -24,6 +24,9 @@ import AddSport from "../patron/AddSport";
 import IconButton from "@mui/material/IconButton";
 import {Delete, Edit} from "@mui/icons-material";
 import {makeStyles} from "@mui/styles";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +49,8 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '8px',
     },
 }));
+
+const ITEM_HEIGHT = 48;
 
 export default function ManageSports() {
     const classes = useStyles();
@@ -74,6 +79,15 @@ export default function ManageSports() {
         localStorage.setItem('sports', JSON.stringify(sportsNew))
         setSports(sportsNew)
     }
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const opened = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClos = () => {
+        setAnchorEl(null);
+    };
 
     return (
         <>
@@ -108,12 +122,37 @@ export default function ManageSports() {
                                                 }}
                                             />
                                             <div className={classes.cardActions}>
-                                                <IconButton>
-                                                    <Edit color='info' />
+
+                                                <IconButton
+                                                    aria-label="more"
+                                                    id="long-button"
+                                                    aria-controls={opened ? 'long-menu' : undefined}
+                                                    aria-expanded={opened ? 'true' : undefined}
+                                                    aria-haspopup="true"
+                                                    onClick={handleClick}
+                                                >
+                                                    <MoreVertIcon />
                                                 </IconButton>
-                                                <IconButton onClick={() => handleDelete(sports.sportName)}>
-                                                    <Delete color='error'/>
-                                                </IconButton>
+                                                <Menu
+                                                    id="long-menu"
+                                                    MenuListProps={{
+                                                        'aria-labelledby': 'long-button',
+                                                    }}
+                                                    anchorEl={anchorEl}
+                                                    open={opened}
+                                                    onClose={handleClos}
+                                                    PaperProps={{
+                                                        style: {
+                                                            maxHeight: ITEM_HEIGHT * 4.5,
+                                                            width: '20ch',
+                                                        },
+                                                    }}
+                                                >
+                                                    <MenuItem onClick={() => handleDelete(sports.sportName)} Delete>
+                                                        <Delete  color='error'/>
+                                                        Delete
+                                                    </MenuItem>
+                                                </Menu>
                                             </div>
                                         </Grid>
                                     })
