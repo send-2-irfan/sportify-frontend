@@ -33,7 +33,7 @@ function Illustration() {
     const signin = async () => {
         let allUsers = JSON.parse(localStorage.getItem("users"))
         for (let i = 0; i < allUsers.length; i++) {
-            if (allUsers[i].username === user.username && allUsers[i].password === user.password) {
+            if (allUsers[i].username === user.username && allUsers[i].password === user.password && allUsers[i].active) {
                 sessionStorage.setItem("login", JSON.stringify(allUsers[i]))
                 // navigate("/dashboard");
                 window.location.href = "/dashboard";

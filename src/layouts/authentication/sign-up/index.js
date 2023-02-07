@@ -47,19 +47,6 @@ const names = [
     'EXECUTOR',
     'PLAYER'
 ];
-const executorRoles = [
-    'CRICKET',
-    'FOOTBALL',
-    'CHESS',
-    'TUG OF WAR',
-    'BADMINTON',
-    'BASKETBALL',
-    'LUDO',
-    'VOLLEYBALL',
-    'TABLE TENNIS',
-    'THROWBALL',
-    'HOCKEY'
-];
 
 function getStyles(name, personName, theme) {
     return {
@@ -76,6 +63,7 @@ function Cover() {
         username: '',
         password: '',
         fullName: '',
+        active: false,
         role: '',
         executorRole: '',
         playerRole: ''
@@ -91,17 +79,9 @@ function Cover() {
         setPersonName(
             typeof value === 'string' ? value.split(',') : value,
         );
-        setUser({...user, role: value})
+        setUser({...user, role: value, active: (value === 'PATRON' || value === 'PLAYER')})
     };
-    const handleExecutorRoleChange = (event) => {
-        const {
-            target: {value},
-        } = event;
-        setExecutorRole(
-            typeof value === 'string' ? value.split(',') : value,
-        );
-        setUser({...user, executorRole: value})
-    };
+
     const handleChangePlayerRole = (event) => {
         const {
             target: {value},
@@ -114,6 +94,8 @@ function Cover() {
     const navigate = useNavigate()
     const signUp = async () => {
         try {
+            if (user.role === 'PATRON')
+                setUser({...user, active: true})
             if (!user.username || !user.password || !user.role || !user.fullName)
                 openNotificationWithIcon("error", "All fields are required", "Please fill all the fields for sign up")
             else {
@@ -207,38 +189,6 @@ function Cover() {
                                 ))}
                             </Select>
                         </FormControl>
-                        {
-                            user.role === 'EXECUTOR' && <FormControl sx={{m: 1, width: 300, mt: 3}}>
-                                <Select
-                                    displayEmpty
-                                    value={executorRole}
-                                    onChange={handleExecutorRoleChange}
-                                    input={<OutlinedInput/>}
-                                    renderValue={(selected) => {
-                                        if (selected.length === 0) {
-                                            return <em>Executor Role</em>;
-                                        }
-
-                                        return selected.join(', ');
-                                    }}
-                                    MenuProps={MenuProps}
-                                    inputProps={{'aria-label': 'Without label'}}
-                                >
-                                    <MenuItem disabled value="">
-                                        <em>Executor Role</em>
-                                    </MenuItem>
-                                    {executorRoles.map((name) => (
-                                        <MenuItem
-                                            key={name}
-                                            value={name}
-                                            style={getStyles(name, personName, theme)}
-                                        >
-                                            {name}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
-                            </FormControl>
-                        }
                         {
                             user.role === 'PLAYER' && <FormControl sx={{m: 1, width: 300, mt: 3}}>
                                 <Select
