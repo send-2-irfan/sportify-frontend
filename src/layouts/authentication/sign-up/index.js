@@ -77,10 +77,12 @@ function Cover() {
         password: '',
         fullName: '',
         role: '',
-        executorRole: ''
+        executorRole: '',
+        playerRole: ''
     })
     const [personName, setPersonName] = React.useState([]);
     const [executorRole, setExecutorRole] = React.useState([]);
+    const [playerRole, setPlayerRole] = React.useState([]);
 
     const handleChange = (event) => {
         const {
@@ -99,6 +101,15 @@ function Cover() {
             typeof value === 'string' ? value.split(',') : value,
         );
         setUser({...user, executorRole: value})
+    };
+    const handleChangePlayerRole = (event) => {
+        const {
+            target: {value},
+        } = event;
+        setPlayerRole(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+        setUser({...user, playerRole: value})
     };
     const navigate = useNavigate()
     const signUp = async () => {
@@ -215,6 +226,38 @@ function Cover() {
                                 >
                                     <MenuItem disabled value="">
                                         <em>Executor Role</em>
+                                    </MenuItem>
+                                    {executorRoles.map((name) => (
+                                        <MenuItem
+                                            key={name}
+                                            value={name}
+                                            style={getStyles(name, personName, theme)}
+                                        >
+                                            {name}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        }
+                        {
+                            user.role === 'PLAYER' && <FormControl sx={{m: 1, width: 300, mt: 3}}>
+                                <Select
+                                    displayEmpty
+                                    value={playerRole}
+                                    onChange={handleChangePlayerRole}
+                                    input={<OutlinedInput/>}
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Player Role</em>;
+                                        }
+
+                                        return selected.join(', ');
+                                    }}
+                                    MenuProps={MenuProps}
+                                    inputProps={{'aria-label': 'Without label'}}
+                                >
+                                    <MenuItem disabled value="">
+                                        <em>Player Role</em>
                                     </MenuItem>
                                     {executorRoles.map((name) => (
                                         <MenuItem
