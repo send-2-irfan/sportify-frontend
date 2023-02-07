@@ -2,28 +2,17 @@ import React, {useContext, useEffect, useState} from 'react';
 import {makeStyles} from '@mui/styles';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import IconButton from '@mui/material/IconButton';
-import {Delete, Edit} from "@mui/icons-material";
 import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
 import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
 import ArgonBox from "../../components/ArgonBox";
-import sportsGala from "../../assets/images/sportsEvent.jpg";
-import DialogActions from "@mui/material/DialogActions";
 import ArgonTypography from "../../components/ArgonTypography";
 import ArgonButton from "../../components/ArgonButton";
-import Checkbox from "@mui/material/Checkbox";
 import ArgonInput from "../../components/ArgonInput";
 import {ApplicationContext} from "../../context/ApplicationContext";
 import {openNotificationWithIcon} from "../../components/global/notification";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import MenuItem from "@mui/material/MenuItem";
-import {useTheme} from "@mui/material/styles";
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -56,7 +45,7 @@ function RegisterTeamModal() {
     const [open, setOpen] = useState(false);
     const [team, setTeam] = useState({
         teamName: '',
-        sport: JSON.parse(sessionStorage.getItem("login")).executorRole,
+        sport: JSON.parse(sessionStorage.getItem("login")).executorRole || JSON.parse(sessionStorage.getItem("login")).playerRole,
         captainName: '',
         captainContactNumber: '',
         email: '',

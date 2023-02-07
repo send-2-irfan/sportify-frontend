@@ -20,26 +20,6 @@ import {openNotificationWithIcon} from "../../components/global/notification";
 import {useNavigate} from "react-router-dom";
 
 
-const useStyles = makeStyles((theme) => ({
-    cardContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        margin: '16px 0',
-    },
-    card: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '16px',
-        width: '100%',
-    },
-    cardActions: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-        marginTop: '8px',
-    },
-}));
 export default function ManageTeams() {
     const navigate = useNavigate();
 
