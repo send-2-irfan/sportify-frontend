@@ -234,7 +234,7 @@ const routes =
                     type: "route",
                     name: "Login",
                     key: "login",
-                    route: "/authentication/sign-in",
+                    route: "/dashboard",
                     icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
                     component: <SignIn/>,
                 },
@@ -245,14 +245,6 @@ const routes =
                     route: "/authentication/sign-up",
                     icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
                     component: <SignUp/>,
-                },
-                {
-                    type: "route",
-                    name: "Contact Us",
-                    key: "contact-us",
-                    route: "/contact-us",
-                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
-                    component: <ContactUs/>,
                 }
             ]
 export default routes;

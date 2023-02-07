@@ -25,6 +25,7 @@ const bgImage = "https://i.pinimg.com/736x/33/2e/21/332e213e36c73c2cfba495ae141a
 function Illustration() {
     const [rememberMe, setRememberMe] = useState(false);
 
+    // const navigate = useNavigate();
     const [user, setUser] = useState({
         username: '',
         password: '',
@@ -34,7 +35,8 @@ function Illustration() {
         for (let i = 0; i < allUsers.length; i++) {
             if (allUsers[i].username === user.username && allUsers[i].password === user.password) {
                 sessionStorage.setItem("login", JSON.stringify(allUsers[i]))
-                window.location.href = "/dashboard"
+                // navigate("/dashboard");
+                window.location.href = "/dashboard";
                 return
             }
         }
