@@ -95,7 +95,7 @@ export default function ManageTeams() {
                                                     {JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' &&
                                                         <button className="btn btn-primary">Activate Team</button>}
                                                 </div>
-                                            </Grid> : (JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR') &&
+                                            </Grid> : (JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' && JSON.parse(sessionStorage.getItem("login")).executorRole === team.sport) &&
                                             <Grid item xs={12} md={6} xl={4}>
                                                 <DefaultProjectCard
                                                     image={team.imageUrl}
@@ -109,13 +109,15 @@ export default function ManageTeams() {
                                                         label: "",
                                                     }}
                                                 />
-                                               <div style={{backgroundColor: '#e5e3e3'}}>
-                                                   <span>Team Name: {team.teamName}</span><br/>
-                                                   <span>Captain Contact Number:   <a href={`tel:${team.captainContactNumber}`}>{team.captainContactNumber}</a> </span><br/>
-                                                   <span>Team Email: <a href={`mailto:${team.email}`}>{team.email}</a> </span><br/>
-                                                   <span>Captain Name: {team.captainName}</span> <br/>
-                                                   <span>Sport: {team.sport}</span>
-                                               </div>
+                                                <div style={{backgroundColor: '#e5e3e3'}}>
+                                                    <span>Team Name: {team.teamName}</span><br/>
+                                                    <span>Captain Contact Number:   <a
+                                                        href={`tel:${team.captainContactNumber}`}>{team.captainContactNumber}</a> </span><br/>
+                                                    <span>Team Email: <a
+                                                        href={`mailto:${team.email}`}>{team.email}</a> </span><br/>
+                                                    <span>Captain Name: {team.captainName}</span> <br/>
+                                                    <span>Sport: {team.sport}</span>
+                                                </div>
                                                 <div className={"d-flex justify-content-center"}>
                                                     {JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' &&
                                                         <button onClick={() => activateTeam(team)}

@@ -24,6 +24,7 @@ import Socials from "layouts/authentication/components/Socials";
 import Separator from "layouts/authentication/components/Separator";
 import {useState} from "react";
 import {useAuth} from "../../../context/AuthContext";
+import {openNotificationWithIcon} from "../../../components/global/notification";
 
 // Images
 const bgImage = "https://thumbs.dreamstime.com/b/soccer-football-background-sport-poster-flyer-space-77780744.jpg";
@@ -46,6 +47,19 @@ const names = [
     'EXECUTOR',
     'PLAYER'
 ];
+const executorRoles = [
+    'CRICKET',
+    'FOOTBALL',
+    'CHESS',
+    'TUG OF WAR',
+    'BADMINTON',
+    'BASKETBALL',
+    'LUDO',
+    'VOLLEYBALL',
+    'TABLE TENNIS',
+    'THROWBALL',
+    'HOCKEY'
+];
 
 function getStyles(name, personName, theme) {
     return {
@@ -58,14 +72,15 @@ function getStyles(name, personName, theme) {
 
 function Cover() {
     const theme = useTheme();
-    const {signup, sendEmailVerification} = useAuth();
     const [user, setUser] = useState({
         username: '',
         password: '',
         fullName: '',
-        role: ''
+        role: '',
+        executorRole: ''
     })
     const [personName, setPersonName] = React.useState([]);
+    const [executorRole, setExecutorRole] = React.useState([]);
 
     const handleChange = (event) => {
         const {
@@ -76,31 +91,44 @@ function Cover() {
         );
         setUser({...user, role: value})
     };
+    const handleExecutorRoleChange = (event) => {
+        const {
+            target: {value},
+        } = event;
+        setExecutorRole(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+        setUser({...user, executorRole: value})
+    };
     const navigate = useNavigate()
     const signUp = async () => {
         try {
-            let allUsers = JSON.parse(localStorage.getItem("users"))
-            if (allUsers && allUsers.length > 0) {
-                allUsers.push(user)
-                localStorage.setItem("users", JSON.stringify(allUsers))
-                setUser({
-                    username: '',
-                    password: '',
-                    fullName: '',
-                    role: ''
-                })
-                navigate("/authentication/sign-in");
-            } else {
-                let allUsers = []
-                allUsers.push(user)
-                localStorage.setItem("users", JSON.stringify(allUsers))
-                setUser({
-                    username: '',
-                    password: '',
-                    fullName: '',
-                    role: ''
-                })
-                navigate("/authentication/sign-in");
+            if (!user.username || !user.password || !user.role || !user.fullName)
+                openNotificationWithIcon("error", "All fields are required", "Please fill all the fields for sign up")
+            else {
+                let allUsers = JSON.parse(localStorage.getItem("users"))
+                if (allUsers && allUsers.length > 0) {
+                    allUsers.push(user)
+                    localStorage.setItem("users", JSON.stringify(allUsers))
+                    setUser({
+                        username: '',
+                        password: '',
+                        fullName: '',
+                        role: ''
+                    })
+                    navigate("/authentication/sign-in");
+                } else {
+                    let allUsers = []
+                    allUsers.push(user)
+                    localStorage.setItem("users", JSON.stringify(allUsers))
+                    setUser({
+                        username: '',
+                        password: '',
+                        fullName: '',
+                        role: ''
+                    })
+                    navigate("/authentication/sign-in");
+                }
             }
         } catch {
             console.log("ss");
@@ -137,6 +165,7 @@ function Cover() {
                                         onChange={(e) => setUser({...user, password: e.target.value})} type="password"
                                         placeholder="Password"/>
                         </ArgonBox>
+
                         <FormControl sx={{m: 1, width: 300, mt: 3}}>
                             <Select
                                 displayEmpty
@@ -167,6 +196,38 @@ function Cover() {
                                 ))}
                             </Select>
                         </FormControl>
+                        {
+                            user.role === 'EXECUTOR' && <FormControl sx={{m: 1, width: 300, mt: 3}}>
+                                <Select
+                                    displayEmpty
+                                    value={executorRole}
+                                    onChange={handleExecutorRoleChange}
+                                    input={<OutlinedInput/>}
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Executor Role</em>;
+                                        }
+
+                                        return selected.join(', ');
+                                    }}
+                                    MenuProps={MenuProps}
+                                    inputProps={{'aria-label': 'Without label'}}
+                                >
+                                    <MenuItem disabled value="">
+                                        <em>Executor Role</em>
+                                    </MenuItem>
+                                    {executorRoles.map((name) => (
+                                        <MenuItem
+                                            key={name}
+                                            value={name}
+                                            style={getStyles(name, personName, theme)}
+                                        >
+                                            {name}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        }
                         <ArgonBox display="flex" alignItems="center">
                             <Checkbox defaultChecked/>
                             <ArgonTypography
