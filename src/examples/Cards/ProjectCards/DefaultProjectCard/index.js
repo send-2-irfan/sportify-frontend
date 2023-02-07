@@ -22,7 +22,7 @@ function DefaultProjectCard({image, label, title, description, action, authors})
             <ArgonAvatar
                 src={media}
                 alt={name}
-                size="xs"
+                size="small"
                 sx={({borders: {borderWidth}, palette: {white}}) => ({
                     border: `${borderWidth[2]} solid ${white.main}`,
                     cursor: "pointer",
@@ -38,82 +38,75 @@ function DefaultProjectCard({image, label, title, description, action, authors})
     ));
 
     return (
-        <Card
-            sx={{
-                display: "flex",
-                flexDirection: "column",
-                backgroundColor: "transparent",
-                boxShadow: "none",
-                overflow: "visible",
-            }}
-        >
-            <ArgonBox position="relative" width="100.25%" shadow="md" borderRadius="xl">
-                <CardMedia
-                    src={image}
-                    component="img"
-                    title={title}
-                    sx={{
-                        maxWidth: "100%",
-                        margin: 0,
-                        boxShadow: ({boxShadows: {md}}) => md,
-                        objectFit: "cover",
-                        objectPosition: "center",
-                    }}
-                />
-            </ArgonBox>
-            <ArgonBox pt={1} px={0.5} style={{marginTop: '-5px'}}>
-                <ArgonTypography
-                    variant="button"
-                    fontWeight="regular"
-                    textTransform="capitalize"
-                    textGradient
-                >
-                    {label}
-                </ArgonTypography>
-                <ArgonBox mb={1}>
-                    {action.type === "internal" ? (
-                        <ArgonTypography
-                            component={Link}
-                            to={action.route}
-                            variant="h5"
-                            textTransform="capitalize"
-                        >
-                            {title}
-                        </ArgonTypography>
-                    ) : (
-                        <ArgonTypography
-                            component="a"
-                            href={action.route}
-                            target="_blank"
-                            rel="noreferrer"
-                            variant="h5"
-                            textTransform="capitalize"
-                        >
-                            {title}
-                        </ArgonTypography>
-                    )}
-                </ArgonBox>
-                <ArgonBox mb={3} lineHeight={0}>
-                    <ArgonTypography variant="button" fontWeight="regular" color="text">
-                        {description}
-                    </ArgonTypography>
-                </ArgonBox>
-                <ArgonBox display="flex" justifyContent="space-between" alignItems="center">
-                    {(action.label !=="" && action.type === "internal") && (
-                        <ArgonButton
-                            component={Link}
-                            to={action.route}
-                            variant="outlined"
-                            size="small"
-                            color={action.color}
-                        >
-                            {action.label}
-                        </ArgonButton>
-                    )}
-                    <ArgonBox display="flex">{renderAuthors}</ArgonBox>
-                </ArgonBox>
-            </ArgonBox>
-        </Card>
+          <>
+              <ArgonBox position="relative" width="100.25%" shadow="md" borderRadius="xl">
+                  <CardMedia  style={{backgroundColor: '#efefef'}}
+                              src={image}
+                              component="img"
+                              title={`Sport Title: ${title}`}
+                              sx={{
+                                  maxWidth: "100%",
+                                  margin: 0,
+                                  boxShadow: ({boxShadows: {md}}) => md,
+                                  objectFit: "cover",
+                                  objectPosition: "center",
+                              }}
+                  />
+              </ArgonBox>
+              <ArgonBox pt={1} px={0.5} style={{marginTop: '-5px'}}>
+                  <ArgonBox mb={1}>
+                      {action.type === "internal" ? (
+                          <ArgonTypography
+                              component={Link}
+                              to={action.route}
+                              variant="h5"
+                              textTransform="capitalize"
+                          >
+                              {title}
+                          </ArgonTypography>
+                      ) : (
+                          <ArgonTypography
+                              component="a"
+                              href={action.route}
+                              target="_blank"
+                              rel="noreferrer"
+                              variant="h5"
+                              textTransform="capitalize"
+                          >
+                              {title}
+                          </ArgonTypography>
+                      )}
+                  </ArgonBox>
+                  <ArgonTypography
+                      variant="button"
+                      fontWeight="regular"
+                      textTransform="capitalize"
+                      textGradient
+                  >
+                      {label}
+                  </ArgonTypography>
+                  <ArgonBox mb={3} lineHeight={0}>
+                      <ArgonTypography variant="button" fontWeight="regular" color="text">
+                          {description}
+                      </ArgonTypography>
+                  </ArgonBox>
+                  <ArgonBox display="flex" justifyContent="space-between" alignItems="center">
+                      {(action.label !=="" && action.type === "internal") && (
+                          <ArgonButton
+                              component={Link}
+                              to={action.route}
+                              variant="outlined"
+                              size="small"
+                              color={action.color}
+                          >
+                              {action.label}
+                          </ArgonButton>
+                      )}
+                      <ArgonBox display="flex">{renderAuthors}</ArgonBox>
+                  </ArgonBox>
+              </ArgonBox>
+          </>
+
     );
 }
 

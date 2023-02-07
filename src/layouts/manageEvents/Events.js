@@ -1,33 +1,18 @@
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
-import Card from "@mui/material/Card";
 import ArgonBox from "../../components/ArgonBox";
 import ArgonTypography from "../../components/ArgonTypography";
 import Grid from "@mui/material/Grid";
 import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
-import homeDecor1 from "../../assets/images/home-decor-1.jpg";
-import sportsGala from "../../assets/images/sportsEvent.jpg";
-
-import homeDecor2 from "../../assets/images/home-decor-2.jpg";
-import homeDecor3 from "../../assets/images/home-decor-3.jpg";
-import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
+import {Card, Space} from 'antd';
 import React, {useContext, useEffect, useState} from "react";
 import AddEvent from "../patron/AddEvent";
 import {ApplicationContext} from "../../context/ApplicationContext";
-import IconButton from "@mui/material/IconButton";
-import {Delete, Edit} from "@mui/icons-material";
+import {Button, Modal} from 'antd';
 import {makeStyles} from "@mui/styles";
-import ArgonInput from "../../components/ArgonInput";
 import ArgonButton from "../../components/ArgonButton";
-import Modal from "@mui/material/Modal";
-import {useNavigate} from "react-router-dom";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {Select} from 'antd';
 
-
-
-const ITEM_HEIGHT = 48;
 
 const useStyles = makeStyles((theme) => ({
     cardContainer: {
@@ -50,11 +35,48 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 export default function Events() {
-    const classes = useStyles();
-    const [show, setShow] = useState(false);
-    const openModal = () => {
-        setShow(true);
+    const options = [];
+    const coordinator = [];
+    const [allSports, setAllSports] = useState([])
+    const {coordinators} = useContext(ApplicationContext)
+    const fetchAllSports = async () => {
+        console.log(coordinators)
+        // await setAllSports(JSON.parse(localStorage.getItem("sports")))
+        // for (let i = 0; i < allSports.length; i++) {
+        //     options.push({
+        //         label: allSports[i].sportName,
+        //         value: allSports[i].sportName,
+        //     });
+        // }
+        for (let i = 0; i < coordinators.length; i++) {
+            coordinator.push({
+                label: coordinators[i].username,
+                value: coordinators[i].username,
+            });
+        }
     }
+
+    useEffect(()=> {
+        fetchAllSports()
+    }, [])
+    const handleChangeSports = (value) => {
+        console.log(`selected ${value}`);
+    };
+    const handleChangeCoordinator = (value) => {
+        console.log(`selected ${value}`);
+    };
+
+    const classes = useStyles();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
 
     const {allEvents, setAllEvents} = useContext(ApplicationContext)
     useEffect(() => {
@@ -62,39 +84,6 @@ export default function Events() {
     }, [])
 
 
-
-    function handleDelete(name) {
-        let eventsNew = []
-        for (let i = 0; i < allEvents.length; i++) {
-            if (allEvents[i].name !== name) {
-                eventsNew.push(allEvents[i])
-            }
-        }
-        localStorage.setItem('events', JSON.stringify(eventsNew))
-        setAllEvents(eventsNew)
-        handleClos(true)
-    }
-
-    const [open, setOpen] = useState(false);
-
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-    const navigate = useNavigate()
-
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const opened = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClos = () => {
-        setAnchorEl(null);
-    };
 
     return (
         <>
@@ -114,7 +103,7 @@ export default function Events() {
                             <Grid container spacing={3}>
                                 {
                                     allEvents.map(events => {
-                                        return <Grid item xs={12} md={6} xl={4}>
+                                        return <Grid style={{backgroundColor: '#efefef'}} item xs={12} md={6} xl={4}>
                                             <DefaultProjectCard
                                                 image={events.imageUrl}
                                                 label=""
@@ -128,85 +117,46 @@ export default function Events() {
                                                 }}
                                             />
                                             <div className={classes.cardActions}>
-                                                <ArgonButton onClick={handleOpen} variant="gradient" color="info"
-                                                             style={{width: '100%', marginRight: "5px"}}>
-                                                    View Event
-                                                </ArgonButton>
-
-                                                <IconButton
-                                                    aria-label="more"
-                                                    id="long-button"
-                                                    aria-controls={opened ? 'long-menu' : undefined}
-                                                    aria-expanded={opened ? 'true' : undefined}
-                                                    aria-haspopup="true"
-                                                    onClick={handleClick}
-                                                >
-                                                    <MoreVertIcon />
-                                                </IconButton>
-                                                <Menu
-                                                    id="long-menu"
-                                                    MenuListProps={{
-                                                        'aria-labelledby': 'long-button',
-                                                    }}
-                                                    anchorEl={anchorEl}
-                                                    open={opened}
-                                                    onClose={handleClos}
-                                                    PaperProps={{
-                                                        style: {
-                                                            maxHeight: ITEM_HEIGHT * 4.5,
-                                                            width: '20ch',
-                                                        },
-                                                    }}
-                                                >
-                                                    <MenuItem onClick={() => handleDelete(events.name)} Delete>
-                                                        <Delete  color='error'/>
-                                                        Delete
-                                                    </MenuItem>
-                                                    {/*{options.map((option) => (*/}
-                                                    {/*    <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClos}>*/}
-                                                    {/*        {option}*/}
-                                                    {/*    </MenuItem>*/}
-                                                    {/*))}*/}
-                                                </Menu>
-
+                                                <button onClick={showModal} className="btn btn-outline-primary btn-sm">
+                                                    Modify Event
+                                                </button>
                                             </div>
                                             {/* dropdown menu ends here*/}
 
 
-                                            <Modal
-                                                open={open}
-                                                onClose={handleClose}
-                                                style={{
-                                                    display: "flex",
-                                                    justifyContent: "center",
-                                                    alignItems: "center",
-                                                }}
-                                            >
-                                                <Card style={{width: '24%'}}>
-                                                    <ArgonBox p={3} textAlign="center" style={{margin: '0px'}}>
-                                                        <ArgonTypography variant="h5" fontWeight="medium">
-                                                            {events.name}
-                                                        </ArgonTypography>
-                                                    </ArgonBox>
-                                                    <ArgonBox pt={2} pb={3} px={3}>
-                                                        <ArgonBox component="form" role="form">
-                                                            <ArgonBox mb={1} style={{display: 'flex'}} mb={4}>
-                                                                <Grid onClick={()=>navigate("/manage-sports")} style={{width: '50%', marginTop: '20px', marginLeft: '20px'}}>
-                                                                    <PlaceholderCard title={{variant: "h5", text: "Manage Sports"}} outlined/>
-                                                                </Grid>
-                                                                <Grid onClick={()=>navigate("/manage-coordinator")} style={{width: '50%', marginTop: '20px', marginLeft: '20px'}}>
-                                                                    <PlaceholderCard title={{variant: "h5", text: "Manage Coordinators"}} outlined/>
-                                                                </Grid>
+                                            <Modal title="Modify Event" open={isModalOpen} onOk={handleOk}
+                                                   onCancel={handleCancel}>
 
-                                                            </ArgonBox>
-                                                            <ArgonButton onClick={handleClose} variant="gradient" color="dark"
-                                                                         style={{width: '100%', marginRight: "5px"}}>
-                                                                Cancel
-                                                            </ArgonButton>
-
-                                                        </ArgonBox>
-                                                    </ArgonBox>
-                                                </Card>
+                                                <div className="row mb-4">
+                                                    <div className="col-sm-12 col-lg-6 col-xl-6 col-md-12">
+                                                        <label htmlFor="coodinator select">Select Sports for Event</label>
+                                                        <Select
+                                                            mode="multiple"
+                                                            allowClear
+                                                            style={{
+                                                                width: '100%',
+                                                            }}
+                                                            placeholder="Please select"
+                                                            onChange={handleChangeSports}
+                                                            options={options}
+                                                        />
+                                                    </div>
+                                                    <div className="col-sm-12 col-lg-6 col-xl-6 col-md-12">
+                                                        <label htmlFor="coodinator select">Select Coordinators for Event</label>
+                                                        <Select
+                                                            allowClear
+                                                            style={{
+                                                                width: '100%',
+                                                            }}
+                                                            placeholder="Please select"
+                                                            onChange={handleChangeCoordinator}
+                                                            options={coordinator}
+                                                        />
+                                                    </div>
+                                                    <div className="col-sm-12 col-lg-6 col-xl-6 col-md-12">
+                                                        {/*   drop down 2*/}
+                                                    </div>
+                                                </div>
                                             </Modal>
                                         </Grid>
                                     })

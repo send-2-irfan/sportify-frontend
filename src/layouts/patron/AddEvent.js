@@ -48,7 +48,9 @@ function AddEvent() {
     const [events, setEvents] = useState({
         name: '',
         detail: '',
-        imageUrl: ''
+        imageUrl: '',
+        coordinator: '',
+        sports: ''
     })
 
 
@@ -92,10 +94,6 @@ function AddEvent() {
             handleClose();
         }
     };
-
-    function handleEdit(index) {
-
-    }
 
     const onImageChange = (e) => {
         e.preventDefault()

@@ -4,42 +4,29 @@ import Card from "@mui/material/Card";
 import ArgonBox from "../../components/ArgonBox";
 import ArgonTypography from "../../components/ArgonTypography";
 import Grid from "@mui/material/Grid";
-// import DefaultProjectCard from "../../examples/Cards/ProjectCards/DefaultProjectCard";
-// import homeDecor1 from "../../assets/images/home-decor-1.jpg";
-// import team1 from "../../assets/images/team-1.jpg";
-// import team2 from "../../assets/images/team-2.jpg";
-// import team3 from "../../assets/images/team-3.jpg";
-// import team4 from "../../assets/images/team-4.jpg";
-// import homeDecor2 from "../../assets/images/cricket.jpg";
-// import homeDecor3 from "../../assets/images/img-3.jpg";
-// import homeDecor4 from "../../assets/images/hockey.jpg";
-// import football from "../../assets/images/img-1.jpg";
-import PlaceholderCard from "../../examples/Cards/PlaceholderCard";
+
 import Bill from "../billing/components/Bill";
 import ArgonAvatar from "../../components/ArgonAvatar";
-import burceMars from "../../assets/images/bruce-mars.jpg";
-import Depeeka from "../../assets/images/team-1.jpg";
 import AddCoordinator from "../patron/AddCoordinator";
 import React, {useContext, useEffect} from "react";
 import {ApplicationContext} from "../../context/ApplicationContext";
-import IconButton from "@mui/material/IconButton";
-import {Delete, Edit} from "@mui/icons-material";
-
 
 
 export default function ManageCoordinator() {
     const {coordinators, setAllCoordinators} = useContext(ApplicationContext)
     useEffect(() => {
-        JSON.parse(localStorage.getItem("coordinators")) && setAllCoordinators(JSON.parse(localStorage.getItem("coordinators")))
+        fetchAllUsers()
     }, [])
 
-    const profileImg = <ArgonAvatar
-        src={Depeeka}
-        alt="profile-image"
-        variant="rounded"
-        size="xxl"
-        shadow="sm"
-    />;
+    const fetchAllUsers = async () => {
+        let allUsers = await JSON.parse(localStorage.getItem("users"))
+        let coordinators = []
+        for (let user of allUsers) {
+            user.role === 'COORDINATOR' && coordinators.push(user)
+        }
+        setAllCoordinators(coordinators)
+    }
+
 
     function handleDelete(name) {
         let coordinatorNew = []
@@ -51,7 +38,7 @@ export default function ManageCoordinator() {
         localStorage.setItem('coordinators', JSON.stringify(coordinatorNew))
         setAllCoordinators(coordinatorNew)
     }
-    
+
     return (
         <>
             <DashboardLayout>
@@ -61,7 +48,7 @@ export default function ManageCoordinator() {
                     <Card>
                         <ArgonBox pt={2} px={2}>
                             <ArgonBox mb={0.5}>
-                                <ArgonTypography variant="h6" fontcolor="#32325d" fontWeight="medium" >
+                                <ArgonTypography variant="h6" fontcolor="#32325d" fontWeight="medium">
                                     Manage Coordinator
                                 </ArgonTypography>
                             </ArgonBox>
@@ -72,12 +59,12 @@ export default function ManageCoordinator() {
                                     return <Grid container spacing={3} p={2}>
                                         <Bill
                                             del={() => handleDelete(events.name)}
-                                            name={events.name}
-                                            company={events.departmentName}
-                                            email={events.email}
+                                            name={events.fullName}
+                                            company={events.username}
+                                            email={JSON.stringify(events.active)}
                                             vat={events.cmsID}
                                             img={<ArgonAvatar
-                                                src={events.imageUrl}
+                                                src={"https://img.freepik.com/free-icon/businessman_318-371887.jpg?w=2000"}
                                                 alt="profile-image"
                                                 variant="rounded"
                                                 size="xxl"

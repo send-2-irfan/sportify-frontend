@@ -1,4 +1,3 @@
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -11,96 +10,106 @@ import ArgonTypography from "components/ArgonTypography";
 import ArgonButton from "components/ArgonButton";
 
 // MUI contexts
-import { useArgonController } from "context";
+import {useArgonController} from "context";
+import {useContext} from "react";
+import {ApplicationContext} from "../../../../context/ApplicationContext";
 
-function Bill({ name, company, email, vat, noGutter, img, del }) {
-  const [controller] = useArgonController();
-  const { darkMode } = controller;
+function Bill({name, company, email, vat, noGutter, img, del}) {
+    const [controller] = useArgonController();
+    const {darkMode} = controller;
+    const {setAllCoordinators} = useContext(ApplicationContext)
 
-  return (
-    <ArgonBox
-      component="li"
-      display="flex"
-      justifyContent="space-between"
-      alignItems="flex-start"
-      borderRadius="lg"
-      p={3}
-      mb={noGutter ? 0 : 1}
-      mt={2}
-      sx={({ palette: { grey, background } }) => ({
-        backgroundColor: darkMode ? background.default : grey[100],
-      })}
-    >
-      {img}
-      <ArgonBox mr={2}></ArgonBox>
-      <ArgonBox width="100%" display="flex" flexDirection="column">
+    const activateCoordinator = async (email) => {
+
+        let allUsers = await JSON.parse(localStorage.getItem("users"))
+        for (let i = 0; i < allUsers.length; i++) {
+            if (allUsers[i].role === 'COORDINATOR' && allUsers[i].username === email) {
+                console.log(allUsers[i])
+                allUsers[i].active = true
+            }
+        }
+        let coordinators = []
+        for (let user of allUsers) {
+            user.role === 'COORDINATOR' && coordinators.push(user)
+        }
+        setAllCoordinators(coordinators)
+        localStorage.setItem("users", JSON.stringify(allUsers))
+    }
+
+    return (
         <ArgonBox
-          display="flex"
-          justifyContent="space-between"
-          alignItems={{ xs: "flex-start", sm: "center" }}
-          flexDirection={{ xs: "column", sm: "row" }}
-          mb={1}
-        >
-
-          <ArgonTypography variant="button" fontWeight="medium" textTransform="capitalize">
-            {name}
-          </ArgonTypography>
-
-          <ArgonBox
+            component="li"
             display="flex"
-            alignItems="center"
-            mt={{ xs: 2, sm: 0 }}
-            ml={{ xs: -1.5, sm: 0 }}
-          >
-            <ArgonBox ml={30} mr={2}>
-              <ArgonButton variant="text" color="error" onClick={del}>
-                <Icon>delete</Icon>&nbsp;Delete
-              </ArgonButton>
+            justifyContent="space-between"
+            alignItems="flex-start"
+            borderRadius="lg"
+            p={3}
+            mb={noGutter ? 0 : 1}
+            mt={2}
+            sx={({palette: {grey, background}}) => ({
+                backgroundColor: darkMode ? background.default : grey[100],
+            })}
+        >
+            {img}
+            <ArgonBox mr={2}></ArgonBox>
+            <ArgonBox width="100%" display="flex" flexDirection="column">
+                <ArgonBox
+                    display="flex"
+                    justifyContent="space-between"
+                    alignItems={{xs: "flex-start", sm: "center"}}
+                    flexDirection={{xs: "column", sm: "row"}}
+                    mb={1}
+                >
+
+                    <ArgonTypography variant="button" fontWeight="medium" textTransform="capitalize">
+                        {name}
+                    </ArgonTypography>
+                    <ArgonBox
+                        display="flex"
+                        alignItems="center"
+                        mt={{xs: 2, sm: 0}}
+                        ml={{xs: -1.5, sm: 0}}
+                    >
+                        <ArgonBox ml={30} mr={2}>
+
+                        </ArgonBox>
+                    </ArgonBox>
+                </ArgonBox>
+                <ArgonBox mb={1} lineHeight={0}>
+                    <ArgonTypography variant="caption" color="text">
+                        Email ID:&nbsp;&nbsp;&nbsp;
+                        <ArgonTypography variant="caption" fontWeight="medium">
+                            <a href={`mailto:${company}`}>{company}</a>
+                        </ArgonTypography>
+                    </ArgonTypography>
+                </ArgonBox>
+                <ArgonBox mb={1} lineHeight={0}>
+                    <ArgonTypography variant="caption" color="text">
+                        Active Status:&nbsp;&nbsp;&nbsp;
+                        <ArgonTypography variant="caption" fontWeight="medium">
+                            {email}
+                        </ArgonTypography>
+                    </ArgonTypography>
+                </ArgonBox>
+                {!JSON.parse(email) && <button onClick={() => activateCoordinator(company)}
+                                               className="btn btn-outline-primary btn-sm">Activate Coordinator</button>}
             </ArgonBox>
-            {/*<ArgonButton variant="text" color="dark">*/}
-            {/*  <Icon>edit</Icon>&nbsp;Edit*/}
-            {/*</ArgonButton>*/}
-          </ArgonBox>
         </ArgonBox>
-        <ArgonBox mb={1} lineHeight={0}>
-          <ArgonTypography variant="caption" color="text">
-            Department Name:&nbsp;&nbsp;&nbsp;
-            <ArgonTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {company}
-            </ArgonTypography>
-          </ArgonTypography>
-        </ArgonBox>
-        <ArgonBox mb={1} lineHeight={0}>
-          <ArgonTypography variant="caption" color="text">
-            Email Address:&nbsp;&nbsp;&nbsp;
-            <ArgonTypography variant="caption" fontWeight="medium">
-              {email}
-            </ArgonTypography>
-          </ArgonTypography>
-        </ArgonBox>
-        <ArgonTypography variant="caption" color="text">
-          CMS-ID:&nbsp;&nbsp;&nbsp;
-          <ArgonTypography variant="caption" fontWeight="medium">
-            {vat}
-          </ArgonTypography>
-        </ArgonTypography>
-      </ArgonBox>
-    </ArgonBox>
-  );
+    );
 }
 
 // Setting default values for the props of Bill
 Bill.defaultProps = {
-  noGutter: false,
+    noGutter: false,
 };
 
 // Typechecking props for the Bill
 Bill.propTypes = {
-  name: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  vat: PropTypes.string.isRequired,
-  noGutter: PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    vat: PropTypes.string.isRequired,
+    noGutter: PropTypes.bool,
 };
 
 export default Bill;
