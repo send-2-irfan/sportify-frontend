@@ -42,7 +42,6 @@ const MenuProps = {
 };
 
 const names = [
-    'PATRON',
     'COORDINATOR',
     'EXECUTOR',
     'PLAYER'
