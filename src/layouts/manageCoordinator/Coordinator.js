@@ -54,12 +54,14 @@ export default function ManageCoordinator() {
                             </ArgonBox>
                         </ArgonBox>
                         <ArgonBox p={2}>
+                            <div className="row">
                             {
                                 coordinators.map(events => {
-                                    return <Grid container spacing={3} p={2}>
+                                    return <Grid className={"col-sm-12 col-lg-6 col-xl-6 col-md-12"} item p={2}>
                                         <Bill
                                             del={() => handleDelete(events.name)}
                                             name={events.fullName}
+                                            type={'COORDINATOR'}
                                             company={events.username}
                                             email={JSON.stringify(events.active)}
                                             vat={events.cmsID}
@@ -71,17 +73,10 @@ export default function ManageCoordinator() {
                                                 shadow="sm"
                                             />}
                                         ></Bill>
-                                        {/*<div>*/}
-                                        {/*    <IconButton ed={() => handleDelete(events.name)}>*/}
-                                        {/*        <Edit color='info' />*/}
-                                        {/*    </IconButton>*/}
-                                        {/*    <IconButton del={() => handleDelete(events.name)}>*/}
-                                        {/*        <Delete color='error'/>*/}
-                                        {/*    </IconButton>*/}
-                                        {/*</div>*/}
                                     </Grid>
                                 })
                             }
+                            </div>
                         </ArgonBox>
                         <AddCoordinator/>
                     </Card>

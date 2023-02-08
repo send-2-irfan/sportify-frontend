@@ -14,25 +14,28 @@ import {useArgonController} from "context";
 import {useContext} from "react";
 import {ApplicationContext} from "../../../../context/ApplicationContext";
 
-function Bill({name, company, email, vat, noGutter, img, del}) {
+function Bill({name, company, email, vat, noGutter, img, del, type}) {
     const [controller] = useArgonController();
     const {darkMode} = controller;
-    const {setAllCoordinators} = useContext(ApplicationContext)
+    const {setAllCoordinators, setAllExecutors} = useContext(ApplicationContext)
 
-    const activateCoordinator = async (email) => {
+    const activateCoordinator = async (email, role) => {
 
         let allUsers = await JSON.parse(localStorage.getItem("users"))
         for (let i = 0; i < allUsers.length; i++) {
-            if (allUsers[i].role === 'COORDINATOR' && allUsers[i].username === email) {
+            if (allUsers[i].role === role && allUsers[i].username === email) {
                 console.log(allUsers[i])
                 allUsers[i].active = true
             }
         }
         let coordinators = []
+        let executors = []
         for (let user of allUsers) {
-            user.role === 'COORDINATOR' && coordinators.push(user)
+            if (role === 'COORDINATOR') user.role === 'COORDINATOR' && coordinators.push(user)
+            if (role === 'EXECUTOR') user.role === 'EXECUTOR' && executors.push(user)
         }
         setAllCoordinators(coordinators)
+        role === 'EXECUTOR' && setAllExecutors(executors)
         localStorage.setItem("users", JSON.stringify(allUsers))
     }
 
@@ -91,8 +94,8 @@ function Bill({name, company, email, vat, noGutter, img, del}) {
                         </ArgonTypography>
                     </ArgonTypography>
                 </ArgonBox>
-                {!JSON.parse(email) && <button onClick={() => activateCoordinator(company)}
-                                               className="btn btn-outline-primary btn-sm">Activate Coordinator</button>}
+                {!JSON.parse(email) && <button onClick={() => activateCoordinator(company, type)}
+                                               className="btn btn-outline-primary btn-sm">{type === 'EXECUTOR' ? 'Activate Executor' : 'Activate Coordinator'}</button>}
             </ArgonBox>
         </ArgonBox>
     );

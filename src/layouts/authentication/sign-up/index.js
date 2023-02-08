@@ -48,6 +48,21 @@ const names = [
     'PLAYER'
 ];
 
+const executorRoles = [
+    'CRICKET',
+    'FOOTBALL',
+    'CHESS',
+    'TUG OF WAR',
+    'BADMINTON',
+    'BASKETBALL',
+    'LUDO',
+    'VOLLEYBALL',
+    'TABLE TENNIS',
+    'THROWBALL',
+    'HOCKEY'
+];
+
+
 function getStyles(name, personName, theme) {
     return {
         fontWeight:
@@ -69,7 +84,6 @@ function Cover() {
         playerRole: ''
     })
     const [personName, setPersonName] = React.useState([]);
-    const [executorRole, setExecutorRole] = React.useState([]);
     const [playerRole, setPlayerRole] = React.useState([]);
 
     const handleChange = (event) => {

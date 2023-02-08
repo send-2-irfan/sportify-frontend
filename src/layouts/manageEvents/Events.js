@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Events() {
     const options = [];
     const coordinator = [];
-    const [allSports, setAllSports] = useState([])
     const {coordinators} = useContext(ApplicationContext)
     const fetchAllSports = async () => {
         console.log(coordinators)
