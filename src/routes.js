@@ -208,7 +208,7 @@ const routes =
                     type: "route",
                     name: "Final Score",
                     key: "final-score",
-                    route: "/finalScore",
+                    route: "/final-score",
                     icon: <ArgonBox component="i" color="green" fontSize="14px" className="ni ni-collection"/>,
                     component: <AddFinalScores/>,
                 },

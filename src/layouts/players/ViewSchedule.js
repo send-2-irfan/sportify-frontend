@@ -31,18 +31,18 @@ export default function ViewSchedule() {
             <DashboardLayout>
                 <DashboardNavbar/>
                 <h1 style={{color:"white"}}>Sports List</h1>
-                <ArgonBox mb={1}>
+                <ArgonBox mb={3} mt={6}>
                     <Card>
                         <ArgonBox pt={1} px={2}>
                             <ArgonBox>
-                                <ArgonTypography variant="h6" fontWeight="medium">
-                                    <h2>Schedules</h2>
+                                <ArgonTypography variant="h6" fontWeight="large">
+                                    Schedules
                                 </ArgonTypography>
                             </ArgonBox>
                         </ArgonBox>
 
 
-                        <ArgonBox position="relative" mr={2} ml={2} mb={2}>
+                        <ArgonBox position="relative" mr={2} ml={2} mb={2} >
                             <ArgonBox/>
                             <Card
                                 sx={{

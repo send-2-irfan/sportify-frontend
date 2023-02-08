@@ -9,14 +9,9 @@ import hockeyImg from "../../assets/images/hockey.jpg";
 import cricketImg from "../../assets/images/cricket.jpg";
 import {useContext, useEffect, useState} from "react";
 import SportsCardForView from "../../examples/Cards/SportsCardForView";
-import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
-import Scoreboard from "../Executor/ManageFinalScore";
+
 import {ApplicationContext} from "../../context/ApplicationContext";
-import CardMedia from "@mui/material/CardMedia";
-import ArgonButton from "../../components/ArgonButton";
-import {Link} from "react-router-dom";
-// import AddSportForm from "../../examples/CustomCards/AddSportForm";
-// import SportsRegistrationForm from './RegistrationForm';
+
 
 export default function ViewSports() {
 
@@ -30,12 +25,12 @@ export default function ViewSports() {
             <DashboardLayout>
                 <DashboardNavbar/>
                 <h1 style={{color:"white"}}>Sports List</h1>
-                <ArgonBox mb={1}>
+                <ArgonBox mb={3} mt={6}>
                     <Card>
                         <ArgonBox pt={1} px={2}>
                             <ArgonBox>
                                 <ArgonTypography variant="h6" fontWeight="medium">
-                                    <h2>List of Available Sports</h2>
+                                    List of Available Sports
                                 </ArgonTypography>
                             </ArgonBox>
                         </ArgonBox>
