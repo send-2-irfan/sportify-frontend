@@ -102,7 +102,7 @@ export default function Events() {
                             <Grid container spacing={3}>
                                 {
                                     allEvents.map(events => {
-                                        return <Grid style={{backgroundColor: 'whitesmoke', borderRadius:'5%'}} item xs={12} md={6} xl={4} p={3}>
+                                        return <Grid style={{backgroundColor: 'whitesmoke', borderRadius:'5%'}} item xs={12} md={6} xl={4} p={3} ml={1}>
                                             <DefaultProjectCard
                                                 ml={-2}
                                                 image={events.imageUrl}

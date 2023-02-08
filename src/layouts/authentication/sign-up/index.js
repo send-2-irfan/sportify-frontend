@@ -114,6 +114,12 @@ function Cover() {
             else {
                 let allUsers = JSON.parse(localStorage.getItem("users"))
                 if (allUsers && allUsers.length > 0) {
+                    for (const usr of allUsers) {
+                        if(usr.username===user.username) {
+                            openNotificationWithIcon("error", "Email already in use", "Please use different email address")
+                            return
+                        }
+                    }
                     allUsers.push(user)
                     localStorage.setItem("users", JSON.stringify(allUsers))
                     setUser({
