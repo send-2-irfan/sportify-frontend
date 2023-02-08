@@ -55,37 +55,24 @@ function DefaultProjectCard({image, label, title, description, action, authors})
               </ArgonBox>
               <ArgonBox pt={1} px={0.5} style={{marginTop: '-5px'}}>
                   <ArgonBox mb={1}>
-                      {action.type === "internal" ? (
                           <ArgonTypography
-                              component={Link}
-                              to={action.route}
-                              variant="h5"
+                              variant="h3"
                               textTransform="capitalize"
                           >
                               {title}
                           </ArgonTypography>
-                      ) : (
-                          <ArgonTypography
-                              component="a"
-                              href={action.route}
-                              target="_blank"
-                              rel="noreferrer"
-                              variant="h5"
-                              textTransform="capitalize"
-                          >
-                              {title}
-                          </ArgonTypography>
-                      )}
                   </ArgonBox>
                   <ArgonTypography
                       variant="button"
-                      fontWeight="regular"
+                      fontWeight="large"
                       textTransform="capitalize"
+                      color='info'
+                      mt={-3}
                       textGradient
                   >
                       {label}
                   </ArgonTypography>
-                  <ArgonBox mb={2} mt={-2} lineHeight={0}>
+                  <ArgonBox mb={2} lineHeight={0}>
                       <ArgonTypography variant="button" fontWeight="regular" color="text" style={{justifyContent:'justify'}}>
                           {description}
                       </ArgonTypography>
