@@ -39,7 +39,7 @@ function DefaultProjectCard({image, label, title, description, action, authors})
 
     return (
           <>
-              <ArgonBox position="relative" width="100.25%" shadow="md" borderRadius="xl">
+              <ArgonBox position="relative" width="100.25%" shadow="md" borderRadius="xl" mb={1}>
                   <CardMedia  style={{backgroundColor: '#efefef'}}
                               src={image}
                               component="img"
@@ -85,8 +85,8 @@ function DefaultProjectCard({image, label, title, description, action, authors})
                   >
                       {label}
                   </ArgonTypography>
-                  <ArgonBox mb={3} lineHeight={0}>
-                      <ArgonTypography variant="button" fontWeight="regular" color="text">
+                  <ArgonBox mb={2} mt={-2} lineHeight={0}>
+                      <ArgonTypography variant="button" fontWeight="regular" color="text" style={{justifyContent:'justify'}}>
                           {description}
                       </ArgonTypography>
                   </ArgonBox>

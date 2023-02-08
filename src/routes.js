@@ -46,7 +46,7 @@ const routes =
                 name: "Manage Coordinator",
                 key: "manage-coordinator",
                 route: "/manage-coordinator",
-                icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-02"/>,
+                icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-copy-04"/>,
                 component: <ManageCoordinator/>,
             },
             {
@@ -69,7 +69,7 @@ const routes =
                 name: "Contact Us",
                 key: "contact-us",
                 route: "/contact-us",
-                icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-single-02"/>,
+                icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-email-83"/>,
                 component: <ContactUs/>,
             }
         ]

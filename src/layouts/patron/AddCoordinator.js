@@ -113,7 +113,7 @@ function AddCoordinator() {
 
     return (
         <div>
-            <Grid onClick={handleOpen} style={{width: '15%', marginTop: '20px', marginLeft: '20px'}}>
+            <Grid onClick={handleOpen} style={{width: '15%', marginLeft: '20px'}}>
                 <PlaceholderCard title={{variant: "h5", text: "Add New Coordinator"}} outlined/>
             </Grid>
             <Modal

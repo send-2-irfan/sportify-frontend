@@ -29,18 +29,24 @@ function Illustration() {
     const [user, setUser] = useState({
         username: '',
         password: '',
+        role: 'PATRON',
     })
     const signin = async () => {
-        let allUsers = JSON.parse(localStorage.getItem("users"))
-        for (let i = 0; i < allUsers.length; i++) {
-            if (allUsers[i].username === user.username && allUsers[i].password === user.password && allUsers[i].active) {
-                sessionStorage.setItem("login", JSON.stringify(allUsers[i]))
-                // navigate("/dashboard");
-                window.location.href = "/dashboard";
-                return
+        if(user.username==='patron@iba-suk.edu.pk' && user.password==='patron12345'){
+            await sessionStorage.setItem("login", JSON.stringify(user))
+            window.location.href = "/dashboard";
+        }else{
+            let allUsers = JSON.parse(localStorage.getItem("users"))
+            for (let i = 0; i < allUsers.length; i++) {
+                if (allUsers[i].username === user.username && allUsers[i].password === user.password && allUsers[i].active) {
+                    sessionStorage.setItem("login", JSON.stringify(allUsers[i]))
+                    // navigate("/dashboard");
+                    window.location.href = "/dashboard";
+                    return
+                }
             }
+            alert("Username or password is incorrect")
         }
-        alert("Username or password is incorrect")
     }
 
     const handleSetRememberMe = () => setRememberMe(!rememberMe);

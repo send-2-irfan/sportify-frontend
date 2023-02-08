@@ -92,19 +92,20 @@ export default function Events() {
                 <h1>Manage Events</h1>
                 <ArgonBox mb={3}>
                     <Card>
-                        <ArgonBox pt={2} px={2}>
+                        <ArgonBox>
                             <ArgonBox mb={0.5}>
                                 <ArgonTypography variant="h6" fontWeight="medium">
                                     Manage Events
                                 </ArgonTypography>
                             </ArgonBox>
                         </ArgonBox>
-                        <ArgonBox p={2}>
+                        <ArgonBox p={2} mt={2}>
                             <Grid container spacing={3}>
                                 {
                                     allEvents.map(events => {
-                                        return <Grid style={{backgroundColor: '#efefef'}} item xs={12} md={6} xl={4}>
+                                        return <Grid style={{backgroundColor: 'whitesmoke', borderRadius:'5%'}} item xs={12} md={6} xl={4} p={3}>
                                             <DefaultProjectCard
+                                                ml={-2}
                                                 image={events.imageUrl}
                                                 label=""
                                                 title={events.name}
@@ -125,6 +126,9 @@ export default function Events() {
 
 
                                             <Modal title="Modify Event" open={isModalOpen} onOk={handleOk}
+                                                   style={{
+                                                       marginTop:'12%'
+                                                   }}
                                                    onCancel={handleCancel}>
 
                                                 <div className="row mb-4">
