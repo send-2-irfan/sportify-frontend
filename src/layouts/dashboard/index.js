@@ -30,7 +30,7 @@ import {useNavigate} from "react-router-dom";
 function Default() {
     const {allEvents, setAllEvents} = useContext(ApplicationContext)
     const {
-        sports, setSports, setAllCoordinators, executors, setAllExecutors, teams, setAllTeams
+        sports, setSports, setAllCoordinators, executors,coordinators, setAllExecutors, teams, setAllTeams
     } = useContext(ApplicationContext)
     let [executorsCount, setExecutorCount] = useState(0)
 
@@ -94,14 +94,23 @@ function Default() {
                         percentage={{color: "error", count: "", text: ""}}
                     />
                 </Grid>
-                <Grid item xs={12} md={6} lg={3}>
-                    <DetailedStatisticsCard
-                        title="Total Executors"
-                        count={executorsCount}
-                        icon={{color: "warning", component: <i className="ni ni-single-02"/>}}
-                        percentage={{color: "success", count: "", text: ""}}
-                    />
-                </Grid>
+                {
+                    (JSON.parse(sessionStorage.getItem("login")).role === "PATRON") ? <Grid item xs={12} md={6} lg={3}>
+                        <DetailedStatisticsCard
+                            title="Total Coordinators"
+                            count={coordinators.length}
+                            icon={{color: "warning", component: <i className="ni ni-single-02"/>}}
+                            percentage={{color: "success", count: "", text: ""}}
+                        />
+                    </Grid> : <Grid item xs={12} md={6} lg={3}>
+                        <DetailedStatisticsCard
+                            title="Total Executors"
+                            count={executorsCount}
+                            icon={{color: "warning", component: <i className="ni ni-single-02"/>}}
+                            percentage={{color: "success", count: "", text: ""}}
+                        />
+                    </Grid>
+                }
             </Grid>
             <Grid container spacing={3} mb={3}>
                 <Grid item xs={12} lg={7}>
