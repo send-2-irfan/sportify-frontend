@@ -72,12 +72,20 @@ function Header() {
           </Grid>
           <Grid item>
             <ArgonBox height="100%" mt={0.5} lineHeight={1}>
-              <ArgonTypography variant="h5" fontWeight="medium">
+              <ArgonTypography variant="h6" fontWeight="medium">
+                <label htmlFor="role">Full Name: </label>
+                <ArgonTypography variant="h5" fontWeight="medium" color='black' style={{display:'inline-block', marginLeft:'2px'}}>
+                  { JSON.parse(sessionStorage.getItem("login")).fullName}
+                </ArgonTypography>
+              </ArgonTypography>
+              <ArgonTypography variant="h6" fontWeight="small">
                 <label htmlFor="role">Role Logged In: </label>
-                {JSON.parse(sessionStorage.getItem("login")).role}
+                <ArgonTypography variant="h6" fontWeight="medium" color='info' style={{display:'inline-block', marginLeft:'2px'}}>
+                  { JSON.parse(sessionStorage.getItem("login")).role}
+                </ArgonTypography>
               </ArgonTypography>
               <ArgonTypography variant="button" color="text" fontWeight="medium">
-                <label htmlFor="role">Email ID: </label>
+                <label htmlFor="role" style={{marginRight:'2px'}}>Email ID: </label>
                 <a href={`mailto:${JSON.parse(sessionStorage.getItem("login")).username}`}>{JSON.parse(sessionStorage.getItem("login")).username}</a>
               </ArgonTypography>
             </ArgonBox>

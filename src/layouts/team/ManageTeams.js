@@ -43,14 +43,24 @@ export default function ManageTeams() {
         <>
             <DashboardLayout>
                 <DashboardNavbar/>
-                <h1>Manage Teams</h1>
+                {
+                    JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' ?
+                        <h2>Register Team</h2> : <h2>Manage Teams</h2>
+
+                }
                 <ArgonBox mb={3}>
                     <Card>
                         <ArgonBox pt={2} px={2}>
                             <ArgonBox mb={0.5}>
-                                <ArgonTypography variant="h6" fontWeight="medium">
-                                    Manage Teams
-                                </ArgonTypography>
+                                {
+                                    JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' ?
+                                    <ArgonTypography variant="h6" fontWeight="medium">
+                                        Register Team
+                                    </ArgonTypography> :
+                                    <ArgonTypography variant="h6" fontWeight="medium">
+                                            Manage Team
+                                    </ArgonTypography>
+                                }
                             </ArgonBox>
                         </ArgonBox>
                         <ArgonBox p={2}>

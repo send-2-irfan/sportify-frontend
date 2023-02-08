@@ -182,10 +182,10 @@ const routes =
                 },
                 {
                     type: "route",
-                    name: "Manage Teams",
-                    key: "manage-teams",
-                    route: "/manage-teams",
-                    icon: <ArgonBox component="i" color="secondary" fontSize="14px" className="ni ni-tablet-button"/>,
+                    name: "Register Team",
+                    key: "register-teams",
+                    route: "/register-teams",
+                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-tablet-button"/>,
                     component: <ManageTeams/>,
                 },
                 {
@@ -201,7 +201,7 @@ const routes =
                     name: "View Sports",
                     key: "view-sports",
                     route: "/view-sports",
-                    icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-world"/>,
+                    icon: <ArgonBox component="i" color="orange" fontSize="14px" className="ni ni-world"/>,
                     component: <ViewSports/>,
                 },
                 {
@@ -209,7 +209,7 @@ const routes =
                     name: "Final Score",
                     key: "final-score",
                     route: "/finalScore",
-                    icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-collection"/>,
+                    icon: <ArgonBox component="i" color="green" fontSize="14px" className="ni ni-collection"/>,
                     component: <AddFinalScores/>,
                 },
                 {
@@ -225,7 +225,7 @@ const routes =
                     name: "Contact Us",
                     key: "contact-us",
                     route: "/contact-us",
-                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                    icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-email-83"/>,
                     component: <ContactUs/>,
                 }
 
