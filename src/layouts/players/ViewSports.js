@@ -50,60 +50,14 @@ export default function ViewSports() {
                                                     color: "primary",
                                                     label: "Register",
                                                 }}
-
                                             />
                                         </Grid>
                                     </Grid>
                                 })
                             }
-
-                            {/* <Grid container spacing={3}>
-                                <Grid item xs={12} md={3} xl={8}>
-                                    <SportsCardForView
-                                        image={cricketImg}
-                                        label="fee 3600"
-                                        title="Cricket"
-                                        description="Cricket is a game of 11 players. It is loved allover Pakistan. I was started by English people."
-                                        action={{
-                                            type: "internal",
-                                            route: "/pages/profile/profile-overview",
-                                            color: "primary",
-                                            label: "Register",
-                                        }}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} md={3} xl={8}>
-                                    <SportsCardForView
-                                        image={hockeyImg}
-                                        label="fee 4000"
-                                        title="Hockey"
-                                        description="Hockey is something that every person has his or her own specific opinion about."
-                                        action={{
-                                            type: "internal",
-                                            route: "/pages/profile/profile-overview",
-                                            color: "primary",
-                                            label: "Register",
-                                        }}
-                                    />
-                                </Grid>
-                               
-
-                            </Grid> */}
                         </ArgonBox>
                     </Card>
-                    {/*<SimpleSelect />*/}
-                    {/*<FormDialog xs={{color: 'black', backgroundColor:'blue', background:"black"}} />*/}
-                    {/*/!*<SportsRegistrationForm />*!/*/}
-
                 </ArgonBox>
-
-                {/*<AddSportForm />*/}
-                {/*<FootballTeamRegistrationForm />*/}
-                {/* <Scoreboard />*/}
-
-                {/*<AddEvent />*/}
-                {/*<AddSportsDemo />*/}
-
             </DashboardLayout>
         </>
     )

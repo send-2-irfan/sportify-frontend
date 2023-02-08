@@ -60,7 +60,6 @@ function AddSport() {
 
     const handleAdd = (event) => {
         event.preventDefault();
-        console.log(sportData)
 
         if (JSON.parse(localStorage.getItem("sports"))) {
             let items = JSON.parse(localStorage.getItem("sports"))

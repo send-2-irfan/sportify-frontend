@@ -66,7 +66,7 @@ function Header() {
               src={burceMars}
               alt="profile-image"
               variant="rounded"
-              size="xl"
+              size="xxl"
               shadow="sm"
             />
           </Grid>
@@ -74,13 +74,13 @@ function Header() {
             <ArgonBox height="100%" mt={0.5} lineHeight={1}>
               <ArgonTypography variant="h6" fontWeight="medium">
                 <label htmlFor="role">Full Name: </label>
-                <ArgonTypography variant="h5" fontWeight="medium" color='black' style={{display:'inline-block', marginLeft:'2px'}}>
+                <ArgonTypography variant="h6" fontWeight="medium" color='black' style={{display:'inline-block', marginLeft:'2px'}}>
                   { JSON.parse(sessionStorage.getItem("login")).fullName}
                 </ArgonTypography>
               </ArgonTypography>
               <ArgonTypography variant="h6" fontWeight="small">
                 <label htmlFor="role">Role Logged In: </label>
-                <ArgonTypography variant="h6" fontWeight="medium" color='info' style={{display:'inline-block', marginLeft:'2px'}}>
+                <ArgonTypography variant="h6" fontWeight="medium" color='black' style={{display:'inline-block', marginLeft:'2px'}}>
                   { JSON.parse(sessionStorage.getItem("login")).role}
                 </ArgonTypography>
               </ArgonTypography>
