@@ -11,7 +11,6 @@ import {useContext, useEffect, useState} from "react";
 import SportsCardForView from "../../examples/Cards/SportsCardForView";
 import FootballTeamRegistrationForm from "../../examples/CustomCards/TeamRegistrationForm";
 import Scoreboard from "../Executor/ManageFinalScore";
-import AddSportDemo from "../patron/AddSportsDemo.js";
 import {ApplicationContext} from "../../context/ApplicationContext";
 import CardMedia from "@mui/material/CardMedia";
 import ArgonButton from "../../components/ArgonButton";

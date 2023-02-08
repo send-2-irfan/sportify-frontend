@@ -109,12 +109,6 @@ function ManageExecutors() {
                                                 Email: {items.email}
                                             </Typography>
                                         </CardContent>
-
-
-
-
-
-
                                     </Card>
 
                                 })
