@@ -161,10 +161,6 @@ function ManageExecutors() {
                 {/*    </Grid>*/}
                 {/*</Grid>*/}
 
-
-
-
-
                             </Grid>
                         </ArgonBox>
                         <AddExecutor/>

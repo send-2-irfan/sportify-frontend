@@ -212,52 +212,7 @@ function AddExecutor() {
                         </ArgonBox>
                     </ArgonBox>
                 </Card>
-
-
             </Modal>
-
-            {/*New Componenet ends here*/}
-
-            {/*<Card>*/}
-            {/*    <ArgonBox p={0.5}>*/}
-            {/*        <Grid container spacing={4}>*/}
-            {/*            {cards.map((card, index) => (*/}
-            {/*                <Card className={classes.card} key={index} style={{*/}
-            {/*                    justifyContent: "space-around", alignItems: 'space-between'*/}
-            {/*                }}>*/}
-            {/*                    <ArgonBox p={0.5}>*/}
-            {/*                        <Grid container spacing={2}>*/}
-            {/*                            <Grid item xs={12} md={6} xl={4}>*/}
-            {/*                                <DefaultProjectCard*/}
-            {/*                                    image={card.image || sportsGala} alt="Card Image"*/}
-            {/*                                    label=""*/}
-            {/*                                    title={card.name}*/}
-            {/*                                    description={*/}
-            {/*                                        card.detail*/}
-            {/*                                    }*/}
-            {/*                                    action={{*/}
-            {/*                                        type: "internal",*/}
-            {/*                                        route: "./view-sports",*/}
-            {/*                                        color: "info",*/}
-            {/*                                        label: "View Event",*/}
-            {/*                                    }}*/}
-            {/*                                />*/}
-            {/*                                <div className={classes.cardActions}>*/}
-            {/*                                    <IconButton onClick={() => handleEdit(index)}>*/}
-            {/*                                        <Edit color='info'/>*/}
-            {/*                                    </IconButton>*/}
-            {/*                                    <IconButton onClick={() => handleDelete(index)}>*/}
-            {/*                                        <Delete color='error'/>*/}
-            {/*                                    </IconButton>*/}
-            {/*                                </div>*/}
-            {/*                            </Grid>*/}
-            {/*                        </Grid>*/}
-            {/*                    </ArgonBox>*/}
-            {/*                </Card>*/}
-            {/*            ))}*/}
-            {/*        </Grid>*/}
-            {/*    </ArgonBox>*/}
-            {/*</Card>*/}
         </div>
     );
 }
