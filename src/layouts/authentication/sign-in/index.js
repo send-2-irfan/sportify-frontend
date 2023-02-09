@@ -57,7 +57,7 @@ function Illustration() {
             description="Enter your Email and Password to sign in"
             illustration={{
                 image: bgImage,
-                title: 'SIBAU Sports Management System',
+                coordinatorName: 'SIBAU Sports Management System',
                 description:
                     "Sports at Sukkur IBA University in Pakistan include a variety of outdoor and indoor activities such as cricket, football, basketball, and table tennis etc.",
             }}

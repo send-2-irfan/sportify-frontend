@@ -16,6 +16,7 @@ import ReportToPatron from "./layouts/Coordinator/ReportToPatron";
 import ViewSchedule from "./layouts/players/ViewSchedule";
 import {ContactUs} from "./components/contact/ContactUs";
 import ManageExecutors from "./layouts/manageExecutor/MangeExecutors";
+import ReportsModule from "./layouts/reports-module/Report";
 
 
 const routes =
@@ -71,6 +72,14 @@ const routes =
                 route: "/contact-us",
                 icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-email-83"/>,
                 component: <ContactUs/>,
+            },
+            {
+                type: "route",
+                name: "Reports",
+                key: "manage-coordinator",
+                route: "/reports",
+                icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-copy-04"/>,
+                component: <ReportsModule/>,
             }
         ]
         : JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role === 'COORDINATOR' ? [

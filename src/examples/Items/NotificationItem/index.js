@@ -89,7 +89,7 @@ NotificationItem.propTypes = {
     "dark",
   ]),
   image: PropTypes.node.isRequired,
-  title: PropTypes.arrayOf(PropTypes.string).isRequired,
+  coordinatorName: PropTypes.arrayOf(PropTypes.string).isRequired,
   date: PropTypes.string.isRequired,
 };
 

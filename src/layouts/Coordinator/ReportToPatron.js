@@ -4,6 +4,8 @@ import Card from "@mui/material/Card";
 import {Button, TextField} from "@mui/material";
 import React, {useState} from "react";
 import {makeStyles} from "@mui/styles";
+import ArgonInput from "../../components/ArgonInput";
+import {openNotificationWithIcon} from "../../components/global/notification";
 
 
 const useStyles = makeStyles(theme => ({
@@ -23,43 +25,31 @@ const useStyles = makeStyles(theme => ({
 
 export default function ReportToPatron() {
     const classes = useStyles();
-    const [value, setValue] = useState('');
-    const [rating, setRating] = useState('');
-    const [feedback, setFeedback] = useState('');
-    const [department, setDepartment] = useState('');
-    const [options, setOptions] = useState([]);
-    const [email, setEmail] = useState('');
+    const [report, setReport] = useState({
+        coordinatorName: JSON.parse(sessionStorage.getItem("login")).fullName,
+        message: '',
+        submissionDate: `${new Date().toString()}`
+    })
 
-
-    const handleChange = event => {
-        setValue(event.target.value);
-    };
-
-    const handleRatingChange = event => {
-        setRating(event.target.value);
-    };
-
-    const handleFeedbackChange = event => {
-        setFeedback(event.target.value);
-    };
-
-    const handleDepartmentChange = event => {
-        setDepartment(event.target.value);
-    };
-
-    const handleOptionChange = event => {
-        setOptions(event.target.value);
-    };
-
-    const handleEmailChange = event => {
-        setEmail(event.target.value);
+    async function submitMessage() {
+        if (!report.message) {
+            openNotificationWithIcon("error", "Empty Exception", "Please enter any message to report to patron")
+        } else {
+            let messages = await JSON.parse(localStorage.getItem("messages"))
+            if (messages) {
+                messages.push(report)
+                await localStorage.setItem("messages", JSON.stringify(messages))
+                openNotificationWithIcon("success", "Success", "Message reported to Patron")
+                setReport({...report, message: ''})
+            } else {
+                let tempMessages = []
+                tempMessages.push(report)
+                await localStorage.setItem("messages", JSON.stringify(tempMessages))
+                openNotificationWithIcon("success", "Success", "Message reported to Patron")
+                setReport({...report, message: ''})
+            }
+        }
     }
-
-    const handleSubmit = event => {
-        event.preventDefault();
-        alert(`Thank you for your feedback!\nName: ${value}\nFeedback: ${feedback}\nEmail: ${email}`);
-    };
-
 
     return (
         <>
@@ -67,40 +57,13 @@ export default function ReportToPatron() {
                 <DashboardNavbar/>
                 <h1>Manage Executors</h1>
 
-                <Card type="contained" style={{width:'360'}} mt={3}>
-                    <div>
-                        <TextField
-                            id="name"
-                            label="Name"
-                            value={value}
-                            onChange={handleChange}
-                            variant="outlined"
-                            required
-                        />
-                        <TextField
-                            id="email"
-                            label="Email"
-                            value={email}
-                            onChange={handleEmailChange}
-                            variant="outlined"
-                            required
-                        />
-                    </div>
-                    <div style={{width:'30%'}}>
-                        <TextField
-                            id="feedback"
-                            label="Feedback"
-                            multiline
-                            rows={6}
-                            value={feedback}
-                            onChange={handleFeedbackChange}
-                            variant="outlined"
-                            required
-                        />
-                    </div>
-
-                    <Button variant="contained" color="primary" className={classes.button} type="submit">
-                        Submit
+                <Card className={"p-4"} type="contained" style={{width: '360'}} mt={3}>
+                    <textarea value={report.message} onChange={(e) => setReport({...report, message: e.target.value})}
+                              className="form-control" id="exampleFormControlTextarea1" rows="8"
+                              placeholder="Write any message to report to PATRON"></textarea>
+                    <Button onClick={submitMessage} variant="contained" color="primary" className={classes.button}
+                            type="submit">
+                        Submit Message
                     </Button>
                 </Card>
 
