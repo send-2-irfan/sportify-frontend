@@ -9,10 +9,19 @@ import React, {useEffect, useState} from "react";
 
 export default function ReportsModule() {
     const [reports, setReports] = useState([])
+    // const fetchReports =  () => {
+    //     let messages =  JSON.parse(localStorage.getItem("messages"))
+    //     if (messages) setReports(messages)
+    // }
+
     const fetchReports =  () => {
         let messages =  JSON.parse(localStorage.getItem("messages"))
-        if (messages) setReports(messages)
+        if (messages) {
+            messages.sort((a, b) => new Date(b.submissionDate) - new Date(a.submissionDate));
+            setReports(messages)
+        }
     }
+
     useEffect(() => {
         fetchReports()
     })
