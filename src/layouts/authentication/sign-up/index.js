@@ -136,14 +136,6 @@ function Cover() {
 
                     }
                     navigate("/authentication/sign-in");
-                    // if(user.role === 'EXECUTOR'){
-                    //     openNotificationWithIcon("info", "Your Request has been sent to Coordinator", "Your account will be activated with in 24 hours.")
-                    //     navigate("/authentication/sign-in");
-                    // }
-                    // if(user.role === 'COORDINATOR'){
-                    //     openNotificationWithIcon("info", "Your Request has been sent to Patron", "Your account will be activated with in 24 hours.")
-                    //     navigate("/authentication/sign-in");
-                    // }
                 } else {
                     let allUsers = []
                     allUsers.push(user)
