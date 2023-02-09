@@ -57,7 +57,7 @@ export default function ViewSchedule() {
                                        return <Grid container spacing={3} alignItems="center" style={{backgroundColor:'whitesmoke'}} key={index} mb={2}>
                                             <Grid item xs={12} md={6} lg={4} >
                                                 <ArgonAvatar
-                                                    style={{backgroundColor:'blue', color:'white'}}
+                                                    style={{color:'white',backgroundColor:'blue'}}
                                                     alt="image"
                                                     variant="rounded"
                                                     size="xxl"
