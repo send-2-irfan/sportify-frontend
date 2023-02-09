@@ -2,15 +2,14 @@
   "name": "siba-sportify",
   "version": "3.0.0",
   "author": "Irfan & Team",
-  "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
   "description": "React version of SIBA Sportify Dashboard by Irfan and Team",
-  "homepage": "https://demos.creative-tim.com/argon-dashboard-material-ui/",
+  "homepage": "http://localhost:3000/",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/argon-dashboard-material-ui/issues"
+    "url": "https://github.com/send-2-irfan/sportify-frontend.git"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/argon-dashboard-material-ui.git"
+    "url": "git+https://github.com/send-2-irfan/sportify-frontend.git"
   },
   "engines": {
     "node": "14 || 15 || 16 || 17 || 18",
