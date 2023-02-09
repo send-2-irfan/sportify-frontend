@@ -11,17 +11,13 @@ export default function ReportsModule() {
     const [reports, setReports] = useState([])
     const fetchReports = async () => {
         let messages = await JSON.parse(localStorage.getItem("messages"))
+        //sort all latest reports at first
+        messages.sort((p1, p2) => (p1.submissionDate > p2.submissionDate) ? 0 : (p1.submissionDate > p2.submissionDate) ? -1 : 1);
         if (messages) setReports(messages)
     }
     useEffect(() => {
         fetchReports()
     })
-    const data = [
-        {
-            coordinatorName: 'Coodinator Name',
-            message: 'Coordinator Message 1',
-        }
-    ];
 
     return (<>
         <DashboardLayout>
