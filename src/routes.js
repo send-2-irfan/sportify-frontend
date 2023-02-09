@@ -137,7 +137,7 @@ const routes =
                     name: "Manage Teams",
                     key: "manage-teams",
                     route: "/manage-teams",
-                    icon: <ArgonBox component="i" color="error" fontSize="14px" className="ni ni-tablet-button"/>,
+                    icon: <ArgonBox component="i" color="purple" fontSize="14px" className="ni ni-tablet-button"/>,
                     component: <ManageTeams/>,
                 },
                 {
