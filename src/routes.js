@@ -75,9 +75,9 @@ const routes =
             },
             {
                 type: "route",
-                name: "Reports",
-                key: "manage-coordinator",
-                route: "/reports",
+                name: "View Reports",
+                key: "view-reports",
+                route: "/view-reports",
                 icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-copy-04"/>,
                 component: <ReportsModule/>,
             }
@@ -137,7 +137,7 @@ const routes =
                     name: "Manage Teams",
                     key: "manage-teams",
                     route: "/manage-teams",
-                    icon: <ArgonBox component="i" color="secondary" fontSize="14px" className="ni ni-tablet-button"/>,
+                    icon: <ArgonBox component="i" color="purple" fontSize="14px" className="ni ni-tablet-button"/>,
                     component: <ManageTeams/>,
                 },
                 {
@@ -145,7 +145,7 @@ const routes =
                     name: "Manage Final Scores",
                     key: "manage-score",
                     route: "/manage-score",
-                    icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-trophy"/>,
+                    icon: <ArgonBox component="i" color="gold" fontSize="14px" className="ni ni-trophy"/>,
                     component: <AddFinalScores/>,
                 },
                 {
@@ -153,7 +153,7 @@ const routes =
                     name: "Generate Schedule",
                     key: "generate-schedule",
                     route: "/generate-schedule",
-                    icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-calendar-grid-58"/>,
+                    icon: <ArgonBox component="i" color="secondary" fontSize="14px" className="ni ni-calendar-grid-58"/>,
                     component: <GenerateSchedule/>,
                 },
                 {
@@ -177,7 +177,7 @@ const routes =
                     name: "Contact Us",
                     key: "contact-us",
                     route: "/contact-us",
-                    icon: <ArgonBox component="i" color="dark" fontSize="14px" className="ni ni-single-02"/>,
+                    icon: <ArgonBox component="i" color="info" fontSize="14px" className="ni ni-email-83"/>,
                     component: <ContactUs/>,
                 }
             ] : JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' ? [
