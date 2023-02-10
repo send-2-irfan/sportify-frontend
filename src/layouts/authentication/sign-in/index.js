@@ -16,6 +16,7 @@ import ArgonButton from "components/ArgonButton";
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";
 import {useAuth} from "../../../context/AuthContext";
 import ArgonAlert from "../../../components/ArgonAlert";
+import {openNotificationWithIcon} from "../../../components/global/notification";
 
 // Image
 const bgImage = "https://i.pinimg.com/736x/33/2e/21/332e213e36c73c2cfba495ae141aa1b0.jpg";
@@ -27,7 +28,7 @@ function Illustration() {
 
     // const navigate = useNavigate();
     const [user, setUser] = useState({
-        username: '',
+        username: 'Irfan Ullah',
         password: '',
         role: 'PATRON',
     })
@@ -45,7 +46,7 @@ function Illustration() {
                     return
                 }
             }
-            alert("Username or password is incorrect")
+            openNotificationWithIcon("error", "Email or Password incorrect exception", "Username or password is incorrect");
         }
     }
 
