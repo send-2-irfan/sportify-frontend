@@ -99,7 +99,6 @@ export default function ManageTeams() {
                                                             </div>
                                                         }
                                                     />
-                                                    <Button  type="danger">Delete</Button>
                                                 </Card>
 
 
