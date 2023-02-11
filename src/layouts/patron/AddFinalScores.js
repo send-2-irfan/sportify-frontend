@@ -321,20 +321,13 @@ export default function AddFinalScores() {
                             Set Scores
                         </Typography>
                         <form onSubmit={handleAdd}>
-                            {/*<TextField*/}
-                            {/*    id="team"*/}
-                            {/*    placeholder="Team Name"*/}
-                            {/*    value={scores.team}*/}
-                            {/*    onChange={(event) => setScores({...scores, team: event.target.value})}*/}
-                            {/*    className={classes.textField}*/}
-                            {/*/>*/}
                             <Select
                                 placeholder='Select Team'
                                 value={scores.team}
                                 onChange={(value) => setScores({...scores, team: value})}
-                                // className={'medium p-1 col-sm-1'}
+                                className={classes.textField}
                             >
-                                <Option value='' disabled>Select Sports</Option>
+                                <Option value='' disabled>Select Team</Option>
                                 <Option value="team1">CS Strikers</Option>
                                 <Option value="team2">BB Gladiators</Option>
                                 <Option value="team3">AF 11</Option>
@@ -356,17 +349,15 @@ export default function AddFinalScores() {
                                     shrink: true,
                                 }}
                             />
-                            <TextField
-                                id="status"
-                                placeholder="Team Status"
+                            <Select
+                                placeholder='Team Status'
                                 value={scores.status}
-                                onChange={(event) => setScores({...scores, status: event.target.value})}
-                                className={classes
-                                    .textField}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
+                                onChange={(value) => setScores({...scores, status: value})}
+                                className={classes.textField}
+                            >
+                                <Option value='' disabled>Select Status</Option>
+                                <Option value="status">Winner</Option>
+                            </Select>
                             <Button
                                 variant="standard"
                                 color="info"
