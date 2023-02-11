@@ -10,10 +10,24 @@ import AddEvent from "../patron/AddEvent";
 import {ApplicationContext} from "../../context/ApplicationContext";
 import {Button, Modal} from 'antd';
 import {makeStyles} from "@mui/styles";
-import ArgonButton from "../../components/ArgonButton";
-import {Select} from 'antd';
+import InputLabel from '@mui/material/InputLabel';
+import {useTheme} from '@mui/material/styles';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import {openNotificationWithIcon} from "../../components/global/notification";
 
-
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250,
+        },
+    },
+};
 const useStyles = makeStyles((theme) => ({
     cardContainer: {
         display: 'flex',
@@ -35,53 +49,57 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 export default function Events() {
-    const options = [];
-    const coordinator = [];
-    const {coordinators} = useContext(ApplicationContext)
-    const fetchAllSports = async () => {
-        console.log(coordinators)
-        // await setAllSports(JSON.parse(localStorage.getItem("sports")))
-        // for (let i = 0; i < allSports.length; i++) {
-        //     options.push({
-        //         label: allSports[i].sportName,
-        //         value: allSports[i].sportName,
-        //     });
-        // }
-        for (let i = 0; i < coordinators.length; i++) {
-            coordinator.push({
-                label: coordinators[i].username,
-                value: coordinators[i].username,
-            });
-        }
-    }
+    const {sports, coordinators} = useContext(ApplicationContext)
+    const [coordinatorName, setCoordinatorName] = React.useState('');
+    const {allEvents, setAllEvents} = useContext(ApplicationContext)
 
-    useEffect(()=> {
-        fetchAllSports()
-    }, [])
-    const handleChangeSports = (value) => {
-        console.log(`selected ${value}`);
+    const [sportNames, setSportNames] = React.useState([]);
+
+    const handleChangeSportNames = (event) => {
+        const {target: {value},} = event;
+        setSportNames(typeof value === 'string' ? value.split(',') : value,);
     };
-    const handleChangeCoordinator = (value) => {
-        console.log(`selected ${value}`);
+
+
+    const handleChangeCoordinatorName = (event) => {
+        setCoordinatorName(event.target.value);
     };
+
 
     const classes = useStyles();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
     };
-    const handleOk = () => {
-        setIsModalOpen(false);
+    const handleOk = async (selectedEvent) => {
+        try {
+            selectedEvent.sports = sportNames;
+            selectedEvent.coordinatorName = coordinatorName;
+            let tempEvent = []
+            for (let events of allEvents) {
+                if (events.name !== selectedEvent.name) {
+                    tempEvent.push(events)
+                    continue
+                }else{
+                    tempEvent.push(selectedEvent)
+                    continue
+                }
+            }
+            sessionStorage.setItem("events", JSON.stringify(tempEvent))
+            openNotificationWithIcon("success", "Done", "Coordinator and Sports have been assigned to event")
+            setIsModalOpen(false);
+        } catch (err) {
+            console.log(err)
+            openNotificationWithIcon("error", "Error", "Sorry, you can't assign coordinator or sports on event for now")
+        }
     };
     const handleCancel = () => {
         setIsModalOpen(false);
     };
 
-    const {allEvents, setAllEvents} = useContext(ApplicationContext)
     useEffect(() => {
         JSON.parse(localStorage.getItem("events")) && setAllEvents(JSON.parse(localStorage.getItem("events")))
     }, [])
-
 
 
     return (
@@ -102,7 +120,8 @@ export default function Events() {
                             <Grid container spacing={3}>
                                 {
                                     allEvents.map(events => {
-                                        return <Grid style={{backgroundColor: 'whitesmoke', borderRadius:'5%'}} item xs={12} md={6} xl={4} p={3} ml={1}>
+                                        return <Grid style={{backgroundColor: 'whitesmoke', borderRadius: '5%'}} item
+                                                     xs={12} md={6} xl={4} p={3} ml={1}>
                                             <DefaultProjectCard
                                                 ml={-2}
                                                 image={events.imageUrl}
@@ -124,37 +143,68 @@ export default function Events() {
                                             {/* dropdown menu ends here*/}
 
 
-                                            <Modal title="Modify Event" open={isModalOpen} onOk={handleOk}
+                                            <Modal width={'40%'} title="Modify Event" open={isModalOpen}
+                                                   onOk={(events) => handleOk(events)}
                                                    style={{
-                                                       marginTop:'12%'
+                                                       marginTop: '12%',
                                                    }}
                                                    onCancel={handleCancel}>
 
                                                 <div className="row mb-4">
                                                     <div className="col-sm-12 col-lg-6 col-xl-6 col-md-12">
-                                                        <label htmlFor="coodinator select">Select Sports for Event</label>
-                                                        <Select
-                                                            mode="multiple"
-                                                            allowClear
-                                                            style={{
-                                                                width: '100%',
-                                                            }}
-                                                            placeholder="Please select"
-                                                            onChange={handleChangeSports}
-                                                            options={options}
-                                                        />
+                                                        <label htmlFor="coodinator select">Select Sports for
+                                                            Event</label>
+                                                        <div>
+                                                            <FormControl sx={{m: 1, minWidth: 200}} size="small">
+                                                                <InputLabel
+                                                                    id="demo-select-large">Coordinator</InputLabel>
+                                                                <Select
+                                                                    labelId="demo-select-large"
+                                                                    id="demo-select-large"
+                                                                    value={coordinatorName}
+                                                                    label="Age"
+                                                                    onChange={handleChangeCoordinatorName}
+                                                                >
+                                                                    {
+                                                                        coordinators.map(coordinator => {
+                                                                            return <MenuItem key={coordinator.fullName}
+                                                                                             value={coordinator.fullName}>
+                                                                                <em>{coordinator.fullName}</em>
+                                                                            </MenuItem>
+                                                                        })
+                                                                    }
+                                                                </Select>
+                                                            </FormControl>
+                                                        </div>
                                                     </div>
                                                     <div className="col-sm-12 col-lg-6 col-xl-6 col-md-12">
-                                                        <label htmlFor="coodinator select">Select Coordinators for Event</label>
-                                                        <Select
-                                                            allowClear
-                                                            style={{
-                                                                width: '100%',
-                                                            }}
-                                                            placeholder="Please select"
-                                                            onChange={handleChangeCoordinator}
-                                                            options={coordinator}
-                                                        />
+                                                        <label htmlFor="coodinator select">Select Coordinators for
+                                                            Event</label>
+                                                        <div>
+                                                            <FormControl sx={{m: 1, width: 300}}>
+                                                                <InputLabel
+                                                                    id="demo-multiple-name-label">Sports</InputLabel>
+                                                                <Select
+                                                                    labelId="demo-multiple-name-label"
+                                                                    id="demo-multiple-name"
+                                                                    multiple
+                                                                    value={sportNames}
+                                                                    onChange={handleChangeSportNames}
+                                                                    input={<OutlinedInput label="Name"/>}
+                                                                    MenuProps={MenuProps}
+                                                                >
+                                                                    {
+                                                                        sports.map(sport => {
+                                                                            return <MenuItem key={sport.sportName}
+                                                                                             value={sport.sportName}>
+                                                                                <em>{sport.sportName}</em>
+                                                                            </MenuItem>
+                                                                        })
+                                                                    }
+                                                                </Select>
+                                                            </FormControl>
+                                                        </div>
+
                                                     </div>
                                                     <div className="col-sm-12 col-lg-6 col-xl-6 col-md-12">
                                                         {/*   drop down 2*/}

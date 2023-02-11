@@ -1,5 +1,4 @@
 import Dashboard from "layouts/dashboard";
-import Billing from "layouts/billing";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";

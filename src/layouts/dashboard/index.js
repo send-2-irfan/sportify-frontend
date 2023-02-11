@@ -30,10 +30,18 @@ import {useNavigate} from "react-router-dom";
 function Default() {
     const {allEvents, setAllEvents} = useContext(ApplicationContext)
     const {
-        sports, setSports, setAllCoordinators, executors,coordinators, setAllExecutors, teams, setAllTeams
+        sports, setSports, setAllCoordinators, executors, coordinators, setAllExecutors, teams, setAllTeams
     } = useContext(ApplicationContext)
     let [executorsCount, setExecutorCount] = useState(0)
 
+    const fetchAllUsers = async () => {
+        let allUsers = await JSON.parse(localStorage.getItem("users"))
+        let coordinators = []
+        for (let user of allUsers) {
+            user.role === 'COORDINATOR' && coordinators.push(user)
+        }
+        setAllCoordinators(coordinators)
+    }
     const fetchExecutors = async () => {
         let allUsers = await JSON.parse(localStorage.getItem("users"))
         let executor = []
@@ -57,6 +65,7 @@ function Default() {
             JSON.parse(localStorage.getItem("coordinators")) && setAllCoordinators(JSON.parse(localStorage.getItem("coordinators")))
             fetchExecutors()
             fetchExecutorCount()
+            fetchAllUsers()
             JSON.parse(localStorage.getItem("teams")) && setAllTeams(JSON.parse(localStorage.getItem("teams")))
         } else {
             window.location.href = "/authentication/sign-in"

@@ -70,18 +70,6 @@ export default function ManageTeams() {
                                     teams && teams.map((team, index )=> {
                                         return (team.active && JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' && JSON.parse(sessionStorage.getItem("login")).playerRole === team.sport) ?
                                             <Grid item xs={12} md={6} xl={6} key={index}>
-                                                {/*<DefaultProjectCard*/}
-                                                {/*    image={team.imageUrl}*/}
-                                                {/*    label=""*/}
-                                                {/*    title={team.teamName}*/}
-                                                {/*    description={`Captain Contact: ${team.captainContactNumber}`}*/}
-                                                {/*    action={{*/}
-                                                {/*        type: "internal",*/}
-                                                {/*        route: "/manage-sports",*/}
-                                                {/*        color: "info",*/}
-                                                {/*        label: "",*/}
-                                                {/*    }}*/}
-                                                {/*/>*/}
 
                                                 {/*<ArgonTypography >{team.captainName}</ArgonTypography>*/}
 
@@ -106,7 +94,7 @@ export default function ManageTeams() {
                                                     {JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' &&
                                                         <button className="btn btn-primary">Activate Team</button>}
                                                 </div>
-                                            </Grid> : (JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' && JSON.parse(sessionStorage.getItem("login")).executorRole === team.sport) &&
+                                            </Grid> : (JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR') &&
                                             <Grid item xs={12} md={6} xl={4}>
                                                 <DefaultProjectCard
                                                     image={team.imageUrl}
