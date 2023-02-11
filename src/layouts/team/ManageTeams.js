@@ -1,6 +1,6 @@
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
-import Card from "@mui/material/Card";
+// import Card from "@mui/material/Card";
 import ArgonBox from "../../components/ArgonBox";
 import ArgonTypography from "../../components/ArgonTypography";
 import Grid from "@mui/material/Grid";
@@ -18,6 +18,7 @@ import ArgonButton from "../../components/ArgonButton";
 import {makeStyles} from "@mui/styles";
 import {openNotificationWithIcon} from "../../components/global/notification";
 import {useNavigate} from "react-router-dom";
+import { Card, Avatar, Button } from 'antd';
 
 
 export default function ManageTeams() {
@@ -68,19 +69,40 @@ export default function ManageTeams() {
                                 {
                                     teams && teams.map((team, index )=> {
                                         return (team.active && JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' && JSON.parse(sessionStorage.getItem("login")).playerRole === team.sport) ?
-                                            <Grid item xs={12} md={6} xl={4} key={index}>
-                                                <DefaultProjectCard
-                                                    image={team.imageUrl}
-                                                    label=""
-                                                    title={team.teamName}
-                                                    description={`Captain Contact: ${team.captainContactNumber}`}
-                                                    action={{
-                                                        type: "internal",
-                                                        route: "/manage-sports",
-                                                        color: "info",
-                                                        label: "",
-                                                    }}
-                                                />
+                                            <Grid item xs={12} md={6} xl={6} key={index}>
+                                                {/*<DefaultProjectCard*/}
+                                                {/*    image={team.imageUrl}*/}
+                                                {/*    label=""*/}
+                                                {/*    title={team.teamName}*/}
+                                                {/*    description={`Captain Contact: ${team.captainContactNumber}`}*/}
+                                                {/*    action={{*/}
+                                                {/*        type: "internal",*/}
+                                                {/*        route: "/manage-sports",*/}
+                                                {/*        color: "info",*/}
+                                                {/*        label: "",*/}
+                                                {/*    }}*/}
+                                                {/*/>*/}
+
+                                                {/*<ArgonTypography >{team.captainName}</ArgonTypography>*/}
+
+                                                <Card style={{ width: '100%' }}>
+                                                    <Card.Meta
+                                                        avatar={<img src={team.imageUrl} style={{maxWidth:'200px'}}/>}
+                                                        title={<h3>{team.teamName}</h3>}
+                                                        description={
+                                                            <div>
+                                                                <p>Active: {team.active ? 'Yes' : 'No'}</p>
+                                                                <p>Sport: {team.sport}</p>
+                                                                <p>Captain Name: {team.captainName}</p>
+                                                                <p>Captain Contact Number: {team.captainContactNumber}</p>
+                                                                <p>Email: {team.email}</p>
+                                                            </div>
+                                                        }
+                                                    />
+                                                    <Button  type="danger">Delete</Button>
+                                                </Card>
+
+
                                                 <div className={"d-flex justify-content-center"}>
                                                     {JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' &&
                                                         <button className="btn btn-primary">Activate Team</button>}
