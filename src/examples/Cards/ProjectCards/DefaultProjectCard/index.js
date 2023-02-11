@@ -56,7 +56,7 @@ function DefaultProjectCard({image, label, title, description, action, authors})
               <ArgonBox pt={1} px={0.5} style={{marginTop: '-5px'}}>
                   <ArgonBox mb={1}>
                           <ArgonTypography
-                              variant="h3"
+                              variant="h4"
                               textTransform="capitalize"
                           >
                               {title}

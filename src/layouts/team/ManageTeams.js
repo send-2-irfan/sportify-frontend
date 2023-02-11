@@ -66,9 +66,9 @@ export default function ManageTeams() {
                         <ArgonBox p={2}>
                             <Grid container spacing={3}>
                                 {
-                                    teams && teams.map(team => {
+                                    teams && teams.map((team, index )=> {
                                         return (team.active && JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' && JSON.parse(sessionStorage.getItem("login")).playerRole === team.sport) ?
-                                            <Grid item xs={12} md={6} xl={4}>
+                                            <Grid item xs={12} md={6} xl={4} key={index}>
                                                 <DefaultProjectCard
                                                     image={team.imageUrl}
                                                     label=""

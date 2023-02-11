@@ -249,11 +249,8 @@ import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import {ApplicationContext} from "../../context/ApplicationContext";
-import {Select} from "antd";
-import {Label} from "@mui/icons-material";
+import {Form, Input, Select, Button} from "antd";
 
 
 const { Option } = Select;
@@ -328,9 +325,9 @@ export default function AddFinalScores() {
                                 className={classes.textField}
                             >
                                 <Option value='' disabled>Select Team</Option>
-                                <Option value="team1">CS Strikers</Option>
-                                <Option value="team2">BB Gladiators</Option>
-                                <Option value="team3">AF 11</Option>
+                                <Option value="CS Strikers">CS Strikers</Option>
+                                <Option value="BB Gladiators">BB Gladiators</Option>
+                                <Option value="AF 11">AF 11</Option>
                             </Select>
                             <Select
                                 placeholder="Select Sport"
@@ -339,18 +336,14 @@ export default function AddFinalScores() {
                                 className={classes.textField}
                             >
                                 <Option value='' disabled>Select Sport</Option>
-                                <Option value="sport1">Cricket</Option>
-                                <Option value="team2">Football</Option>
+                                <Option value="Cricket">Cricket</Option>
+                                <Option value="Football">Football</Option>
                             </Select>
-                            <TextField
-                                id="scores"
+                            <Input
+                                style={{width:'10%'}}
                                 placeholder="Scores"
                                 value={scores.score}
                                 onChange={(event) => setScores({...scores, score: event.target.value})}
-                                className={classes.textField}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
                             />
                             <Select
                                 placeholder='Team Status'
@@ -359,13 +352,13 @@ export default function AddFinalScores() {
                                 className={classes.textField}
                             >
                                 <Option value='' disabled>Select Status</Option>
-                                <Option value="status">Winner</Option>
+                                <Option value="Winner">Winner</Option>
                             </Select>
                             <Button
                                 variant="standard"
-                                color="info"
-                                type="submit"
-                                style={{color:'white', backgroundColor: 'black', marginLeft:'2px'}}
+                                type="primary"
+                                onClick={(e) => {handleAdd(e)}}
+                                style={{color:'white', backgroundColor: 'blue', marginLeft:'2px'}}
                             >
                                 Set Scores
                             </Button>
@@ -376,3 +369,4 @@ export default function AddFinalScores() {
         </div>
     );
 }
+
