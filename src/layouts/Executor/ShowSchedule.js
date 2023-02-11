@@ -76,7 +76,7 @@ export default function Schedule({ matches, onDelete }) {
                             <TableCell>{match.matchTime}</TableCell>
                             <TableCell>{match.matchLocation}</TableCell>
                             <TableCell className={classes.action} style={{marginRight:'20px'}}>
-                                <IconButton onClick={() => onDelete(match.id)}>
+                                <IconButton>
                                     <Edit color="info" />
                                 </IconButton>
                                 <IconButton onClick={() => handleDelete(match.teamA, match.teamB , match.matchDate, match.matchTime)}>

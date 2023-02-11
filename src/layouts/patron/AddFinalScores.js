@@ -251,6 +251,9 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import {ApplicationContext} from "../../context/ApplicationContext";
 import {Form, Input, Select, Button} from "antd";
+import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
+import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
+import ArgonBox from "../../components/ArgonBox";
 
 
 const { Option } = Select;
@@ -259,14 +262,14 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(3),
+        padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
-        width: 144,
+        width: 250,
         textAlign: 'center'
     },
 }));
@@ -310,13 +313,13 @@ export default function AddFinalScores() {
     };
 
     return (
-        <div className={classes.root}>
+        <DashboardLayout>
+            <DashboardNavbar mb={3}/>
+            <ArgonBox >
+                <h2>Manage Final Scores</h2>
             <Grid container spacing={3}>
-                <Grid item xs={12}>
+                <Grid item xs={12} >
                     <Paper className={classes.paper}>
-                        <Typography variant="h5" gutterBottom>
-                            Set Scores
-                        </Typography>
                         <form onSubmit={handleAdd}>
                             <Select
                                 placeholder='Select Team'
@@ -344,6 +347,7 @@ export default function AddFinalScores() {
                                 placeholder="Scores"
                                 value={scores.score}
                                 onChange={(event) => setScores({...scores, score: event.target.value})}
+                                style={{width:'150px'}}
                             />
                             <Select
                                 placeholder='Team Status'
@@ -366,7 +370,8 @@ export default function AddFinalScores() {
                     </Paper>
                 </Grid>
             </Grid>
-        </div>
+            </ArgonBox>
+        </DashboardLayout>
     );
 }
 
