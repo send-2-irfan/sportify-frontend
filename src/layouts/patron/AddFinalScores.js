@@ -254,6 +254,7 @@ import {Form, Input, Select, Button} from "antd";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import ArgonBox from "../../components/ArgonBox";
+import ScoreTable from "../Executor/ScoreTable";
 
 
 const { Option } = Select;
@@ -314,61 +315,75 @@ export default function AddFinalScores() {
 
     return (
         <DashboardLayout>
-            <DashboardNavbar mb={3}/>
+            <DashboardNavbar/>
             <ArgonBox >
-                <h2>Manage Final Scores</h2>
+                <h4>Manage Final Scores</h4>
             <Grid container spacing={3}>
                 <Grid item xs={12} >
                     <Paper className={classes.paper}>
+                        <Typography variant="h1" gutterBottom>
+                            Final Scores
+                        </Typography>
                         <form onSubmit={handleAdd}>
-                            <Select
-                                placeholder='Select Team'
-                                value={scores.team}
-                                onChange={(value) => setScores({...scores, team: value})}
-                                className={classes.textField}
-                            >
-                                <Option value='' disabled>Select Team</Option>
-                                <Option value="CS Strikers">CS Strikers</Option>
-                                <Option value="BB Gladiators">BB Gladiators</Option>
-                                <Option value="AF 11">AF 11</Option>
-                            </Select>
-                            <Select
-                                placeholder="Select Sport"
-                                value={scores.sport}
-                                onChange={(value) => setScores({...scores, sport: value})}
-                                className={classes.textField}
-                            >
-                                <Option value='' disabled>Select Sport</Option>
-                                <Option value="Cricket">Cricket</Option>
-                                <Option value="Football">Football</Option>
-                            </Select>
+                        {/*    <Select*/}
+                        {/*    placeholder='Select Team'*/}
+                        {/*    value={scores.team}*/}
+                        {/*    onChange={(value) => setScores({...scores, team: value})}*/}
+                        {/*    className={classes.textField}*/}
+                        {/*>*/}
+                        {/*    <Option value='' disabled>Select Team</Option>*/}
+                        {/*    <Option value="CS Strikers">CS Strikers</Option>*/}
+                        {/*    <Option value="BB Gladiators">BB Gladiators</Option>*/}
+                        {/*    <Option value="AF 11">AF 11</Option>*/}
+                        {/*</Select>*/}
                             <Input
-                                style={{width:'10%'}}
+                                placeholder="Team"
+                                value={scores.team}
+                                onChange={(event) => setScores({...scores, team: event.target.value})}
+                                style={{width:'200px'}}
+                            />
+                            <Input
+                                placeholder="Sport"
+                                value={scores.sport}
+                                onChange={(event) => setScores({...scores, sport: event.target.value})}
+                                style={{width:'200px', marginLeft: '5px'}}
+                            />
+
+                            {/*<Select*/}
+                            {/*    placeholder="Select Sport"*/}
+                            {/*    value={scores.sport}*/}
+                            {/*    onChange={(value) => setScores({...scores, sport: value})}*/}
+                            {/*    className={classes.textField}*/}
+                            {/*>*/}
+                            {/*    <Option value='' disabled>Select Sport</Option>*/}
+                            {/*    <Option value="Cricket">Cricket</Option>*/}
+                            {/*    <Option value="Football">Football</Option>*/}
+                            {/*</Select>*/}
+                            <Input
                                 placeholder="Scores"
                                 value={scores.score}
                                 onChange={(event) => setScores({...scores, score: event.target.value})}
-                                style={{width:'150px'}}
+                                style={{width:'200px', marginLeft: '5px'}}
                             />
-                            <Select
-                                placeholder='Team Status'
+                            <Input
+                                placeholder="Status"
                                 value={scores.status}
-                                onChange={(value) => setScores({...scores, status: value})}
-                                className={classes.textField}
-                            >
-                                <Option value='' disabled>Select Status</Option>
-                                <Option value="Winner">Winner</Option>
-                            </Select>
+                                onChange={(event) => setScores({...scores, status: event.target.value})}
+                                style={{width:'200px', marginLeft: '5px'}}
+                            />
+
                             <Button
                                 variant="standard"
                                 type="primary"
                                 onClick={(e) => {handleAdd(e)}}
-                                style={{color:'white', backgroundColor: 'blue', marginLeft:'2px'}}
+                                style={{color:'white', backgroundColor: 'blue', marginLeft:'5px'}}
                             >
                                 Set Scores
                             </Button>
                         </form>
                     </Paper>
                 </Grid>
+                <ScoreTable scor={scores} />
             </Grid>
             </ArgonBox>
         </DashboardLayout>
