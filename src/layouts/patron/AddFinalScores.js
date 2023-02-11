@@ -270,7 +270,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         width: 250,
-        textAlign: 'center'
+        textAlign: 'center',
     },
 }));
 
