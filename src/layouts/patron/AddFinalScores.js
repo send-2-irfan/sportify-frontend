@@ -332,13 +332,16 @@ export default function AddFinalScores() {
                                 <Option value="team2">BB Gladiators</Option>
                                 <Option value="team3">AF 11</Option>
                             </Select>
-                            <TextField
-                                id="sport"
+                            <Select
                                 placeholder="Select Sport"
                                 value={scores.sport}
-                                onChange={(event) => setScores({...scores, sport: event.target.value})}
+                                onChange={(value) => setScores({...scores, sport: value})}
                                 className={classes.textField}
-                            />
+                            >
+                                <Option value='' disabled>Select Sport</Option>
+                                <Option value="sport1">Cricket</Option>
+                                <Option value="team2">Football</Option>
+                            </Select>
                             <TextField
                                 id="scores"
                                 placeholder="Scores"
