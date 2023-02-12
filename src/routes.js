@@ -199,7 +199,7 @@ const routes =
                 {
                     type: "route",
                     name: "View Schedules",
-                    key: "view-schedule",
+                    key: "view-schedules",
                     route: "/view-schedules",
                     icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-calendar-grid-58"/>,
                     component: <ViewSchedule/>,
