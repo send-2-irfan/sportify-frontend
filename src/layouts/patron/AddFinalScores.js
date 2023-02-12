@@ -324,63 +324,68 @@ export default function AddFinalScores() {
                         <Typography variant="h1" gutterBottom>
                             Final Scores
                         </Typography>
-                        <form onSubmit={handleAdd}>
-                        {/*    <Select*/}
-                        {/*    placeholder='Select Team'*/}
-                        {/*    value={scores.team}*/}
-                        {/*    onChange={(value) => setScores({...scores, team: value})}*/}
-                        {/*    className={classes.textField}*/}
-                        {/*>*/}
-                        {/*    <Option value='' disabled>Select Team</Option>*/}
-                        {/*    <Option value="CS Strikers">CS Strikers</Option>*/}
-                        {/*    <Option value="BB Gladiators">BB Gladiators</Option>*/}
-                        {/*    <Option value="AF 11">AF 11</Option>*/}
-                        {/*</Select>*/}
-                            <Input
-                                placeholder="Team"
-                                value={scores.team}
-                                onChange={(event) => setScores({...scores, team: event.target.value})}
-                                style={{width:'200px'}}
-                            />
-                            <Input
-                                placeholder="Sport"
-                                value={scores.sport}
-                                onChange={(event) => setScores({...scores, sport: event.target.value})}
-                                style={{width:'200px', marginLeft: '5px'}}
-                            />
+                        {
+                            JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role !== 'PLAYER' &&
+                            <form onSubmit={handleAdd} style={{marginBottom:'55%'}}>
+                                {/*    <Select*/}
+                                {/*    placeholder='Select Team'*/}
+                                {/*    value={scores.team}*/}
+                                {/*    onChange={(value) => setScores({...scores, team: value})}*/}
+                                {/*    className={classes.textField}*/}
+                                {/*>*/}
+                                {/*    <Option value='' disabled>Select Team</Option>*/}
+                                {/*    <Option value="CS Strikers">CS Strikers</Option>*/}
+                                {/*    <Option value="BB Gladiators">BB Gladiators</Option>*/}
+                                {/*    <Option value="AF 11">AF 11</Option>*/}
+                                {/*</Select>*/}
+                                <Input
+                                    placeholder="Team"
+                                    value={scores.team}
+                                    onChange={(event) => setScores({...scores, team: event.target.value})}
+                                    style={{width: '200px'}}
+                                />
+                                <Input
+                                    placeholder="Sport"
+                                    value={scores.sport}
+                                    onChange={(event) => setScores({...scores, sport: event.target.value})}
+                                    style={{width: '200px', marginLeft: '5px'}}
+                                />
 
-                            {/*<Select*/}
-                            {/*    placeholder="Select Sport"*/}
-                            {/*    value={scores.sport}*/}
-                            {/*    onChange={(value) => setScores({...scores, sport: value})}*/}
-                            {/*    className={classes.textField}*/}
-                            {/*>*/}
-                            {/*    <Option value='' disabled>Select Sport</Option>*/}
-                            {/*    <Option value="Cricket">Cricket</Option>*/}
-                            {/*    <Option value="Football">Football</Option>*/}
-                            {/*</Select>*/}
-                            <Input
-                                placeholder="Scores"
-                                value={scores.score}
-                                onChange={(event) => setScores({...scores, score: event.target.value})}
-                                style={{width:'200px', marginLeft: '5px'}}
-                            />
-                            <Input
-                                placeholder="Status"
-                                value={scores.status}
-                                onChange={(event) => setScores({...scores, status: event.target.value})}
-                                style={{width:'200px', marginLeft: '5px'}}
-                            />
+                                {/*<Select*/}
+                                {/*    placeholder="Select Sport"*/}
+                                {/*    value={scores.sport}*/}
+                                {/*    onChange={(value) => setScores({...scores, sport: value})}*/}
+                                {/*    className={classes.textField}*/}
+                                {/*>*/}
+                                {/*    <Option value='' disabled>Select Sport</Option>*/}
+                                {/*    <Option value="Cricket">Cricket</Option>*/}
+                                {/*    <Option value="Football">Football</Option>*/}
+                                {/*</Select>*/}
+                                <Input
+                                    placeholder="Scores"
+                                    value={scores.score}
+                                    onChange={(event) => setScores({...scores, score: event.target.value})}
+                                    style={{width: '200px', marginLeft: '5px'}}
+                                />
+                                <Input
+                                    placeholder="Status"
+                                    value={scores.status}
+                                    onChange={(event) => setScores({...scores, status: event.target.value})}
+                                    style={{width: '200px', marginLeft: '5px'}}
+                                />
 
-                            <Button
-                                variant="standard"
-                                type="primary"
-                                onClick={(e) => {handleAdd(e)}}
-                                style={{color:'white', backgroundColor: 'blue', marginLeft:'5px'}}
-                            >
-                                Set Scores
-                            </Button>
-                        </form>
+                                <Button
+                                    variant="standard"
+                                    type="primary"
+                                    onClick={(e) => {
+                                        handleAdd(e)
+                                    }}
+                                    style={{color: 'white', backgroundColor: 'blue', marginLeft: '5px'}}
+                                >
+                                    Set Scores
+                                </Button>
+                            </form>
+                        }
                     </Paper>
                 </Grid>
                 <ScoreTable scor={scores} />
