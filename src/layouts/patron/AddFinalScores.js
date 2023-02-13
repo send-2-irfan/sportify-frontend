@@ -250,7 +250,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import {ApplicationContext} from "../../context/ApplicationContext";
-import {Form, Input, Select, Button} from "antd";
+import {Form, Input, Select, Button, Card} from "antd";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import ArgonBox from "../../components/ArgonBox";
@@ -324,20 +324,10 @@ export default function AddFinalScores() {
                         <Typography variant="h1" gutterBottom>
                             Final Scores
                         </Typography>
-                        {
-                            JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role !== 'PLAYER' &&
-                            <form onSubmit={handleAdd} style={{marginBottom:'55%'}}>
-                                {/*    <Select*/}
-                                {/*    placeholder='Select Team'*/}
-                                {/*    value={scores.team}*/}
-                                {/*    onChange={(value) => setScores({...scores, team: value})}*/}
-                                {/*    className={classes.textField}*/}
-                                {/*>*/}
-                                {/*    <Option value='' disabled>Select Team</Option>*/}
-                                {/*    <Option value="CS Strikers">CS Strikers</Option>*/}
-                                {/*    <Option value="BB Gladiators">BB Gladiators</Option>*/}
-                                {/*    <Option value="AF 11">AF 11</Option>*/}
-                                {/*</Select>*/}
+
+                        {JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role !== 'PLAYER' ?
+                            <form onSubmit={handleAdd}>
+
                                 <Input
                                     placeholder="Team"
                                     value={scores.team}
@@ -351,16 +341,6 @@ export default function AddFinalScores() {
                                     style={{width: '200px', marginLeft: '5px'}}
                                 />
 
-                                {/*<Select*/}
-                                {/*    placeholder="Select Sport"*/}
-                                {/*    value={scores.sport}*/}
-                                {/*    onChange={(value) => setScores({...scores, sport: value})}*/}
-                                {/*    className={classes.textField}*/}
-                                {/*>*/}
-                                {/*    <Option value='' disabled>Select Sport</Option>*/}
-                                {/*    <Option value="Cricket">Cricket</Option>*/}
-                                {/*    <Option value="Football">Football</Option>*/}
-                                {/*</Select>*/}
                                 <Input
                                     placeholder="Scores"
                                     value={scores.score}
@@ -385,6 +365,10 @@ export default function AddFinalScores() {
                                     Set Scores
                                 </Button>
                             </form>
+                        :
+                                <Typography style={{marginTop: '1rem',}} variant="h5" gutterBottom>
+                                    Final Scores have been uploaded for you
+                                </Typography>
                         }
                     </Paper>
                 </Grid>
@@ -395,3 +379,14 @@ export default function AddFinalScores() {
     );
 }
 
+{/*    <Select*/}
+{/*    placeholder='Select Team'*/}
+{/*    value={scores.team}*/}
+{/*    onChange={(value) => setScores({...scores, team: value})}*/}
+{/*    className={classes.textField}*/}
+{/*>*/}
+{/*    <Option value='' disabled>Select Team</Option>*/}
+{/*    <Option value="CS Strikers">CS Strikers</Option>*/}
+{/*    <Option value="BB Gladiators">BB Gladiators</Option>*/}
+{/*    <Option value="AF 11">AF 11</Option>*/}
+{/*</Select>*/}
