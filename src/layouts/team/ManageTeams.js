@@ -68,7 +68,7 @@ export default function ManageTeams() {
                             <Grid container spacing={3}>
                                 {
                                     teams && teams.map((team, index )=> {
-                                        return (team.active && JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' && JSON.parse(sessionStorage.getItem("login")).playerRole === team.sport) ?
+                                        return (team.active && JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' && JSON.parse(sessionStorage.getItem("login")).playerRole === team.sport && JSON.parse(sessionStorage.getItem("login")).username === team.email) ?
                                             <Grid item xs={12} md={6} xl={6} key={index}>
 
                                                 {/*<ArgonTypography >{team.captainName}</ArgonTypography>*/}
