@@ -379,14 +379,4 @@ export default function AddFinalScores() {
     );
 }
 
-{/*    <Select*/}
-{/*    placeholder='Select Team'*/}
-{/*    value={scores.team}*/}
-{/*    onChange={(value) => setScores({...scores, team: value})}*/}
-{/*    className={classes.textField}*/}
-{/*>*/}
-{/*    <Option value='' disabled>Select Team</Option>*/}
-{/*    <Option value="CS Strikers">CS Strikers</Option>*/}
-{/*    <Option value="BB Gladiators">BB Gladiators</Option>*/}
-{/*    <Option value="AF 11">AF 11</Option>*/}
-{/*</Select>*/}
+

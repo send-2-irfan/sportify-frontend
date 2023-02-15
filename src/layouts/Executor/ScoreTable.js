@@ -59,7 +59,7 @@ export default function ScoreTable({ scor, onDelete }) {
                         <TableCell>Sport</TableCell>
                         <TableCell>Scores</TableCell>
                         <TableCell>Status</TableCell>
-                        <TableCell className={classes.action}>Action</TableCell>
+                        {/*<TableCell className={classes.action}>Action</TableCell>*/}
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -73,14 +73,14 @@ export default function ScoreTable({ scor, onDelete }) {
                                 {score.status}
                             </TableCell>
 
-                            <TableCell className={classes.action} style={{marginRight:'20px'}}>
-                                {/*<IconButton>*/}
-                                {/*    <Edit color="info" />*/}
-                                {/*</IconButton>*/}
-                                <IconButton onClick={() => handleDelete(score.team)}>
-                                    <Delete color="error"/>
-                                </IconButton>
-                            </TableCell>
+                            {/*<TableCell className={classes.action} style={{marginRight:'20px'}}>*/}
+                            {/*    /!*<IconButton>*!/*/}
+                            {/*    /!*    <Edit color="info" />*!/*/}
+                            {/*    /!*</IconButton>*!/*/}
+                            {/*    <IconButton onClick={() => handleDelete(score.team)}>*/}
+                            {/*        <Delete color="error"/>*/}
+                            {/*    </IconButton>*/}
+                            {/*</TableCell>*/}
                         </TableRow>
                     ))}
                 </TableBody>

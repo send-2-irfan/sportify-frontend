@@ -48,7 +48,7 @@ function RegisterTeamModal() {
         sport: JSON.parse(sessionStorage.getItem("login")).executorRole || JSON.parse(sessionStorage.getItem("login")).playerRole,
         captainName: '',
         captainContactNumber: '',
-        email: '',
+        email: JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' ? JSON.parse(sessionStorage.getItem("login")).username : '',
         active: JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' ? false : true,
         imageUrl: '',
     })
@@ -86,6 +86,7 @@ function RegisterTeamModal() {
             setAllTeams(allTeams)
             JSON.parse(sessionStorage.getItem("login")).role === 'PLAYER' ? openNotificationWithIcon("warning", "Request Sent", "Request sent to executor for adding team") : openNotificationWithIcon("success", "Team Added", "Team Added Successfully")
             handleClose()
+            // openNotificationWithIcon("info", "Request Sent", "Add Team Request has been sent to Executor");
         } else {
             let teams = []
             teams.push(team)
@@ -95,6 +96,8 @@ function RegisterTeamModal() {
             })
             setAllTeams(teams)
             handleClose()
+            openNotificationWithIcon("info", "Request Sent", "Add Team Request has been sent to Executor");
+
         }
     };
 

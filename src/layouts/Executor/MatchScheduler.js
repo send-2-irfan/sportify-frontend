@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {ApplicationContext} from "../../context/ApplicationContext";
+import {Select} from "antd";
+import {Option} from "antd/es/mentions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const t ={
+    teamName: 'irfan',
+}
+
 
 export default function MatchScheduler() {
     const classes = useStyles();
@@ -36,6 +42,22 @@ export default function MatchScheduler() {
     })
 
     const {setAllSchedule} = useContext(ApplicationContext)
+    const {teams, setAllTeams} = useContext(ApplicationContext)
+
+    var facilities = [
+        {
+            "name": "Cricket Ground"
+        },
+        {
+            "name": "Football Ground"
+        },
+        {
+            "name": "Physical Hostel"
+        },
+        {
+            "name": "Boys Hostel 2"
+        }
+    ];
 
     const handleAdd = (e) => {
         if (JSON.parse(localStorage.getItem("schedules"))) {
@@ -81,20 +103,66 @@ export default function MatchScheduler() {
                             Schedule a Match
                         </Typography>
                         <form onSubmit={handleAdd}>
-                            <TextField
-                                id="team-a"
-                                placeholder="Team A"
+                            {/*<TextField*/}
+                            {/*    id="team-a"*/}
+                            {/*    placeholder="Team A"*/}
+                            {/*    value={schedule.teamA}*/}
+                            {/*    onChange={(event) => setSchedule({...schedule, teamA: event.target.value})}*/}
+                            {/*    className={classes.textField}*/}
+                            {/*/>*/}
+                            <Select
+                                placeholder='Select Team 1'
                                 value={schedule.teamA}
-                                onChange={(event) => setSchedule({...schedule, teamA: event.target.value})}
+                                onChange={(value) => setSchedule({...schedule, teamA: value})}
                                 className={classes.textField}
-                            />
-                            <TextField
-                                id="team-b"
-                                placeholder="Team B"
+                                style={{width:'300'}}>
+                                <Select.Option value='' disabled>Select Team</Select.Option>
+                                {setAllTeams.length > 0 ? (
+                                    teams.map((team, index) => (
+                                        <Select.Option key={`${team.teamName}-${index}`} value={`${team.teamName}`}>
+                                            {`${team.teamName}`}
+                                        </Select.Option>
+                                    ))
+                                ) : (
+                                    ''
+                                )}
+
+                                {/*<Select.Option value='' disabled>Select Team</Select.Option>*/}
+                                {/*<Select.Option value="CS Strikers">CS Strikers</Select.Option>*/}
+                                {/*<Select.Option value="BB Gladiators">BB Gladiators</Select.Option>*/}
+                                {/*<Option value="AF 11">AF 11</Option>*/}
+                            </Select>
+                            {/*<TextField*/}
+                            {/*    id="team-b"*/}
+                            {/*    placeholder="Team B"*/}
+                            {/*    value={schedule.teamB}*/}
+                            {/*    onChange={(event) => setSchedule({...schedule, teamB: event.target.value})}*/}
+                            {/*    className={classes.textField}*/}
+                            {/*/>*/}
+
+                            <Select
+                                placeholder='Select Team 2'
                                 value={schedule.teamB}
-                                onChange={(event) => setSchedule({...schedule, teamB: event.target.value})}
+                                onChange={(value) => setSchedule({...schedule, teamB: value})}
                                 className={classes.textField}
-                            />
+                                style={{width:'300'}}>
+                                <Select.Option value='' disabled>Select Team</Select.Option>
+                                {setAllTeams.length > 0 ? (
+                                    teams.map((team, index) => (
+                                        <Select.Option key={`${team.teamName}-${index}`} value={`${team.teamName}`}>
+                                            {`${team.teamName}`}
+                                        </Select.Option>
+                                    ))
+                                ) : (
+                                    ''
+                                )}
+
+                                {/*<Select.Option value='' disabled>Select Team</Select.Option>*/}
+                                {/*<Select.Option value="CS Strikers">CS Strikers</Select.Option>*/}
+                                {/*<Select.Option value="BB Gladiators">BB Gladiators</Select.Option>*/}
+                                {/*<Option value="AF 11">AF 11</Option>*/}
+                            </Select>
+
                             <TextField
                                 id="match-date"
                                 placeholder="Date"
@@ -118,13 +186,25 @@ export default function MatchScheduler() {
                                     shrink: true,
                                 }}
                             />
-                            <TextField
-                                id="match-location"
-                                placeholder="Location"
+
+                            <Select
+                                placeholder='Select Venue'
                                 value={schedule.matchLocation}
-                                onChange={(event) => setSchedule({...schedule, matchLocation: event.target.value})}
+                                onChange={(value) => setSchedule({...schedule, matchLocation: value})}
                                 className={classes.textField}
-                            />
+                                style={{width:'300'}}>
+                                <Select.Option value='' disabled>Select Venue</Select.Option>
+                                {facilities.length > 0 ? (
+                                    facilities.map((venue, index) => (
+                                        <Select.Option key={`${venue.name}-${index}`} value={`${venue.name}`}>
+                                            {`${venue.name}`}
+                                        </Select.Option>
+                                    ))
+                                ) : (
+                                    ''
+                                )}
+                            </Select>
+
                             <Button
                                 variant="standard"
                                 color="info"
@@ -140,3 +220,12 @@ export default function MatchScheduler() {
         </div>
     );
 }
+
+
+// <TextField
+//     id="match-location"
+//     placeholder="Location"
+//     value={schedule.matchLocation}
+//     onChange={(event) => setSchedule({...schedule, matchLocation: event.target.value})}
+//     className={classes.textField}
+// />

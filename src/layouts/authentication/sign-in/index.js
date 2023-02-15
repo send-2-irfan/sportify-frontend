@@ -28,10 +28,20 @@ function Illustration() {
 
     // const navigate = useNavigate();
     const [user, setUser] = useState({
-        username: 'Irfan Ullah',
+        fullName: 'Sir Asad Patron',
+        username: '',
         password: '',
         role: 'PATRON',
     })
+
+    const [pending, setPending] = useState(false);
+    const checkUserPending = async () => {
+        if(pending){
+            openNotificationWithIcon("error", "User pending notification", "Please wait until your account is activated.");
+        }else {
+            openNotificationWithIcon("error", "Email or Password incorrect exception", "Username or password is incorrect");
+        }
+    }
     const signin = async () => {
         if(user.username==='patron@iba-suk.edu.pk' && user.password==='patron12345'){
             await sessionStorage.setItem("login", JSON.stringify(user))
@@ -46,7 +56,13 @@ function Illustration() {
                     return
                 }
             }
-            openNotificationWithIcon("error", "Email or Password incorrect exception", "Username or password is incorrect");
+            for (let i = 0; i < allUsers.length; i++) {
+                if(allUsers[i].username === user.username && !allUsers[i].active){
+                   setPending(true);
+                }
+            }
+            checkUserPending();
+
         }
     }
 

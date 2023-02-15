@@ -95,7 +95,7 @@ export default function ManageTeams() {
                                                         <button className="btn btn-primary">Activate Team</button>}
                                                 </div>
                                             </Grid> : (JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR') &&
-                                            <Grid item xs={12} md={6} xl={4}>
+                                            <Grid item xs={12} md={6} xl={2}>
                                                 <DefaultProjectCard
                                                     image={team.imageUrl}
                                                     label=""
