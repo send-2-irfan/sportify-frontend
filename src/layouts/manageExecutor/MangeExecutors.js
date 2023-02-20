@@ -76,7 +76,7 @@ function ManageExecutors() {
                                 return <Grid className={"col-sm-12 col-lg-6 col-xl-6 col-md-12"} item p={2}>
                                     <Bill
                                         del={() => handleDelete(events.name)}
-                                        name={events.fullName}
+                                        name={`Name: ${events.fullName}`}
                                         type={"EXECUTOR"}
                                         company={events.username}
                                         email={JSON.stringify(events.active)}
