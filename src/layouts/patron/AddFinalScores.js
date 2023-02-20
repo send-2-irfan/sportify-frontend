@@ -278,22 +278,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AddFinalScores() {
     const classes = useStyles();
-    const [scores, setScores] = useState({
+    const [score, setScore] = useState({
         team: '',
         sport: '',
         score: '',
         status: '',
     })
 
-    const {setAllScores} = useContext(ApplicationContext)
+    const {scores, setAllScores} = useContext(ApplicationContext)
+    const {teams, setAllTeams} = useContext(ApplicationContext)
 
     const handleAdd = (e) => {
         if (JSON.parse(localStorage.getItem("scores"))) {
             let items = JSON.parse(localStorage.getItem("scores"))
-            items.push(scores)
+            items.push(score)
             localStorage.setItem("scores", JSON.stringify(items))
             setAllScores(items)
-            setScores({
+            setScore({
                 team: '',
                 sport: '',
                 score: '',
@@ -301,10 +302,10 @@ export default function AddFinalScores() {
             })
         } else {
             let scoresNew = []
-            scoresNew.push(scores)
+            scoresNew.push(score)
             localStorage.setItem("scores", JSON.stringify(scoresNew))
             setAllScores(scoresNew)
-            setScores({
+            setScore({
                 team: '',
                 sport: '',
                 score: '',
@@ -328,29 +329,51 @@ export default function AddFinalScores() {
                         {JSON.parse(sessionStorage.getItem("login")) && JSON.parse(sessionStorage.getItem("login")).role !== 'PLAYER' ?
                             <form onSubmit={handleAdd}>
 
-                                <Input
-                                    placeholder="Team"
-                                    value={scores.team}
-                                    onChange={(event) => setScores({...scores, team: event.target.value})}
-                                    style={{width: '200px'}}
-                                />
+                                {/*<Input*/}
+                                {/*    placeholder="Team"*/}
+                                {/*    value={score.team}*/}
+                                {/*    onChange={(event) => setScore({...score, team: event.target.value})}*/}
+                                {/*    style={{width: '200px'}}*/}
+                                {/*/>*/}
+                                <Select
+                                    placeholder='Select Team 2'
+                                    value={score.team}
+                                    onChange={(value) => setScore({...score, team: value})}
+                                    className={classes.textField}
+                                    style={{width:'300'}}>
+                                    <Select.Option value='' disabled>Select Team</Select.Option>
+                                    {setAllTeams.length > 0 ? (
+                                        teams.map((team, index) => (
+                                            <Select.Option key={`${team.teamName}-${index}`} value={`${team.teamName}`}>
+                                                {`${team.teamName}`}
+                                            </Select.Option>
+                                        ))
+                                    ) : (
+                                        ''
+                                    )}
+
+                                    {/*<Select.Option value='' disabled>Select Team</Select.Option>*/}
+                                    {/*<Select.Option value="CS Strikers">CS Strikers</Select.Option>*/}
+                                    {/*<Select.Option value="BB Gladiators">BB Gladiators</Select.Option>*/}
+                                    {/*<Option value="AF 11">AF 11</Option>*/}
+                                </Select>
                                 <Input
                                     placeholder="Sport"
-                                    value={scores.sport}
-                                    onChange={(event) => setScores({...scores, sport: event.target.value})}
+                                    value={score.sport}
+                                    onChange={(event) => setScore({...score, sport: event.target.value})}
                                     style={{width: '200px', marginLeft: '5px'}}
                                 />
 
                                 <Input
                                     placeholder="Scores"
-                                    value={scores.score}
-                                    onChange={(event) => setScores({...scores, score: event.target.value})}
+                                    value={score.score}
+                                    onChange={(event) => setScore({...score, score: event.target.value})}
                                     style={{width: '200px', marginLeft: '5px'}}
                                 />
                                 <Input
                                     placeholder="Status"
-                                    value={scores.status}
-                                    onChange={(event) => setScores({...scores, status: event.target.value})}
+                                    value={score.status}
+                                    onChange={(event) => setScore({...score, status: event.target.value})}
                                     style={{width: '200px', marginLeft: '5px'}}
                                 />
 
@@ -372,7 +395,7 @@ export default function AddFinalScores() {
                         }
                     </Paper>
                 </Grid>
-                <ScoreTable scor={scores} />
+                <ScoreTable scor={score} />
             </Grid>
             </ArgonBox>
         </DashboardLayout>
