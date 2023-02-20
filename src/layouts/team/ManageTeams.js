@@ -95,8 +95,9 @@ export default function ManageTeams() {
                                                         <button className="btn btn-primary">Activate Team</button>}
                                                 </div>
                                             </Grid> : (JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR') &&
-                                            <Grid item xs={12} md={6} xl={2}>
+                                            <Grid item xs={12} md={6} xl={3}>
                                                 <DefaultProjectCard
+                                                    style={{height:'400px'}}
                                                     image={team.imageUrl}
                                                     label=""
                                                     title={''}
@@ -108,8 +109,8 @@ export default function ManageTeams() {
                                                         label: "",
                                                     }}
                                                 />
-                                                <div style={{backgroundColor: '#e5e3e3'}}>
-                                                    <span>Team Name: {team.teamName}</span><br/>
+                                                <div style={{ marginBottom:'2', marginTop:'-36px'}}>
+                                                    <span>Team Name:<b> {team.teamName}</b></span><br/>
                                                     <span>Captain Contact Number:   <a
                                                         href={`tel:${team.captainContactNumber}`}>{team.captainContactNumber}</a> </span><br/>
                                                     <span>Team Email: <a
@@ -117,7 +118,7 @@ export default function ManageTeams() {
                                                     <span>Captain Name: {team.captainName}</span> <br/>
                                                     <span>Sport: {team.sport}</span>
                                                 </div>
-                                                <div className={"d-flex justify-content-center"}>
+                                                <div className={"d-flex justify-content-center mt-2"}>
                                                     {JSON.parse(sessionStorage.getItem("login")).role === 'EXECUTOR' &&
                                                         <button onClick={() => activateTeam(team)}
                                                                 disabled={team.active} className="btn btn-primary">Activate
